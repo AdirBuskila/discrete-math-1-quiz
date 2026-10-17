@@ -138,4 +138,62 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking.
 - Status: info
 
+### 18A-A Q4 c - key counts letter-count vectors, not words
+- Path: tools/raw/18A-A.json
+- Page: p.4 (printed), p.12 (key)
+- Question: the printed question asks how many 25-letter words over {a,b,c,d} contain a at least 4 times, b at least 3, c at least 5, d at least 2. The key answers C(14,3)=364, which counts only the letter-count vectors. The number of words is 746544967234440 (script-checked).
+- Needed: decide whether to ship the printed question with the computed word count (solved) or keep it held.
+- Status: hold
+
+### 18A-A Q3 a - slip in an intermediate line
+- Path: tools/raw/18A-A.json
+- Page: p.8 (Q3 a3)
+- Question: the key writes phi(n)=n(1-1/n)=n*(n-1)/n=n; transcribed as =n-1 (the next line already uses n-1). Final answers unchanged.
+- Status: info
+
+### 19A-A Q1 b - final-answer error in the key, corrected
+- Path: tools/raw/19A-A.json
+- Page: p.5 (Q1 b)
+- Question: the key's DNF omits the row p=T,q=F,r=T (it writes r->p = F there; T->T is T). Shipped as "official solution with correction", solutionSource solved, official false (script-checked: three true rows).
+- Needed: confirm.
+- Status: info
+
+### 19A-A Q3 b2 - formula double counts at n=8
+- Path: tools/raw/19A-A.json
+- Page: p.9 (Q3 b)
+- Question: the key's C(n,2)*C(n-2,3) is right for n>=9; at n=8 the remaining block also has 3 elements and every relation is counted twice (280 vs 560, script-checked). Shipped as printed in the key with a visible note. The key also labels its two answers (1b)/(2b) in swapped order; matched by content.
+- Needed: nothing blocking.
+- Status: info
+
+### 19A-A Q1 a2 - printed set braces partly unclear
+- Path: tools/raw/19A-A.json
+- Page: p.1 (Q1 a2)
+- Question: the brace nesting of the printed set is hard to read on the scan (same set appears in 19A-B Q1 a2); transcribed as {{{{empty}}}, P({{{1}},empty}), {{empty}}}. Any plausible reading gives 3 distinct elements, so the key's answer is unaffected.
+- Status: info
+
+### 19A-A Q1 c - key's negation wording
+- Path: tools/raw/19A-A.json
+- Page: p.5 (Q1 c)
+- Question: the key's negation is written with an inserted caret; transcribed as for all y in B and all z in C (the printed statement says "exist y in B and z in C").
+- Status: info
+
+### 19A-B Q2 a, Q2 b, Q3 b - slips in intermediate lines
+- Path: tools/raw/19A-B.json
+- Page: p.6 (Q2 a), p.7 (Q2 b), p.10 (Q3 b)
+- Question: Q2a writes the inductive step for "k>=2" (printed n>=1; transcribed k>=1). Q2b swaps 7 and 11 in the restated definitions of A and B and titles the last line |P(A cap B)| (the printed set is A cup B); transcribed with the printed definitions. Q3b's first line says |C|=5,|B|=3, while the three cases use the printed |B|=5,|C|=3. Final answers unchanged.
+- Status: info
+
+### 19S-A Q2 a - heading range of the induction
+- Path: tools/raw/19S-A.json
+- Page: p.8 (Q2 a)
+- Question: the key's P(n) heading reads "n>=2" while the printed claim and the conclusion use n>=1; transcribed with n>=1.
+- Status: info
+
+### 18A-A, 19A-A, 19A-B, 19S-A - solution authorship
+- Path: tools/raw/18A-A.json, 19A-A.json, 19A-B.json, 19S-A.json
+- Page: pp.3-18
+- Question: all four keys are handwritten, no author printed (19A-A's is titled with the date 3.3.19; 19S-A is in blue ink); labelled student-solution, official false, confidence med. 19A-A has no printed exam date (taken from the key title); 19A-B has none (only the year).
+- Needed: nothing blocking; FYI.
+- Status: info
+
 ## Resolved
