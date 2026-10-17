@@ -1,0 +1,152 @@
+{
+ "examCode": "25A-A",
+ "examLabel": "בדידה 1, סמסטר א' תשפ\"ה, מועד א (11.02.2025)",
+ "year": 2025,
+ "examDate": "11.02.2025",
+ "sourceFile": "25A-A exam with lecturer solution, pp.1-7",
+ "solutionFile": "25A-A lecturer solution (handwritten and typed), pp.2-7",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "part": "א",
+   "kind": "computation",
+   "topic": "logic_propositional",
+   "points": 10,
+   "question": "בכל סעיף עליך להגדיר את המונח הרשום בסעיף ולענות על שאלה הקשורה אליו.\n**המונח:** שקילות לוגית\n**שאלה:** בדקו על ידי טבלת אמת את נכונות הטענה:\n$$\\neg p\\to\\neg(q\\vee r)\\equiv(q\\to p)\\wedge(r\\to p)$$",
+   "solution": "טבלת אמת (T = אמת, F = שקר):\n```\np q r | ¬p→¬(q∨r) | (q→p)∧(r→p)\nT T T |     T      |      T\nT T F |     T      |      T\nT F T |     T      |      T\nT F F |     T      |      T\nF T T |     F      |      F\nF T F |     F      |      F\nF F T |     F      |      F\nF F F |     T      |      T\n```\nשתי העמודות זהות בכל השורות, ולכן הטענה נכונה: הפסוקים שקולים לוגית.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "modular_fermat_wilson",
+   "points": 8,
+   "question": "בכל סעיף עליך להגדיר את המונח הרשום בסעיף ולענות על שאלה הקשורה אליו.\n**המונח:** מחלק של מספר שלם.\n**שאלה:** הראו שלכל $a,b\\in\\mathbb{Z}$ המספר $a\\cdot(71^{120}-1)+b\\cdot(50^{24}+12!)$ מתחלק ב-26.",
+   "solution": "המספר $71$ אי-זוגי, ולכן $N=71^{120}$ אי-זוגי ו-$2\\mid(71^{120}-1)$.\n$71^{120}-1=(71^{10})^{13-1}-1$. כיוון ש-13 ראשוני ו-$13\\nmid 71^{10}$, לפי Fermat מתקבל $13\\mid(71^{120}-1)$.\nמכיוון ש-$\\gcd(2,13)=1$ נקבל $26\\mid(71^{120}-1)$.\n$50^{24}+12!=\\big((50^2)^{13-1}-1\\big)+(12!+1)$. כיוון ש-$13\\nmid 50^2$, לפי Fermat מתקבל $13\\mid\\big((50^2)^{13-1}-1\\big)$, ולפי Wilson (13 ראשוני) $13\\mid(12!+1)$. לכן $13\\mid(50^{24}+12!)$.\nהמספר $50^{24}+12!$ זוגי (סכום של שני מספרים זוגיים), ולכן $2\\mid(50^{24}+12!)$ וכמו קודם $26\\mid(50^{24}+12!)$.\nלכן $26$ מחלק את $a(71^{120}-1)+b(50^{24}+12!)$ לכל $a,b\\in\\mathbb{Z}$.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 1,
+   "part": "ג",
+   "kind": "computation",
+   "topic": "functions",
+   "points": 7,
+   "question": "בכל סעיף עליך להגדיר את המונח הרשום בסעיף ולענות על שאלה הקשורה אליו.\n**המונח:** פונקציה חד-חד-ערכית.\n**שאלה:** תהי הפונקציה $f:\\{1,4,5,6,9,18\\}\\to\\mathbb{Z}$ שמוגדרת לפי הכלל $f(k)=\\operatorname{lcm}(3,k)$ לכל $k\\in\\{1,4,5,6,9,18\\}$.\nמצאו $A\\subseteq\\mathbb{Z}$ כך ש-$f:\\{1,4,5,6,9,18\\}\\to A$ היא הפיכה ומצאו את $f^{-1}$.",
+   "solution": "נחשב את ערכי הפונקציה:\n$f(1)=\\operatorname{lcm}(3,1)=3$, $f(4)=\\operatorname{lcm}(3,4)=12$, $f(5)=\\operatorname{lcm}(3,5)=15$,\n$\\operatorname{lcm}(3,6)=6=f(6)$, $\\operatorname{lcm}(3,9)=9=f(9)$, $\\operatorname{lcm}(3,18)=18=f(18)$.\nאז עבור $A=\\{3,6,9,12,15,18\\}$ הפונקציה $f:\\{1,4,5,6,9,18\\}\\to A$ היא חח״ע ועל, ולכן הפיכה, ו:\n$f^{-1}(3)=1,\\ f^{-1}(6)=6,\\ f^{-1}(9)=9,\\ f^{-1}(12)=4,\\ f^{-1}(15)=5,\\ f^{-1}(18)=18$.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "part": "א",
+   "kind": "proof",
+   "topic": "induction",
+   "points": 12,
+   "question": "הוכיחו באינדוקציה שלכל $1\\le n\\in\\mathbb{N}$ מתקיים:\n$$\\frac{1}{1\\cdot 5}+\\frac{1}{5\\cdot 9}+\\frac{1}{9\\cdot 13}+\\dots+\\frac{1}{(4n-3)\\cdot(4n+1)}=\\frac{n}{4n+1}$$",
+   "solution": "**I. בסיס:** $P(1)$: $\\frac{1}{1\\cdot 5}=\\frac{1}{4\\cdot 1+1}\\Rightarrow P(1)=\\text{TRUE}$.\n**II. צעד:** $P(k)=T$ עבור $1\\le k\\in\\mathbb{N}$ $\\Rightarrow$ $P(k+1)=T$.\n$P(k):\\ \\frac{1}{1\\cdot 5}+\\frac{1}{5\\cdot 9}+\\dots+\\frac{1}{(4k-3)(4k+1)}=\\frac{k}{4k+1}$\n$P(k+1):\\ \\frac{1}{1\\cdot 5}+\\dots+\\frac{1}{(4k+1)(4k+5)}=\\frac{k+1}{4k+5}$\n$$\\frac{1}{1\\cdot 5}+\\dots+\\frac{1}{(4k-3)(4k+1)}+\\frac{1}{(4k+1)(4k+5)}=\\frac{k}{4k+1}+\\frac{1}{(4k+1)(4k+5)}=\\frac{4k^2+5k+1}{(4k+1)(4k+5)}=\\frac{(4k^2+4k)+(k+1)}{(4k+1)(4k+5)}$$\n$$=\\frac{4k(k+1)+(k+1)}{(4k+1)(4k+5)}=\\frac{(4k+1)(k+1)}{(4k+1)(4k+5)}=\\frac{k+1}{4k+5}\\Rightarrow P(k+1)=TRUE$$\nמסקנה: מ-I ו-II לכל $1\\le n\\in\\mathbb{N}$ מתקיים $P(n)=TRUE$.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "number_theory_gcd",
+   "points": 5,
+   "question": "הוכיחו בדרך השלילה ש: $\\log_3 5\\notin\\mathbb{Q}$.",
+   "solution": "נניח בשלילה ש-$\\log_3 5\\in\\mathbb{Q}$. אז קיימים $a,b\\in\\mathbb{N}^*$ כך ש-$\\log_3 5=\\frac{a}{b}$ (הלוגריתם חיובי). לכן:\n$$5=3^{a/b}\\iff t=5^b=3^a\\quad(t\\in\\mathbb{N},\\ 2\\le t)$$\nהמספרים 3 ו-5 הם ראשוניים שונים, ולכן לפי המשפט היסודי של האריתמטיקה לכל $t\\in\\mathbb{N}$, $2\\le t$, יש פירוק יחיד למכפלת ראשוניים. אבל ל-$t$ שני פירוקים שונים ($5^b$ ו-$3^a$), סתירה.\nמסקנה: $\\log_3 5\\notin\\mathbb{Q}$.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "relations_properties",
+   "points": 8,
+   "question": "הוכיחו או הפריכו:\n(1) קיים יחס $R\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}$ כך ש: $R$ **לא** רפלקסיבי, $R$ **לא** סימטרי, $R$ **לא** אנטי-סימטרי, $R$ **לא** טרנזיטיבי וגם $|R|\\le 5$.\n(2) **לא** קיימים יחסים שונים וטרנזיטיביים $R_1,R_2\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}$ כך ש: $R_1\\cup R_2$ טרנזיטיבי וגם $R_1\\cap R_2\\ne\\emptyset$.",
+   "solution": "**(1)** הטענה נכונה. דוגמה: $R=\\{(1,2),(2,1),(2,3)\\}$.\n$(1,1)\\notin R$, ולכן $R$ לא רפלקסיבי. $(2,3)\\in R$ אך $(3,2)\\notin R$, ולכן $R$ לא סימטרי. $(1,2),(2,1)\\in R$ ו-$1\\ne 2$, ולכן $R$ לא אנטי-סימטרי. $(1,2),(2,3)\\in R$ אך $(1,3)\\notin R$, ולכן $R$ לא טרנזיטיבי. וגם $|R|=3\\le 5$.\n**(2)** הטענה לא נכונה. דוגמה נגדית: $R_2=\\{(1,1),(1,3)\\}$ ו-$R_1=\\{(1,1),(1,2)\\}$ יחסים שונים וטרנזיטיביים. $R_1\\cap R_2\\ne\\emptyset$ (כי $(1,1)$ בשניהם), ו-$R_1\\cup R_2=\\{(1,1),(1,2),(1,3)\\}$ הוא יחס טרנזיטיבי.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 3,
+   "part": "א",
+   "kind": "proof",
+   "topic": "equivalence_relations",
+   "points": 9,
+   "question": "יהי נתון היחס $R\\subseteq\\mathbb{Z}\\times\\mathbb{Z}$ שמוגדר לפי הכלל הבא: לכל $x,y\\in\\mathbb{Z}$, מתקיים $xRy\\iff 3x+7y$ הוא מספר שמתחלק ב-5.\n(1) הוכיחו ש: $R$ הוא יחס סימטרי וטרנזיטיבי.\n(2) האם $R$ הוא יחס סדר חלקי ?",
+   "hold": "no-key: the official solution proves only (1) (symmetric, transitive) and never answers (2)"
+  },
+  {
+   "num": 3,
+   "part": "ב",
+   "kind": "computation",
+   "topic": "number_theory_gcd",
+   "points": 9,
+   "question": "מצאו על ידי האלגוריתם המורחב של Euclid שני מספרים $x,y\\in\\mathbb{Z}$ כך ש: $\\gcd(48,184)=48\\cdot x+184\\cdot y$.\nוגם מצאו $a,b\\in\\mathbb{Z}$ כך ש: $\\gcd(-48,184)=-48\\cdot a+184\\cdot b$.",
+   "solution": "הטבלה של האלגוריתם המורחב (בכל שורה: $d$ הוא ה-gcd, ו-$x\\leftarrow y'$ ו-$y\\leftarrow x'-y'\\cdot\\lfloor a/b\\rfloor$ מחושבים מהשורה שמתחת):\n```\n  a    b    floor(a/b)   d    x    y\n 184   48        3        8   -1    4\n  48   40        1        8    1   -1\n  40    8        5        8    0    1\n   8    0       --        8    1    0\n```\n$$8=\\gcd(184,48)=(-1)\\cdot 184+4\\cdot 48$$\n$$8=\\gcd(184,-48)=(-1)\\cdot 184+(-4)\\cdot(-48)$$\nכלומר $x=4,\\ y=-1$ בסעיף הראשון, ו-$a=-4,\\ b=-1$ בסעיף השני.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 3,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "sets_power_set",
+   "points": 7,
+   "question": "אם $A,B,C$ הן קבוצות לא ריקות, הראו ש:\n$$(B\\cup C)-A\\subseteq(B-A)\\cup(C-A)$$",
+   "solution": "$$\\forall x\\in(B\\cup C)-A\\Rightarrow\\begin{cases}x\\in B\\cup C\\\\ x\\notin A\\end{cases}\\Rightarrow\\begin{cases}x\\in B\\vee x\\in C\\\\ x\\notin A\\end{cases}\\Rightarrow(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$$\n$$\\Rightarrow x\\in(B-A)\\vee x\\in(C-A)\\Rightarrow x\\in(B-A)\\cup(C-A)$$",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "א",
+   "kind": "proof",
+   "topic": "sets_power_set",
+   "points": 10,
+   "question": "תהיינה $A,B$ שתי קבוצות לא ריקות.\nנסחו את ה-contrapositive של הטענה הבאה: ״אם $P(A)\\cup P(B)=P(A\\cup B)$, אז $A\\subseteq B$ או $B\\subseteq A$.״\nהוכיחו את הטענה.",
+   "solution": "ה-contrapositive: אם $A\\not\\subseteq B$ וגם $B\\not\\subseteq A$, אז $P(A)\\cup P(B)\\ne P(A\\cup B)$.\nהוכחה של ה-contrapositive: $A\\not\\subseteq B$ ולכן קיים $a\\in A$ כך ש-$a\\notin B$, ו-$B\\not\\subseteq A$ ולכן קיים $b\\in B$ כך ש-$b\\notin A$.\nכיוון ש-$\\{a,b\\}\\subseteq A\\cup B$ נקבל $\\{a,b\\}\\in P(A\\cup B)$.\nמצד שני, $\\{a,b\\}\\notin P(B)$ וגם $\\{a,b\\}\\notin P(A)$, ולכן $\\{a,b\\}\\notin P(A)\\cup P(B)$.\nמכאן $P(A)\\cup P(B)\\ne P(A\\cup B)$, וזה מה שהיה צריך להוכיח.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "ב",
+   "kind": "proof",
+   "topic": "number_theory_gcd",
+   "points": 7,
+   "question": "מצאו כל מספר $a\\in\\mathbb{N}$ כך ש: $a^2+a+2$ הוא מספר ראשוני.",
+   "solution": "**מקרה 1:** $a=0$ $\\Rightarrow$ $a^2+a+2=2$, מספר ראשוני.\n**מקרה 2:** $a\\ge 1$. המספר $a(a+1)$ זוגי וגדול או שווה ל-2, ולכן $a^2+a+2=a(a+1)+2$ זוגי וגדול או שווה ל-4, ולכן אינו ראשוני.\nמסקנה: $a^2+a+2$ ראשוני $\\iff$ $a=0$.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "part": "ג",
+   "kind": "proof",
+   "topic": "cardinality_sets",
+   "points": 8,
+   "question": "(1) הראו שהקבוצות: $A=(-1,7]\\cup(10,20)$ ו-$B=[0,15)\\cup(30,35]$ שוות עוצמה.\n(2) הראו שהפונקציה $f:\\mathbb{N}\\times\\mathbb{N}\\to\\mathbb{N}^*$ שמוגדרת לפי הכלל $f(m,n)=3^m\\cdot 5^n$ לכל $(m,n)\\in\\mathbb{N}\\times\\mathbb{N}$ היא חד-חד-ערכית, אך אינה על.",
+   "solution": "**(1)** $(0,1)\\subseteq(-1,7]\\subseteq A\\subseteq\\mathbb{R}\\Rightarrow|(0,1)|\\le|A|\\le|\\mathbb{R}|=|(0,1)|\\Rightarrow|A|=|(0,1)|$.\nבאופן דומה, $(0,1)\\subseteq[0,15)\\subseteq B\\subseteq\\mathbb{R}\\Rightarrow|(0,1)|\\le|B|\\le|\\mathbb{R}|=|(0,1)|\\Rightarrow|B|=|(0,1)|$.\nמסקנה: $|A|=|B|\\ (=|(0,1)|)$.\n**(2)** $f$ חח״ע: לכל $(a,b),(m,n)\\in\\mathbb{N}\\times\\mathbb{N}$, אם $f(a,b)=f(m,n)$ אז $q=3^a5^b=3^m5^n$.\nאם $q=1$ אז $a=b=m=n=0$, ולכן $(a,b)=(m,n)$.\nאם $q\\ge 2$, לפי המשפט היסודי של האריתמטיקה הפירוק של $q$ למכפלת ראשוניים יחיד, ולכן $a=m$ ו-$b=n$, כלומר $(a,b)=(m,n)$.\nלכן $f$ היא חח״ע.\n$f$ אינה על: נבחר $7\\in\\mathbb{N}^*$. נניח בשלילה שקיימים $m,n\\in\\mathbb{N}$ כך ש-$3^m\\cdot 5^n=7$. אבל $7=7^1$ הוא פירוק יחיד למכפלת ראשוניים, בסתירה למשפט היסודי של האריתמטיקה. לכן $f$ אינה על.",
+   "solutionSource": "lecturer-solution",
+   "official": true,
+   "confidence": "high"
+  }
+ ]
+}
