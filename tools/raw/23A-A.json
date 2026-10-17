@@ -17,7 +17,75 @@
    "solution": "טבלת אמת (T = אמת, F = שקר), ובשורות שבהן הפסוק שקר הפסוקית המתאימה:\n```\np q r | p→q | ¬r | (p→q)∧¬r | פסוקית\nT T T |  T  |  F |     F     | ¬p∨¬q∨¬r\nT T F |  T  |  T |     T     |\nT F T |  F  |  F |     F     | ¬p∨q∨¬r\nT F F |  F  |  T |     F     | ¬p∨q∨r\nF T T |  T  |  F |     F     | p∨¬q∨¬r\nF T F |  T  |  T |     T     |\nF F T |  T  |  F |     F     | p∨q∨¬r\nF F F |  T  |  T |     T     |\n```\nצורת ה-CNF של $S=(p\\to q)\\wedge\\neg r$ היא:\n$$S\\equiv(\\neg p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee q\\vee\\neg r)\\wedge(\\neg p\\vee q\\vee r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(p\\vee q\\vee\\neg r)$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "טבלת אמת מלאה עם כל 8 ההשמות של $p,q,r$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי 5 השורות שבהן $(p\\to q)\\wedge\\neg r$ שקר",
+     "points": 2
+    },
+    {
+     "text": "בניית פסוקית לכל שורה כזו, שבה כל משתנה מופיע בשלילת ערכו בשורה",
+     "points": 2
+    },
+    {
+     "text": "חיבור חמש הפסוקיות ב-$\\wedge$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לבנות פסוקית מהשורות שבהן הפסוק אמת (זה ה-DNF) במקום מהשורות שבהן הוא שקר.",
+    "לא להפוך את הליטרלים: בפסוקית של שורה שקרית כל משתנה מופיע בשלילת ערכו באותה שורה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 השורות הפסוק $(p\\to q)\\wedge\\neg r$ שקר?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "הוא אמת רק כש-$r=F$ וגם $p\\to q$ אמת: השורות $TTF$, $FTF$, $FFF$. לכן הוא שקר ב-5 שורות (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו פסוקית נבנית מהשורה $p=T,\\ q=F,\\ r=T$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p\\vee\\neg q\\vee r$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\neg p\\vee q\\vee\\neg r$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\neg p\\vee q\\vee r$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p\\wedge\\neg q\\wedge r$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. $\\neg p\\vee q\\vee r$ אמת בשורה זו (כי $r=T$), ולכן היא אינה שלה, והאחרונה אינה פסוקית (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פסוקיות יש בצורת ה-CNF?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "פסוקית אחת לכל שורה שקרית: 5 (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +97,112 @@
    "solution": "**הגדרה:** יחס $R\\subseteq A\\times A$ נקרא טרנזיטיבי אם מקיים התנאי: לכל $x,y,z\\in A$, אם $(x,y)\\in R$ וגם $(y,z)\\in R$, אז $(x,z)\\in R$.\nהטענה נכונה. נניח, בשלילה, שהיחס $R^{-1}$ אינו טרנזיטיבי. אז קיימים $x,y,z\\in A$ כך ש: $(x,y)\\in R^{-1}$ וגם $(y,z)\\in R^{-1}$, אך $(x,z)\\notin R^{-1}$.\nלפי ההגדרה של $R^{-1}$ נשיג: $(y,x)\\in R$ וגם $(z,y)\\in R$ ולכן $(z,x)\\in R$ (כי $R$ טרנזיטיבי). אז נקבל $(x,z)\\in R^{-1}$, בסתירה להנחה $(x,z)\\notin R^{-1}$.\nמסקנה: אם $R$ טרנזיטיבי, אז גם $R^{-1}$ הוא יחס טרנזיטיבי.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחת השלילה: קיימים $x,y,z$ שמפרים טרנזיטיביות של $R^{-1}$",
+     "points": 2
+    },
+    {
+     "text": "תרגום לפי הגדרת ההפוך: $(y,x),(z,y)\\in R$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בטרנזיטיביות של $R$: $(z,x)\\in R$",
+     "points": 2
+    },
+    {
+     "text": "חזרה להפוך: $(x,z)\\in R^{-1}$ והסתירה",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לבלבל בכיוון הזוגות: $(x,y)\\in R^{-1}$ פירושו $(y,x)\\in R$.",
+    "להפעיל טרנזיטיביות על הצמד בסדר הלא נכון: מ-$(z,y),(y,x)$ מקבלים $(z,x)$ ולא $(x,z)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחה ש-$R^{-1}$ טרנזיטיבי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הוכחה בדרך השלילה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על $|R|$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בדיקת כל היחסים הטרנזיטיביים בטבלת אמת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "ספירה קומבינטורית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מניח ש-$R^{-1}$ אינו טרנזיטיבי ומגיע לסתירה. אין טבלת אמת ליחסים, והטענה אינה על ספירה."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $R^{-1}$ עבור $R=\\{(1,2),(2,3),(1,3)\\}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(2,1),(3,2),(3,1)\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(1,2),(2,3),(1,3)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{(2,1),(3,2)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(1,2),(3,2),(3,1)\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$R^{-1}=\\{(y,x):(x,y)\\in R\\}$, כלומר הופכים כל זוג (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נניח בשלילה ש-$R^{-1}$ אינו טרנזיטיבי: קיימים $x,y,z$ כך ש-$(x,y),(y,z)\\in R^{-1}$ וגם $(x,z)\\notin R^{-1}$.",
+      "לפי הגדרת ההפוך, $(y,x)\\in R$ וגם $(z,y)\\in R$.",
+      "$R$ טרנזיטיבי, ולכן $(z,x)\\in R$ (מהצמד $(z,y),(y,x)$).",
+      "לכן $(x,z)\\in R^{-1}$, בסתירה להנחה $(x,z)\\notin R^{-1}$."
+     ],
+     "explain": "הנחה, תרגום להפוך, טרנזיטיביות של $R$, סתירה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח בשלילה ש-$R^{-1}$ אינו טרנזיטיבי: קיימים $x,y,z$ כך ש-$(x,y),(y,z)\\in R^{-1}$ וגם $(x,z)\\notin R^{-1}$.",
+      "לפי הגדרת ההפוך, $(y,x)\\in R$ וגם $(z,y)\\in R$.",
+      "$R$ טרנזיטיבי, ולכן $(x,z)\\in R$ (מהצמד $(z,y),(y,x)$).",
+      "לכן $(x,z)\\in R^{-1}$, בסתירה להנחה $(x,z)\\notin R^{-1}$."
+     ],
+     "bugIndex": 2,
+     "explain": "מ-$(z,y),(y,x)\\in R$ מקבלים $(z,x)\\in R$ ולא $(x,z)\\in R$ (נבדק בסקריפט: קיים יחס טרנזיטיבי שמפריך)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +214,95 @@
    "solution": "**הגדרה:** הפונקציה $f:A\\to B$ נקראת חד-חד-ערכית אם מקיימת התנאי: לכל $x,y\\in A$, אם $x\\ne y$ אז $f(x)\\ne f(y)$, או: לכל $x,y\\in A$, אם $f(x)=f(y)$, אז $x=y$.\n**(1)** הפונקציה $f$ אינה על. למספר $3\\in\\mathbb{N}-\\{0,1\\}$ אין מקור, כי לפי המשפט היסודי של האריתמטיקה לא קיים $(m,n)\\in\\mathbb{N}^*\\times\\mathbb{N}^*$ כך ש: $3=2^m5^n$.\n**(2)** הפונקציה $f$ הינה חד-חד-ערכית. לכל $(m,n),(x,y)\\in\\mathbb{N}^*\\times\\mathbb{N}^*$, אם $f(m,n)=f(x,y)$, אז קיים $2\\le q\\in\\mathbb{N}$ כך ש: $q=2^m5^n=2^x5^y$. לפי המשפט היסודי של האריתמטיקה למספר $2\\le q\\in\\mathbb{N}$ יש ייצוג יחיד כמכפלה של מספרים ראשוניים, ולכן $m=x,\\ n=y$, כלומר $(m,n)=(x,y)$.\nמסקנה: $f$ היא פונקציה חד-חד-ערכית.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) $f$ אינה על: $3$ אינו בתמונה",
+     "points": 1
+    },
+    {
+     "text": "(1) הנימוק לפי המשפט היסודי של האריתמטיקה",
+     "points": 2
+    },
+    {
+     "text": "(2) הנחת $f(m,n)=f(x,y)$ וכתיבה $q=2^m5^n=2^x5^y$",
+     "points": 1
+    },
+    {
+     "text": "(2) יחידות הפירוק נותנת $m=x$ ו-$n=y$",
+     "points": 3
+    },
+    {
+     "text": "מסקנות: לא על וחח״ע",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להשוות בין חזקות בלי להסתמך על יחידות הפירוק, ובכך להסיק $m=y$ בטעות.",
+    "לבדוק על כמה דוגמאות חח״ע במקום להוכיח."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך הקטן ביותר של $f(m,n)=2^m5^n$ על $\\mathbb{N}^*\\times\\mathbb{N}^*$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "הערך הקטן ביותר מתקבל ב-$m=n=1$ ושווה $10$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע ל-$3$ אין מקור, לפי הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לפי המשפט היסודי של האריתמטיקה, $3$ אינו מכפלה של חזקות של $2$ ו-$5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $3$ אינו מספר טבעי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $3$ זוגי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $f(m,n)$ תמיד אי-זוגי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$3$ טבעי ואי-זוגי, ו-$f(1,1)=10$ זוגי. $3$ ראשוני שאינו $2$ או $5$, ולכן אינו ערך (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת החח״ע.",
+     "lines": [
+      "נניח $f(m,n)=f(x,y)$: קיים $2\\le q\\in\\mathbb{N}$ כך ש-$q=2^m5^n=2^x5^y$.",
+      "לפי המשפט היסודי של האריתמטיקה, ל-$q$ ייצוג יחיד כמכפלת ראשוניים.",
+      "לכן $m=x$ ו-$n=y$.",
+      "כלומר $(m,n)=(x,y)$, ו-$f$ חח״ע."
+     ],
+     "explain": "הנחת שוויון, יחידות הפירוק, שוויון המעריכים, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $f(m,n)=f(x,y)$: קיים $2\\le q\\in\\mathbb{N}$ כך ש-$q=2^m5^n=2^x5^y$.",
+      "לפי המשפט היסודי של האריתמטיקה, ל-$q$ ייצוג יחיד כמכפלת ראשוניים.",
+      "לכן $m=y$ ו-$n=x$.",
+      "כלומר $(m,n)=(x,y)$, ו-$f$ חח״ע."
+     ],
+     "bugIndex": 2,
+     "explain": "מ-$2^m5^n=2^x5^y$ מקבלים $m=x$ ו-$n=y$, ולא להפך (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +314,95 @@
    "solution": "**I. נבדוק ש:** $P(10)=\\text{TRUE}$.\n$P(10):\\ 10^3<2^{10}\\iff 1000<1024\\ \\dots\\ \\text{TRUE}$.\n**II. נבדוק ש:** אם $P(k)=\\text{TRUE}$ עבור $10\\le k$, אז גם $P(k+1)=\\text{TRUE}$.\n$P(k):\\ k^3<2^k$\n$P(k+1):\\ (k+1)^3<2^{k+1}$\n$$(k+1)^3=k^3+3k^2+3k+1<k^3+3k^2+3k^2+3k^2=k^3+9k^2<k^3+k\\cdot k^2=2\\cdot k^3<2\\cdot 2^k=2^{k+1}\\ \\to\\ P(k+1)=\\text{TRUE}$$\nמסקנה: לפי משפט האינדוקציה המתמטית הטענה נכונה, כי I וגם II מתקיימים, לכל $10\\le n\\in\\mathbb{N}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בסיס: $P(10)$, כלומר $1000<1024$",
+     "points": 3
+    },
+    {
+     "text": "ניסוח $P(k)$ ו-$P(k+1)$",
+     "points": 2
+    },
+    {
+     "text": "פתיחת $(k+1)^3$ והערכה מלמעלה ל-$k^3+9k^2$",
+     "points": 2
+    },
+    {
+     "text": "המעבר $9k^2<k\\cdot k^2$ בעזרת $k\\ge10$ והגעה ל-$2k^3$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בהנחה $k^3<2^k$ ומסקנה לפי עקרון האינדוקציה",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להתחיל בסיס ב-$n=1$: הטענה אינה נכונה עבור $n=2,\\dots,9$ (למשל $9^3>2^9$).",
+    "לשכוח שהמעבר $9k^2<k^3$ מחייב $k\\ge10$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת $n^3<2^n$ לכל $10\\le n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "בדיקת $n=10,11,12$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה מתמטית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ספירה קומבינטורית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "חישוב $n^3$ ו-$2^n$ לכל $n$ בנפרד"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הטענה נכונה לאינסוף ערכים, ולכן צריך צעד $P(k)\\Rightarrow P(k+1)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $(k+1)^3$ עבור $k=10$?",
+     "answer": 1331,
+     "tol": 0,
+     "explain": "$11^3=1331$, ו-$2k^3=2000$, כלומר $1331<2000$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שרשרת אי-השוויונות בצעד.",
+     "lines": [
+      "$(k+1)^3=k^3+3k^2+3k+1$",
+      "$<k^3+3k^2+3k^2+3k^2=k^3+9k^2$",
+      "$<k^3+k\\cdot k^2=2k^3$ (כי $k\\ge10>9$)",
+      "$<2\\cdot2^k=2^{k+1}$ (הנחת האינדוקציה $k^3<2^k$), ולכן $P(k+1)=T$."
+     ],
+     "explain": "פתיחה, הערכה ל-$9k^2$, מעבר ל-$2k^3$, הנחת האינדוקציה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$(k+1)^3=k^3+3k^2+3k+1$",
+      "$<k^3+3k^2+3k^2+3k^2=k^3+9k^2$",
+      "$<k^3+k\\cdot k^2=3k^3$ (כי $k\\ge10>9$)",
+      "$<2\\cdot2^k=2^{k+1}$ (הנחת האינדוקציה $k^3<2^k$), ולכן $P(k+1)=T$."
+     ],
+     "bugIndex": 2,
+     "explain": "$k^3+k\\cdot k^2=2k^3$ ולא $3k^3$ (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +414,75 @@
    "solution": "הטבלה של האלגוריתם המורחב:\n```\n  a    b    floor(a/b)   d    x    y\n  65   40        1        5   -3    5\n  40   25        1        5    2   -3\n  25   15        1        5   -1    2\n  15   10        1        5    1   -1\n  10    5        2        5    0    1\n   5    0        -        5    1    0\n```\n$\\gcd(65,40)=5=65\\cdot(-3)+40\\cdot 5\\ \\Rightarrow$\n$$\\gcd(65,-40)=5=65\\cdot(-3)+(-40)\\cdot(-5)$$\nכלומר $x=-3,\\ y=-5$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "שלבי החילוק של Euclid: $65=1\\cdot40+25$, $40=1\\cdot25+15$, $25=1\\cdot15+10$, $15=1\\cdot10+5$, $10=2\\cdot5$",
+     "points": 4
+    },
+    {
+     "text": "$\\gcd(65,40)=5$",
+     "points": 1
+    },
+    {
+     "text": "הצבה לאחור: $5=65\\cdot(-3)+40\\cdot5$",
+     "points": 2
+    },
+    {
+     "text": "מעבר ל-$\\gcd(65,-40)$ בהחלפת סימן של $y$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לשכוח להחליף את הסימן של המקדם של $-40$.",
+    "לעצור אחרי ה-gcd בלי להפיק את $x,y$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית בחילוק $65$ ב-$40$?",
+     "answer": 25,
+     "tol": 0,
+     "explain": "$65=1\\cdot40+25$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(65,-40)$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "ה-gcd אינו תלוי בסימן: $\\gcd(65,40)=5$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x,y)$ מקיים $65x+(-40)y=\\gcd(65,-40)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(x,y)=(-3,5)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(x,y)=(3,5)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(x,y)=(-3,-5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(x,y)=(2,3)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$65\\cdot(-3)+(-40)(-5)=-195+200=5$. בשאר הזוגות מתקבלים $-395$, $-5$ ו-$10$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +494,75 @@
    "solution": "הקבוצה $D$ היא $D=\\{5,6\\}$. המשפחה $\\{B,C,D\\}$ מגדירה חלוקה של $A$, בגודל 3, כי: $B\\ne\\emptyset,\\ C\\ne\\emptyset,\\ D\\ne\\emptyset$ וגם $B\\cap C=B\\cap D=C\\cap D=\\emptyset$ וגם $B\\cup C\\cup D=A$.\nלכן קיים יחס שקילות $R\\subseteq A\\times A$ כך ש: $A/R=\\{B,C,D\\}$. אז נקבל ש: $B=[1]$, $C=[2]$ ו-$D=[5]$:\n$$R=\\{1\\}\\times\\{1\\}\\cup\\{2,3,4\\}\\times\\{2,3,4\\}\\cup\\{5,6\\}\\times\\{5,6\\}\\ \\Rightarrow\\ |R|=14$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "חישוב $D=A-(B\\cup C)=\\{5,6\\}$",
+     "points": 1
+    },
+    {
+     "text": "בדיקה ש-$\\{B,C,D\\}$ חלוקה: לא ריקות, זרות בזוגות ואיחודן $A$",
+     "points": 2
+    },
+    {
+     "text": "הגדרת $R=B\\times B\\cup C\\times C\\cup D\\times D$",
+     "points": 2
+    },
+    {
+     "text": "$|R|=1+9+4=14$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לחשב $|R|=1+3+2=6$: מספר הזוגות במחלקה בגודל $s$ הוא $s^2$ ולא $s$.",
+    "לבדוק רק איחוד ושוכחים לבדוק שהקבוצות זרות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$D=A-(B\\cup C)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$B\\cup C=\\{1,2,3,4\\}$ ולכן $D=\\{5,6\\}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו תנאים על $B,C,D$ מבטיחים ש-$\\{B,C,D\\}$ חלוקה של $A$ (ולכן מחלקות שקילות)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הן לא ריקות, זרות בזוגות, ואיחודן שווה ל-$A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רק שאיחודן שווה ל-$A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק שהן זרות בזוגות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "רק שכל אחת מהן מוכלת ב-$A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל אחד מהתנאים הנוספים לבדו אינו מספיק: למשל $\\{1,2,3\\},\\{3,4\\}$ מכסות אך אינן זרות, ו-$\\{1\\},\\{2\\}$ זרות אך אינן מכסות את $\\{1,2,3\\}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש ביחס השקילות $R$, כלומר מהו $|R|$?",
+     "answer": 14,
+     "tol": 0,
+     "explain": "$1^2+3^2+2^2=14$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +574,86 @@
    "solution": "**(1)** טענה נכונה.\n$$\\forall x\\in(B-A)\\cup(C-A)\\Rightarrow x\\in B-A\\ \\vee\\ x\\in C-A\\Rightarrow(x\\in B\\ \\vee\\ x\\in C)\\wedge x\\notin A\\Rightarrow x\\in B\\cup C\\ \\wedge\\ x\\notin A\\Rightarrow x\\in(B\\cup C)-A$$\nמסקנה: $(B-A)\\cup(C-A)\\subseteq(B\\cup C)-A$.\n**(2)** טענה נכונה.\nמכיוון ש-$A\\subseteq\\mathbb{Q}$ נקבל $|A|\\le|\\mathbb{Q}|=|\\mathbb{Z}|$. מצד אחד:\n$\\{1+\\frac12,\\ 1+\\frac13,\\dots,1+\\frac1n,\\dots\\}\\subseteq A\\Rightarrow\\left|\\{1+\\frac12,\\ 1+\\frac13,\\dots,1+\\frac1n,\\dots\\}\\right|=|\\mathbb{N}|\\le|A|$\nכלומר $|\\mathbb{Z}|=|\\mathbb{N}|\\le|A|\\le|\\mathbb{Z}|$, ולכן $|A|=|\\mathbb{Z}|$, לפי משפט Cantor-Bernstein.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) $x$ שרירותי ופירוק ההגדרה",
+     "points": 2
+    },
+    {
+     "text": "(1) הוצאת $x\\notin A$ כגורם משותף ומסקנה",
+     "points": 3
+    },
+    {
+     "text": "(2) חסם עליון: $A\\subseteq\\mathbb{Q}$ ולכן $|A|\\le|\\mathbb{Z}|$",
+     "points": 2
+    },
+    {
+     "text": "(2) חסם תחתון: הסדרה $1+\\frac1n\\in A$",
+     "points": 2
+    },
+    {
+     "text": "(2) קנטור-ברנשטיין ומסקנה",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "להראות רק חסם אחד בסעיף (2): תת-קבוצה של $\\mathbb{Q}$ רק חסומה מלמעלה בעוצמה.",
+    "לבחור סדרה שחלק מאיבריה מחוץ ל-$(1,2)$, למשל $1+\\frac11=2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה ערך האמת של הטענות (1) ו-(2)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "(1) נכונה ו-(2) לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שתיהן נכונות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "(1) לא נכונה ו-(2) נכונה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שתיהן לא נכונות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "(1) נבדק בסקריפט על כל השלשות של תתי-קבוצות. ב-(2) הקבוצה $A$ אינסופית בת מנייה (הסדרה $1+\\frac1n$ בתוכה, והיא תת-קבוצה של $\\mathbb{Q}$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת סעיף (1).",
+     "lines": [
+      "יהי $x\\in(B-A)\\cup(C-A)$: אז $x\\in B-A$ או $x\\in C-A$.",
+      "כלומר $(x\\in B\\vee x\\in C)\\wedge x\\notin A$.",
+      "לכן $x\\in B\\cup C$ וגם $x\\notin A$, כלומר $x\\in(B\\cup C)-A$."
+     ],
+     "explain": "x שרירותי, כתיבה לוגית, חזרה להגדרה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת סעיף (2) שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$A\\subseteq\\mathbb{Q}$, ולכן $|A|\\le|\\mathbb{Q}|=|\\mathbb{R}|$.",
+      "$\\{1+\\frac12,1+\\frac13,\\dots\\}\\subseteq A$ וקבוצה זו בת מנייה אינסופית, ולכן $|\\mathbb{N}|\\le|A|$.",
+      "לכן $|\\mathbb{Z}|\\le|A|\\le|\\mathbb{Z}|$, ו-$|A|=|\\mathbb{Z}|$ לפי קנטור-ברנשטיין."
+     ],
+     "bugIndex": 0,
+     "explain": "$\\mathbb{Q}$ בת מנייה ולכן $|\\mathbb{Q}|=|\\mathbb{Z}|<|\\mathbb{R}|$."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +665,71 @@
    "solution": "לפי ההגדרה של $A,B$ נשיג: $x\\in A\\cap B\\iff x=9^n$ לכל $n\\in\\{0,1,2,\\dots,9\\}$. אז:\n$$|P(A\\cap B)|+|P(A\\times B)|=2^{|A\\cap B|}+2^{|A\\times B|}=2^{10}+2^{10000}$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$A\\cap B=\\{9^n:\\ n\\in\\{0,\\dots,9\\}\\}$ ולכן $|A\\cap B|=10$",
+     "points": 3
+    },
+    {
+     "text": "$|A\\times B|=|A|\\cdot|B|=100\\cdot100=10000$",
+     "points": 2
+    },
+    {
+     "text": "$|P(X)|=2^{|X|}$ ולכן התוצאה $2^{10}+2^{10000}$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לספור $|A\\cap B|=1$ (רק $9^0$): כל $9^n$ שייך לשתי הקבוצות.",
+    "להכפיל $2^{10}\\cdot2^{10000}$ במקום לחבר, כי השאלה מבקשת סכום."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$A\\cap B$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "האיברים המשותפים הם $9^n$ עבור $n=0,\\dots,9$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$A\\times B$?",
+     "answer": 10000,
+     "tol": 0,
+     "explain": "$|A|=|B|=100$ ולכן $100\\cdot100=10000$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $|P(A\\cap B)|+|P(A\\times B)|$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{10}+2^{10000}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{10}\\cdot2^{10000}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{10}+2^{200}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$10+10000$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|P(X)|=2^{|X|}$ לכל קבוצה סופית $X$. השאר: מכפלה, שימוש ב-$|A|+|B|$ במקום המכפלה, ושכחת החזקה (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +741,66 @@
    "solution": "לפי ההגדרה: $n=2^{|A|}-1=2^{120}-1=(2^{12})^{10}-1=(2^{12})^{11-1}-1$.\nלכן, לפי משפט FERMAT: $11\\mid n$ כי 11 מספר ראשוני ו-$2^{12}$ אינו מתחלק ב-11.\nנשאר להראות שגם $m=5^{20}+10!+12!$ מתחלק ב-11. אז ניתן לרשום:\n$$m=25^{10}-1+10!+1+12!=(25^{11-1}-1)+((11-1)!+1)+12!=a+b+c$$\nלפי משפט FERMAT: $11\\mid a$ כי 11 מספר ראשוני ו-25 אינו מתחלק ב-11.\nלפי משפט WILSON: $11\\mid b$ כי 11 מספר ראשוני.\nהמספר $c$ מתחלק ב-11, כי $c$ שווה למכפלה של המספרים $1,2,\\dots,11,12$.\nאז $11\\mid m$, משום ש: $m=a+b+c$ וגם $11\\mid a$, $11\\mid b$, $11\\mid c$.\nאז 11 הוא מחלק משותף של $n$ ו-$m$. לכן גם $11\\mid\\gcd(n,m)$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$n=2^{120}-1$ ו-$11\\mid n$ לפי פרמה",
+     "points": 2
+    },
+    {
+     "text": "פירוק $m=(25^{10}-1)+(10!+1)+12!$",
+     "points": 2
+    },
+    {
+     "text": "פרמה על $25^{10}-1$, וילסון על $10!+1$, ו-$11\\mid12!$",
+     "points": 3
+    },
+    {
+     "text": "$11\\mid m$ ולכן $11\\mid\\gcd(n,m)$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "להשתמש בווילסון על $10!$ במקום $10!+1$.",
+    "לשכוח ש-$12!$ מתחלק ב-$11$ כי $11$ ביניהם."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $5^{20}$ בחלוקה ב-$11$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$5^{20}=25^{10}\\equiv1\\pmod{11}$ לפי פרמה (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $10!$ בחלוקה ב-$11$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "לפי וילסון $10!\\equiv-1\\equiv10\\pmod{11}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $12!$ בחלוקה ב-$11$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$11$ הוא גורם במכפלה $12!$, ולכן $11\\mid12!$. סך השאריות $1+10+0\\equiv0$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$n=2^{120}-1=(2^{12})^{11-1}-1$ ו-$11\\nmid2^{12}$, ולכן לפי פרמה $11\\mid n$.",
+      "$m=5^{20}+10!+12!=(25^{11-1}-1)+(10!+1)+12!$.",
+      "$11\\mid(25^{10}-1)$ לפי פרמה, $11\\mid(10!-1)$ לפי וילסון, ו-$11\\mid12!$ כי $11$ גורם במכפלה.",
+      "לכן $11\\mid m$ וגם $11\\mid n$, ולכן $11\\mid\\gcd(n,m)$."
+     ],
+     "bugIndex": 2,
+     "explain": "וילסון נותן $10!\\equiv-1$, ולכן $11\\mid(10!+1)$ ולא $(10!-1)$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +812,99 @@
    "solution": "היחס $R$ הוא רפלקסיבי כי: $xRx\\iff 2x+1=x+x+1$ הוא מספר אי-זוגי לכל $x\\in\\mathbb{Z}$.\nהיחס $R$ הוא סימטרי כי: $xRy\\iff x+y+1$ הוא מספר אי-זוגי $\\iff y+x+1$ הוא מספר אי-זוגי $\\iff yRx$.\nהיחס $R$ הוא טרנזיטיבי כי: $xRy$ וגם $yRz\\iff x+y+1$ וגם $y+z+1$ הם מספרים אי-זוגיים. אזי $(x+z+1)+(2y+1)=(x+y+1)+(y+z+1)$ הוא מספר זוגי, ולכן $x+z+1$ הוא מספר אי-זוגי (משום ש: $2y+1$ הוא אי-זוגי). לכל $xRz\\iff R$ הוא טרנזיטיבי.\nמסקנה: $R$ הוא יחס שקילות.\nנחשב את מחלקות השקילות:\n$[0]=\\{x:\\ x\\in\\mathbb{Z}\\wedge 0Rx\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 0+x+1\\text{ is an odd number}\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge x\\text{ is even}\\}=\\{2k:\\ k\\in\\mathbb{Z}\\}$\n$[1]=\\{x:\\ x\\in\\mathbb{Z}\\wedge 1Rx\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 1+x+1\\text{ is an odd number}\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge x\\text{ is odd}\\}=\\{2k+1:\\ k\\in\\mathbb{Z}\\}$\nמכיוון ש-$[0]\\cup[1]=\\mathbb{Z}$ אין עוד מחלקות שקילות. לכן $\\mathbb{Z}/R=\\{[0],[1]\\}$.\n$R$ אינו יחס סדר חלקי. לדוגמה: $2R4$ וגם $4R2$ אך $2\\ne 4$.\nפתרון נוסף: $xRy\\iff x+y+1$ הוא מספר אי-זוגי $\\iff x+y$ הוא מספר זוגי, וההמשך דומה.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $2x+1$ אי-זוגי",
+     "points": 2
+    },
+    {
+     "text": "סימטריות: $x+y+1=y+x+1$",
+     "points": 2
+    },
+    {
+     "text": "טרנזיטיביות",
+     "points": 3
+    },
+    {
+     "text": "מחלקות השקילות $[0]=\\{2k\\}$ ו-$[1]=\\{2k+1\\}$",
+     "points": 4
+    },
+    {
+     "text": "הוכחה שאין מחלקות נוספות: $[0]\\cup[1]=\\mathbb{Z}$",
+     "points": 1
+    },
+    {
+     "text": "$R$ אינו סדר חלקי כי אינו אנטי-סימטרי: $2R4$ וגם $4R2$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לבלבל: $xRy$ אם ורק אם $x+y$ זוגי, ולא אם $x$ ו-$y$ אי-זוגיים.",
+    "לחשוב ש-$R$ סדר חלקי כי הוא רפלקסיבי וטרנזיטיבי: חסרה אנטי-סימטריה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ל-$R$ ב-$\\mathbb{Z}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$xRy$ אם ורק אם $x$ ו-$y$ באותה זוגיות: מחלקת הזוגיים ומחלקת האי-זוגיים (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח $xRy$ וגם $yRz$: $x+y+1$ ו-$y+z+1$ אי-זוגיים.",
+      "סכומם $(x+y+1)+(y+z+1)=(x+z+1)+(2y+1)$ זוגי (סכום של שני אי-זוגיים).",
+      "$2y+1$ אי-זוגי, ולכן $x+z+1$ אי-זוגי (זוגי פחות אי-זוגי הוא אי-זוגי).",
+      "כלומר $xRz$."
+     ],
+     "explain": "הנחה, סכום, זוגיות, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $xRy$ וגם $yRz$: $x+y+1$ ו-$y+z+1$ אי-זוגיים.",
+      "סכומם $(x+y+1)+(y+z+1)=(x+z+1)+(2y+1)$ זוגי (סכום של שני אי-זוגיים).",
+      "$2y+1$ זוגי, ולכן $x+z+1$ זוגי (זוגי פחות זוגי הוא זוגי).",
+      "כלומר $xRz$."
+     ],
+     "bugIndex": 2,
+     "explain": "$2y+1$ אי-זוגי לכל $y$ שלם (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ הוא יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי $R$ אינו אנטי-סימטרי: $2R4$ וגם $4R2$ אך $2\\ne4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כי הוא יחס שקילות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי $R$ אינו רפלקסיבי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי $R$ אינו סימטרי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$R$ רפלקסיבי וסימטרי, והכשל היחיד הוא אנטי-סימטריה: $2+4+1=7$ אי-זוגי בשני הכיוונים (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +916,79 @@
    "solution": "אם $n=2$, אז נקבל: $\\operatorname{lcm}(2-1,\\ 2+1)=\\operatorname{lcm}(1,3)=3$.\nאם $n>2$, אז: $\\operatorname{lcm}(n-1,n+1)=(n-1)(n+1)/\\gcd(n-1,n+1)$.\nנסמן: $\\gcd(n-1,n+1)=d$. אז $d\\mid(n-1)$ וגם $d\\mid(n+1)\\Leftarrow d\\mid\\big((n+1)-(n-1)\\big)\\Leftarrow d\\mid 2\\Leftarrow d\\in\\{1,2\\}$.\nמכיוון ש-$n$ אי-זוגי (כי הוא ראשוני גדול מ-2), נשיג: $2\\mid(n+1)$, $2\\mid(n-1)$, אז $2\\mid d$.\nמשום ש-$2\\mid d$ וגם $1\\le d\\le 2$ נקבל $d=2$. לכן $\\operatorname{lcm}(n-1,n+1)=(n^2-1)/2$.\nמסקנה: $\\operatorname{lcm}(n-1,n+1)=3$ עבור $n=2$, ו-$\\operatorname{lcm}(n-1,n+1)=(n^2-1)/2$ עבור $n>2$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "המקרה $n=2$: $\\operatorname{lcm}(1,3)=3$",
+     "points": 1
+    },
+    {
+     "text": "שימוש ב-$\\operatorname{lcm}=\\frac{(n-1)(n+1)}{\\gcd(n-1,n+1)}$",
+     "points": 1
+    },
+    {
+     "text": "$d=\\gcd(n-1,n+1)$ מחלק את $2$, ולכן $d\\in\\{1,2\\}$",
+     "points": 2
+    },
+    {
+     "text": "$n$ אי-זוגי ולכן $d=2$",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $(n^2-1)/2$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לשכוח את המקרה $n=2$, שבו ה-gcd הוא $1$.",
+    "לחשב $\\operatorname{lcm}=(n-1)(n+1)$ בלי לחלק ב-$\\gcd$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\operatorname{lcm}(n-1,n+1)$ עבור $n=2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\operatorname{lcm}(1,3)=3$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\operatorname{lcm}(n-1,n+1)$ עבור $n=5$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$\\operatorname{lcm}(4,6)=12=(25-1)/2$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\gcd(n-1,n+1)$ עבור ראשוני אי-זוגי $n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n^2-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ה-gcd מחלק את $2$ ושני המספרים זוגיים. עבור $n=3$: $\\gcd(2,4)=2$, ולכן שאר התשובות שקריות (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -149,7 +1000,75 @@
    "solution": "$B$ מקיימת התנאים $\\iff B=\\{x\\}\\cup C$, כאשר $x\\in\\{1,3,5,7,\\dots,2n+1\\}$, ו-$C\\in P(\\{2,4,6,\\dots,2n\\})\\iff C\\subseteq\\{2,4,6,\\dots,2n\\}$:\n$x\\in\\{1,3,5,7,\\dots,2n+1\\}\\Leftarrow$ יש $n+1$ אופציות.\n$C\\in P(\\{2,4,6,\\dots,2n\\})\\Leftarrow$ יש $2^n$ אופציות.\nמסקנה: מספר תתי-הקבוצות $B\\in P(A)$ המקיימות התנאי $|B\\cap\\{1,3,5,7,\\dots,2n+1\\}|=1$ שווה ל: $(n+1)\\cdot 2^n$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הצגת $B=\\{x\\}\\cup C$ עם $x$ אי-זוגי ו-$C$ תת-קבוצה של האיברים הזוגיים",
+     "points": 2
+    },
+    {
+     "text": "$n+1$ בחירות ל-$x$",
+     "points": 1
+    },
+    {
+     "text": "$2^n$ בחירות ל-$C$",
+     "points": 1
+    },
+    {
+     "text": "כלל המכפלה: $(n+1)\\cdot2^n$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לחבר $(n+1)+2^n$ במקום להכפיל: הבחירות בלתי תלויות.",
+    "לספור את האיברים האי-זוגיים כ-$n$ במקום $n+1$: בין $1$ ל-$2n+1$ יש $n+1$ אי-זוגיים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "עבור $n=6$ ($A=\\{1,\\dots,13\\}$): כמה איברים אי-זוגיים יש ב-$A$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "האי-זוגיים הם $1,3,\\dots,13$ ויש $n+1=7$ מהם (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $n=6$: כמה תתי-קבוצות יש לקבוצת האיברים הזוגיים?",
+     "answer": 64,
+     "tol": 0,
+     "explain": "יש $6$ זוגיים ולכן $2^6=64$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנוסחה לכל $n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{2n+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(n+1)+2^n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(n+1)\\cdot2^n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n\\cdot2^{n+1}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "עבור $n=6$ התוצאה הנכונה 448, שנספרה בסקריפט על כל $2^{13}$ תתי-הקבוצות; שאר הנוסחאות נותנות 8192, 71 ו-768."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   }
  ]
 }

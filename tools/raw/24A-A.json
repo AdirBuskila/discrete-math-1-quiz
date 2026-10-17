@@ -17,7 +17,75 @@
    "solution": "**הגדרה:** שני פסוקים נקראים שקולים לוגית אם יש להם אותה טבלת אמת.\nטבלת אמת (T = אמת, F = שקר):\n```\np q r | q∧r | p→(q∧r) | p→q | p→r | (p→q)∧(p→r)\nT T T |  T  |    T     |  T  |  T  |      T\nT T F |  F  |    F     |  T  |  F  |      F\nT F T |  F  |    F     |  F  |  T  |      F\nT F F |  F  |    F     |  F  |  F  |      F\nF T T |  T  |    T     |  T  |  T  |      T\nF T F |  F  |    T     |  T  |  T  |      T\nF F T |  F  |    T     |  T  |  T  |      T\nF F F |  F  |    T     |  T  |  T  |      T\n```\nשתי העמודות המודגשות ($p\\to(q\\wedge r)$ ו-$(p\\to q)\\wedge(p\\to r)$) זהות, ולכן הביטויים שקולים זה לזה.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "טבלת אמת מלאה עם כל 8 ההשמות של $p,q,r$",
+     "points": 3
+    },
+    {
+     "text": "חישוב עמודת $p\\to(q\\wedge r)$",
+     "points": 2
+    },
+    {
+     "text": "חישוב עמודת $(p\\to q)\\wedge(p\\to r)$",
+     "points": 2
+    },
+    {
+     "text": "השוואה: העמודות זהות ולכן הפסוקים שקולים",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לבדוק כמה השמות בלבד: שקילות דורשת זהות בכל 8 השורות.",
+    "לטעות בגרירה כשהמקדים שקר: $F\\to X$ תמיד אמת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 ההשמות של $p,q,r$ הפסוק $p\\to(q\\wedge r)$ מקבל אמת?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "הוא שקר רק כש-$p=T$ ו-$q\\wedge r=F$: שלוש ההשמות $TTF$, $TFT$, $TFF$ (לפי $p,q,r$). לכן הוא אמת ב-5 השמות (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בכמה מההשמות שבהן $p=T$ הפסוק $(p\\to q)\\wedge(p\\to r)$ מקבל אמת?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "כש-$p=T$ הגרירות שוות ל-$q$ ול-$r$, ולכן הצמד אמת רק ב-$q=r=T$: השמה אחת (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה המסקנה מהטבלה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הפסוקים אינם שקולים, כי בשורה $TTF$ ערכיהם שונים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפסוקים שקולים לוגית, כי שתי העמודות זהות בכל 8 השורות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הפסוקים אינם שקולים, כי הפסוק הראשון אינו טאוטולוגיה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הפסוקים שקולים רק אם שניהם טאוטולוגיות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בשורה $TTF$ שניהם שקר (ערכים שווים). שקילות היא זהות עמודות, ולא קשורה לכך שהפסוקים טאוטולוגיות (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +97,92 @@
    "solution": "**הגדרה:** תהי $A$ קבוצה כלשהי. נסמן ב-$P(A)$ את **קבוצת החזקה** של $A$, אשר איבריה הם כל תתי-הקבוצות של $A$. בסימול מתמטי: $P(A):=\\{B:\\ B\\subseteq A\\}$.\n$P(\\emptyset)=\\{\\emptyset\\}$\n$P(P(\\emptyset))=P(\\{\\emptyset\\})=\\{\\emptyset,\\{\\emptyset\\}\\}$\n$$P(P(P(\\emptyset)))=P\\big(\\{\\emptyset,\\{\\emptyset\\}\\}\\big)=\\big\\{\\emptyset,\\{\\emptyset\\},\\{\\{\\emptyset\\}\\},\\{\\emptyset,\\{\\emptyset\\}\\}\\big\\}$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$P(\\emptyset)=\\{\\emptyset\\}$",
+     "points": 2
+    },
+    {
+     "text": "$P(P(\\emptyset))=\\{\\emptyset,\\{\\emptyset\\}\\}$",
+     "points": 2
+    },
+    {
+     "text": "$P(P(P(\\emptyset)))$ עם כל ארבע תתי-הקבוצות של $\\{\\emptyset,\\{\\emptyset\\}\\}$",
+     "points": 4
+    }
+   ],
+   "pitfalls": [
+    "לשכוח את הקבוצה הריקה ואת הקבוצה כולה בקבוצת החזקה.",
+    "לבלבל בין $\\emptyset$ ל-$\\{\\emptyset\\}$: הראשונה אינה מכילה איברים והשנייה מכילה איבר אחד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי $P(P(\\emptyset))$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{\\emptyset\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\emptyset$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{\\emptyset,\\{\\emptyset\\}\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{\\{\\emptyset\\}\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$P(\\emptyset)=\\{\\emptyset\\}$ ולכן $P(P(\\emptyset))=P(\\{\\emptyset\\})$ כולל גם את $\\emptyset$ וגם את $\\{\\emptyset\\}$ (נבדק בסקריפט עם קבוצות)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$P(P(P(\\emptyset)))$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "ל-$P(P(\\emptyset))$ יש 2 איברים ולכן ל-$P$ שלה $2^2=4$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי $P(P(P(\\emptyset)))$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{\\emptyset,\\{\\emptyset\\},\\{\\{\\emptyset\\}\\},\\{\\emptyset,\\{\\emptyset\\}\\}\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{\\{\\emptyset\\},\\{\\{\\emptyset\\}\\},\\{\\emptyset,\\{\\emptyset\\}\\}\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{\\emptyset,\\{\\emptyset\\},\\{\\emptyset,\\{\\emptyset\\}\\}\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{\\emptyset,\\{\\emptyset\\},\\{\\{\\emptyset\\}\\}\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "נדרשות כל ארבע תתי-הקבוצות של $\\{\\emptyset,\\{\\emptyset\\}\\}$. בשאר האפשרויות חסרה לפחות אחת (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +194,91 @@
    "solution": "**הגדרה:** תהי $f:B\\to A$ פונקציה. $f$ תקרא חח״ע אם״ם: $\\forall x_1,x_2\\in B:\\ f(x_1)=f(x_2)\\Rightarrow x_1=x_2$.\nיהיו $x_1,x_2\\in\\mathbb{R}$ כך ש-$f(x_1)=f(x_2)$. אז:\n$$(x_1)^3=(x_2)^3\\ \\Rightarrow\\ \\sqrt[3]{(x_1)^3}=\\sqrt[3]{(x_2)^3}\\ \\Rightarrow\\ x_1=x_2$$\nלכן $f$ היא חח״ע.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הגדרת חח״ע: $f(x_1)=f(x_2)\\Rightarrow x_1=x_2$",
+     "points": 2
+    },
+    {
+     "text": "הנחת $f(x_1)=f(x_2)$ וכתיבה $(x_1)^3=(x_2)^3$",
+     "points": 2
+    },
+    {
+     "text": "הוצאת שורש שלישי, ללא תלות בסימן",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: $f$ חח״ע",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להוציא שורש ריבועי ולשכוח את הסימן: $x^2=y^2$ אינו גורר $x=y$.",
+    "לבדוק מספר ערכים בלבד במקום להוכיח לכל $x_1,x_2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה הפתרון הרשמי מניח בתחילת ההוכחה שפונקציה חח״ע?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f(x_1)=f(x_2)$, ואז מראה $x_1=x_2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x_1=x_2$, ואז מראה $f(x_1)=f(x_2)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x_1\\ne x_2$, ואז מראה $f(x_1)=f(x_2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "נבחר $y$ ומחפשים $x$ עם $f(x)=y$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "זו ההגדרה של חח״ע. ההנחה $x_1=x_2$ נותנת רק שהפונקציה מוגדרת היטב; בחירת $y$ שייכת להוכחת ״על״."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\sqrt[3]{(-3)^3}$?",
+     "answer": -3,
+     "tol": 0,
+     "explain": "שורש שלישי מוגדר גם למספרים שליליים, ו-$\\sqrt[3]{(-3)^3}=-3$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "יהיו $x_1,x_2\\in\\mathbb{R}$ כך ש-$f(x_1)=f(x_2)$.",
+      "אז $(x_1)^3=(x_2)^3$.",
+      "נוציא שורש שלישי (מוגדר ויחיד על כל $\\mathbb{R}$): $x_1=x_2$.",
+      "לכן $f$ חח״ע."
+     ],
+     "explain": "הנחת שוויון, העלאה בחזקה, שורש שלישי, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "יהיו $x_1,x_2\\in\\mathbb{R}$ כך ש-$f(x_1)=f(x_2)$.",
+      "אז $(x_1)^3=(x_2)^3$.",
+      "נעלה בחזקה שישית: $(x_1)^6=(x_2)^6$, ולכן $x_1=x_2$.",
+      "לכן $f$ חח״ע."
+     ],
+     "bugIndex": 2,
+     "explain": "$x^6=y^6$ אינו גורר $x=y$: $1^6=(-1)^6$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +290,102 @@
    "solution": "נסמן $P(n):\\ (2n+1)+(2n+3)+(2n+5)+\\dots+(4n-1)=3n^2$.\n**1. בסיס האינדוקציה:** נבדוק את הטענה עבור $P(1)$: $(2\\cdot 1+1)=3=3\\cdot 1^2\\Rightarrow P(1)\\equiv T$.\n**2. שלב האינדוקציה:** $\\forall 1\\le k\\in\\mathbb{N}$: $P(k)\\equiv T\\Rightarrow P(k+1)\\equiv T$. נוכיח כי:\n$P(k):\\ (2k+1)+(2k+3)+(2k+5)+\\dots+(4k-1)=3k^2$\n$P(k+1):\\ (2k+3)+(2k+5)+(2k+7)+\\dots+(4k+3)=3(k+1)^2$\n$$(2k+3)+(2k+5)+(2k+7)+\\dots+(4k+3)=(2k+1)+(2k+3)+(2k+5)+(2k+7)+\\dots+(4k-1)+(4k+1)+(4k+3)-(2k+1)$$\n$$=3k^2+(4k+1)+(4k+3)-(2k+1)=3k^2+6k+3=3(k^2+2k+1)=3(k+1)^2\\Rightarrow P(k+1)\\equiv T$$\nמסקנה: 1 ו-2 מתקיימים, לכן לפי משפט האינדוקציה המתמטית $\\forall 1\\le n\\in\\mathbb{N}:\\ P(n)\\equiv T$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בסיס: $P(1)$, כלומר $3=3\\cdot1^2$",
+     "points": 2
+    },
+    {
+     "text": "ניסוח $P(k)$ ו-$P(k+1)$ (האיבר הראשון של $P(k+1)$ הוא $2k+3$ והאחרון $4k+3$)",
+     "points": 2
+    },
+    {
+     "text": "כתיבת סכום $P(k+1)$ באמצעות סכום $P(k)$: הוספת $(4k+1)+(4k+3)$ והחסרת $2k+1$",
+     "points": 3
+    },
+    {
+     "text": "שימוש בהנחה והאלגברה $3k^2+6k+3=3(k+1)^2$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לשכוח שבסכום של $P(k+1)$ האיבר הראשון הוא $2k+3$ ולא $2k+1$.",
+    "לספור לא נכון את האיברים הנוספים בסוף: $4k+1$ ו-$4k+3$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת הטענה לכל $1\\le n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "בדיקת $n=1,2,3,4$ בלבד"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה מתמטית"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ספירה קומבינטורית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "טבלת אמת"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפתרון מבסס $P(1)$ ואז מראה $P(k)\\Rightarrow P(k+1)$. בדיקת כמה ערכים אינה הוכחה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הסכום $(2n+1)+(2n+3)+\\dots+(4n-1)$ עבור $n=4$?",
+     "answer": 48,
+     "tol": 0,
+     "explain": "$9+11+13+15=48=3\\cdot4^2$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בצעד: $(4k+1)+(4k+3)-(2k+1)=ak+3$. מהו $a$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$4k+4k-2k=6k$ והקבוע $1+3-1=3$ (נבדק בסקריפט עם sympy)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "$(2k+3)+\\dots+(4k+3)=\\big[(2k+1)+(2k+3)+\\dots+(4k-1)\\big]+(4k+1)+(4k+3)-(2k+1)$",
+      "$=3k^2+(4k+1)+(4k+3)-(2k+1)$ (הנחת האינדוקציה)",
+      "$=3k^2+6k+3=3(k+1)^2$",
+      "לכן $P(k+1)\\equiv T$."
+     ],
+     "explain": "פירוק הסכום לפי $P(k)$, הצבת ההנחה, אלגברה, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$(2k+3)+\\dots+(4k+3)=\\big[(2k+1)+(2k+3)+\\dots+(4k-1)\\big]+(4k+1)+(4k+3)-(2k+1)$",
+      "$=3k^2+(4k+1)+(4k+3)-(2k+1)$ (הנחת האינדוקציה)",
+      "$=3k^2+4k+3=3(k+1)^2$",
+      "לכן $P(k+1)\\equiv T$."
+     ],
+     "bugIndex": 2,
+     "explain": "$3k^2+6k+3=3(k+1)^2$, בעוד ש-$3k^2+4k+3\\ne3(k+1)^2$ (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +397,71 @@
    "solution": "הטבלה של האלגוריתם המורחב (בכל שורה: $d$ הוא ה-gcd, ו-$x\\leftarrow y'$ ו-$y\\leftarrow x'-y'\\cdot\\lfloor a/b\\rfloor$ מחושבים מהשורה שמתחת):\n```\n  a    b    floor(a/b)   d    x    y\n  25   40        0        5   -3    2\n  40   25        1        5    2   -3\n  25   15        1        5   -1    2\n  15   10        1        5    1   -1\n  10    5        2        5    0    1\n   5    0       --        5    1    0\n```\n$$\\gcd(25,40)=5=25\\cdot(-3)+40\\cdot 2$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "שלבי החילוק של Euclid: $40=1\\cdot25+15$, $25=1\\cdot15+10$, $15=1\\cdot10+5$, $10=2\\cdot5$",
+     "points": 4
+    },
+    {
+     "text": "$\\gcd(25,40)=5$",
+     "points": 1
+    },
+    {
+     "text": "הצבה לאחור: $5=15-10=15-(25-15)=2\\cdot15-25=2(40-25)-25=2\\cdot40-3\\cdot25$",
+     "points": 3
+    }
+   ],
+   "pitfalls": [
+    "להחליף בין $x$ ל-$y$ בסוף ההצבה לאחור.",
+    "לעצור אחרי ה-gcd בלי להפיק את $x,y$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית בחילוק $40$ ב-$25$?",
+     "answer": 15,
+     "tol": 0,
+     "explain": "$40=1\\cdot25+15$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(25,40)$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "השארית האחרונה השונה מאפס היא $5$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x,y)$ מקיים $25x+40y=5$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(x,y)=(-3,2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(x,y)=(2,-3)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(x,y)=(3,-2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(x,y)=(-3,-2)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$25\\cdot(-3)+40\\cdot2=5$. בשאר הזוגות מתקבלים $-70$, $-5$ ו-$-155$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +473,88 @@
    "solution": "**(1)** $R_1\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}$, $R_1=\\{(1,1),(2,2),(3,3)\\}$.\n**(2)** $R_2\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}$, $R_2=\\{(1,1),(2,2),(3,3),(1,2),(2,3),(1,3)\\}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) דוגמה ליחס שקילות על $\\{1,2,3\\}$ והסבר: רפלקסיבי, סימטרי וטרנזיטיבי",
+     "points": 3
+    },
+    {
+     "text": "(2) דוגמה ליחס סדר מלא על $\\{1,2,3\\}$ והסבר: רפלקסיבי, אנטי-סימטרי, טרנזיטיבי וכל שני איברים ברי-השוואה",
+     "points": 3
+    }
+   ],
+   "pitfalls": [
+    "לתת יחס שאינו רפלקסיבי (חסר זוג מהצורה $(a,a)$).",
+    "לתת כיחס סדר מלא יחס שבו שני איברים אינם ברי-השוואה, למשל בלי הזוג $(1,3)$ או $(3,1)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מהיחסים הבאים על $\\{1,2,3\\}$ הוא יחס שקילות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3)\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(1,2)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2),(2,3)\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "יחס הזהות רפלקסיבי, סימטרי וטרנזיטיבי. היחס בלי $(3,3)$ אינו רפלקסיבי, ושני היחסים שבהם $(1,2)$ מופיע בלי $(2,1)$ אינם סימטריים (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה מהיחסים הבאים על $\\{1,2,3\\}$ הוא יחס סדר מלא?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2),(2,3),(1,3)\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2),(2,1),(1,3),(3,1),(2,3),(3,2)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2),(2,3)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(3,3),(1,2),(1,3)\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "היחס הנכון רפלקסיבי, אנטי-סימטרי, טרנזיטיבי וכל זוג בר-השוואה. היחס עם כל תשעת הזוגות אינו אנטי-סימטרי, היחס עם $(1,2),(2,3)$ בלי $(1,3)$ אינו טרנזיטיבי, והיחס עם $(1,2),(1,3)$ אינו מלא כי $2,3$ אינם ברי-השוואה (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש בכל יחס סדר מלא על $\\{1,2,3\\}$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "3 זוגות רפלקסיביים ועוד זוג אחד לכל אחד מ-3 צמדי האיברים: 6, בכל אחד מ-6 הסדרים (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +566,95 @@
    "solution": "מתקיים:\n$$(A\\setminus B)\\cup(A\\setminus C)=(A\\cap B^c)\\cup(A\\cap C^c)=A\\cap(B^c\\cup C^c)=A\\cap(B\\cap C)^c=A\\setminus(B\\cap C)$$\nולכן הקביעה נכונה.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה נכונה",
+     "points": 1
+    },
+    {
+     "text": "כתיבת ההפרש כחיתוך עם המשלים: $A\\setminus B=A\\cap B^c$",
+     "points": 3
+    },
+    {
+     "text": "הוצאת $A$ כגורם משותף (פילוג)",
+     "points": 3
+    },
+    {
+     "text": "De Morgan: $B^c\\cup C^c=(B\\cap C)^c$",
+     "points": 2
+    },
+    {
+     "text": "חזרה להפרש: $A\\cap(B\\cap C)^c=A\\setminus(B\\cap C)$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לבלבל ב-De Morgan: $(B\\cap C)^c=B^c\\cup C^c$ ולא $B^c\\cap C^c$.",
+    "לחשוב שהטענה שקרית לפי דוגמה אחת שבה מתקבל שוויון בטעות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה ערך האמת של הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הטענה נכונה לכל שלוש קבוצות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הטענה שקרית: דוגמה נגדית $A=\\{1\\}$, $B=\\{1\\}$, $C=\\{2\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הטענה נכונה רק אם $A\\subseteq B\\cap C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הטענה שקרית כי אגף שמאל תמיד מוכל ממש באגף ימין"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בדוגמה המוצעת שני האגפים שווים ל-$\\{1\\}$; ובכל השלשות של תתי-קבוצות מעל 3 איברים האגפים שווים (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2,3\\}$, $B=\\{2,3\\}$, $C=\\{3,4\\}$: כמה איברים יש ב-$A\\setminus(B\\cap C)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$B\\cap C=\\{3\\}$ ולכן $A\\setminus\\{3\\}=\\{1,2\\}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הפתרון.",
+     "lines": [
+      "$(A\\setminus B)\\cup(A\\setminus C)=(A\\cap B^c)\\cup(A\\cap C^c)$",
+      "$=A\\cap(B^c\\cup C^c)$ (פילוג)",
+      "$=A\\cap(B\\cap C)^c$ (De Morgan)",
+      "$=A\\setminus(B\\cap C)$"
+     ],
+     "explain": "הצגה כחיתוך עם משלים, פילוג, De Morgan, חזרה להפרש."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$(A\\setminus B)\\cup(A\\setminus C)=(A\\cap B^c)\\cup(A\\cap C^c)$",
+      "$=A\\cap(B^c\\cup C^c)$ (פילוג)",
+      "$=A\\cap(B\\cup C)^c$ (De Morgan)",
+      "$=A\\setminus(B\\cap C)$"
+     ],
+     "bugIndex": 2,
+     "explain": "$B^c\\cup C^c=(B\\cap C)^c$ ולא $(B\\cup C)^c$ (נבדק בסקריפט על כל התת-קבוצות)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +666,91 @@
    "solution": "ראשית, צורת ה-contrapositive של הפסוק אותו אנו רוצים להוכיח היא:\n$$(\\exists k_1\\in\\mathbb{Z}:\\ x=2k_1+1)\\wedge(\\exists k_2\\in\\mathbb{Z}:\\ y=2k_2+1)\\to(\\exists k_3\\in\\mathbb{Z}:\\ xy=2k_3+1)$$\nנניח ש-$x=2k_1+1$ ו-$y=2k_2+1$. אזי:\n$$xy=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1=2(2k_1k_2+k_1+k_2)+1=2k_3+1$$\nכאשר $k_3=2k_1k_2+k_1+k_2$. בזאת הוכחה הגרירה.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "ניסוח ה-contrapositive: $x,y$ אי-זוגיים $\\Rightarrow xy$ אי-זוגי",
+     "points": 2
+    },
+    {
+     "text": "הצגת $x=2k_1+1$ ו-$y=2k_2+1$",
+     "points": 1
+    },
+    {
+     "text": "פתיחת סוגריים והוצאת 2 כגורם",
+     "points": 2
+    },
+    {
+     "text": "מסקנה שהמכפלה אי-זוגית",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "להוכיח את הכיוון ההפוך ($xy$ זוגי $\\Rightarrow$ אחד זוגי) ישירות במקום ה-contrapositive.",
+    "לשלול ״לפחות אחד זוגי״ כ״אחד אי-זוגי״: השלילה היא ששניהם אי-זוגיים."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו ה-contrapositive של ״אם $xy$ זוגי אז $x$ או $y$ זוגי״?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $x$ ו-$y$ שניהם אי-זוגיים, אז $xy$ אי-זוגי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $x$ ו-$y$ שניהם אי-זוגיים, אז $xy$ זוגי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $xy$ אי-זוגי, אז $x$ או $y$ זוגי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $x$ או $y$ זוגי, אז $xy$ אי-זוגי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שלילת ״$x$ או $y$ זוגי״ היא ששניהם אי-זוגיים, ושלילת ״$xy$ זוגי״ היא ש-$xy$ אי-זוגי. שלוש האחרות שקריות (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $x=3$ ($k_1=1$) ו-$y=5$ ($k_2=2$): מהו $k_3=2k_1k_2+k_1+k_2$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$2\\cdot2+1+2=7$ ולכן $xy=15=2\\cdot7+1$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נניח $x=2k_1+1$ ו-$y=2k_2+1$ עם $k_1,k_2\\in\\mathbb{Z}$.",
+      "$xy=(2k_1+1)(2k_2+1)=4k_1k_2+2k_1+2k_2+1$.",
+      "$=2(2k_1k_2+k_1+k_2)+1=2k_3+1$ עבור $k_3=2k_1k_2+k_1+k_2\\in\\mathbb{Z}$.",
+      "לכן $xy$ אי-זוגי."
+     ],
+     "explain": "הצגה, פתיחת סוגריים, הוצאת 2, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $x=2k_1+1$ ו-$y=2k_2+1$ עם $k_1,k_2\\in\\mathbb{Z}$.",
+      "$xy=(2k_1+1)(2k_2+1)=2k_1k_2+2k_1+2k_2+1$.",
+      "$=2(2k_1k_2+k_1+k_2)+1=2k_3+1$ עבור $k_3=2k_1k_2+k_1+k_2\\in\\mathbb{Z}$.",
+      "לכן $xy$ אי-זוגי."
+     ],
+     "bugIndex": 1,
+     "explain": "האיבר הראשון הוא $4k_1k_2$ ולא $2k_1k_2$ (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +762,91 @@
    "solution": "כיוון ש-31 הוא ראשוני, לפי משפט וילסון $31\\mid(30!+1)$. בנוסף, מתקיים\n$$100^{150}-1=(100^5)^{30}-1=(10^{10})^{30}-1$$\nולפי המשפט הקטן של פרמה, מכיוון ש-$\\gcd(10^{10},31)=1$ מתקיים $31\\mid\\big((10^{10})^{30}-1\\big)$, כלומר $31\\mid(100^{150}-1)$.\nמכאן:\n$$\\big(31\\mid(30!+1)\\big)\\wedge\\big(31\\mid(100^{150}-1)\\big)\\Rightarrow 31\\mid\\gcd(30!+1,\\ 100^{150}-1)$$\n$$\\Rightarrow 31\\le\\gcd(30!+1,\\ 100^{150}-1)\\Rightarrow 30\\le 31\\le\\gcd(30!+1,\\ 100^{150}-1)$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$31\\mid(30!+1)$ לפי וילסון",
+     "points": 3
+    },
+    {
+     "text": "כתיבת $100^{150}-1=(10^{10})^{30}-1$ ובדיקת $\\gcd(10^{10},31)=1$",
+     "points": 2
+    },
+    {
+     "text": "$31\\mid(100^{150}-1)$ לפי פרמה",
+     "points": 1
+    },
+    {
+     "text": "$31\\mid\\gcd$ ולכן $31\\le\\gcd$",
+     "points": 2
+    },
+    {
+     "text": "$30\\le31\\le\\gcd$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "להשתמש בווילסון על $30!$ במקום $30!+1$.",
+    "לנסות לחשב את ה-gcd ישירות: המספרים גדולים מדי, מספיק להראות מחלק משותף 31."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $30!$ בחלוקה ב-$31$?",
+     "answer": 30,
+     "tol": 0,
+     "explain": "לפי וילסון $30!\\equiv-1\\equiv30\\pmod{31}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $100^{150}$ בחלוקה ב-$31$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$100^{150}=(10^{10})^{30}\\equiv1\\pmod{31}$ לפי פרמה (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ראשוני מחלק את שני המספרים $30!+1$ ו-$100^{150}-1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$31$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$37$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$7$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$29$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$37$ ו-$7$ מחלקים את $100^{150}-1$ בלבד, ו-$29$ אינו מחלק אף אחד מהם (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "31 ראשוני, ולכן לפי וילסון $31\\mid(30!-1)$.",
+      "$100^{150}-1=(10^{10})^{30}-1$ ו-$\\gcd(10^{10},31)=1$, ולכן לפי פרמה $31\\mid(100^{150}-1)$.",
+      "31 מחלק משותף של שני המספרים, ולכן $31\\mid\\gcd$ ו-$31\\le\\gcd$.",
+      "מכאן $30\\le31\\le\\gcd(30!+1,100^{150}-1)$."
+     ],
+     "bugIndex": 0,
+     "explain": "וילסון נותן $30!\\equiv-1$, ולכן $31\\mid(30!+1)$ ולא $(30!-1)$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +858,95 @@
    "solution": "**רפלקסיביות:** $\\forall x\\in\\mathbb{Z},\\ 4\\mid 4x\\Rightarrow 4\\mid(x+3x)\\Rightarrow(x,x)\\in R$.\n**סימטריות:** $\\forall x,y\\in\\mathbb{Z}:\\ (x,y)\\in R\\Rightarrow 4\\mid(x+3y)\\Rightarrow 4\\mid(4x+4y-3x-y)$\n$\\Rightarrow 4\\mid\\big(4(x+y)+(-3x-y)\\big),\\ (x+y)\\in\\mathbb{Z}\\Rightarrow 4\\mid\\big(-(3x+y)\\big)\\Rightarrow 4\\mid(3x+y)\\Rightarrow(y,x)\\in R$.\n**טרנזיטיביות:** $\\forall x,y,z\\in\\mathbb{Z}:\\ (x,y)\\in R\\wedge(y,z)\\in R\\Rightarrow 4\\mid(x+3y)\\wedge 4\\mid(y+3z)$\n$\\Rightarrow 4\\mid\\big((x+3y)+(y+3z)\\big)\\Rightarrow 4\\mid\\big((x+3z)+4y\\big),\\ y\\in\\mathbb{Z}\\Rightarrow 4\\mid(x+3z)\\Rightarrow(x,z)\\in R$.\nמסקנה: $R$ הוא יחס רפלקסיבי, סימטרי וטרנזיטיבי ולכן הוא יחס שקילות.\nנחשב את מחלקות השקילות:\n$[0]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR0\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+0)\\}=\\{4k:\\ k\\in\\mathbb{Z}\\}$\n$[1]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR1\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+3)\\}=\\{4k-3:\\ k\\in\\mathbb{Z}\\}$\n$[2]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR2\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+6)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+4+2)\\}=\\{4k-2:\\ k\\in\\mathbb{Z}\\}$\n$[3]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR3\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+9)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 4\\mid(x+8+1)\\}=\\{4k-1:\\ k\\in\\mathbb{Z}\\}$\nמכיוון ש-$[0]\\cup[1]\\cup[2]\\cup[3]=\\mathbb{Z}$ אין עוד מחלקות שקילות. לכן $\\mathbb{Z}/R=\\{[0],[1],[2],[3]\\}$.\n$R$ אינו יחס סדר חלקי כי אינו אנטי-סימטרי לדוגמה: $(0,4)\\in R$ וגם $(4,0)\\in R$ אך $0\\ne 4$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $4\\mid4x=x+3x$",
+     "points": 2
+    },
+    {
+     "text": "סימטריות: $4\\mid(4x+4y)-(x+3y)=3x+y$",
+     "points": 3
+    },
+    {
+     "text": "טרנזיטיביות: חיבור $(x+3y)+(y+3z)=(x+3z)+4y$",
+     "points": 3
+    },
+    {
+     "text": "מחלקות השקילות $[0],[1],[2],[3]$ והוכחה שאין נוספות",
+     "points": 4
+    },
+    {
+     "text": "$R$ אינו סדר חלקי כי אינו אנטי-סימטרי: $0R4$ וגם $4R0$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להסיק סימטריה מכך ש-$x+3y$ ו-$3x+y$ ״דומים״ בלי להראות ש-$4\\mid(3x+y)$.",
+    "לחשוב ש-$R$ סדר חלקי כי הוא רפלקסיבי וטרנזיטיבי: חסרה אנטי-סימטריה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ל-$R$ ב-$\\mathbb{Z}$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$x+3y\\equiv x-y\\pmod4$, ולכן $xRy$ אם ורק אם $x\\equiv y\\pmod4$: 4 מחלקות (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח $(x,y)\\in R$ וגם $(y,z)\\in R$: $4\\mid(x+3y)$ וגם $4\\mid(y+3z)$.",
+      "$(x+3y)+(y+3z)=(x+3z)+4y$, ולכן $4\\mid(x+3z)+4y$.",
+      "מכיוון ש-$4\\mid4y$, נקבל $4\\mid(x+3z)$.",
+      "לכן $(x,z)\\in R$."
+     ],
+     "explain": "הנחת שני הקשרים, חיבור, שימוש ב-$4\\mid4y$, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $(x,y)\\in R$ וגם $(y,z)\\in R$: $4\\mid(x+3y)$ וגם $4\\mid(y+3z)$.",
+      "$(x+3y)+(y+3z)=(x+3z)+3y$, ולכן $4\\mid(x+3z)+3y$.",
+      "מכיוון ש-$4\\mid4y$, נקבל $4\\mid(x+3z)$.",
+      "לכן $(x,z)\\in R$."
+     ],
+     "bugIndex": 1,
+     "explain": "$(x+3y)+(y+3z)=x+4y+3z=(x+3z)+4y$ (נבדק בסקריפט עם sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ הוא יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי $R$ אינו אנטי-סימטרי: $0R4$ וגם $4R0$ אך $0\\ne4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן, כי הוא יחס שקילות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, כי $R$ אינו רפלקסיבי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי $R$ אינו טרנזיטיבי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$0R4$ כי $4\\mid(0+12)$ וגם $4R0$ כי $4\\mid(4+0)$, אך $0\\ne4$. ל-$R$ יש רפלקסיביות וטרנזיטיביות, ולכן הכשל היחיד הוא אנטי-סימטריה (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +958,92 @@
    "solution": "טבלת אמת (T = אמת, F = שקר):\n```\np q r | p∧q | ¬q | ¬q∨r | (p∧q)↔(¬q∨r)\nT T T |  T  |  F |   T   |       T\nT T F |  T  |  F |   F   |       F\nT F T |  F  |  T |   T   |       F\nT F F |  F  |  T |   T   |       F\nF T T |  F  |  F |   T   |       F\nF T F |  F  |  F |   F   |       T\nF F T |  F  |  T |   T   |       F\nF F F |  F  |  T |   T   |       F\n```\n$$\\mathrm{DNF}:\\ (p\\wedge q\\wedge r)\\vee(\\neg p\\wedge q\\wedge\\neg r)$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "טבלת אמת מלאה של $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי השורות שבהן הפסוק אמת",
+     "points": 1
+    },
+    {
+     "text": "בניית צמד קשרים (conjunction) לכל שורה כזו וחיבורם ב-$\\vee$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לבנות את ה-DNF מהשורות השקריות (זה ה-CNF).",
+    "ליצור את הצמדים עם ליטרלים בלי להפוך משתנים ששווים F בשורה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 השורות הפסוק $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$ אמת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "השורות $TTT$ ו-$FTF$ בלבד (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה צמד נבנה מהשורה $p=F,\\ q=T,\\ r=F$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\neg p\\wedge q\\wedge\\neg r$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\neg p\\vee q\\vee\\neg r$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p\\wedge\\neg q\\wedge r$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\neg p\\wedge\\neg q\\wedge\\neg r$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הצמד צריך להיות אמת בדיוק בשורה הזו, ולכן כל ליטרל מתאים לערכו. האפשרות עם $\\vee$ אינה צמד, ושתי האחרות אמיתות בשורות אחרות ($TFT$ ו-$FFF$), נבדק בסקריפט."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי צורת ה-DNF?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(p\\wedge q\\wedge r)\\wedge(\\neg p\\wedge q\\wedge\\neg r)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(p\\wedge q\\wedge r)\\vee(\\neg p\\wedge q\\wedge\\neg r)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(p\\wedge q\\wedge\\neg r)\\vee(\\neg p\\wedge q\\wedge r)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p\\wedge q\\wedge r$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "לכל שורה אמת נדרש צמד, והצמדים מחוברים ב-$\\vee$. בשאר האפשרויות הטבלה שונה (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -149,7 +1055,81 @@
    "solution": "עבור $p=2$ נקבל $p^3-1=7$ מספר ראשוני.\nעבור $p=3$ נקבל $p^3-1=26$ ואינו מספר ראשוני.\nעבור $p>3$: אזי $p=2q+1$ כאשר $1<q\\in\\mathbb{N}$.\n$$p^3-1=8q^3+12q^2+6q+1-1=2(4q^3+6q^2+3q)$$\nמכיוון ש-$1<4q^3+6q^2+3q\\in\\mathbb{N}$, למספר $p^3-1$ יש לפחות 3 מחלקים: $1,\\ 2,\\ p^3-1$, ולכן $p^3-1$ אינו מספר ראשוני.\nמסקנה: $p^3-1$ הוא ראשוני רק עבור $p=2$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$p=2$ נותן $7$ ראשוני, ו-$p=3$ נותן $26$ שאינו ראשוני",
+     "points": 1
+    },
+    {
+     "text": "עבור $p>3$: כתיבה $p=2q+1$ ופתיחה $p^3-1=2(4q^3+6q^2+3q)$",
+     "points": 2
+    },
+    {
+     "text": "זיהוי שהמספר זוגי עם גורם גדול מ-$1$, ולכן אינו ראשוני",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $p=2$ בלבד",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לשכוח את $p=2$ כי הוא ראשוני זוגי.",
+    "להסיק מכך ש-$p^3-1$ זוגי שהוא אינו ראשוני, בלי לוודא שהוא גדול מ-$2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מהראשוניים $p\\le50$ המספר $p^3-1$ ראשוני?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "רק $p=2$ נותן $7$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $p^3-1$ אינו ראשוני עבור ראשוני אי-זוגי $p$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הוא זוגי וגדול מ-$2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הוא מתחלק ב-$p$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוא מתחלק ב-$3$ לכל $p$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הוא ריבוע שלם"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$p^3-1\\equiv-1\\pmod p$ ולכן $p\\nmid p^3-1$; עבור $p=5$ מקבלים $124$ שאינו מתחלק ב-$3$; עבור $p=3$ מקבלים $26$ שאינו ריבוע (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$p=2$: $p^3-1=7$ ראשוני.",
+      "$p=3$: $p^3-1=26$ אינו ראשוני.",
+      "$p>3$: $p=2q+1$ עם $1<q\\in\\mathbb{N}$, ולכן $p^3-1=8q^3+12q^2+6q=2(4q^3+6q^2+3q+1)$.",
+      "$4q^3+6q^2+3q>1$, ולכן ל-$p^3-1$ יש מחלקים נוספים מעבר ל-$1$ ולעצמו, והוא אינו ראשוני.",
+      "מסקנה: $p^3-1$ ראשוני רק עבור $p=2$."
+     ],
+     "bugIndex": 2,
+     "explain": "$(2q+1)^3-1=8q^3+12q^2+6q=2(4q^3+6q^2+3q)$, ללא ה-$+1$ בסוגריים (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   }
  ]
 }

@@ -17,7 +17,96 @@
    "solution": "טבלת אמת (T = אמת, F = שקר):\n```\np q r | ¬q | p∨¬q | (p∨¬q)→r\nT T T |  F |   T  |    T\nT T F |  F |   T  |    F\nT F T |  T |   T  |    T\nT F F |  T |   T  |    F\nF T T |  F |   F  |    T\nF T F |  F |   F  |    T\nF F T |  T |   T  |    T\nF F F |  T |   T  |    F\n```\nצורת ה-CNF (מכפלה של פסוקיות, אחת לכל שורה שבה הפסוק שקר) היא:\n$$(\\neg p\\vee\\neg q\\vee r)\\wedge(\\neg p\\vee q\\vee r)\\wedge(p\\vee q\\vee r)$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "טבלת אמת מלאה עם כל 8 ההשמות של $p,q,r$",
+     "points": 4
+    },
+    {
+     "text": "זיהוי השורות שבהן $(p\\vee\\neg q)\\to r$ שקר",
+     "points": 2
+    },
+    {
+     "text": "בניית פסוקית לכל שורה כזו, שבה כל משתנה מופיע בשלילת ערכו בשורה",
+     "points": 2
+    },
+    {
+     "text": "חיבור הפסוקיות ב-$\\wedge$ לצורת CNF",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לבנות פסוקית מהשורות שבהן הפסוק אמת (זה ה-DNF) במקום מהשורות שבהן הוא שקר.",
+    "לא להפוך את הליטרלים: בפסוקית של שורה שקרית כל משתנה מופיע בשלילת ערכו באותה שורה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 השורות הפסוק $(p\\vee\\neg q)\\to r$ שקר?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "הגרירה שקרית כשהמקדים $p\\vee\\neg q$ אמת ו-$r=F$: השורות $TTF$, $TFF$, $FFF$ (לפי $p,q,r$), כלומר 3 שורות (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו פסוקית נבנית מהשורה $p=T,\\ q=T,\\ r=F$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p\\vee q\\vee\\neg r$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\neg p\\vee\\neg q\\vee r$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p\\wedge q\\wedge\\neg r$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\neg p\\wedge\\neg q\\wedge r$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. שתי האפשרויות עם $\\wedge$ אינן פסוקיות, והפסוקית $p\\vee q\\vee\\neg r$ אמת בשורה הזו (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי צורת ה-CNF של הפסוק?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(p\\vee q\\vee\\neg r)\\wedge(p\\vee\\neg q\\vee\\neg r)\\wedge(\\neg p\\vee\\neg q\\vee\\neg r)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(\\neg p\\wedge\\neg q\\wedge r)\\vee(\\neg p\\wedge q\\wedge r)\\vee(p\\wedge q\\wedge r)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(\\neg p\\vee\\neg q\\vee r)\\wedge(\\neg p\\vee q\\vee r)\\wedge(p\\vee q\\vee r)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(\\neg p\\vee\\neg q\\vee r)\\wedge(\\neg p\\vee q\\vee r)$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "נדרשת פסוקית לכל אחת משלוש השורות השקריות ($TTF$, $TFF$, $FFF$). לכל אחת מהאפשרויות האחרות טבלת אמת שונה (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +118,75 @@
    "solution": "$B$ מקיימת את התנאי אם ורק אם $\\{1,2\\}\\subseteq B\\wedge B\\subseteq A$. לכן הצורה של $B$ היא: $B=\\{1,2\\}\\cup C$, כאשר $C\\subseteq\\{3,4,\\dots,10\\}$.\nלכן מספר תתי-הקבוצות הוא $2^{|\\{3,4,\\dots,10\\}|}=|P(\\{3,4,\\dots,10\\})|=2^8=256$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "זיהוי שהתנאי $\\{1,2\\}\\subseteq B$ פירושו $B=\\{1,2\\}\\cup C$",
+     "points": 3
+    },
+    {
+     "text": "$C$ היא תת-קבוצה כלשהי של $\\{3,4,\\dots,10\\}$, שבה 8 איברים",
+     "points": 2
+    },
+    {
+     "text": "מספר תתי-הקבוצות $2^8$",
+     "points": 2
+    },
+    {
+     "text": "התוצאה $256$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לספור $2^{10}$ תתי-קבוצות: שני האיברים $1,2$ מקובעים ולא חופשיים.",
+    "לספור $2^{10-2}-1$ או להחסיר את הקבוצה הריקה: $C=\\emptyset$ מותרת."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך נראית כל $B\\subseteq A$ המקיימת $\\{1,2\\}\\subseteq B$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$B=\\{1,2\\}\\cup C$ עם $C\\subseteq\\{3,4,\\dots,10\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$B=C-\\{1,2\\}$ עם $C\\subseteq A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$B=\\{1,2\\}\\cap C$ עם $C\\subseteq A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$B\\subseteq\\{3,4,\\dots,10\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$1,2$ חייבים להיות ב-$B$ ושאר 8 האיברים חופשיים. בשאר האפשרויות $1,2\\notin B$ או ש-$B$ קטנה מדי (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש בקבוצה $\\{3,4,\\dots,10\\}$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "מ-3 עד 10 יש 8 מספרים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תתי-קבוצות $B$ של $A$ מקיימות $\\{1,2\\}\\subseteq B$?",
+     "answer": 256,
+     "tol": 0,
+     "explain": "$2^8=256$, כמספר תתי-הקבוצות של $\\{3,\\dots,10\\}$ (נבדק בספירה ישירה על כל $2^{10}$ התתי-קבוצות)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +198,75 @@
    "solution": "נחשב: $f(1)=\\gcd(12,1)=1$, $f(2)=\\gcd(12,2)=2$, $f(3)=\\gcd(12,3)=3$, $f(4)=\\gcd(12,4)=4$, $\\gcd(12,6)=6=f(6)$, $\\gcd(12,12)=12=f(12)$.\nלכן עבור $A=\\{1,2,3,4,6,12\\}$, קבוצת המחלקים של 12, הפונקציה $f:\\mathbb{N}^*\\to A$ היא על.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "חישוב ערכי $f$ על המחלקים: $f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4$",
+     "points": 2
+    },
+    {
+     "text": "כל ערך של $f$ מחלק את $12$, ולכן התמונה מוכלת בקבוצת המחלקים",
+     "points": 2
+    },
+    {
+     "text": "כל מחלק של $12$ הוא ערך: $f(6)=6$ ו-$f(12)=12$",
+     "points": 2
+    },
+    {
+     "text": "בחירת $A=\\{1,2,3,4,6,12\\}$ ולכן $f$ על",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לבחור $A=\\mathbb{N}^*$: $f$ אינה על כי $5$ אינו ערך.",
+    "לשכוח את $12$ או את $6$ ב-$A$, ולכן $f$ אינה על."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(8)=\\gcd(12,8)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$\\gcd(12,8)=4$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה ערכים שונים מקבלת $f$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "הערכים הם בדיוק מחלקי 12: $1,2,3,4,6,12$ (נבדק בסקריפט על $x\\le2000$)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה $A$ הופכת את $f$ לעל?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$A=\\{1,2,3,4,5,6,12\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$A=\\{1,2,3,4,6\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$A=\\{1,2,3,4,6,12\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$A=\\{1,2,3,4,5,6,7,8,9,10,11,12\\}$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "על פירושו שכל איבר של $A$ הוא ערך. $5$ אינו ערך של $f$, ו-$12$ חייב להיות ב-$A$ כי הוא ערך (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +278,95 @@
    "solution": "נסמן $P(n):\\ 11\\mid(23^n-1)$.\n**I. בסיס:** $P(1)$: $11\\mid(23^1-1)\\iff 11\\mid 22\\Rightarrow\\text{TRUE}$.\n**II. צעד:** $P(k)=\\text{TRUE}\\Rightarrow P(k+1)=\\text{TRUE}$ עבור $1\\le k\\in\\mathbb{N}$.\n$P(k):\\ 11\\mid(23^k-1)$, $\\quad P(k+1):\\ 11\\mid(23^{k+1}-1)$.\n$$23^{k+1}-1=23\\cdot 23^k-1=23\\cdot 23^k-23+22=23\\,(23^k-1)+2\\cdot 11$$\nהמחובר הראשון מתחלק ב-11 לפי הנחת האינדוקציה, והמחובר השני $2\\cdot 11$ מתחלק ב-11. לכן $11\\mid(23^{k+1}-1)$, כלומר $P(k+1)=\\text{TRUE}$.\nמסקנה: מ-I ו-II, לכל $1\\le n\\in\\mathbb{N}$ מתקיים $P(n)=\\text{TRUE}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בסיס: $P(1)$, כלומר $11\\mid22$",
+     "points": 3
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $11\\mid(23^k-1)$ והטענה $P(k+1)$",
+     "points": 2
+    },
+    {
+     "text": "פירוק $23^{k+1}-1=23(23^k-1)+22$",
+     "points": 4
+    },
+    {
+     "text": "שימוש בהנחה וחלוקה ב-$11$ של שני המחוברים",
+     "points": 1
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לא להשתמש בהנחה $11\\mid(23^k-1)$ ולבדוק רק ערכים בודדים של $n$.",
+    "לפרק $23^{k+1}-1=23(23^k-1)+1$ בטעות: הקבוע הוא $22$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת $11\\mid(23^n-1)$ לכל $1\\le n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה מתמטית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בדיקת $n=1,2,3$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ספירה קומבינטורית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "חישוב $23^n-1$ המפורש לכל $n$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מראה צעד $P(k)\\Rightarrow P(k+1)$. בדיקת כמה ערכים אינה הוכחה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $23^2-1$?",
+     "answer": 528,
+     "tol": 0,
+     "explain": "$23^2=529$ ולכן $528=23\\cdot22+22=11\\cdot48$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "$23^{k+1}-1=23\\cdot23^k-1$",
+      "$=23\\cdot23^k-23+22$",
+      "$=23(23^k-1)+2\\cdot11$",
+      "המחובר הראשון מתחלק ב-$11$ לפי הנחת האינדוקציה, והמחובר $2\\cdot11$ מתחלק ב-$11$, ולכן $11\\mid(23^{k+1}-1)$."
+     ],
+     "explain": "פתיחת החזקה, הוספה והחסרה של 23, הוצאת $23^k-1$ כגורם, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בצעד האינדוקציה שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$23^{k+1}-1=23\\cdot23^k-1$",
+      "$=23\\cdot23^k-23+22$",
+      "$=23(23^k-1)+3\\cdot11$",
+      "המחובר הראשון מתחלק ב-$11$ לפי הנחת האינדוקציה, והמחובר $2\\cdot11$ מתחלק ב-$11$, ולכן $11\\mid(23^{k+1}-1)$."
+     ],
+     "bugIndex": 2,
+     "explain": "$23\\cdot23^k-23+22=23(23^k-1)+22$, כלומר $+2\\cdot11$ ולא $+3\\cdot11$ (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +378,82 @@
    "solution": "$|A|=100\\Rightarrow|P(A)|=2^{100}$.\n$B\\cup C=\\{1,5,\\dots,5^9,7,7^2,\\dots,7^9\\}\\Rightarrow|B\\cup C|=19\\Rightarrow|P(B\\cup C)|=2^{19}$.\n$$|P(A)\\times P(B\\cup C)|=|P(A)|\\cdot|P(B\\cup C)|=2^{100}\\cdot 2^{19}=2^{119}$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "$|A|=100$ ולכן $|P(A)|=2^{100}$",
+     "points": 1
+    },
+    {
+     "text": "$B\\cup C$ כולל 19 איברים, ולכן $|P(B\\cup C)|=2^{19}$",
+     "points": 2
+    },
+    {
+     "text": "גודל מכפלה קרטזית של קבוצות הוא מכפלת הגדלים",
+     "points": 1
+    },
+    {
+     "text": "$2^{100}\\cdot2^{19}=2^{119}$",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לספור $|B\\cup C|=20$: המספר $1=5^0=7^0$ משותף ל-$B$ ול-$C$ ונספר פעם אחת.",
+    "לחבר $2^{100}+2^{19}$ במקום לכפול: בחישוב $|X\\times Y|$ מכפילים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$A=\\{5^n7^m:\\ m,n\\in\\{0,\\dots,9\\}\\}$?",
+     "answer": 100,
+     "tol": 0,
+     "explain": "כל זוג $(n,m)$ נותן מספר שונה (יחידות הפירוק לראשוניים), ולכן $10\\cdot10=100$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע $|B\\cup C|=19$ ולא $20$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $5^0=7^0=1$ שייך לשתי הקבוצות ונספר פעם אחת"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $5^9$ אינו ב-$B$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $B$ ו-$C$ זרות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $7^0=0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|B|=|C|=10$ והחיתוך הוא $\\{1\\}$, ולכן $10+10-1=19$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$B\\cup C$?",
+     "answer": 19,
+     "tol": 0,
+     "explain": "$10+10-|B\\cap C|=19$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "$|P(A)\\times P(B\\cup C)|=2^k$. מהו $k$?",
+     "answer": 119,
+     "tol": 0,
+     "explain": "$k=100+19$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +465,91 @@
    "solution": "**רפלקסיביות:** לכל $B\\in P(A)$ מתקיים $B\\cap\\{1\\}=B\\cap\\{1\\}$, ולכן $BRB$.\n**סימטריות:** $BRC\\iff B\\cap\\{1\\}=C\\cap\\{1\\}\\Rightarrow C\\cap\\{1\\}=B\\cap\\{1\\}\\Rightarrow CRB$.\n**טרנזיטיביות:** $BRC\\iff B\\cap\\{1\\}=C\\cap\\{1\\}$ וגם $CRD\\iff C\\cap\\{1\\}=D\\cap\\{1\\}$, ולכן $B\\cap\\{1\\}=D\\cap\\{1\\}$, כלומר $BRD$.\nלכן $R$ הוא יחס שקילות.\nמחלקות השקילות:\n$[\\emptyset]=\\{B:\\ B\\in P(A)\\wedge BR\\emptyset\\}=\\{B:\\ B\\in P(A)\\wedge 1\\notin B\\}=P(A-\\{1\\})$\n$[\\{1\\}]=\\{B:\\ B\\in P(A)\\wedge BR\\{1\\}\\}=\\{B:\\ B\\in P(A)\\wedge 1\\in B\\}=\\{B:\\ B=\\{1\\}\\cup C\\wedge C\\subseteq A-\\{1\\}\\}$\nמכיוון ש-$\\emptyset\\cap\\{1\\}=\\emptyset$ ו-$\\{1\\}\\cap\\{1\\}=\\{1\\}$ הן שתי תוצאות שונות, אין עוד מחלקות, ולכן $P(A)/R=\\{[\\emptyset],[\\{1\\}]\\}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות",
+     "points": 1
+    },
+    {
+     "text": "סימטריות",
+     "points": 1
+    },
+    {
+     "text": "טרנזיטיביות",
+     "points": 2
+    },
+    {
+     "text": "המחלקה $[\\emptyset]=P(A-\\{1\\})$",
+     "points": 2
+    },
+    {
+     "text": "המחלקה $[\\{1\\}]$ ושתי המחלקות בלבד: $P(A)/R=\\{[\\emptyset],[\\{1\\}]\\}$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "לחשוב שהמחלקות נקבעות לפי גודל $B$ ולא לפי השאלה אם $1\\in B$.",
+    "לשכוח להראות שאין מחלקות נוספות: $B\\cap\\{1\\}$ יכול להיות רק $\\emptyset$ או $\\{1\\}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה קובע את מחלקת השקילות של $B\\in P(A)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "האם $1\\in B$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "גודל $B$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "האם $10\\in B$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "האם $B=A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$BRC$ אם ורק אם $B\\cap\\{1\\}=C\\cap\\{1\\}$, כלומר אם ורק אם שתיהן מכילות את $1$ או שאף אחת אינה מכילה (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ל-$R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$B\\cap\\{1\\}\\in\\{\\emptyset,\\{1\\}\\}$ (נבדק בסקריפט בספירה על כל $P(A)$ עבור $|A|=10$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש במחלקה $[\\emptyset]$?",
+     "answer": 512,
+     "tol": 0,
+     "explain": "$|P(A-\\{1\\})|=2^9=512$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "רפלקסיביות: $B\\cap\\{1\\}=B\\cap\\{1\\}$, ולכן $BRB$.",
+      "סימטריות: אם $B\\cap\\{1\\}=C\\cap\\{1\\}$ אז $C\\cap\\{1\\}=B\\cap\\{1\\}$, ולכן $CRB$.",
+      "טרנזיטיביות: אם $B\\cap\\{1\\}=C\\cap\\{1\\}$ וגם $C\\cap\\{1\\}=D\\cap\\{1\\}$ אז $B\\cap\\{1\\}=D\\cap\\{1\\}$, ולכן $BRD$.",
+      "$B\\cap\\{1\\}$ הוא $\\emptyset$, $\\{1\\}$ או $\\{1,2\\}$, ולכן יש בדיוק שלוש מחלקות."
+     ],
+     "bugIndex": 3,
+     "explain": "החיתוך עם $\\{1\\}$ הוא תת-קבוצה של $\\{1\\}$ ולכן לא יכול להיות $\\{1,2\\}$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +561,93 @@
    "solution": "**(1)** **רפלקסיביות:** לכל $x\\in A$ מתקיים $x\\mid x$, ולכן $xRx$.\n**אנטי-סימטריות:** נניח $xRy$ וגם $yRx$. אז $x\\mid y$ וגם $y\\mid x$, ולכן $1\\le x\\le y$ וגם $1\\le y\\le x$, כלומר $x=y$.\n**טרנזיטיביות:** נניח $xRy$ וגם $yRz$. אז $x\\mid y$ וגם $y\\mid z$, ולכן $x\\mid z$, כלומר $xRz$.\nלכן $R$ הוא יחס סדר חלקי.\n**(2)** $R$ אינו יחס סדר מלא: $(2,3)\\notin R$ וגם $(3,2)\\notin R$, כלומר 2 ו-3 אינם ברי השוואה.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $x\\mid x$",
+     "points": 2
+    },
+    {
+     "text": "אנטי-סימטריות",
+     "points": 3
+    },
+    {
+     "text": "טרנזיטיביות",
+     "points": 3
+    },
+    {
+     "text": "(2) קביעה ש-$R$ אינו סדר מלא",
+     "points": 1
+    },
+    {
+     "text": "(2) זוג שאינו בר-השוואה: $2\\nmid3$ וגם $3\\nmid2$",
+     "points": 3
+    }
+   ],
+   "pitfalls": [
+    "להסיק $x\\le y$ מ-$x\\mid y$ בלי לציין שהמספרים חיוביים (ב-$\\mathbb{Z}$ גם $-3\\mid3$ וגם $3\\mid-3$).",
+    "להניח שסדר חלקי בהכרח סדר מלא: צריך זוג שאינו בר-השוואה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות $(x,y)\\in A\\times A$ מקיימים $x\\mid y$ (כלומר מהו $|R|$)?",
+     "answer": 25,
+     "tol": 0,
+     "explain": "ספירה ישירה בכל 64 הזוגות נותנת 25 (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת האנטי-סימטריות.",
+     "lines": [
+      "נניח $xRy$ וגם $yRx$, כלומר $x\\mid y$ וגם $y\\mid x$.",
+      "מחלק חיובי אינו גדול מהמחולק, ולכן $x\\le y$ וגם $y\\le x$.",
+      "לכן $x=y$, כלומר $R$ אנטי-סימטרי."
+     ],
+     "explain": "הנחת שני הכיוונים, אי-שוויונות, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת הטרנזיטיביות שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $xRy$ וגם $yRz$, כלומר $x\\mid y$ וגם $y\\mid z$.",
+      "אז קיימים שלמים $s,t$ כך ש-$y=sx$ ו-$z=ty$.",
+      "לכן $z=ty=t(sx)=(t+s)x$, כלומר $x\\mid z$ ו-$xRz$."
+     ],
+     "bugIndex": 2,
+     "explain": "$t(sx)=(ts)x$ ולא $(t+s)x$ (נבדק בסקריפט עם sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג מוכיח ש-$R$ אינו יחס סדר מלא?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2$ ו-$6$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2$ ו-$3$: אף אחד מהם אינו מחלק את השני"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$3$ ו-$18$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1$ ו-$16$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "בכל אחד משאר הזוגות המספר הקטן מחלק את הגדול, כלומר הם ברי-השוואה (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +659,71 @@
    "solution": "הטבלה של האלגוריתם המורחב (בכל שורה: $d$ הוא ה-gcd, ו-$x\\leftarrow y'$ ו-$y\\leftarrow x'-y'\\cdot\\lfloor a/b\\rfloor$ מחושבים מהשורה שמתחת):\n```\n  a    b    floor(a/b)   d    x    y\n  84   48        1       12   -1    2\n  48   36        1       12    1   -1\n  36   12        3       12    0    1\n  12    0       --       12    1    0\n```\n$$12=\\gcd(48,84)=\\gcd(84,48)=(-1)\\cdot 84+2\\cdot 48$$\nכלומר $x=2,\\ y=-1$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "שלבי החילוק של Euclid: $84=1\\cdot48+36$, $48=1\\cdot36+12$, $36=3\\cdot12$",
+     "points": 3
+    },
+    {
+     "text": "$\\gcd(48,84)=12$",
+     "points": 1
+    },
+    {
+     "text": "הצבה לאחור: $12=48-36=48-(84-48)=2\\cdot48-84$",
+     "points": 3
+    }
+   ],
+   "pitfalls": [
+    "להחליף בין $x$ ל-$y$ בסוף ההצבה לאחור.",
+    "לעצור אחרי ה-gcd בלי להפיק את $x,y$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית בחילוק $84$ ב-$48$?",
+     "answer": 36,
+     "tol": 0,
+     "explain": "$84=1\\cdot48+36$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(48,84)$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "השארית האחרונה השונה מאפס היא $12$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x,y)$ מקיים $48x+84y=12$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(x,y)=(2,-1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(x,y)=(-1,2)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(x,y)=(1,-1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(x,y)=(-2,1)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$48\\cdot2-84=12$. בשאר הזוגות מתקבלים $120$, $-36$ ו-$-12$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +735,91 @@
    "solution": "$$\\forall x\\in(B-A)\\cup(C-A)\\Rightarrow x\\in B-A\\ \\vee\\ x\\in C-A\\Rightarrow(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)\\Rightarrow(x\\in B\\vee x\\in C)\\wedge x\\notin A\\Rightarrow x\\in B\\cup C\\wedge x\\notin A\\Rightarrow x\\in(B\\cup C)-A$$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "לקיחת $x$ שרירותי באגף שמאל",
+     "points": 1
+    },
+    {
+     "text": "פירוק ההגדרה ל-$(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$",
+     "points": 1
+    },
+    {
+     "text": "הוצאת $x\\notin A$ כגורם משותף",
+     "points": 2
+    },
+    {
+     "text": "חזרה להגדרת האיחוד וההפרש: $x\\in(B\\cup C)-A$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להוציא כגורם משותף ולהחליף $\\vee$ ב-$\\wedge$: $(x\\in B\\wedge x\\in C)$ הוא חיתוך.",
+    "להראות את ההכלה ההפוכה במקום זו שנתבקשה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך מתחילים הוכחת הכלה $X\\subseteq Y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לוקחים $x\\in Y$ שרירותי ומראים $x\\in X$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לוקחים $x\\in X$ שרירותי ומראים $x\\in Y$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בודקים דוגמה אחת"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מראים ש-$|X|\\le|Y|$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "ההגדרה של $X\\subseteq Y$ היא: כל $x\\in X$ שייך ל-$Y$. דוגמה אחת אינה הוכחה, והשוואת גדלים אינה מספיקה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2\\}$, $B=\\{2,3\\}$, $C=\\{1,4,5\\}$: כמה איברים יש ב-$(B-A)\\cup(C-A)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$B-A=\\{3\\}$ ו-$C-A=\\{4,5\\}$, ולכן 3 איברים (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "יהי $x\\in(B-A)\\cup(C-A)$: אז $x\\in B-A$ או $x\\in C-A$.",
+      "כלומר $(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$.",
+      "לכן $(x\\in B\\vee x\\in C)\\wedge x\\notin A$ (הוצאת $x\\notin A$ כגורם משותף).",
+      "כלומר $x\\in B\\cup C$ וגם $x\\notin A$, ולכן $x\\in(B\\cup C)-A$."
+     ],
+     "explain": "פירוק ההגדרה, כתיבה לוגית, גורם משותף, חזרה להגדרה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "יהי $x\\in(B-A)\\cup(C-A)$: אז $x\\in B-A$ או $x\\in C-A$.",
+      "כלומר $(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$.",
+      "לכן $(x\\in B\\wedge x\\in C)\\wedge x\\notin A$ (הוצאת $x\\notin A$ כגורם משותף).",
+      "כלומר $x\\in B\\cup C$ וגם $x\\notin A$, ולכן $x\\in(B\\cup C)-A$."
+     ],
+     "bugIndex": 2,
+     "explain": "הוצאת גורם משותף משאירה $\\vee$ בין $x\\in B$ ל-$x\\in C$ ולא $\\wedge$ (נבדק בסקריפט בטבלת אמת)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +831,112 @@
    "solution": "נניח בשלילה ש-$\\sqrt2\\in\\mathbb{Q}$. אז $\\sqrt2=\\frac{m}{n}$ כאשר $0<m,n\\in\\mathbb{N}$ ו-$\\gcd(m,n)=1$ (אפשר לצמצם את השבר עד שהוא מצומצם לגמרי).\nאז $m^2=2n^2$, ולכן $2\\mid m^2$ ולכן $2\\mid m$, כלומר $m=2t$.\nאז $4t^2=2n^2$, כלומר $n^2=2t^2$, ולכן $2\\mid n^2$ ולכן $2\\mid n$.\nקיבלנו $2\\mid m$ וגם $2\\mid n$, ולכן $2\\le\\gcd(m,n)$, בסתירה ל-$\\gcd(m,n)=1$.\nמסקנה: $\\sqrt2\\notin\\mathbb{Q}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחת השלילה: $\\sqrt2=\\frac mn$ בצורה מצומצמת",
+     "points": 2
+    },
+    {
+     "text": "$m^2=2n^2$ ולכן $m$ זוגי",
+     "points": 2
+    },
+    {
+     "text": "$n^2=2t^2$ ולכן $n$ זוגי",
+     "points": 2
+    },
+    {
+     "text": "סתירה ל-$\\gcd(m,n)=1$ ומסקנה",
+     "points": 1
+    }
+   ],
+   "pitfalls": [
+    "לשכוח להניח שהשבר מצומצם ($\\gcd(m,n)=1$), ולכן לא לקבל סתירה.",
+    "להסיק $2\\mid m$ מ-$2\\mid m^2$ בלי נימוק: צריך שהמספר 2 ראשוני."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת $\\sqrt2\\notin\\mathbb{Q}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הוכחה בדרך השלילה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על המכנה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חישוב ספרות $\\sqrt2$ עד לחזרה מחזורית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "ספירה קומבינטורית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מניח ש-$\\sqrt2$ רציונלי ומגיע לסתירה. $\\sqrt2$ אינו מחזורי ולכן החישוב לא יסתיים."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה מניחים על $m,n$ בנוסף ל-$\\sqrt2=\\frac mn$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\gcd(m,n)=1$, כלומר השבר מצומצם"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "ש-$m$ ו-$n$ זוגיים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ש-$m=n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "ש-$m,n$ ראשוניים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "אם $m=n$ אז $\\sqrt2=1$, ואין סיבה ש-$m,n$ יהיו ראשוניים. ההנחה שהשבר מצומצם היא שנותנת את הסתירה."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נניח בשלילה $\\sqrt2=\\frac mn$ עם $0<m,n\\in\\mathbb{N}$ ו-$\\gcd(m,n)=1$.",
+      "$m^2=2n^2$, ולכן $2\\mid m^2$, ולכן $2\\mid m$, כלומר $m=2t$.",
+      "$4t^2=2n^2$, כלומר $n^2=2t^2$, ולכן $2\\mid n^2$ ולכן $2\\mid n$.",
+      "$2\\mid m$ וגם $2\\mid n$, ולכן $2\\le\\gcd(m,n)$, בסתירה ל-$\\gcd(m,n)=1$."
+     ],
+     "explain": "הנחה, $m$ זוגי, $n$ זוגי, סתירה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח בשלילה $\\sqrt2=\\frac mn$ עם $0<m,n\\in\\mathbb{N}$ ו-$\\gcd(m,n)=1$.",
+      "$m^2=2n^2$, ולכן $2\\mid m^2$, ולכן $2\\mid m$, כלומר $m=2t$.",
+      "$4t^2=2n^2$, כלומר $n^2=4t^2$, ולכן $2\\mid n^2$ ולכן $2\\mid n$.",
+      "$2\\mid m$ וגם $2\\mid n$, ולכן $2\\le\\gcd(m,n)$, בסתירה ל-$\\gcd(m,n)=1$."
+     ],
+     "bugIndex": 2,
+     "explain": "$4t^2=2n^2$ נותן $n^2=2t^2$ ולא $n^2=4t^2$ (נבדק בסקריפט עם sympy)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +948,91 @@
    "solution": "**(1)** הטענה נכונה. נסמן $a=5^{44}-1=(5^2)^{22}-1=25^{23-1}-1$. כיוון ש-23 ראשוני ו-$23\\nmid 25$, לפי Fermat $23\\mid a$.\nנסמן $b=8^{88}+22!=\\big((8^4)^{22}-1\\big)+(22!+1)=\\big((2^{12})^{23-1}-1\\big)+\\big((23-1)!+1\\big)$.\nמחובר ראשון: מתחלק ב-23 לפי Fermat כי 23 ראשוני ו-$23\\nmid 2^{12}$. מחובר שני: מתחלק ב-23 לפי Wilson כי 23 ראשוני. לכן $23\\mid b$.\nמכאן $23\\mid a$ וגם $23\\mid b$, ולכן $19<23\\le\\gcd(a,b)$.\n**(2)** $(0,1)\\subseteq A\\subseteq\\mathbb{R}\\Rightarrow|(0,1)|\\le|A|\\le|\\mathbb{R}|=|(0,1)|\\Rightarrow|A|=|(0,1)|$.\n$(0,1)\\subseteq B\\subseteq\\mathbb{R}\\Rightarrow|(0,1)|\\le|B|\\le|\\mathbb{R}|=|(0,1)|\\Rightarrow|B|=|(0,1)|$.\nלכן $|A|=|B|$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) $23\\mid(5^{44}-1)$ לפי Fermat",
+     "points": 3
+    },
+    {
+     "text": "(1) $23\\mid(8^{88}+22!)$ לפי Fermat ו-Wilson",
+     "points": 3
+    },
+    {
+     "text": "(1) $23\\le\\gcd$ ולכן $19<\\gcd$",
+     "points": 1
+    },
+    {
+     "text": "(2) $|A|=|(0,1)|$",
+     "points": 1
+    },
+    {
+     "text": "(2) $|B|=|(0,1)|$ ולכן $|A|=|B|$",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להשתמש ב-Wilson על $22!$ במקום $22!+1$.",
+    "בסעיף (2) להשוות אורכי קטעים: $A$ ו-$B$ באורכים שונים אך אותה עוצמה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $5^{44}$ בחלוקה ב-$23$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$5^{44}=25^{22}$ ו-$25^{22}\\equiv1\\pmod{23}$ לפי Fermat (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $22!$ בחלוקה ב-$23$?",
+     "answer": 22,
+     "tol": 0,
+     "explain": "לפי Wilson $22!\\equiv-1\\equiv22\\pmod{23}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ראשוני הגדול מ-$19$ מחלק את שני המספרים $5^{44}-1$ ו-$8^{88}+22!$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$23$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$29$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$31$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$37$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק $23$ מחלק את שניהם; בשאר הראשוניים לפחות אחד המספרים אינו מתחלק (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בסעיף (2) שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$(0,1)\\subseteq A\\subseteq\\mathbb{R}$, ולכן $|(0,1)|\\le|A|\\le|\\mathbb{R}|$.",
+      "$|\\mathbb{R}|=|\\mathbb{N}|$, ולכן $|A|=|\\mathbb{N}|$ (קנטור-ברנשטיין).",
+      "באופן דומה $(0,1)\\subseteq B\\subseteq\\mathbb{R}$ ולכן $|B|=|(0,1)|$.",
+      "לכן $|A|=|B|$."
+     ],
+     "bugIndex": 1,
+     "explain": "$\\mathbb{R}$ אינה בת מנייה: $|\\mathbb{R}|=|(0,1)|>|\\mathbb{N}|$."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -149,7 +1044,89 @@
    "solution": "**(1)** ה-contrapositive: אם $C\\not\\subseteq A$ אז $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$.\n**(2)** נוכיח את ה-contrapositive. $C\\not\\subseteq A\\Rightarrow\\exists x\\in C\\wedge x\\notin A$.\nמכאן $x\\in(A\\cap B)\\cup C$ (כי $x\\in C$), אבל $x\\notin A\\cap(B\\cup C)$ (כי $x\\notin A$).\nלכן $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) ניסוח ה-contrapositive",
+     "points": 3
+    },
+    {
+     "text": "(2) קיום $x\\in C$ עם $x\\notin A$",
+     "points": 1
+    },
+    {
+     "text": "(2) $x\\in(A\\cap B)\\cup C$",
+     "points": 2
+    },
+    {
+     "text": "(2) $x\\notin A\\cap(B\\cup C)$ ומסקנה",
+     "points": 2
+    }
+   ],
+   "pitfalls": [
+    "להשאיר את התוצאה ״$C\\subseteq A$״ בלי לשלול אותה בניסוח.",
+    "להניח $A\\cap B=\\emptyset$ או מקרה פרטי אחר."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו ה-contrapositive של הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $C\\not\\subseteq A$ אז $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $C\\not\\subseteq A$ אז $(A\\cap B)\\cup C=A\\cap(B\\cup C)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $C\\subseteq A$ אז $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq C$ אז $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ה-contrapositive שולל את המסקנה ($C\\subseteq A$) והופך אותה לתנאי, ושולל את התנאי ($=$) והופך אותו למסקנה. שלוש האחרות שקריות (נבדק בסקריפט על כל הקבוצות מעל 3 איברים)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2\\}$, $B=\\{2,3\\}$, $C=\\{3\\}$ ($C\\not\\subseteq A$): כמה איברים יש ב-$(A\\cap B)\\cup C$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$A\\cap B=\\{2\\}$ ולכן האיחוד עם $C$ הוא $\\{2,3\\}$, בעוד ש-$A\\cap(B\\cup C)=\\{2\\}$ (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת ה-contrapositive.",
+     "lines": [
+      "$C\\not\\subseteq A$, ולכן קיים $x\\in C$ עם $x\\notin A$.",
+      "$x\\in(A\\cap B)\\cup C$ כי $x\\in C$, אבל $x\\notin A\\cap(B\\cup C)$ כי $x\\notin A$.",
+      "לכן $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$."
+     ],
+     "explain": "בחירת העד, בדיקת שני האגפים, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$C\\not\\subseteq A$, ולכן קיים $x\\in C$ עם $x\\notin A$.",
+      "$x\\in(A\\cap B)\\cup C$ כי $x\\in A\\cap B$, אבל $x\\notin A\\cap(B\\cup C)$ כי $x\\notin A$.",
+      "לכן $(A\\cap B)\\cup C\\ne A\\cap(B\\cup C)$."
+     ],
+     "bugIndex": 1,
+     "explain": "$x\\notin A$ ולכן $x\\notin A\\cap B$; הוא באיחוד רק בגלל $x\\in C$ (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "stepsSource": "ai-draft"
   }
  ]
 }
