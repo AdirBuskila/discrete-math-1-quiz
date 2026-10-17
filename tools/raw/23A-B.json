@@ -17,7 +17,92 @@
    "solution": "הגדרה: שני פסוקים שקולים לוגית אם יש להם את אותה טבלת אמת.\nנבנה טבלת אמת:\n```\np q r | q∨r | p→(q∨r) | p→q | p→r | (p→q)∨(p→r)\nT T T |  T  |    T     |  T  |  T  |      T\nT T F |  T  |    T     |  T  |  F  |      T\nT F T |  T  |    T     |  F  |  T  |      T\nT F F |  F  |    F     |  F  |  F  |      F\nF T T |  T  |    T     |  T  |  T  |      T\nF T F |  T  |    T     |  T  |  T  |      T\nF F T |  T  |    T     |  T  |  T  |      T\nF F F |  F  |    T     |  T  |  T  |      T\n```\nהעמודות המודגשות (העמודה p→(q∨r) והעמודה האחרונה) זהות ולכן הוכחנו שהפסוקים הנתונים שקולים לוגית.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת",
+     "points": 2
+    },
+    {
+     "text": "בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים",
+     "points": 3
+    },
+    {
+     "text": "השוואת שתי העמודות הסופיות ומסקנה על השקילות",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
+    "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מתוך 8 השורות בטבלה הפסוק $p\\to(q\\vee r)$ אמת?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "הפסוק שקרי רק כשהגרירה הולכת מאמת לשקר, כלומר בשורה אחת (הוכח בבדיקת כל 8 ההשמות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו השמה $(p,q,r)$ הפסוק $p\\to(q\\vee r)$ שקרי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=F$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=F,\\ q=F,\\ r=F$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק כש-$p$ אמת ו-$q\\vee r$ שקר, כלומר $q=r=F$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה המסקנה מהשוואת שתי העמודות האחרונות בטבלה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הפסוקים שקולים לוגית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפסוקים אינם שקולים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הפסוקים סותרים זה את זה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שני הפסוקים טאוטולוגיות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית (השורה T,F,F), ולכן אף אחד מהם אינו טאוטולוגיה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +114,80 @@
    "solution": "הגדרה: כל יחס רפלקסיבי, סימטרי וטרנזיטיבי נקרא יחס שקילות.\nהטענה לא נכונה. דוגמה נגדית:\n$R_2=\\{(1,1),(2,2),(3,3),(1,2),(2,1)\\}$, $R_1=\\{(1,1),(2,2),(3,3),(2,3),(3,2)\\}$\nאז $R_2\\cup R_1$ אינו טרנזיטיבי ולכן אינו יחס שקילות: $(1,2),(2,3)\\in R_2\\cup R_1$ אך $(1,3)\\notin R_2\\cup R_1$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "הגדרה: יחס שקילות הוא יחס רפלקסיבי, סימטרי וטרנזיטיבי",
+     "points": 2
+    },
+    {
+     "text": "דוגמה נגדית: שני יחסי שקילות שונים על $\\{1,2,3\\}$ (ובדיקה שאלה אכן יחסי שקילות)",
+     "points": 3
+    },
+    {
+     "text": "הצגת שני זוגות באיחוד כך שהזוג שטרנזיטיביות מחייבת חסר",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: הטענה אינה נכונה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות להוכיח את הטענה כללית: כדי להפריך מספיקה דוגמה נגדית אחת.",
+    "לבחור שני יחסים שאחד מהם מכיל את השני (האיחוד אז הוא אחד מהם ובהכרח יחס שקילות).",
+    "לשכוח שגם $R_1$ ו-$R_2$ צריכים להיות רפלקסיביים: חייבים להכיל את כל זוגות האלכסון."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות סדורים יש באיחוד $R_2\\cup R_1$ בדוגמה הנגדית?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "שלושה זוגות אלכסון ועוד $(1,2),(2,1),(2,3),(3,2)$, כלומר 7."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו תכונה של יחס שקילות נכשלת באיחוד בדוגמה הנגדית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "טרנזיטיביות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רפלקסיביות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סימטריה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין תכונה שנכשלת, האיחוד הוא יחס שקילות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיחוד רפלקסיבי וסימטרי, אבל $(1,2),(2,3)$ בו ו-$(1,3)$ אינו."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההפרכה.",
+     "lines": [
+      "נבחר $R_2=\\{(1,1),(2,2),(3,3),(1,2),(2,1)\\}$ ו-$R_1=\\{(1,1),(2,2),(3,3),(2,3),(3,2)\\}$, שני יחסי שקילות שונים",
+      "האיחוד $R_2\\cup R_1$ מכיל את $(1,2)$ ואת $(2,3)$",
+      "אבל $(1,3)\\notin R_2\\cup R_1$, ולכן האיחוד אינו טרנזיטיבי",
+      "לכן $R_2\\cup R_1$ אינו יחס שקילות והטענה אינה נכונה"
+     ],
+     "explain": "הגדרת הדוגמה, חישוב האיחוד, הצבעה על הזוג החסר, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +199,112 @@
    "solution": "הגדרה: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ קיים $a\\in A$ כך ש: $f(a)=b$.\nאו: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ יש מקור.\nאו: הפונקציה $f:A\\to B$ נקראת על אם $f(A)=B$.\nלמספר $1\\in\\mathbb{N}-\\{0\\}$ יש מקור: $f(0,0)=1$.\nלפי המשפט היסודי של האריתמטיקה לכל $2\\le q\\in\\mathbb{N}-\\{0\\}$ יש ייצוג יחיד שבצורה $q=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ כאשר $p_1<p_2<\\ldots<p_k$ הם מספרים ראשוניים, ולכל $\\alpha_i\\in\\mathbb{N}-\\{0\\}$.\nאם $p_1=2$ אז $2m+1=(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(\\alpha_1,m)=q$.\nאם $p_1>2$ אז $2m+1=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(0,m)=q$.\nמסקנה: $f$ היא פונקציה על.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "ניסוח המטרה: לכל מספר טבעי חיובי $q$ קיים מקור",
+     "points": 2
+    },
+    {
+     "text": "המקרה $q=1$: $f(0,0)=1$",
+     "points": 1
+    },
+    {
+     "text": "פירוק $q$ לראשוניים לפי המשפט היסודי של האריתמטיקה",
+     "points": 2
+    },
+    {
+     "text": "המקרה שבו 2 מופיע בפירוק: מוצאים מקור מהצורה $2^n(2m+1)$",
+     "points": 2
+    },
+    {
+     "text": "המקרה שבו 2 אינו מופיע בפירוק: המקור הוא $f(0,m)$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $f$ על",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוכיח חד-חד-ערכיות במקום על: צריך להראות שלכל ערך בטווח יש מקור.",
+    "לבדוק רק כמה ערכים: על דורשת מקור לכל מספר טבעי חיובי.",
+    "לשכוח את המקרה $q=1$ או את המקרה שבו $q$ אי-זוגי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי כדי להראות ש-$f$ על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מפרקים כל מספר לראשוניים לפי המשפט היסודי של האריתמטיקה ומוצאים לו מקור"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על $m$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שובך היונים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בונים פונקציה הפוכה לפי נוסחה אחת לכל מספר"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מפצל לפי החזקה של 2 בפירוק לראשוניים של $q$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(3,2)$?",
+     "answer": 28,
+     "tol": 0,
+     "explain": "$2^2(2\\cdot3+1)=4\\cdot7=28$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מצאו $m$ כך ש-$f(m,3)=40$ (כלומר מקור של 40 עם $n=3$).",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$40=2^3\\cdot5=2^3(2m+1)$ ולכן $2m+1=5$ ו-$m=2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו המקור $(m,n)$ של המספר האי-זוגי 45?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(22,0)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(0,22)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(45,0)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(2,0)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$45=2^0(2m+1)$ ולכן $m=22$ ו-$n=0$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +316,124 @@
    "solution": "**I. בסיס:** $P(2)$: $\\frac{1}{1\\cdot2}=\\frac{2-1}{2}\\iff\\frac12=\\frac12\\Rightarrow P(2)=\\text{TRUE}$.\n**II. צעד:** $P(k)=\\text{TRUE}$ עבור $2\\le k\\in\\mathbb{N}$ $\\Rightarrow$ $P(k+1)=\\text{TRUE}$.\n$P(k):\\ \\frac{1}{1\\cdot2}+\\frac{1}{2\\cdot3}+\\cdots+\\frac{1}{(k-1)\\cdot k}=\\frac{k-1}{k}$ (נתון: TRUE)\n$P(k+1):\\ \\frac{1}{1\\cdot2}+\\frac{1}{2\\cdot3}+\\cdots+\\frac{1}{k(k+1)}=\\frac{k}{k+1}$\nלפי הנחת האינדוקציה:\n$$\\frac{1}{1\\cdot2}+\\frac{1}{2\\cdot3}+\\cdots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}$$\n$\\Rightarrow P(k+1)=\\text{TRUE}$.\nמסקנה: מ-I ו-II, לפי עקרון האינדוקציה, לכל $2\\le n\\in\\mathbb{N}$ מתקיים $P(n)=\\text{TRUE}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בסיס: בדיקת $P(2)$ והצבה נכונה בשני האגפים",
+     "points": 3
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $P(k)$ ומה צריך להוכיח $P(k+1)$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בהנחה: הוספת $\\frac{1}{k(k+1)}$ לאגף של $P(k)$",
+     "points": 3
+    },
+    {
+     "text": "שוויון אלגברי עד $\\frac{k}{k+1}$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור בסיס $n=1$: הטענה נתונה רק מ-$n\\ge2$.",
+    "לשכוח שהאיבר האחרון של $P(k+1)$ הוא $\\frac{1}{k(k+1)}$ ולא $\\frac{1}{(k+1)(k+2)}$.",
+    "להשתמש ב-$P(k+1)$ בתוך ההוכחה שלו (הנחה מעגלית)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו בסיס האינדוקציה בטענה (לכל $2\\le n$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$n=2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$n=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$n=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n=3$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הטענה מוגדרת מ-$n=2$, ובו האגף השמאלי הוא איבר יחיד $\\frac{1}{1\\cdot2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך האגף השמאלי עבור $n=3$ (כמספר עשרוני)?",
+     "answer": 0.667,
+     "tol": 0.001,
+     "explain": "$\\frac{1}{1\\cdot2}+\\frac{1}{2\\cdot3}=\\frac23\\approx0.667$, כמו $\\frac{n-1}{n}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "בצעד האינדוקציה מגיעים ל-$\\frac{(k-1)(k+1)+1}{k(k+1)}$. מהו המונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$k^2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$k^2-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$k^2+2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(k-1)^2$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(k-1)(k+1)+1=k^2-1+1=k^2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "לפי הנחת האינדוקציה: $\\frac{1}{1\\cdot2}+\\cdots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}$",
+      "מכנה משותף: $=\\frac{(k-1)(k+1)+1}{k(k+1)}$",
+      "פתיחת סוגריים: $=\\frac{k^2}{k(k+1)}$",
+      "צמצום: $=\\frac{k}{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "explain": "הנחה, מכנה משותף, פתיחה וצמצום."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של הצעד שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "לפי הנחת האינדוקציה: $\\frac{1}{1\\cdot2}+\\cdots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}$",
+      "מכנה משותף: $=\\frac{(k-1)(k+1)+1}{k(k+1)}$",
+      "פתיחת סוגריים: $=\\frac{k^2-1}{k(k+1)}$",
+      "צמצום: $=\\frac{k}{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "bugIndex": 2,
+     "explain": "$(k-1)(k+1)+1=k^2$ ולא $k^2-1$, ולכן השורה השלישית שגויה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +445,76 @@
    "solution": "נריץ את האלגוריתם המורחב על $55,40$ (עמודות: $a,\\ b,\\ \\lfloor a/b\\rfloor,\\ d,\\ x=y',\\ y=x'-y'\\lfloor a/b\\rfloor$):\n```\na    b    [a/b]   d    x     y\n55   40   1       5    3     -1-3*1 = -4\n40   15   2       5    -1    1-(-1)*2 = 3\n15   10   1       5    1     0-1*1 = -1\n10   5    2       5    0     1-0*2 = 1\n5    0    -       5    1     0\n```\n$\\gcd(55,40)=5=3\\cdot55+(-4)\\cdot40$\n$\\gcd(55,-40)=5=3\\cdot55+4\\cdot(-40)$\n$x=3,\\ y=4,\\ d=5$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הרצת האלגוריתם המורחב של Euclid על $55,40$ עם עמודות המנה",
+     "points": 3
+    },
+    {
+     "text": "הצבה לאחור והגעה ל-$5=3\\cdot55-4\\cdot40$",
+     "points": 3
+    },
+    {
+     "text": "טיפול בסימן: $\\gcd(55,-40)$ והמקדם של $-40$ הוא $4$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהמקדם של $-40$ מחליף סימן: ב-$55x+(-40)y$ מקבלים $y=4$ ולא $y=-4$.",
+    "לטעות בנוסחת העדכון $y=x'-y'\\lfloor a/b\\rfloor$ בעמודות.",
+    "לעצור לפני שהשארית היא 0 ולהחזיר ערך שאינו ה-gcd."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(55,-40)$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "שארית אחרונה שאינה אפס באלגוריתם היא 5."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שורות החילוק של האלגוריתם על $55,40$.",
+     "lines": [
+      "$55=1\\cdot40+15$",
+      "$40=2\\cdot15+10$",
+      "$15=1\\cdot10+5$",
+      "$10=2\\cdot5+0$"
+     ],
+     "explain": "כל שורה משתמשת בשארית של השורה הקודמת."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x,y)$ מקיים $5=55x+(-40)y$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(3,4)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(3,-4)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(4,3)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(-3,4)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$55\\cdot3-40\\cdot4=165-160=5$. בשאר הזוגות התוצאה שונה מ-5."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +526,72 @@
    "solution": "על הקבוצה $A=\\{1,2\\}$ ניתן להגדיר שני יחסי סדר מלא שונים בלבד:\n$R_1=\\{(1,1),(2,2),(1,2)\\}$, $R_2=\\{(1,1),(2,2),(2,1)\\}$\n$R_1\\cap R_2=\\{(1,1),(2,2)\\}$, $R_1\\cup R_2=\\{(1,1),(2,2),(1,2),(2,1)\\}$\nהם יחסי שקילות. לכן טענה (1) נכונה, וטענה (2) לא נכונה (הפרכה).",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "מציאת שני יחסי הסדר המלא היחידים על $\\{1,2\\}$",
+     "points": 2
+    },
+    {
+     "text": "חישוב האיחוד והחיתוך של שני היחסים",
+     "points": 2
+    },
+    {
+     "text": "קביעת הערך של כל טענה: (1) נכונה ו-(2) שקרית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שמספר יחסי הסדר המלא תלוי בסדר האיברים ולפספס את אחד משני היחסים.",
+    "לבדוק רק את האיחוד ולא את החיתוך (שתי טענות נפרדות).",
+    "לחשוב שחיתוך של יחסי סדר שונים אינו רפלקסיבי: שניהם מכילים את $(1,1),(2,2)$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסי סדר מלא שונים קיימים על הקבוצה $\\{1,2\\}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "בוחרים איזה איבר קטן מהשני: שתי אפשרויות (הוכח בבדיקת כל 16 היחסים)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות סדורים יש באיחוד של שני היחסים?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$(1,1),(2,2),(1,2),(2,1)$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו מהטענות נכונות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "(1) נכונה ו-(2) לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "(1) לא נכונה ו-(2) נכונה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שתיהן נכונות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שתיהן לא נכונות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיחוד הוא $\\{1,2\\}^2$ והחיתוך הוא יחס הזהות, ושניהם יחסי שקילות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +603,101 @@
    "solution": "**(1)** לכל $x\\in(B\\cup C)-A$: $x\\in B\\cup C\\ \\wedge\\ x\\notin A$, כלומר $(x\\in B\\vee x\\in C)\\wedge x\\notin A$, כלומר $(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$, כלומר $x\\in B-A\\ \\vee\\ x\\in C-A$, כלומר $x\\in(B-A)\\cup(C-A)$. הטענה נכונה.\n**(2)** הפונקציה $f:(0,1)\\to(1,2)$, $f(x)=x+1$ היא התאמה חד-חד-ערכית ועל, לכן $|(0,1)|=|(1,2)|$ וגם $|(0,1)|=|\\mathbb{R}|$.\nמכיוון ש: $(1,2)\\subseteq(1,2)\\cup(5,25]\\subseteq\\mathbb{R}$ נקבל: $|\\mathbb{R}|=|(0,1)|=|(1,2)|\\le|A|\\le|\\mathbb{R}|$, לכן $|A|=|\\mathbb{R}|$. הטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "טענה (1): פירוק אגף ימין לפי הגדרות איחוד והפרש",
+     "points": 3
+    },
+    {
+     "text": "טענה (1): שרשרת שקילויות לוגיות עד $(B-A)\\cup(C-A)$",
+     "points": 2
+    },
+    {
+     "text": "טענה (2): התאמה $f(x)=x+1$ בין $(0,1)$ ל-$(1,2)$",
+     "points": 2
+    },
+    {
+     "text": "טענה (2): הכלה $(1,2)\\subseteq A\\subseteq\\mathbb{R}$ וקנטור-ברנשטיין",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפריך טענה (1) בלי לבדוק: היא נכונה, וההוכחה היא אלגברה לוגית.",
+    "לטעות בטענה (2) ולחשוב שקבוצה עם קטעים מחוברים היא בת-מנייה.",
+    "להראות רק $|(1,2)|\\le|A|$ בלי החסם מלמעלה $|A|\\le|\\mathbb{R}|$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו מהטענות (1) ו-(2) נכונות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שתיהן נכונות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רק (1)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק (2)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אף אחת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "(1) נכונה לפי חוק הפילוג של $\\wedge$ על $\\vee$; (2) נכונה כי $(1,2)\\subseteq A\\subseteq\\mathbb{R}$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה של טענה (1).",
+     "lines": [
+      "$x\\in(B\\cup C)-A$, כלומר $x\\in B\\cup C\\wedge x\\notin A$",
+      "$(x\\in B\\vee x\\in C)\\wedge x\\notin A$",
+      "$(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$",
+      "$x\\in B-A\\vee x\\in C-A$, כלומר $x\\in(B-A)\\cup(C-A)$"
+     ],
+     "explain": "כל שורה נובעת מהקודמת בחוק לוגי."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי בטענה (2)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכלה בין קטעים: $|\\mathbb{R}|=|(1,2)|\\le|A|\\le|\\mathbb{R}|$ (קנטור-ברנשטיין)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בניית התאמה מפורשת בין $A$ ל-$\\mathbb{R}$ בנוסחה אחת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוכחה שהקבוצה בת-מנייה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "טיעון אלכסוני"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ההתאמה $f(x)=x+1$ נותנת $|(0,1)|=|(1,2)|$ וההכלות נותנות את החסמים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +709,79 @@
    "solution": "$x\\in A\\cap B\\iff x=5^m9^n\\in A\\ \\wedge\\ x=5^m7^n\\in B\\iff x=5^m,\\ m\\in\\{0,\\ldots,9\\}$, ולכן $|A\\cap B|=10$.\n$A\\cup B=(A-B)\\cup(A\\cap B)\\cup(B-A)$, ולכן $|A\\cup B|=|A|+|B|-|A\\cap B|=100+100-10=190$.\n$$|A\\cap B|+|P(A\\cup B)|+|P(A\\times B)|=10+2^{190}+2^{100\\cdot100}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב $|A\\cap B|=10$ מתיאור האיברים",
+     "points": 3
+    },
+    {
+     "text": "חישוב $|A\\cup B|=190$ בהכלה והפרדה",
+     "points": 3
+    },
+    {
+     "text": "הצבה ב-$2^{|A\\times B|}$ וכתיבת הביטוי הסופי",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$|A\\cap B|=100$: האיברים המשותפים הם רק החזקות של 5.",
+    "לחשב $|P(A\\cup B)|=2^{|A|+|B|}$ במקום $2^{|A\\cup B|}$.",
+    "לכתוב $|A\\times B|=|A|+|B|$ במקום המכפלה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\cap B|$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$5^m7^n=5^{m'}9^{n'}$ רק כש-$n=n'=0$, כלומר $5^m$ עבור 10 ערכי $m$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\cup B|$?",
+     "answer": 190,
+     "tol": 0,
+     "explain": "$100+100-10=190$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\times B|$ (המעריך של 2 ב-$|P(A\\times B)|$)?",
+     "answer": 10000,
+     "tol": 0,
+     "explain": "$100\\cdot100=10000$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הביטוי הסופי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$10+2^{190}+2^{10000}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$10+2^{200}+2^{10000}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$100+2^{190}+2^{200}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$10+2^{190}+2^{200}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|A\\cap B|=10$, $|P(A\\cup B)|=2^{190}$, $|P(A\\times B)|=2^{10000}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +793,83 @@
    "solution": "נסמן $m=81^{11}-1=9^{22}-1=9^{23-1}-1$. לפי פרמה (23 מספר ראשוני) $23\\mid m$.\n$m=81^{11}-1$ הוא מספר זוגי (כי $81^{11}$ אי-זוגי), ולכן $2\\mid m$.\n$\\gcd(2,23)=1$ ולכן $46\\mid m$.\nנסמן $q=22!+24$. $q$ זוגי ולכן $2\\mid q$.\n$q=\\{(23-1)!+1\\}+23$. לפי וילסון (23 ראשוני) $23\\mid(23-1)!+1$, ולכן $23\\mid q$. מכאן $46\\mid q$.\nכלומר: $46\\mid m$ ו-$46\\mid q$, כלומר $46$ מחלק משותף של $m$ ו-$q$, ולכן $46\\mid\\gcd(m,q)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הצגת $81^{11}-1=9^{22}-1$ ושימוש בפרמה מודולו 23",
+     "points": 2
+    },
+    {
+     "text": "זוגיות של $81^{11}-1$ והסקה ש-$46$ מחלק אותו",
+     "points": 1
+    },
+    {
+     "text": "הצגת $22!+24=(22!+1)+23$ ושימוש בווילסון",
+     "points": 2
+    },
+    {
+     "text": "זוגיות של $22!+24$ והסקה ש-$46$ מחלק אותו",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק $46\\mid m$ מ-$23\\mid m$ בלבד, בלי זוגיות.",
+    "להפעיל את פרמה על בסיס שמתחלק ב-23.",
+    "לשכוח שווילסון נותן $22!\\equiv-1$, כלומר $23\\mid22!+1$ ולא $23\\mid22!$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פרמה לגבי $81^{11}-1$ ווילסון לגבי $22!+24$ מודולו 23, ועם זוגיות שני המספרים מתחלקים ב-46"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "פרמה לשני המספרים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ווילסון לשני המספרים"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אלגוריתם Euclid המורחב"
+      }
+     ],
+     "correctId": "a",
+     "explain": "23 ראשוני, ו-$\\gcd(2,23)=1$ מאפשר לאחד את החילוק ב-2 וב-23."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כתבו $81^{11}=9^{k}$. מהו $k$?",
+     "answer": 22,
+     "tol": 0,
+     "explain": "$81=9^2$ ולכן $81^{11}=9^{22}=9^{23-1}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $22!$ בחלוקה ב-23?",
+     "answer": 22,
+     "tol": 0,
+     "explain": "לפי וילסון $22!\\equiv-1\\equiv22\\pmod{23}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $22!+24$ בחלוקה ב-23?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$22+24=46=2\\cdot23$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +881,112 @@
    "solution": "**$R$ רפלקסיבי:** לכל $x\\in\\mathbb{Z}$: $xRx\\Leftarrow 3\\mid x+5x=6x$ (נכון).\n**$R$ סימטרי:** לכל $x,y\\in\\mathbb{Z}$ אם $xRy$ אז $yRx$. $xRy\\iff 3\\mid x+5y$ (נתון: TRUE); $yRx\\iff 3\\mid y+5x$ ?\n$3\\mid 6(x+y)=(x+5y)+(y+5x)$. מנתון $3\\mid x+5y$ נקבל $3\\mid y+5x$, כלומר $yRx$.\n**$R$ טרנזיטיבי:** לכל $x,y,z\\in\\mathbb{Z}$: $xRy\\iff 3\\mid(x+5y)$ וגם $yRz\\iff 3\\mid(y+5z)$. אז $3\\mid(x+5z+6y)$, כלומר $3\\mid 6y$ ולכן $3\\mid(x+5z)$, כלומר $xRz$.\nמסקנה: $R$ יחס שקילות.\n$[0]=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid(x+5\\cdot0)\\}=\\{3k:\\ k\\in\\mathbb{Z}\\}$\n$[1]=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid(x+5)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid((x+2)+3)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid(x+2)\\}=\\{3k+1:\\ k\\in\\mathbb{Z}\\}$\n$[2]=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid(x+10)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid((x+1)+9)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge 3\\mid(x+1)\\}=\\{3k+2:\\ k\\in\\mathbb{Z}\\}$\n$R$ אינו יחס סדר חלקי: $(0,3)\\in R\\wedge(3,0)\\in R$ אך $3\\ne0$, ולכן $R$ אינו אנטי-סימטרי.\n$$\\mathbb{Z}/R=\\{[0],[1],[2]\\}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $3\\mid6x$",
+     "points": 2
+    },
+    {
+     "text": "סימטריה: $(x+5y)+(y+5x)=6(x+y)$",
+     "points": 3
+    },
+    {
+     "text": "טרנזיטיביות: חיבור המתחלקים ב-3 וקבלת $3\\mid x+5z$",
+     "points": 3
+    },
+    {
+     "text": "מציאת המחלקות $[0],[1],[2]$ ו-$\\mathbb{Z}/R$",
+     "points": 3
+    },
+    {
+     "text": "$R$ אינו סדר חלקי כי אינו אנטי-סימטרי",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
+    "לטעות בתיאור המחלקות: $[1]=\\{3k+1\\}$ כי $x+5\\equiv x+2\\pmod3$.",
+    "לבלבל בין יחס שקילות ליחס סדר חלקי: סדר חלקי דורש אנטי-סימטריה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$\\mathbb{Z}/R$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$xRy$ בדיוק כש-$x\\equiv y\\pmod3$ (הוכח בבדיקה על $-20..20$), ולכן 3 מחלקות."
+    },
+    {
+     "type": "choice",
+     "prompt": "בהוכחת הסימטריה מחברים את $x+5y$ ואת $y+5x$. מהו הסכום?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$6(x+y)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$4(x+y)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$5(x+y)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$6x+4y$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(x+5y)+(y+5x)=6x+6y$, שמתחלק ב-3."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח $3\\mid x+5y$ וגם $3\\mid y+5z$",
+      "נחבר: $3\\mid(x+5y)+(y+5z)=x+5z+6y$",
+      "מכיוון ש-$3\\mid6y$, נקבל $3\\mid x+5z$",
+      "כלומר $xRz$ ו-$R$ טרנזיטיבי"
+     ],
+     "explain": "הנחות, חיבור, חיסור הכפולה של 3, מסקנה."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי אינו אנטי-סימטרי: $0R3$ וגם $3R0$ אך $0\\ne3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי אינו רפלקסיבי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי הוא יחס שקילות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי אינו טרנזיטיבי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +998,104 @@
    "solution": "אם $n=0$, אז נקבל: $\\operatorname{lcm}(-1,+1)=\\operatorname{lcm}(1,1)=1$\nאם $n=1$, אז נקבל: $\\operatorname{lcm}(0,2)=0$\nאם $n=2$, אז נקבל: $\\operatorname{lcm}(2-1,2+1)=\\operatorname{lcm}(1,3)=3$\nאם $2<n$, אז $\\operatorname{lcm}(n-1,n+1)=\\dfrac{(n-1)(n+1)}{\\gcd(n-1,n+1)}$.\nנסמן ב: $\\gcd(n-1,n+1)=d$. אז $d\\mid(n-1)$ וגם $d\\mid(n+1)\\Rightarrow d\\mid((n+1)-(n-1))\\Rightarrow d\\mid2\\Rightarrow d\\in\\{1,2\\}$.\nאם $n$ זוגי, נשיג ש: $(n-1),(n+1)$ אי-זוגיים וגם $d\\in\\{1,2\\}\\Leftarrow d=1$. לכן $\\operatorname{lcm}(n-1,n+1)=(n^2-1)$.\nאם $n$ אי-זוגי, נשיג ש: $2\\mid(n-1),\\ 2\\mid(n+1)$ ואז $2\\mid d$. לכן $d=2$ (משום ש-$2\\mid d$ וגם $1\\le d\\le2$) $\\Leftarrow\\operatorname{lcm}(n-1,n+1)=(n^2-1)/2$.\nמסקנות:\nעבור $n=0$: $\\operatorname{lcm}(n-1,n+1)=1$\nעבור $n=1$: $\\operatorname{lcm}(n-1,n+1)=0$\nעבור $n=2$: $\\operatorname{lcm}(n-1,n+1)=3$\nעבור $2<n$ וגם $n$ זוגי: $\\operatorname{lcm}(n-1,n+1)=(n^2-1)$\nעבור $2<n$ וגם $n$ אי-זוגי: $\\operatorname{lcm}(n-1,n+1)=(n^2-1)/2$",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "בדיקת המקרים הקטנים $n=0,1,2$",
+     "points": 1
+    },
+    {
+     "text": "$\\operatorname{lcm}=\\frac{(n-1)(n+1)}{d}$ עם $d=\\gcd(n-1,n+1)$",
+     "points": 1
+    },
+    {
+     "text": "$d\\mid2$ ולכן $d\\in\\{1,2\\}$",
+     "points": 2
+    },
+    {
+     "text": "$n$ זוגי נותן $d=1$ ו-$n$ אי-זוגי נותן $d=2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את המקרים הקטנים $n=0,1$ (ב-$n=1$ התוצאה היא 0).",
+    "להניח שהמספרים זרים תמיד: כש-$n$ אי-זוגי שניהם זוגיים.",
+    "להשאיר את התשובה בלי חלוקה לזוגי ואי-זוגי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהם הערכים האפשריים של $d=\\gcd(n-1,n+1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$1$ או $2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רק $1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק $2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כל מחלק של $n$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$d\\mid(n+1)-(n-1)=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\operatorname{lcm}(6,8)$ (זה המקרה $n=7$)?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$d=2$ ולכן $\\frac{48}{2}=24=\\frac{7^2-1}{2}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\operatorname{lcm}(7,9)$ (זה המקרה $n=8$)?",
+     "answer": 63,
+     "tol": 0,
+     "explain": "$d=1$ ולכן $63=8^2-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\operatorname{lcm}(n-1,n+1)$ כש-$n>2$ אי-זוגי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{n^2-1}{2}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$n^2-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{n^2-1}{4}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n^2+1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$d=2$ כי שני המספרים זוגיים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -149,7 +1107,72 @@
    "solution": "$B$ מקיימת את התנאי $\\iff B=\\{2,4,\\ldots,2n\\}\\cup C$, כאשר $C\\subseteq\\{1,3,5,7,\\ldots,2n+1\\}$.\nאופציות: $|C|$ יש $2^{n+1}$.\nמסקנה: מספר תתי-הקבוצות $B\\in P(A)$ המקיימות את התנאי $B\\cup\\{1,3,5,7,\\ldots,2n+1\\}=A$ שווה ל: $2^{n+1}$.",
    "solutionSource": "lecturer-solution",
    "official": true,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "תיאור $B$: מכילה את כל הזוגיים ותת-קבוצה כלשהי של האי-זוגיים",
+     "points": 2
+    },
+    {
+     "text": "ספירת האי-זוגיים ב-$A$: $n+1$",
+     "points": 1
+    },
+    {
+     "text": "מספר הבחירות $2^{n+1}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$B$ חייבת להכיל את האי-זוגיים: להפך, האי-זוגיים כבר מכוסים על ידי הקבוצה הנתונה.",
+    "לספור $2^n$ במקום $2^{n+1}$ כי יש $n+1$ איברים אי-זוגיים.",
+    "לבלבל בין תנאי האיחוד לתנאי החיתוך."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים אי-זוגיים יש ב-$A$ כש-$n=6$ (כלומר $A=\\{1,\\ldots,13\\}$)?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "$n+1=7$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תת-קבוצות $B\\subseteq A$ מקיימות את התנאי כש-$n=6$?",
+     "answer": 128,
+     "tol": 0,
+     "explain": "$B$ מכילה את 6 הזוגיים, והאי-זוגיים חופשיים: $2^7=128$ (הוכח בבדיקת כל $2^{13}$ הקבוצות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התשובה הכללית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{n+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{n}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{2n+1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{n+1}-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיברים האי-זוגיים חופשיים והזוגיים חייבים להיכלל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
