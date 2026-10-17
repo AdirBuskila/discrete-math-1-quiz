@@ -196,4 +196,23 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking; FYI.
 - Status: info
 
+### 18A-B Q4 c - key counts letter-count vectors, not words (shipped with correction label)
+- Path: tools/raw/18A-B.json
+- Page: p.11 (Q4 c)
+- Question: the key answers 495 = C(12,4), the number of vectors (x1..x4) with sum <= 22 and the lower bounds, i.e. words up to letter order. The printed question asks for words of length at most 22; the number of words is 10726916243718 (script-checked, two methods). Shipped as solved, official false, with the correction prefix. Same pattern as 18A-A Q4 c (still held).
+- Needed: nothing blocking; confirm the intended reading if you know it.
+- Status: info
+
+### 18A-B, 18B-A - slips and gaps in the keys
+- Path: tools/raw/18A-B.json, tools/raw/18B-A.json
+- Page: p.4 (18A-B Q2 a), p.8 (18A-B Q3 a 4), p.5 (18B-A Q2 b 2), p.3 (18B-A Q1 c)
+- Question: 18A-B Q2a writes "3(k+1)^2+4(k+1)=1" for "+1" and an extra "+4k+5" line; transcribed with the correct lines, final answer unchanged. 18A-B Q3a(4) answers B={2,3}; any B={2,p} with p an odd prime also works (the key gives one example). 18B-A Q2b(2) never mentions n=0 (a_0=0 is not prime); transcribed as in the key. 18B-A Q1c negates "exists x in A or exists y in B" as "for all x and all y" (same convention as 18A-A and 19A-A).
+- Status: info
+
+### 18A-B, 18B-A - cover page and authorship
+- Path: tools/raw/18A-B.json, tools/raw/18B-A.json
+- Page: p.1, pp.3-11
+- Question: the 18B-A cover (08.07.2018) reads "semester A, moed B" (a copy of the March cover); labelled semester B, moed A by the date and folder. Both keys are handwritten with no author (18B-A in blue ink): student-solution, official false, confidence med.
+- Status: info
+
 ## Resolved
