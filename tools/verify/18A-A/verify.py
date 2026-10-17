@@ -51,3 +51,12 @@ for na in range(4, 26):
             if nd >= 2:
                 tot += factorial(25) // (factorial(na)*factorial(nb)*factorial(nc)*factorial(nd))
 print("words:", tot, "multisets:", comb(14, 3))
+# --- solver/arbiter 2026-10-17: Q4c shipped with the word count (second method: EGF coefficient via sympy) ---
+import sympy as sp
+x = sp.symbols("x")
+def tail(k):  # sum_{j>=k} x^j/j!, truncated at 25
+    return sum(x**j / sp.factorial(j) for j in range(k, 26))
+egf = sp.expand(tail(4) * tail(3) * tail(5) * tail(2))
+w2 = egf.coeff(x, 25) * sp.factorial(25)
+assert tot == w2 == 746544967234440 and comb(14, 3) == 364
+print("Q4c OK: 746544967234440 words (two methods); 364 letter-count vectors")

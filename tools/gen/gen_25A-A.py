@@ -4,7 +4,9 @@
 Run: PYTHONUTF8=1 py tools/gen/gen_25A-A.py
 Notes:
  - A part with numbered sub-claims ((1), (2)) is ONE item (the id scheme allows a single letter per part).
- - Q3a is held: the official solution proves symmetry and transitivity but never answers sub-question (2)."""
+ - Q3a: the official solution proves symmetry and transitivity but never answers sub-question (2); (2) was added by
+   the solver (solved, official false, checked in tools/verify/25A-A/verify.py). The key's transitivity line writes
+   5(k+q-2) for 5(k+q-2b); transcribed as 2b."""
 import json, pathlib
 
 OUT = pathlib.Path(__file__).resolve().parents[1] / "raw" / "25A-A.json"
@@ -127,8 +129,22 @@ questions = [
       r"(1) הוכיחו ש: $R$ הוא יחס סימטרי וטרנזיטיבי."
       "\n"
       r"(2) האם $R$ הוא יחס סדר חלקי ?",
-      None,
-      hold="no-key: the official solution proves only (1) (symmetric, transitive) and never answers (2)"),
+      r"(הפתרון הרשמי עונה רק על (1); התשובה ל-(2) נכתבה בנפרד ונבדקה בסקריפט.)"
+      "\n"
+      r"**(1) $R$ סימטרי:** לכל $a,b$: אם $(a,b)\in R$ אז $(b,a)\in R$. "
+      r"$(a,b)\in R\iff5\mid(3a+7b)\iff$ קיים $k\in\mathbb{Z}$ כך ש: $3a+7b=5k$. צריך להראות: $(b,a)\in R\iff5\mid(3b+7a)$."
+      "\n"
+      r"$5k+(3b+7a)=(3a+7b)+(3b+7a)=10a+10b=5(2a+2b)$."
+      "\n"
+      r"אז: $3b+7a=5(2a+2b)-5k=5(2a+2b-k)$, ו-$2a+2b-k\in\mathbb{Z}$, ולכן $5\mid(3b+7a)$."
+      "\n"
+      r"**$R$ טרנזיטיבי:** $(a,b)\in R\wedge(b,c)\in R\iff$ קיימים $k,q\in\mathbb{Z}$ כך ש: $5k=3a+7b$ ו-$5q=3b+7c$. "
+      r"אז $5k+5q=(3a+7c)+10b$, ולכן $3a+7c=5(k+q-2b)\Rightarrow5\mid(3a+7c)\Rightarrow(a,c)\in R$."
+      "\n"
+      r"**(2)** $R$ אינו יחס סדר חלקי, כי $R$ אינו אנטי-סימטרי: $0R5$ כי $3\cdot0+7\cdot5=35$ מתחלק ב-5, "
+      r"וגם $5R0$ כי $3\cdot5+7\cdot0=15$ מתחלק ב-5, אבל $0\ne5$. "
+      r"(בנוסף, $R$ רפלקסיבי, כי $3x+7x=10x$ מתחלק ב-5 לכל $x\in\mathbb{Z}$, ולכן $R$ הוא יחס שקילות.)",
+      solutionSource="solved", official=False, confidence="high"),
 
     Q(3, "ב", "computation", "number_theory_gcd", 9,
       r"מצאו על ידי האלגוריתם המורחב של Euclid שני מספרים $x,y\in\mathbb{Z}$ כך ש: $\gcd(48,184)=48\cdot x+184\cdot y$."

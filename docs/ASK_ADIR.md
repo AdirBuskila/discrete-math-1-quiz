@@ -32,13 +32,6 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Question: the printed paper labels two parts of Q5 as (b); the second is stored as part c.
 - Status: info
 
-### 25A-A Q3 a - official solution omits part (2)
-- Path: tools/raw/25A-A.json
-- Page: p.5 (Q3 a)
-- Question: the official solution proves that R is symmetric and transitive but never answers (2) "is R a partial order?". (Computed: R is reflexive and symmetric, not antisymmetric since 0R5 and 5R0, so not a partial order.)
-- Needed: route to the solver (no-key), or approve the computed answer.
-- Status: hold
-
 ### 25A-A, 25A-B - solution authorship
 - Path: tools/raw/25A-A.json, tools/raw/25A-B.json
 - Page: pp.2-7
@@ -67,41 +60,12 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking; FYI.
 - Status: info
 
-
-### 22A-B Q6b (form 2 Q2b) - printed key disagrees with its own computation
-- Path: tools/raw/22A-B.json
-- Page: p.8 (form 2 Q2 b)
-- Question: the key ends with "232 + 2^1210"; the expression is |A u B| + |P(AxB)| + |P(A-B)|, which is 121 + 2^1210 + 2^111 (script-checked).
-- Needed: confirm the intended answer.
-- Status: hold
-
-### 22A-B Q7a (form 2 Q3a) - no key
-- Path: tools/raw/22A-B.json
-- Page: p.11 (form 2 Q3 a)
-- Question: the key covers form 1 only (9x+5y); form 2 uses 3x+7y and has no solution.
-- Needed: nothing, route to the solver.
-- Status: hold
-
 ### 22A-B Q3a / Q3b / Q1b-c - key slips (FYI)
 - Path: tools/raw/22A-B.json
 - Page: p.10 (Q3 a, b); p.5 (form 2 Q1 b, c)
 - Question: Q3a: the key never answers "is R a partial order" (added from a script, flagged in the text). Q3b: the summary line says f(5)=6, the key's own table gives f(5)=3 (line omitted). Form 2 Q1b: header written gcd(-84,-64), meant -68. Form 2 Q1c: key writes 60 where 6 is meant (6^40 = 6^(41-1)).
 - Needed: nothing blocking.
 - Status: info
-
-### 22A-A Q6b (form 2 Q2b) - printed key disagrees with its own sizes
-- Path: tools/raw/22A-A.json
-- Page: p.9 (form 2 Q2 b)
-- Question: the key writes |A|*|B| = 300*300 = 90000, but |A|=|B|=900 (it also writes |A-B| = 30*30-30 = 870). Expected 870 + 2^810000 + 2^30 (script-checked); the key gives 870 + 2^90000 + 2^30.
-- Needed: confirm the intended answer.
-- Status: hold
-
-### 22A-A Q7a (form 2 Q3a) - key says only "same as form 1"
-- Path: tools/raw/22A-A.json
-- Page: p.12 (form 2 Q3 a)
-- Question: form 2 uses 3x+7y; the key only says it is like form 1 and gives no worked answer.
-- Needed: nothing, route to the solver.
-- Status: hold
 
 ### 22A-A Q3a / Q3b - handwriting slips (FYI)
 - Path: tools/raw/22A-A.json
@@ -110,40 +74,12 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking.
 - Status: info
 
-### 20A-A Q2a - key arithmetic slip
-- Path: tools/raw/20A-A.json
-- Page: part 1 p.5 (Q2 a)
-- Question: (1) 720 = 3!*5! is right. (2) the key writes C(7,2)*5! = 7!/2 = 2560, but both equal 2520.
-- Needed: confirm 2520 is the intended answer.
-- Status: hold
-
-### 20A-A Q2b - key answers (1) as if letters cannot repeat
-- Path: tools/raw/20A-A.json
-- Page: part 1 pp.5-6 (Q2 b)
-- Question: (1) asks for 7-letter sequences, first 4 letters from A and the rest from B; the key answers 144 = 3!*4! (each letter once). Part (2) then adds "every letter appears once", so (1) seems to allow repeats (4^4*3^3 = 6912). (2) = 72 matches the key.
-- Needed: which reading is intended.
-- Status: hold
-
-### 20A-A Q2c - key's formula for phi(n) is not valid
-- Path: tools/raw/20A-A.json
-- Page: part 1 p.6 (Q2 c)
-- Question: (1) phi(1)=1=phi(2) is fine. In (2) the key writes phi(n) = 3^a 5^b m (1-1/3)(1-1/5) phi(m), which has stray factors m and phi(m); the last line 2*4*3^(a-1)*5^(b-1)*phi(m) and the claim 8 | phi(n) are right.
-- Needed: nothing blocking; decide whether to ship with a corrected derivation or send to the solver.
-- Status: hold
-
 ### 20A-A - exam-only file is a different version; other key notes (FYI)
 - Path: tools/raw/20A-A.json
 - Page: exam-only file pp.1-4; part 1 p.3 (Q1 d), part 2 p.6 (Q6 a)
 - Question: the exam-only PDF prints different numbers/questions in Q1a, Q1e, Q3c, Q4b, Q5a-b, Q6a-c than the two solution PDFs; the solution PDFs were used as the sitting. Q1d: the key shows only n=2,3,4, nothing for n>=5 (script: only n=4 works for n<=12). Q6a: key writes (1-2/3) where (1-1/3) is meant; the result is right.
 - Needed: nothing blocking.
 - Status: info
-
-### 18A-A Q4 c - key counts letter-count vectors, not words
-- Path: tools/raw/18A-A.json
-- Page: p.4 (printed), p.12 (key)
-- Question: the printed question asks how many 25-letter words over {a,b,c,d} contain a at least 4 times, b at least 3, c at least 5, d at least 2. The key answers C(14,3)=364, which counts only the letter-count vectors. The number of words is 746544967234440 (script-checked).
-- Needed: decide whether to ship the printed question with the computed word count (solved) or keep it held.
-- Status: hold
 
 ### 18A-A Q3 a - slip in an intermediate line
 - Path: tools/raw/18A-A.json
@@ -156,13 +92,6 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.5 (Q1 b)
 - Question: the key's DNF omits the row p=T,q=F,r=T (it writes r->p = F there; T->T is T). Shipped as "official solution with correction", solutionSource solved, official false (script-checked: three true rows).
 - Needed: confirm.
-- Status: info
-
-### 19A-A Q3 b2 - formula double counts at n=8
-- Path: tools/raw/19A-A.json
-- Page: p.9 (Q3 b)
-- Question: the key's C(n,2)*C(n-2,3) is right for n>=9; at n=8 the remaining block also has 3 elements and every relation is counted twice (280 vs 560, script-checked). Shipped as printed in the key with a visible note. The key also labels its two answers (1b)/(2b) in swapped order; matched by content.
-- Needed: nothing blocking.
 - Status: info
 
 ### 19A-A Q1 a2 - printed set braces partly unclear
@@ -199,7 +128,7 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 ### 18A-B Q4 c - key counts letter-count vectors, not words (shipped with correction label)
 - Path: tools/raw/18A-B.json
 - Page: p.11 (Q4 c)
-- Question: the key answers 495 = C(12,4), the number of vectors (x1..x4) with sum <= 22 and the lower bounds, i.e. words up to letter order. The printed question asks for words of length at most 22; the number of words is 10726916243718 (script-checked, two methods). Shipped as solved, official false, with the correction prefix. Same pattern as 18A-A Q4 c (still held).
+- Question: the key answers 495 = C(12,4), the number of vectors (x1..x4) with sum <= 22 and the lower bounds, i.e. words up to letter order. The printed question asks for words of length at most 22; the number of words is 10726916243718 (script-checked, two methods). Shipped as solved, official false, with the correction prefix. Same pattern as 18A-A Q4 c (now shipped the same way).
 - Needed: nothing blocking; confirm the intended reading if you know it.
 - Status: info
 
@@ -216,3 +145,83 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Status: info
 
 ## Resolved
+
+### 25A-A Q3 a - official solution omits part (2)
+- Path: tools/raw/25A-A.json
+- Page: p.5 (Q3 a)
+- Question: the official solution proves that R is symmetric and transitive but never answers (2) "is R a partial order?". (Computed: R is reflexive and symmetric, not antisymmetric since 0R5 and 5R0, so not a partial order.)
+- Needed: route to the solver (no-key), or approve the computed answer.
+- Status: resolved (2026-10-17)
+- Ruling: solver: shipped solved, official false; (1) transcribed from the key (its transitivity line 5(k+q-2) fixed to 5(k+q-2b), slip), (2) added: not a partial order (0R5, 5R0). verify.py asserts.
+
+### 22A-B Q6b (form 2 Q2b) - printed key disagrees with its own computation
+- Path: tools/raw/22A-B.json
+- Page: p.8 (form 2 Q2 b)
+- Question: the key ends with "232 + 2^1210"; the expression is |A u B| + |P(AxB)| + |P(A-B)|, which is 121 + 2^1210 + 2^111 (script-checked).
+- Needed: confirm the intended answer.
+- Status: resolved (2026-10-17)
+- Ruling: standing typo rule: shipped 121 + 2^1210 + 2^111 with the correction prefix (key put |A-B|=111 where |P(A-B)|=2^111 belongs), solved, official false. verify.py asserts.
+
+### 22A-B Q7a (form 2 Q3a) - no key
+- Path: tools/raw/22A-B.json
+- Page: p.11 (form 2 Q3 a)
+- Question: the key covers form 1 only (9x+5y); form 2 uses 3x+7y and has no solution.
+- Needed: nothing, route to the solver.
+- Status: resolved (2026-10-17)
+- Ruling: solver: full solution written for 3x+7y (equivalence, Z/R = {evens, odds}, not a partial order: 0R2, 2R0), solved, official false. verify.py asserts.
+
+### 22A-A Q6b (form 2 Q2b) - printed key disagrees with its own sizes
+- Path: tools/raw/22A-A.json
+- Page: p.9 (form 2 Q2 b)
+- Question: the key writes |A|*|B| = 300*300 = 90000, but |A|=|B|=900 (it also writes |A-B| = 30*30-30 = 870). Expected 870 + 2^810000 + 2^30 (script-checked); the key gives 870 + 2^90000 + 2^30.
+- Needed: confirm the intended answer.
+- Status: resolved (2026-10-17)
+- Ruling: standing typo rule: shipped 870 + 2^810000 + 2^30 with the prefix naming 300*300 -> 900*900, solved, official false. verify.py asserts.
+
+### 22A-A Q7a (form 2 Q3a) - key says only "same as form 1"
+- Path: tools/raw/22A-A.json
+- Page: p.12 (form 2 Q3 a)
+- Question: form 2 uses 3x+7y; the key only says it is like form 1 and gives no worked answer.
+- Needed: nothing, route to the solver.
+- Status: resolved (2026-10-17)
+- Ruling: solver: derived for form 2's 3x+7y (equivalence, two classes, not a partial order: 1R3, 3R1), solved, official false. verify.py asserts.
+
+### 20A-A Q2a - key arithmetic slip
+- Path: tools/raw/20A-A.json
+- Page: part 1 p.5 (Q2 a)
+- Question: (1) 720 = 3!*5! is right. (2) the key writes C(7,2)*5! = 7!/2 = 2560, but both equal 2520.
+- Needed: confirm 2520 is the intended answer.
+- Status: resolved (2026-10-17)
+- Ruling: standing typo rule: shipped (1) 720, (2) 2520 with the prefix naming 2560 -> 2520, solved, official false. verify.py brute-forces S7.
+
+### 20A-A Q2b - key answers (1) as if letters cannot repeat
+- Path: tools/raw/20A-A.json
+- Page: part 1 pp.5-6 (Q2 b)
+- Question: (1) asks for 7-letter sequences, first 4 letters from A and the rest from B; the key answers 144 = 3!*4! (each letter once). Part (2) then adds "every letter appears once", so (1) seems to allow repeats (4^4*3^3 = 6912). (2) = 72 matches the key.
+- Needed: which reading is intended.
+- Status: resolved (2026-10-17)
+- Ruling: arbiter: read on the page (part 1 pp.5-6). A course 'sequence' allows repeats (a permutation is defined as a sequence without repeats) and (2) adds 'each letter appears once' as a new condition on sequences from (1), so the printed wording supports repeats in (1). Keyed 4^4*3^3 = 6912 with the correction prefix; the key's no-repeat reading (144) is solved alongside; (2) = 72 under both readings. Solved, official false. verify.py brute-forces both. Override if the lecturer meant no repeats.
+
+### 20A-A Q2c - key's formula for phi(n) is not valid
+- Path: tools/raw/20A-A.json
+- Page: part 1 p.6 (Q2 c)
+- Question: (1) phi(1)=1=phi(2) is fine. In (2) the key writes phi(n) = 3^a 5^b m (1-1/3)(1-1/5) phi(m), which has stray factors m and phi(m); the last line 2*4*3^(a-1)*5^(b-1)*phi(m) and the claim 8 | phi(n) are right.
+- Needed: nothing blocking; decide whether to ship with a corrected derivation or send to the solver.
+- Status: resolved (2026-10-17)
+- Ruling: intermediate slip, fixed silently: the line is transcribed as phi(n) = 3^a(1-1/3)*5^b(1-1/5)*phi(m) = 2*4*3^(a-1)*5^(b-1)*phi(m); final answer unchanged, stays student-solution. verify.py asserts the identity for n = 15..5985.
+
+### 18A-A Q4 c - key counts letter-count vectors, not words
+- Path: tools/raw/18A-A.json
+- Page: p.4 (printed), p.12 (key)
+- Question: the printed question asks how many 25-letter words over {a,b,c,d} contain a at least 4 times, b at least 3, c at least 5, d at least 2. The key answers C(14,3)=364, which counts only the letter-count vectors. The number of words is 746544967234440 (script-checked).
+- Needed: decide whether to ship the printed question with the computed word count (solved) or keep it held.
+- Status: resolved (2026-10-17)
+- Ruling: standing typo rule, same as 18A-B Q4c: shipped 746544967234440 words with the correction prefix, keeping the key's 364 as the letter-count-vector step; solved, official false. verify.py checks two methods (multinomial sum, EGF).
+
+### 19A-A Q3 b2 - formula double counts at n=8
+- Path: tools/raw/19A-A.json
+- Page: p.9 (Q3 b)
+- Question: the key's C(n,2)*C(n-2,3) is right for n>=9; at n=8 the remaining block also has 3 elements and every relation is counted twice (280 vs 560, script-checked). Shipped as printed in the key with a visible note. The key also labels its two answers (1b)/(2b) in swapped order; matched by content.
+- Needed: nothing blocking.
+- Status: resolved (2026-10-17)
+- Ruling: converted from a note to the standing typo rule: prefix names the n=8 correction (280, not 560); answer C(n,2)C(n-2,3) for n>=9, 280 for n=8; solved, official false. verify.py counts distinct relations for n=8,9,10.

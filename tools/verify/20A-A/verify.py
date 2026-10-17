@@ -128,9 +128,31 @@ for n in range(5, 9):
     assert a_ == 8**n and b_ == 12**n
     assert totient(a_ * b_) == 2**(5 * n) * 3**(n - 1)
 print("Q6a OK")
-# Held items (not shipped): Q2a(2) 7!/2 = 2520 not 2560; Q2b(1) with repeats 4^4*3^3 vs key 144
+# Formerly held (shipped 2026-10-17, see below): Q2a(2) 7!/2 = 2520 not 2560; Q2b(1) with repeats 4^4*3^3 vs key 144
 assert comb(7, 2) * factorial(5) == 2520 == factorial(7) // 2 and 3 * 2 * 120 == 720
 assert 4**4 * 3**3 == 6912 and factorial(3) * factorial(4) == 144 and 2 * 6 * 6 == 72
 for n in (15, 30, 45, 60):
     assert totient(n) % 8 == 0
 print("held-item notes OK")
+# --- solver/arbiter 2026-10-17: brute force for the now-shipped Q2a, Q2b, Q2c ---
+P7 = list(itertools.permutations(range(1, 8)))
+adj = sum(1 for p in P7 if max(p.index(v) for v in (1, 2, 3)) - min(p.index(v) for v in (1, 2, 3)) == 2)
+before = sum(1 for p in P7 if p.index(1) < p.index(2))
+assert adj == 720 and before == 2520 != 2560
+print("Q2a OK: 720 and 2520 (key printed 2560)")
+A_, B_ = "abcd", "xyz"
+rep = sum(1 for _ in itertools.product(A_, repeat=4)) * sum(1 for _ in itertools.product(B_, repeat=3))
+norep = [s + t for s in itertools.product(A_, repeat=4) for t in itertools.product(B_, repeat=3)
+         if len(set(s)) == 4 and len(set(t)) == 3]
+assert rep == 6912 and len(norep) == 144
+part2 = [w for w in itertools.product(A_, repeat=4) for t in itertools.product(B_, repeat=3)
+         if len(set(w)) == 4 and len(set(t)) == 3 and w[0] in "ab"]
+assert len(part2) == 72
+print("Q2b OK: (1) 6912 with repeats (144 without), (2) 72 under both readings")
+assert totient(1) == totient(2) == 1
+for n in range(15, 15 * 400, 15):
+    a = b = 0; m = n
+    while m % 3 == 0: m //= 3; a += 1
+    while m % 5 == 0: m //= 5; b += 1
+    assert totient(n) == 2 * 4 * 3**(a - 1) * 5**(b - 1) * totient(m) and totient(n) % 8 == 0
+print("Q2c OK: phi(n) = 2*4*3^(a-1)*5^(b-1)*phi(m), 8 | phi(n)")

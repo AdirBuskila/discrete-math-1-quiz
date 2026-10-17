@@ -70,3 +70,12 @@ for m in range(30):
         vals[3 ** m * 5 ** n] = 1
 assert 7 not in vals
 print("Q4c OK")
+# --- solver/arbiter 2026-10-17: Q3a(2) shipped ---
+import sympy as sp
+a_, b_, c_, k_, q_ = sp.symbols("a b c k q")
+assert sp.expand((3*a_ + 7*b_) + (3*b_ + 7*a_) - 5*(2*a_ + 2*b_)) == 0
+# transitivity: 3a+7c = 5(k+q-2b) when 5k=3a+7b, 5q=3b+7c
+assert sp.expand(5*((3*a_ + 7*b_)/5 + (3*b_ + 7*c_)/5 - 2*b_) - (3*a_ + 7*c_)) == 0
+assert Rr(0, 5) and Rr(5, 0) and 3*0 + 7*5 == 35 and 3*5 + 7*0 == 15
+assert not all(not (Rr(x, y) and Rr(y, x)) or x == y for x in rg for y in rg)
+print("Q3a(2) OK: R is not antisymmetric (0R5, 5R0), so not a partial order")

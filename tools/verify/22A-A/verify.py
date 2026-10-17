@@ -72,3 +72,18 @@ for n in range(4, 7):
         c3 += 1 < len(Bs) < len(full)
     assert c1 == (n+1) * 2**n and c2 == n * 2**(n+1) and c3 == 2**(2*n+1) - 2*n - 3
 print("Q4b OK")
+# --- solver/arbiter 2026-10-17 ---
+# Q6b (form 2 Q2b): corrected answer 870 + 2^810000 + 2^30 (key used 300*300)
+assert len(A2) * len(B2) == 900 * 900 == 810000 != 300 * 300
+assert {x for x in A2 if x % 5 == 0 or x % 7 == 0} == A2 - {3**n for n in range(30)}
+assert A2 & B2 == {3**n for n in range(30)}
+val = len(A2 - B2) + 2**(len(A2) * len(B2)) + 2**len(A2 & B2)
+assert val == 870 + 2**810000 + 2**30
+print("Q6b form2 corrected OK: 870 + 2^810000 + 2^30")
+# Q7a (form 2 Q3a): 3x+7y even -> equivalence, classes evens/odds, not a partial order
+R2 = lambda x, y: (3*x + 7*y) % 2 == 0
+assert all(R2(x, x) for x in rng) and all(R2(y, x) for x in rng for y in rng if R2(x, y))
+assert all(R2(x, z) for x in rng for y in rng for z in rng if R2(x, y) and R2(y, z))
+assert all(R2(0, x) == (x % 2 == 0) and R2(1, x) == (x % 2 == 1) for x in rng)
+assert R2(1, 3) and R2(3, 1) and (3*1+7*3, 3*3+7*1) == (24, 16)
+print("Q7a form2 OK (equivalence, 2 classes, not a partial order)")

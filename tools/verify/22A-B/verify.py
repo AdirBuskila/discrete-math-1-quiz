@@ -72,3 +72,15 @@ for n in range(4, 7):
         c2 += (Bs | evens) == full
     assert c1 == 2**(n + 1) and c2 == 2**n
 print("Q4b OK: form1 2^(n+1), form2 2^n")
+# --- solver/arbiter 2026-10-17 ---
+# Q6b (form 2 Q2b): corrected answer 121 + 2^1210 + 2^111 (key wrote |A-B|=111 for |P(A-B)|)
+val = len(A | B2) + 2**(len(A) * len(B2)) + 2**len(A - B2)
+assert val == 121 + 2**1210 + 2**111 and val != 232 + 2**1210
+print("Q6b form2 corrected OK: 121 + 2^1210 + 2^111")
+# Q7a (form 2 Q3a): 3x+7y even
+R2 = lambda x, y: (3 * x + 7 * y) % 2 == 0
+assert all(R2(x, x) for x in rng) and all(R2(y, x) for x in rng for y in rng if R2(x, y))
+assert all(R2(x, z) for x in rng for y in rng for z in rng if R2(x, y) and R2(y, z))
+assert all(R2(x, 0) == (x % 2 == 0) and R2(x, 1) == (x % 2 == 1) for x in rng)
+assert R2(0, 2) and R2(2, 0) and (3 * 0 + 7 * 2, 3 * 2 + 7 * 0) == (14, 6)
+print("Q7a form2 OK (equivalence, 2 classes, not a partial order)")

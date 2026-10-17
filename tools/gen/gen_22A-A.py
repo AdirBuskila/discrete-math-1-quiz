@@ -272,22 +272,54 @@ add(Q(6, "א", "proof", "induction", 16,
       "\n"
       r"**III. מסקנה:** מ-I ו-II, לכל $1\le n\in\mathbb{N}$ מתקיים $P(n)=\text{TRUE}$."))
 
-add(H(6, "ב", "computation", "sets_power_set", 6,
+add(Q(6, "ב", "computation", "sets_power_set", 6,
       V2 + r"יהיו הקבוצות $A=\{3^n\cdot7^m:\ m,n\in\{0,1,2,\ldots,29\}\}$ ו-$B=\{3^n\cdot5^m:\ m,n\in\{0,1,2,\ldots,29\}\}$."
       "\n"
       r"חשבו את: $|A-B|+|P(A\times B)|+|P(A\cap B)|$.",
-      "key-disagrees: the key writes |A|*|B| = 300*300 = 90000, giving 870 + 2^90000 + 2^30; with |A|=|B|=900 a script gives 870 + 2^810000 + 2^30"))
+      r"**הפתרון הרשמי עם תיקון $|A|\cdot|B|=900\cdot900=810000$ (ולא $300\cdot300=90000$):** הפתרון הרשמי משתמש בעצמו ב-$|A|=30\cdot30=900$ "
+      r"(בחישוב $|A-B|=870$), אבל בחישוב $|A\times B|$ כותב $300\cdot300=90000$ ומקבל $870+2^{90000}+2^{30}$. "
+      r"התשובה המתוקנת היא $870+2^{810000}+2^{30}$ (נבדק בסקריפט)."
+      "\n"
+      r"$|A|=|B|=30\cdot30=900$ (לכל זוג $(n,m)$ מתקבל מספר שונה, לפי יחידות הפירוק לראשוניים)."
+      "\n"
+      r"$A\cap B=\{3^n:\ n\in\{0,\ldots,29\}\}$ (מספר מהצורה $3^n7^m$ שווה ל-$3^k5^j$ רק אם $m=j=0$), ולכן $|A\cap B|=30$ ו-$|P(A\cap B)|=2^{30}$."
+      "\n"
+      r"$|A-B|=|A|-|A\cap B|=900-30=870$."
+      "\n"
+      r"$|P(A\times B)|=2^{|A|\cdot|B|}=2^{900\cdot900}=2^{810000}$."
+      "\n"
+      r"מסקנה: $$870+2^{810000}+2^{30}$$",
+      solutionSource="solved", confidence="high"))
 
 add(Q(6, "ג", "proof", "sets_power_set", 8, V2 + Q2C_Q, Q2C_S))
 
-add(H(7, "א", "proof", "equivalence_relations", 17,
+add(Q(7, "א", "proof", "equivalence_relations", 17,
       V2 + r"יהי נתון היחס $R\subseteq\mathbb{Z}\times\mathbb{Z}$ שמוגדר לפי הכלל הבא: לכל $x,y\in\mathbb{Z}$ מתקיים "
       r"$xRy\iff3x+7y$ הוא מספר זוגי."
       "\n"
       r"הוכיחו ש-$R$ הוא יחס שקילות ומצאו את קבוצת המנה $\mathbb{Z}/R$."
       "\n"
       r"האם $R$ הוא יחס סדר חלקי?",
-      "no-key"))
+      r"(המפתח כותב רק שהפתרון דומה לגרסה 1; הפתרון כאן נכתב לפי המספרים של גרסה 2 ונבדק בסקריפט.)"
+      "\n"
+      r"**$R$ רפלקסיבי:** לכל $x\in\mathbb{Z}$: $3x+7x=10x=2\cdot5x$ זוגי, ולכן $xRx$."
+      "\n"
+      r"**$R$ סימטרי:** יהיו $x,y\in\mathbb{Z}$ עם $xRy$, כלומר $3x+7y=2k$ עבור $k\in\mathbb{Z}$. "
+      r"מכיוון ש-$(3x+7y)+(3y+7x)=10x+10y$, מתקיים $3y+7x=10x+10y-2k=2(5x+5y-k)$, זוגי, ולכן $yRx$."
+      "\n"
+      r"**$R$ טרנזיטיבי:** יהיו $x,y,z\in\mathbb{Z}$ עם $xRy$ וגם $yRz$: $3x+7y=2k$ ו-$3y+7z=2m$ ($k,m\in\mathbb{Z}$). "
+      r"אז $2k+2m=3x+7z+10y$, ולכן $3x+7z=2(k+m-5y)$ זוגי, כלומר $xRz$. לכן $R$ יחס שקילות."
+      "\n"
+      r"$[0]=\{x\in\mathbb{Z}:\ 0Rx\}=\{x\in\mathbb{Z}:\ 2\mid7x\}=\{x\in\mathbb{Z}:\ 2\mid x\}=\{2k:\ k\in\mathbb{Z}\}$, כי $2\nmid7$."
+      "\n"
+      r"$[1]=\{x\in\mathbb{Z}:\ 1Rx\}=\{x\in\mathbb{Z}:\ 2\mid(3+7x)\}=\{2k+1:\ k\in\mathbb{Z}\}$, "
+      r"כי $3$ אי-זוגי ו-$2\mid(3+7x)$ מחייב ש-$7x$ אי-זוגי, כלומר $x$ אי-זוגי."
+      "\n"
+      r"מסקנה: $\mathbb{Z}/R=\{[0],[1]\}=\{\{2k:\ k\in\mathbb{Z}\},\{2k+1:\ k\in\mathbb{Z}\}\}$."
+      "\n"
+      r"$R$ אינו יחס סדר חלקי, כי $R$ אינו אנטי-סימטרי: $1R3$ כי $2\mid24=3\cdot1+7\cdot3$, "
+      r"ו-$3R1$ כי $2\mid16=3\cdot3+7\cdot1$, אבל $1\ne3$.",
+      solutionSource="solved", confidence="high"))
 
 add(Q(7, "ב", "computation", "functions", 8,
       V2 + r"הפונקציה $f:\{1,2,3,4,5,6,7\}\to A$ מוגדרת לפי הכלל $f(k)=k^2\pmod6+\operatorname{lcm}(2,\gcd(2,k))$ "

@@ -77,3 +77,15 @@ print("Q4 OK")
 assert all(6 * 2 ** n + 3 ** n == 5 * (6 * 2 ** (n - 1) + 3 ** (n - 1)) - 6 * (6 * 2 ** (n - 2) + 3 ** (n - 2)) for n in range(2, 30))
 assert 6 + 1 == 7 and 12 + 3 == 15
 print("Q5 OK")
+# --- solver/arbiter 2026-10-17: Q3b2 shipped with the n=8 correction; count DISTINCT relations (sets of pairs) ---
+def distinct_relations(n):
+    els = list(range(n)); rels = set()
+    for B in itertools.combinations(els, 2):
+        rest = [e for e in els if e not in B]
+        for C in itertools.combinations(rest, 3):
+            D = [e for e in rest if e not in C]
+            rels.add(fs((a, b) for blk in (B, C, D) for a in blk for b in blk))
+    return len(rels)
+assert distinct_relations(8) == 280 != comb(8, 2) * comb(6, 3) == 560
+assert distinct_relations(9) == comb(9, 2) * comb(7, 3) and distinct_relations(10) == comb(10, 2) * comb(8, 3)
+print("Q3b2 OK: n=8 -> 280 distinct relations; n=9,10 match C(n,2)C(n-2,3)")

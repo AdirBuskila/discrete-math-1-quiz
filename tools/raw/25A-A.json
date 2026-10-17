@@ -86,7 +86,10 @@
    "topic": "equivalence_relations",
    "points": 9,
    "question": "יהי נתון היחס $R\\subseteq\\mathbb{Z}\\times\\mathbb{Z}$ שמוגדר לפי הכלל הבא: לכל $x,y\\in\\mathbb{Z}$, מתקיים $xRy\\iff 3x+7y$ הוא מספר שמתחלק ב-5.\n(1) הוכיחו ש: $R$ הוא יחס סימטרי וטרנזיטיבי.\n(2) האם $R$ הוא יחס סדר חלקי ?",
-   "hold": "no-key: the official solution proves only (1) (symmetric, transitive) and never answers (2)"
+   "solution": "(הפתרון הרשמי עונה רק על (1); התשובה ל-(2) נכתבה בנפרד ונבדקה בסקריפט.)\n**(1) $R$ סימטרי:** לכל $a,b$: אם $(a,b)\\in R$ אז $(b,a)\\in R$. $(a,b)\\in R\\iff5\\mid(3a+7b)\\iff$ קיים $k\\in\\mathbb{Z}$ כך ש: $3a+7b=5k$. צריך להראות: $(b,a)\\in R\\iff5\\mid(3b+7a)$.\n$5k+(3b+7a)=(3a+7b)+(3b+7a)=10a+10b=5(2a+2b)$.\nאז: $3b+7a=5(2a+2b)-5k=5(2a+2b-k)$, ו-$2a+2b-k\\in\\mathbb{Z}$, ולכן $5\\mid(3b+7a)$.\n**$R$ טרנזיטיבי:** $(a,b)\\in R\\wedge(b,c)\\in R\\iff$ קיימים $k,q\\in\\mathbb{Z}$ כך ש: $5k=3a+7b$ ו-$5q=3b+7c$. אז $5k+5q=(3a+7c)+10b$, ולכן $3a+7c=5(k+q-2b)\\Rightarrow5\\mid(3a+7c)\\Rightarrow(a,c)\\in R$.\n**(2)** $R$ אינו יחס סדר חלקי, כי $R$ אינו אנטי-סימטרי: $0R5$ כי $3\\cdot0+7\\cdot5=35$ מתחלק ב-5, וגם $5R0$ כי $3\\cdot5+7\\cdot0=15$ מתחלק ב-5, אבל $0\\ne5$. (בנוסף, $R$ רפלקסיבי, כי $3x+7x=10x$ מתחלק ב-5 לכל $x\\in\\mathbb{Z}$, ולכן $R$ הוא יחס שקילות.)",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high"
   },
   {
    "num": 3,

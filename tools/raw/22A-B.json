@@ -194,7 +194,10 @@
    "topic": "sets_power_set",
    "points": 6,
    "question": "(גרסה 2)\nיהיו הקבוצות $A=\\{3^n\\cdot5^m:\\ m,n\\in\\{0,1,2,\\ldots,10\\}\\}$ ו-$B=\\{3^n:\\ n\\in\\{1,2,\\ldots,10\\}\\}$.\nחשבו את: $|A\\cup B|+|P(A\\times B)|+|P(A-B)|$.",
-   "hold": "key-disagrees: the key writes 232 + 2^1210 (= 111 + 2^1210 + 121); a script gives 121 + 2^1210 + 2^111"
+   "solution": "**הפתרון הרשמי עם תיקון $|P(A-B)|=2^{111}$ (ולא $111$):** הפתרון הרשמי מחשב נכון $|A-B|=111$, אבל בשורת הסיכום מציב $111$ במקום $|P(A-B)|=2^{|A-B|}=2^{111}$ ומקבל $232+2^{1210}$. התשובה המתוקנת היא $121+2^{1210}+2^{111}$ (נבדק בסקריפט).\nלכל $n\\in\\{1,\\ldots,10\\}$: $3^n=3^n\\cdot5^0\\in A$, ולכן $B\\subseteq A$.\n$A\\cup B=A\\Rightarrow|A\\cup B|=|A|=11\\cdot11=121$.\n$|P(A\\times B)|=2^{|A\\times B|}=2^{|A|\\cdot|B|}=2^{121\\cdot10}=2^{1210}$.\n$|A-B|=|A|-|B|=121-10=111$ (כי $B\\subseteq A$), ולכן $|P(A-B)|=2^{111}$.\nמסקנה: $$121+2^{1210}+2^{111}$$",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high"
   },
   {
    "num": 6,
@@ -215,7 +218,10 @@
    "topic": "equivalence_relations",
    "points": 17,
    "question": "(גרסה 2)\nיהי נתון היחס $R\\subseteq\\mathbb{Z}\\times\\mathbb{Z}$ שמוגדר לפי הכלל הבא: לכל $x,y\\in\\mathbb{Z}$, מתקיים $xRy\\iff3x+7y$ הוא מספר זוגי.\nהוכיחו ש-$R$ הוא יחס שקילות ומצאו את קבוצת המנה $\\mathbb{Z}/R$.\nהאם $R$ הוא יחס סדר חלקי?",
-   "hold": "no-key"
+   "solution": "(המפתח פותר רק את גרסה 1; הפתרון כאן נכתב לפי המספרים של גרסה 2 ונבדק בסקריפט.)\n**$R$ רפלקסיבי:** לכל $x\\in\\mathbb{Z}$: $3x+7x=10x=2\\cdot5x$ זוגי, ולכן $xRx$.\n**$R$ סימטרי:** יהיו $x,y\\in\\mathbb{Z}$ עם $xRy$, כלומר $3x+7y$ זוגי. $(3x+7y)+(3y+7x)=10x+10y$ זוגי, ולכן $3y+7x=(10x+10y)-(3x+7y)$ הוא הפרש של שני מספרים זוגיים, כלומר זוגי, ולכן $yRx$.\n**$R$ טרנזיטיבי:** יהיו $x,y,z\\in\\mathbb{Z}$ עם $xRy$ וגם $yRz$, כלומר $3x+7y$ ו-$3y+7z$ זוגיים. אז $3x+7z=\\big((3x+7y)+(3y+7z)\\big)-10y$ הוא הפרש של מספרים זוגיים, ולכן זוגי, כלומר $xRz$.\nלכן $R$ הוא יחס שקילות על $\\mathbb{Z}$.\n$[0]=\\{x\\in\\mathbb{Z}:\\ xR0\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid3x\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid x\\}=\\{2k:\\ k\\in\\mathbb{Z}\\}$ (כי $2\\nmid3$).\n$[1]=\\{x\\in\\mathbb{Z}:\\ xR1\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid(3x+7)\\}=\\{x\\in\\mathbb{Z}:\\ 2\\nmid3x\\}=\\{x\\in\\mathbb{Z}:\\ 2\\nmid x\\}=\\{2k+1:\\ k\\in\\mathbb{Z}\\}$.\n$[0]\\cup[1]=\\mathbb{Z}$, ולכן $\\mathbb{Z}/R=\\{[0],[1]\\}$.\n**האם $R$ יחס סדר חלקי?** לא. $0R2$ (כי $3\\cdot0+7\\cdot2=14$ זוגי) וגם $2R0$ (כי $3\\cdot2+7\\cdot0=6$ זוגי), אבל $0\\ne2$. לכן $R$ אינו אנטי-סימטרי, ולכן אינו יחס סדר חלקי.",
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high"
   },
   {
    "num": 7,

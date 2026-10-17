@@ -26,6 +26,28 @@ def H(num, part, kind, topic, points, question, reason):
 
 V2 = "(גרסה 2)\n"
 
+# Form 2 Q3a (stored Q7a): the key covers form 1 only, so this is a solver write-up (verified in verify.py).
+SOL7A_V2 = (r"(המפתח פותר רק את גרסה 1; הפתרון כאן נכתב לפי המספרים של גרסה 2 ונבדק בסקריפט.)"
+            "\n"
+            r"**$R$ רפלקסיבי:** לכל $x\in\mathbb{Z}$: $3x+7x=10x=2\cdot5x$ זוגי, ולכן $xRx$."
+            "\n"
+            r"**$R$ סימטרי:** יהיו $x,y\in\mathbb{Z}$ עם $xRy$, כלומר $3x+7y$ זוגי. "
+            r"$(3x+7y)+(3y+7x)=10x+10y$ זוגי, ולכן $3y+7x=(10x+10y)-(3x+7y)$ הוא הפרש של שני מספרים זוגיים, כלומר זוגי, ולכן $yRx$."
+            "\n"
+            r"**$R$ טרנזיטיבי:** יהיו $x,y,z\in\mathbb{Z}$ עם $xRy$ וגם $yRz$, כלומר $3x+7y$ ו-$3y+7z$ זוגיים. "
+            r"אז $3x+7z=\big((3x+7y)+(3y+7z)\big)-10y$ הוא הפרש של מספרים זוגיים, ולכן זוגי, כלומר $xRz$."
+            "\n"
+            r"לכן $R$ הוא יחס שקילות על $\mathbb{Z}$."
+            "\n"
+            r"$[0]=\{x\in\mathbb{Z}:\ xR0\}=\{x\in\mathbb{Z}:\ 2\mid3x\}=\{x\in\mathbb{Z}:\ 2\mid x\}=\{2k:\ k\in\mathbb{Z}\}$ (כי $2\nmid3$)."
+            "\n"
+            r"$[1]=\{x\in\mathbb{Z}:\ xR1\}=\{x\in\mathbb{Z}:\ 2\mid(3x+7)\}=\{x\in\mathbb{Z}:\ 2\nmid3x\}=\{x\in\mathbb{Z}:\ 2\nmid x\}=\{2k+1:\ k\in\mathbb{Z}\}$."
+            "\n"
+            r"$[0]\cup[1]=\mathbb{Z}$, ולכן $\mathbb{Z}/R=\{[0],[1]\}$."
+            "\n"
+            r"**האם $R$ יחס סדר חלקי?** לא. $0R2$ (כי $3\cdot0+7\cdot2=14$ זוגי) וגם $2R0$ (כי $3\cdot2+7\cdot0=6$ זוגי), "
+            r"אבל $0\ne2$. לכן $R$ אינו אנטי-סימטרי, ולכן אינו יחס סדר חלקי.")
+
 # ---------------- shared pieces ----------------
 Q1A_DEF = ("הגדרה: אם לפסוקים $A,B$ יש אותה טבלת אמת, אז הם נקראים שקולים לוגית.\n")
 Q1B2_Q = r"יהיו $a,b\in\mathbb{N}$ כך ש: $2<b<a$. חשבו את $\gcd(\operatorname{lcm}(a,b),\gcd(a,b))$."
@@ -268,22 +290,34 @@ add(Q(6, "א", "proof", "induction", 16,
       "\n"
       r"**III. מסקנה:** מ-I ו-II, לכל $1\le n\in\mathbb{N}$ מתקיים $P(n)=\text{TRUE}$."))
 
-add(H(6, "ב", "computation", "sets_power_set", 6,
+add(Q(6, "ב", "computation", "sets_power_set", 6,
       V2 + r"יהיו הקבוצות $A=\{3^n\cdot5^m:\ m,n\in\{0,1,2,\ldots,10\}\}$ ו-$B=\{3^n:\ n\in\{1,2,\ldots,10\}\}$."
       "\n"
       r"חשבו את: $|A\cup B|+|P(A\times B)|+|P(A-B)|$.",
-      "key-disagrees: the key writes 232 + 2^1210 (= 111 + 2^1210 + 121); a script gives 121 + 2^1210 + 2^111"))
+      r"**הפתרון הרשמי עם תיקון $|P(A-B)|=2^{111}$ (ולא $111$):** הפתרון הרשמי מחשב נכון $|A-B|=111$, אבל בשורת הסיכום מציב $111$ במקום "
+      r"$|P(A-B)|=2^{|A-B|}=2^{111}$ ומקבל $232+2^{1210}$. התשובה המתוקנת היא $121+2^{1210}+2^{111}$ (נבדק בסקריפט)."
+      "\n"
+      r"לכל $n\in\{1,\ldots,10\}$: $3^n=3^n\cdot5^0\in A$, ולכן $B\subseteq A$."
+      "\n"
+      r"$A\cup B=A\Rightarrow|A\cup B|=|A|=11\cdot11=121$."
+      "\n"
+      r"$|P(A\times B)|=2^{|A\times B|}=2^{|A|\cdot|B|}=2^{121\cdot10}=2^{1210}$."
+      "\n"
+      r"$|A-B|=|A|-|B|=121-10=111$ (כי $B\subseteq A$), ולכן $|P(A-B)|=2^{111}$."
+      "\n"
+      r"מסקנה: $$121+2^{1210}+2^{111}$$",
+      solutionSource="solved", confidence="high"))
 
 add(Q(6, "ג", "proof", "sets_power_set", 8, V2 + Q2C_Q, Q2C_S))
 
-add(H(7, "א", "proof", "equivalence_relations", 17,
+add(Q(7, "א", "proof", "equivalence_relations", 17,
       V2 + r"יהי נתון היחס $R\subseteq\mathbb{Z}\times\mathbb{Z}$ שמוגדר לפי הכלל הבא: לכל $x,y\in\mathbb{Z}$, מתקיים "
       r"$xRy\iff3x+7y$ הוא מספר זוגי."
       "\n"
       r"הוכיחו ש-$R$ הוא יחס שקילות ומצאו את קבוצת המנה $\mathbb{Z}/R$."
       "\n"
       r"האם $R$ הוא יחס סדר חלקי?",
-      "no-key"))
+      SOL7A_V2, solutionSource="solved", confidence="high"))
 
 add(Q(7, "ב", "computation", "functions", 8, V2 + Q3B_Q, Q3B_S))
 
