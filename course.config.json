@@ -63,7 +63,98 @@
       "גרפים"
     ]
   ],
-  "briefs": [],
+  "briefs": [
+    [
+      "01 - logic_propositional.md",
+      "logic_propositional",
+      "logic_propositional",
+      "topic"
+    ],
+    [
+      "02 - quantifiers_proofs.md",
+      "quantifiers_proofs",
+      "quantifiers_proofs",
+      "topic"
+    ],
+    [
+      "03 - induction.md",
+      "induction",
+      "induction",
+      "topic"
+    ],
+    [
+      "04 - number_theory_gcd.md",
+      "number_theory_gcd",
+      "number_theory_gcd",
+      "topic"
+    ],
+    [
+      "05 - modular_fermat_wilson.md",
+      "modular_fermat_wilson",
+      "modular_fermat_wilson",
+      "topic"
+    ],
+    [
+      "06 - sets_power_set.md",
+      "sets_power_set",
+      "sets_power_set",
+      "topic"
+    ],
+    [
+      "07 - cardinality_sets.md",
+      "cardinality_sets",
+      "cardinality_sets",
+      "topic"
+    ],
+    [
+      "08 - relations_properties.md",
+      "relations_properties",
+      "relations_properties",
+      "topic"
+    ],
+    [
+      "09 - equivalence_relations.md",
+      "equivalence_relations",
+      "equivalence_relations",
+      "topic"
+    ],
+    [
+      "10 - partial_orders.md",
+      "partial_orders",
+      "partial_orders",
+      "topic"
+    ],
+    [
+      "11 - functions.md",
+      "functions",
+      "functions",
+      "topic"
+    ],
+    [
+      "12 - recurrence_sums.md",
+      "recurrence_sums",
+      "recurrence_sums",
+      "topic"
+    ],
+    [
+      "13 - combinatorics.md",
+      "combinatorics",
+      "combinatorics",
+      "topic"
+    ],
+    [
+      "14 - graphs_intro.md",
+      "graphs_intro",
+      "graphs_intro",
+      "topic"
+    ],
+    [
+      "15 - cheat.md",
+      "cheat",
+      "logic_propositional",
+      "cheat"
+    ]
+  ],
   "needHelp": [
     {
       "id": "induction",
