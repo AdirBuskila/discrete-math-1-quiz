@@ -101,7 +101,7 @@ window.OPEN_BANK = {
    "proof",
    "truefalse"
   ],
-  "built": "2026-10-17T13:40:55Z",
+  "built": "2026-10-17T15:52:43Z",
   "exams": [
    {
     "examCode": "26A-A",
@@ -114,8 +114,8 @@ window.OPEN_BANK = {
   "counts": {
    "total": 15,
    "contexts": 0,
-   "math": 179,
-   "steps": 0
+   "math": 403,
+   "steps": 60
   }
  },
  "contexts": {},
@@ -131,6 +131,97 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "טבלת אמת מלאה עם כל 8 ההשמות של $p,q,r$",
+     "points": 3,
+     "html": "טבלת אמת מלאה עם כל 8 ההשמות של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo separator=\"true\">,</mo><mi>q</mi><mo separator=\"true\">,</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">p,q,r</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב נכון של העמודות הביניים $p\\vee q$, $\\neg p\\vee r$ והצמד $(p\\vee q)\\wedge(\\neg p\\vee r)$ ושל $q\\vee r$",
+     "points": 3,
+     "html": "חישוב נכון של העמודות הביניים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>∨</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">p\\vee q</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">\\neg p\\vee r</annotation></semantics></math></span> והצמד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∨</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\vee q)\\wedge(\\neg p\\vee r)</annotation></semantics></math></span> ושל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">q\\vee r</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב עמודת הגרירה (שקרית רק כשהמקדים אמת והמסקנה שקר)",
+     "points": 1,
+     "html": "חישוב עמודת הגרירה (שקרית רק כשהמקדים אמת והמסקנה שקר)"
+    },
+    {
+     "text": "מסקנה: העמודה האחרונה כולה $T$, ולכן הפסוק טאוטולוגיה (אמת בכל השמה)",
+     "points": 2,
+     "html": "מסקנה: העמודה האחרונה כולה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">T</annotation></semantics></math></span>, ולכן הפסוק טאוטולוגיה (אמת בכל השמה)"
+    }
+   ],
+   "pitfalls": [
+    "לבדוק כמה השמות בלבד ולא את כל 8 השורות: טאוטולוגיה חייבת להתקיים בכל השמה.",
+    "לטעות בערך הגרירה כשהמקדים שקר: גרירה עם מקדים שקר היא תמיד אמת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 ההשמות של $p,q,r$ הצמד $(p\\vee q)\\wedge(\\neg p\\vee r)$ מקבל אמת?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הצמד אמת בשורות $TTT$, $FTT$, $TFT$ ו-$FTF$ (לפי $p,q,r$): 4 שורות (נבדק בסקריפט).",
+     "promptHtml": "בכמה מ-8 ההשמות של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo separator=\"true\">,</mo><mi>q</mi><mo separator=\"true\">,</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">p,q,r</annotation></semantics></math></span> הצמד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∨</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\vee q)\\wedge(\\neg p\\vee r)</annotation></semantics></math></span> מקבל אמת?",
+     "explainHtml": "הצמד אמת בשורות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mi>T</mi><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">TTT</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>F</mi><mi>T</mi><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">FTT</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mi>F</mi><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">TFT</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>F</mi><mi>T</mi><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">FTF</annotation></semantics></math></span> (לפי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo separator=\"true\">,</mo><mi>q</mi><mo separator=\"true\">,</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">p,q,r</annotation></semantics></math></span>): 4 שורות (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 ההשמות המסקנה $q\\vee r$ שקרית?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$q\\vee r$ שקר רק כש-$q=r=F$: שתי ההשמות $TFF$ ו-$FFF$ (נבדק בסקריפט).",
+     "promptHtml": "בכמה מ-8 ההשמות המסקנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">q\\vee r</annotation></semantics></math></span> שקרית?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">q\\vee r</annotation></semantics></math></span> שקר רק כש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>=</mo><mi>r</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">q=r=F</annotation></semantics></math></span>: שתי ההשמות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mi>F</mi><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">TFF</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>F</mi><mi>F</mi><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">FFF</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בכמה השמות הגרירה כולה שקרית?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "בשתי השורות שבהן המסקנה שקרית גם הצמד $(p\\vee q)\\wedge(\\neg p\\vee r)$ שקר, ולכן הגרירה אמת בכולן: 0 שורות שקריות (נבדק בסקריפט).",
+     "promptHtml": "בכמה השמות הגרירה כולה שקרית?",
+     "explainHtml": "בשתי השורות שבהן המסקנה שקרית גם הצמד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∨</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\vee q)\\wedge(\\neg p\\vee r)</annotation></semantics></math></span> שקר, ולכן הגרירה אמת בכולן: 0 שורות שקריות (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה המסקנה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הפסוק טאוטולוגיה, כי הוא אמת בכל ההשמות",
+       "html": "הפסוק טאוטולוגיה, כי הוא אמת בכל ההשמות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפסוק סתירה, כי יש בו שורות שקריות",
+       "html": "הפסוק סתירה, כי יש בו שורות שקריות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הפסוק אינו טאוטולוגיה, כי הוא שקר בשורה $TFF$",
+       "html": "הפסוק אינו טאוטולוגיה, כי הוא שקר בשורה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mi>F</mi><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">TFF</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הפסוק טאוטולוגיה, כי הוא אמת לפחות בהשמה אחת",
+       "html": "הפסוק טאוטולוגיה, כי הוא אמת לפחות בהשמה אחת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "טאוטולוגיה = אמת בכל השמה. העמודה האחרונה כולה $T$.",
+     "promptHtml": "מה המסקנה?",
+     "explainHtml": "טאוטולוגיה = אמת בכל השמה. העמודה האחרונה כולה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">T</annotation></semantics></math></span>."
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q1a",
    "partKey": "a",
    "examCode": "26A-A",
@@ -140,7 +231,11 @@ window.OPEN_BANK = {
    "topicLabel": "לוגיקה פסוקית",
    "questionHtml": "בכל סעיף עליך להגדיר את המונח הרשום בסעיף ולענות על שאלה הקשורה אליו.<br><strong>המונח:</strong> טאוטולוגיה<br><strong>שאלה:</strong> האם הפסוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∨</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo><mo>→</mo><mo stretchy=\"false\">(</mo><mi>q</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\vee q)\\wedge(\\neg p\\vee r)\\to(q\\vee r)</annotation></semantics></math></span> הוא טאוטולוגיה ?",
    "solutionHtml": "טבלת אמת (T = אמת, F = שקר):<pre class=\"code-block\" dir=\"ltr\"><code>p q r | p∨q | ¬p∨r | (p∨q)∧(¬p∨r) | q∨r | (p∨q)∧(¬p∨r)→(q∨r)\nT T T |  T  |  T   |      T        |  T  |         T\nF T T |  T  |  T   |      T        |  T  |         T\nT F T |  T  |  T   |      T        |  T  |         T\nF F T |  F  |  T   |      F        |  T  |         T\nT T F |  T  |  F   |      F        |  T  |         T\nF T F |  T  |  T   |      T        |  T  |         T\nT F F |  T  |  F   |      F        |  F  |         T\nF F F |  F  |  T   |      F        |  F  |         T</code></pre>העמודה האחרונה כולה T, ולכן הפסוק הוא טאוטולוגיה.",
-   "pointsTotal": 9
+   "pointsTotal": 9,
+   "pitfallsHtml": [
+    "לבדוק כמה השמות בלבד ולא את כל 8 השורות: טאוטולוגיה חייבת להתקיים בכל השמה.",
+    "לטעות בערך הגרירה כשהמקדים שקר: גרירה עם מקדים שקר היא תמיד אמת."
+   ]
   },
   {
    "num": 1,
@@ -153,6 +248,122 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחת השלילה: $m$ פריק, $m=n\\cdot q$ עם $1<n\\le q<m$",
+     "points": 2,
+     "html": "הנחת השלילה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi><mo>⋅</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">m=n\\cdot q</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>n</mi><mo>≤</mo><mi>q</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;n\\le q&lt;m</annotation></semantics></math></span>"
+    },
+    {
+     "text": "פירוק $2^{nq}-1=(2^q-1)\\left((2^q)^{n-1}+\\dots+1\\right)$ (הפרש חזקות $n$-יות)",
+     "points": 3,
+     "html": "פירוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mrow><mi>n</mi><mi>q</mi></mrow></msup><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mrow><mo fence=\"true\">(</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">2^{nq}-1=(2^q-1)\\left((2^q)^{n-1}+\\dots+1\\right)</annotation></semantics></math></span> (הפרש חזקות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>-יות)"
+    },
+    {
+     "text": "הצגת המחלק $2^q-1$ כמחלק אמיתי: $1\\ne 2^q-1$ כי $1<q$, ולכן המספר אינו ראשוני",
+     "points": 2,
+     "html": "הצגת המחלק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^q-1</annotation></semantics></math></span> כמחלק אמיתי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo mathvariant=\"normal\">≠</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1\\ne 2^q-1</annotation></semantics></math></span> כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;q</annotation></semantics></math></span>, ולכן המספר אינו ראשוני"
+    },
+    {
+     "text": "סתירה לנתון ומסקנה ש-$m$ ראשוני",
+     "points": 1,
+     "html": "סתירה לנתון ומסקנה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> ראשוני"
+    }
+   ],
+   "pitfalls": [
+    "להניח ש-$m$ ראשוני ולהוכיח משהו על $2^m-1$: הכיוון הפוך, צריך להניח ש-$m$ פריק.",
+    "לשכוח להראות שהגורם $2^q-1$ שונה מ-1 (וגם קטן מהמספר), ולכן מחלק אמיתי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "נתון ש-$2^m-1$ ראשוני ורוצים להוכיח ש-$m$ ראשוני. באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה",
+       "html": "אינדוקציה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "ספירה",
+       "html": "ספירה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בדרך השלילה (בשלילה)",
+       "html": "בדרך השלילה (בשלילה)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שובך היונים",
+       "html": "שובך היונים"
+      }
+     ],
+     "correctId": "c",
+     "explain": "הפתרון הרשמי מניח ש-$m$ פריק ומגיע לכך ש-$2^m-1$ פריק, בסתירה לנתון. גם שיטות אחרות עובדות כאן, אבל זו השיטה של הפתרון הרשמי.",
+     "promptHtml": "נתון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^m-1</annotation></semantics></math></span> ראשוני ורוצים להוכיח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> ראשוני. באיזו שיטה משתמש הפתרון הרשמי?",
+     "explainHtml": "הפתרון הרשמי מניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק ומגיע לכך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^m-1</annotation></semantics></math></span> פריק, בסתירה לנתון. גם שיטות אחרות עובדות כאן, אבל זו השיטה של הפתרון הרשמי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $m=6=2\\cdot 3$ ($n=2$, $q=3$): $2^6-1$ מתחלק ב-$2^3-1=7$. מהי המנה $(2^6-1)/(2^3-1)$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$63/7=9$, והיא שווה ל-$(2^3)^{1}+1=9$ (נבדק בסקריפט).",
+     "promptHtml": "עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mn>6</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">m=6=2\\cdot 3</annotation></semantics></math></span> (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n=2</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">q=3</annotation></semantics></math></span>): <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>6</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^6-1</annotation></semantics></math></span> מתחלק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>3</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">2^3-1=7</annotation></semantics></math></span>. מהי המנה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mn>6</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">/</mi><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mn>3</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2^6-1)/(2^3-1)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>63</mn><mi mathvariant=\"normal\">/</mi><mn>7</mn><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">63/7=9</annotation></semantics></math></span>, והיא שווה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mn>3</mn></msup><msup><mo stretchy=\"false\">)</mo><mn>1</mn></msup><mo>+</mo><mn>1</mn><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">(2^3)^{1}+1=9</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נניח בשלילה ש-$m$ פריק, כלומר קיימים טבעיים $1<n\\le q<m$ כך ש-$m=n\\cdot q$.",
+      "$2^{136279841}-1=2^{nq}-1=(2^q)^n-1^n$",
+      "$(2^q)^n-1^n=(2^q-1)\\left((2^q)^{n-1}+(2^q)^{n-2}+\\dots+1\\right)$",
+      "מכיוון ש-$1\\ne 2^q-1$ (כי $1<q$), המספר $2^{136279841}-1$ אינו ראשוני, בסתירה לנתון.",
+      "מסקנה: $m$ הוא מספר ראשוני."
+     ],
+     "explain": "הנחת השלילה, פתיחת החזקה, פירוק הפרש חזקות, מחלק אמיתי וסתירה, מסקנה.",
+     "promptHtml": "סדרו את שלבי ההוכחה.",
+     "explainHtml": "הנחת השלילה, פתיחת החזקה, פירוק הפרש חזקות, מחלק אמיתי וסתירה, מסקנה.",
+     "linesHtml": [
+      "נניח בשלילה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק, כלומר קיימים טבעיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>n</mi><mo>≤</mo><mi>q</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;n\\le q&lt;m</annotation></semantics></math></span> כך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi><mo>⋅</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">m=n\\cdot q</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>q</mi></mrow></msup><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mi>n</mi></msup><mo>−</mo><msup><mn>1</mn><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1=2^{nq}-1=(2^q)^n-1^n</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mi>n</mi></msup><mo>−</mo><msup><mn>1</mn><mi>n</mi></msup><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mrow><mo fence=\"true\">(</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">(2^q)^n-1^n=(2^q-1)\\left((2^q)^{n-1}+(2^q)^{n-2}+\\dots+1\\right)</annotation></semantics></math></span>",
+      "מכיוון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo mathvariant=\"normal\">≠</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1\\ne 2^q-1</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;q</annotation></semantics></math></span>), המספר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1</annotation></semantics></math></span> אינו ראשוני, בסתירה לנתון.",
+      "מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> הוא מספר ראשוני."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שונתה כך שהיא כבר אינה נכונה. מצאו אותה.",
+     "lines": [
+      "נניח בשלילה ש-$m$ פריק, כלומר קיימים טבעיים $1<n\\le q<m$ כך ש-$m=n\\cdot q$.",
+      "$2^{136279841}-1=2^{nq}-1=(2^q)^n-1^n$",
+      "$(2^q)^n-1^n=(2^q+1)\\left((2^q)^{n-1}+(2^q)^{n-2}+\\dots+1\\right)$",
+      "מכיוון ש-$1\\ne 2^q-1$ (כי $1<q$), המספר $2^{136279841}-1$ אינו ראשוני, בסתירה לנתון.",
+      "מסקנה: $m$ הוא מספר ראשוני."
+     ],
+     "bugIndex": 2,
+     "explain": "הגורם הנכון הוא $2^q-1$: הפרש חזקות $x^n-1=(x-1)(x^{n-1}+\\dots+1)$ ולא $(x+1)$ (נבדק בסקריפט).",
+     "promptHtml": "בגרסה הבאה שורה אחת שונתה כך שהיא כבר אינה נכונה. מצאו אותה.",
+     "explainHtml": "הגורם הנכון הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^q-1</annotation></semantics></math></span>: הפרש חזקות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mi>n</mi></msup><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x^n-1=(x-1)(x^{n-1}+\\dots+1)</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x+1)</annotation></semantics></math></span> (נבדק בסקריפט).",
+     "linesHtml": [
+      "נניח בשלילה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק, כלומר קיימים טבעיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>n</mi><mo>≤</mo><mi>q</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;n\\le q&lt;m</annotation></semantics></math></span> כך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi><mo>⋅</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">m=n\\cdot q</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>q</mi></mrow></msup><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mi>n</mi></msup><mo>−</mo><msup><mn>1</mn><mi>n</mi></msup></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1=2^{nq}-1=(2^q)^n-1^n</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mi>n</mi></msup><mo>−</mo><msup><mn>1</mn><mi>n</mi></msup><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mrow><mo fence=\"true\">(</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">(2^q)^n-1^n=(2^q+1)\\left((2^q)^{n-1}+(2^q)^{n-2}+\\dots+1\\right)</annotation></semantics></math></span>",
+      "מכיוון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo mathvariant=\"normal\">≠</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1\\ne 2^q-1</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;q</annotation></semantics></math></span>), המספר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1</annotation></semantics></math></span> אינו ראשוני, בסתירה לנתון.",
+      "מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> הוא מספר ראשוני."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q1b",
    "partKey": "b",
    "examCode": "26A-A",
@@ -162,7 +373,11 @@ window.OPEN_BANK = {
    "topicLabel": "התחלקות ו-gcd",
    "questionHtml": "<strong>המונח:</strong> מספר ראשוני<br><strong>שאלה:</strong> המספר הראשוני הגדול ביותר שידוע להיום הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1</annotation></semantics></math></span>. האם גם המספר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mn>136279841</mn></mrow><annotation encoding=\"application/x-tex\">m=136279841</annotation></semantics></math></span> הוא מספר ראשוני ?",
    "solutionHtml": "נניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק. אז קיימים מספרים טבעיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>n</mi><mo>≤</mo><mi>q</mi><mo>&lt;</mo><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;n\\le q&lt;m</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi><mo>=</mo><mi>n</mi><mo>⋅</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">m=n\\cdot q</annotation></semantics></math></span>. לכן נקבל:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>q</mi></mrow></msup><mo>−</mo><mn>1</mn><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mi>n</mi></msup><mo>−</mo><msup><mn>1</mn><mi>n</mi></msup><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mrow><mo fence=\"true\">(</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><mo stretchy=\"false\">(</mo><msup><mn>2</mn><mi>q</mi></msup><msup><mo stretchy=\"false\">)</mo><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup><mo>+</mo><mo>⋯</mo><mo>+</mo><mn>1</mn><mo fence=\"true\">)</mo></mrow></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1=2^{nq}-1=(2^q)^n-1^n=(2^q-1)\\left((2^q)^{n-1}+(2^q)^{n-2}+\\dots+1\\right)</annotation></semantics></math></span><br>מכיוון ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo mathvariant=\"normal\">≠</mo><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1\\ne 2^q-1</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">1&lt;q</annotation></semantics></math></span>) נקבל ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>136279841</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^{136279841}-1</annotation></semantics></math></span> לא ראשוני, בסתירה לנתון.<br>מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> הוא מספר ראשוני.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "להניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> ראשוני ולהוכיח משהו על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>m</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^m-1</annotation></semantics></math></span>: הכיוון הפוך, צריך להניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>m</mi></mrow><annotation encoding=\"application/x-tex\">m</annotation></semantics></math></span> פריק.",
+    "לשכוח להראות שהגורם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mi>q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2^q-1</annotation></semantics></math></span> שונה מ-1 (וגם קטן מהמספר), ולכן מחלק אמיתי."
+   ]
   },
   {
    "num": 1,
@@ -176,6 +391,109 @@ window.OPEN_BANK = {
    "official": true,
    "confidence": "high",
    "verdict": true,
+   "rubric": [
+    {
+     "text": "זיהוי שהחיתוך שווה ליחס הזהות $\\{(1,1),\\dots,(10,10)\\}$",
+     "points": 3,
+     "html": "זיהוי שהחיתוך שווה ליחס הזהות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>10</mn><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),\\dots,(10,10)\\}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "הנימוק: יחס הזהות הוא יחס שקילות ומוכל בכל יחס שקילות",
+     "points": 3,
+     "html": "הנימוק: יחס הזהות הוא יחס שקילות ומוכל בכל יחס שקילות"
+    },
+    {
+     "text": "לכל $k\\in A$ קיים זוג יחיד $(k,k)$, ולכן החיתוך פונקציה: הטענה נכונה",
+     "points": 2,
+     "html": "לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">k\\in A</annotation></semantics></math></span> קיים זוג יחיד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(k,k)</annotation></semantics></math></span>, ולכן החיתוך פונקציה: הטענה נכונה"
+    }
+   ],
+   "pitfalls": [
+    "להניח שהחיתוך ריק או שהוא $A\\times A$: $A\\times A$ הוא רק אחד מיחסי השקילות ולא החיתוך שלהם.",
+    "לא לנמק למה זוג $(k,k)$ שייך לכל יחס שקילות, כלומר לשכוח את הרפלקסיביות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "לאיזה יחס שווה החיתוך של כל יחסי השקילות על $A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$A\\times A$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A\\times A</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "היחס הריק",
+       "html": "היחס הריק"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "יחס הזהות",
+       "html": "יחס הזהות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "יחס הכולל רק את $(1,1)$",
+       "html": "יחס הכולל רק את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1)</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "c",
+     "explain": "כל יחס שקילות רפלקסיבי ולכן מכיל את הזהות, והזהות עצמה יחס שקילות (נבדק בסקריפט על קבוצות קטנות).",
+     "promptHtml": "לאיזה יחס שווה החיתוך של כל יחסי השקילות על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>?",
+     "explainHtml": "כל יחס שקילות רפלקסיבי ולכן מכיל את הזהות, והזהות עצמה יחס שקילות (נבדק בסקריפט על קבוצות קטנות)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש ביחס הזהות על $A=\\{1,\\dots,10\\}$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "זוג $(k,k)$ לכל $k\\in A$: 10 זוגות.",
+     "promptHtml": "כמה זוגות יש ביחס הזהות על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,\\dots,10\\}</annotation></semantics></math></span>?",
+     "explainHtml": "זוג <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(k,k)</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">k\\in A</annotation></semantics></math></span>: 10 זוגות."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הנימוק לכך שהטענה נכונה.",
+     "lines": [
+      "$\\{(1,1),(2,2),\\dots,(10,10)\\}=R_1\\cap R_2\\cap\\dots\\cap R_k$",
+      "כי יחס הזהות הוא יחס שקילות שמוכל בכל יחס שקילות (בגלל הרפלקסיביות).",
+      "לכל $k\\in A$ יש זוג יחיד $(k,k)$ ביחס, ולכן היחס הוא פונקציה."
+     ],
+     "explain": "מזהים את החיתוך, מנמקים מדוע, ומסיקים שזו פונקציה.",
+     "promptHtml": "סדרו את הנימוק לכך שהטענה נכונה.",
+     "explainHtml": "מזהים את החיתוך, מנמקים מדוע, ומסיקים שזו פונקציה.",
+     "linesHtml": [
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>10</mn><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>∩</mo><msub><mi>R</mi><mn>2</mn></msub><mo>∩</mo><mo>⋯</mo><mo>∩</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),\\dots,(10,10)\\}=R_1\\cap R_2\\cap\\dots\\cap R_k</annotation></semantics></math></span>",
+      "כי יחס הזהות הוא יחס שקילות שמוכל בכל יחס שקילות (בגלל הרפלקסיביות).",
+      "לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">k\\in A</annotation></semantics></math></span> יש זוג יחיד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(k,k)</annotation></semantics></math></span> ביחס, ולכן היחס הוא פונקציה."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "lines": [
+      "$\\{(1,1),(2,2),\\dots,(10,10)\\}=R_1\\cap R_2\\cap\\dots\\cap R_k$",
+      "כי יחס הזהות הוא יחס שקילות שמכיל כל יחס שקילות.",
+      "לכל $k\\in A$ יש זוג יחיד $(k,k)$ ביחס, ולכן היחס הוא פונקציה."
+     ],
+     "bugIndex": 1,
+     "explain": "הזהות מוכלת בכל יחס שקילות ולא מכילה אותו; למשל $A\\times A$ אינו מוכל בזהות (נבדק בסקריפט).",
+     "promptHtml": "בגרסה הבאה שורה אחת שונתה כך שהיא שגויה. מצאו אותה.",
+     "explainHtml": "הזהות מוכלת בכל יחס שקילות ולא מכילה אותו; למשל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A\\times A</annotation></semantics></math></span> אינו מוכל בזהות (נבדק בסקריפט).",
+     "linesHtml": [
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>10</mn><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>∩</mo><msub><mi>R</mi><mn>2</mn></msub><mo>∩</mo><mo>⋯</mo><mo>∩</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),\\dots,(10,10)\\}=R_1\\cap R_2\\cap\\dots\\cap R_k</annotation></semantics></math></span>",
+      "כי יחס הזהות הוא יחס שקילות שמכיל כל יחס שקילות.",
+      "לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">k\\in A</annotation></semantics></math></span> יש זוג יחיד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(k,k)</annotation></semantics></math></span> ביחס, ולכן היחס הוא פונקציה."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q1c",
    "partKey": "c",
    "examCode": "26A-A",
@@ -185,7 +503,11 @@ window.OPEN_BANK = {
    "topicLabel": "יחסי שקילות",
    "questionHtml": "<strong>המונח:</strong> יחס שקילות<br><strong>שאלה:</strong> יהיו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=\"true\">,</mo><msub><mi>R</mi><mn>2</mn></msub><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">R_1,R_2,\\dots,R_k</annotation></semantics></math></span> <strong>כל יחסי השקילות</strong> על הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2,\\dots,10\\}</annotation></semantics></math></span>. האם היחס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∩</mo><msub><mi>R</mi><mn>2</mn></msub><mo>∩</mo><mo>⋯</mo><mo>∩</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">R_1\\cap R_2\\cap\\dots\\cap R_k</annotation></semantics></math></span> הוא פונקציה?",
    "solutionHtml": "<span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>10</mn><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><msub><mi>R</mi><mn>1</mn></msub><mo>∩</mo><msub><mi>R</mi><mn>2</mn></msub><mo>∩</mo><mo>⋯</mo><mo>∩</mo><msub><mi>R</mi><mi>k</mi></msub></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),\\dots,(10,10)\\}=R_1\\cap R_2\\cap\\dots\\cap R_k</annotation></semantics></math></span><br>כי יחס הזהות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>10</mn><mo separator=\"true\">,</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),\\dots,(10,10)\\}</annotation></semantics></math></span> הוא יחס שקילות שמוכל בכל יחס שקילות, ולכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">k\\in A</annotation></semantics></math></span> יש זוג יחיד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(k,k)\\in R</annotation></semantics></math></span>. לכן הטענה נכונה.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "להניח שהחיתוך ריק או שהוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A\\times A</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A\\times A</annotation></semantics></math></span> הוא רק אחד מיחסי השקילות ולא החיתוך שלהם.",
+    "לא לנמק למה זוג <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo separator=\"true\">,</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(k,k)</annotation></semantics></math></span> שייך לכל יחס שקילות, כלומר לשכוח את הרפלקסיביות."
+   ]
   },
   {
    "num": 2,
@@ -198,6 +520,128 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "בסיס האינדוקציה $P(2)$: $\\frac12=\\frac{2-1}{2}$",
+     "points": 3,
+     "html": "בסיס האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(2)</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12=\\frac{2-1}{2}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $P(k)$ והטענה $P(k+1)$ שיש להוכיח",
+     "points": 3,
+     "html": "ניסוח הנחת האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k)</annotation></semantics></math></span> והטענה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k+1)</annotation></semantics></math></span> שיש להוכיח"
+    },
+    {
+     "text": "שימוש בהנחה: הצבת $\\frac{k-1}{k}$ במקום סכום $k-1$ האיברים הראשונים",
+     "points": 2,
+     "html": "שימוש בהנחה: הצבת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{k-1}{k}</annotation></semantics></math></span> במקום סכום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">k-1</annotation></semantics></math></span> האיברים הראשונים"
+    },
+    {
+     "text": "האלגברה: מכנה משותף $k(k+1)$ ועד $\\frac{k}{k+1}$",
+     "points": 2,
+     "html": "האלגברה: מכנה משותף <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">k(k+1)</annotation></semantics></math></span> ועד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mi>k</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{k}{k+1}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה לכל $2\\le n$",
+     "points": 2,
+     "html": "מסקנה לפי עקרון האינדוקציה לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לבדוק בסיס ב-$n=1$: הטענה מוגדרת מ-$n=2$, וב-$n=1$ הסכום ריק.",
+    "להשתמש ב-$P(k+1)$ עצמה בתוך ההוכחה (הנחה מעגלית) במקום להסתמך על $P(k)$ בלבד.",
+    "טעות אלגברית בצירוף השברים, בעיקר ב-$(k-1)(k+1)+1=k^2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו שיטת הוכחה מתאימה לטענה על כל $2\\le n\\in\\mathbb{N}$ שבה הסכום גדל באיבר אחד בכל צעד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה (בסיס ב-$n=2$)",
+       "html": "אינדוקציה (בסיס ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n=2</annotation></semantics></math></span>)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הוכחה בדרך השלילה",
+       "html": "הוכחה בדרך השלילה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוכחה ישירה ללא תלות ב-$n$ קודם",
+       "html": "הוכחה ישירה ללא תלות ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> קודם"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "ספירה קומבינטורית",
+       "html": "ספירה קומבינטורית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הסכום ל-$k+1$ נבנה מהסכום ל-$k$ בתוספת איבר אחד, ולכן אינדוקציה.",
+     "promptHtml": "איזו שיטת הוכחה מתאימה לטענה על כל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n\\in\\mathbb{N}</annotation></semantics></math></span> שבה הסכום גדל באיבר אחד בכל צעד?",
+     "explainHtml": "הסכום ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">k+1</annotation></semantics></math></span> נבנה מהסכום ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">k</annotation></semantics></math></span> בתוספת איבר אחד, ולכן אינדוקציה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ערך הסכום $\\frac{1}{1\\cdot 2}+\\frac{1}{2\\cdot 3}+\\frac{1}{3\\cdot 4}$ (עבור $n=4$), כשבר עשרוני?",
+     "answer": 0.75,
+     "tol": 0,
+     "explain": "$\\frac12+\\frac16+\\frac1{12}=\\frac34=\\frac{4-1}{4}$ (נבדק בסקריפט).",
+     "promptHtml": "מהו ערך הסכום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>3</mn><mo>⋅</mo><mn>4</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\frac{1}{2\\cdot 3}+\\frac{1}{3\\cdot 4}</annotation></semantics></math></span> (עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">n=4</annotation></semantics></math></span>), כשבר עשרוני?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>6</mn></mfrac><mo>+</mo><mfrac><mn>1</mn><mn>12</mn></mfrac><mo>=</mo><mfrac><mn>3</mn><mn>4</mn></mfrac><mo>=</mo><mfrac><mrow><mn>4</mn><mo>−</mo><mn>1</mn></mrow><mn>4</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac12+\\frac16+\\frac1{12}=\\frac34=\\frac{4-1}{4}</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה באינדוקציה.",
+     "lines": [
+      "**בסיס:** $P(2)$: $\\frac{1}{1\\cdot 2}=\\frac12=\\frac{2-1}{2}$, ולכן $P(2)=T$.",
+      "**צעד:** נניח $P(k)$ עבור $2\\le k$: $\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}=\\frac{k-1}{k}$, ונוכיח $P(k+1)$.",
+      "$\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}$",
+      "$\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)+1}{k(k+1)}=\\frac{k^2-1+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}$",
+      "מכאן $P(k+1)=T$, ולפי עקרון האינדוקציה $P(n)=T$ לכל $2\\le n\\in\\mathbb{N}$."
+     ],
+     "explain": "בסיס, הנחה ויעד, הוספת האיבר החדש, אלגברה, מסקנה.",
+     "promptHtml": "סדרו את שלבי ההוכחה באינדוקציה.",
+     "explainHtml": "בסיס, הנחה ויעד, הוספת האיבר החדש, אלגברה, מסקנה.",
+     "linesHtml": [
+      "<strong>בסיס:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(2)</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}=\\frac12=\\frac{2-1}{2}</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(2)=T</annotation></semantics></math></span>.",
+      "<strong>צעד:</strong> נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k)</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">2\\le k</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}=\\frac{k-1}{k}</annotation></semantics></math></span>, ונוכיח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k+1)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>k</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><msup><mi>k</mi><mn>2</mn></msup><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>k</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)+1}{k(k+1)}=\\frac{k^2-1+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}</annotation></semantics></math></span>",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(k+1)=T</annotation></semantics></math></span>, ולפי עקרון האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(n)=T</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n\\in\\mathbb{N}</annotation></semantics></math></span>."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "באחת השורות של הצעד נפלה טעות אלגברית. מצאו אותה.",
+     "lines": [
+      "**בסיס:** $P(2)$: $\\frac{1}{1\\cdot 2}=\\frac12=\\frac{2-1}{2}$, ולכן $P(2)=T$.",
+      "**צעד:** נניח $P(k)$ עבור $2\\le k$: $\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}=\\frac{k-1}{k}$, ונוכיח $P(k+1)$.",
+      "$\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}$",
+      "$\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)-1}{k(k+1)}=\\frac{k^2-1+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}$",
+      "מכאן $P(k+1)=T$, ולפי עקרון האינדוקציה $P(n)=T$ לכל $2\\le n\\in\\mathbb{N}$."
+     ],
+     "bugIndex": 3,
+     "explain": "המונה הנכון הוא $(k-1)(k+1)+1$ ולא $-1$ (נבדק בסקריפט עם sympy).",
+     "promptHtml": "באחת השורות של הצעד נפלה טעות אלגברית. מצאו אותה.",
+     "explainHtml": "המונה הנכון הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">(k-1)(k+1)+1</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">-1</annotation></semantics></math></span> (נבדק בסקריפט עם sympy).",
+     "linesHtml": [
+      "<strong>בסיס:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(2)</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}=\\frac12=\\frac{2-1}{2}</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(2)=T</annotation></semantics></math></span>.",
+      "<strong>צעד:</strong> נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k)</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>k</mi></mrow><annotation encoding=\"application/x-tex\">2\\le k</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}=\\frac{k-1}{k}</annotation></semantics></math></span>, ונוכיח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k+1)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>−</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>k</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><msup><mi>k</mi><mn>2</mn></msup><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>k</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)-1}{k(k+1)}=\\frac{k^2-1+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}</annotation></semantics></math></span>",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(k+1)=T</annotation></semantics></math></span>, ולפי עקרון האינדוקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(n)=T</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n\\in\\mathbb{N}</annotation></semantics></math></span>."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q2a",
    "partKey": "a",
    "examCode": "26A-A",
@@ -207,7 +651,12 @@ window.OPEN_BANK = {
    "topicLabel": "אינדוקציה",
    "questionHtml": "הראו שלכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n\\in\\mathbb{N}</annotation></semantics></math></span> מתקיים:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>3</mn><mo>⋅</mo><mn>4</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>⋅</mo><mi>n</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mi>n</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\frac{1}{2\\cdot 3}+\\frac{1}{3\\cdot 4}+\\dots+\\frac{1}{(n-1)\\cdot n}=\\frac{n-1}{n}</annotation></semantics></math></span>",
    "solutionHtml": "<strong>I. בסיס:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(2)</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>2</mn><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⇒</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mtext>TRUE</mtext></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}=\\frac{2-1}{2}\\iff\\frac12=\\frac12\\Rightarrow P(2)=\\text{TRUE}</annotation></semantics></math></span>.<br><strong>II. צעד:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(k)=T</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le k\\in\\mathbb{N}</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mtext>TRUE</mtext></mrow><annotation encoding=\"application/x-tex\">P(k+1)=\\text{TRUE}</annotation></semantics></math></span>.<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo><mo>:</mo><mtext> </mtext><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>⋅</mo><mi>k</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">P(k):\\ \\frac{1}{1\\cdot 2}+\\frac{1}{2\\cdot 3}+\\dots+\\frac{1}{(k-1)\\cdot k}=\\frac{k-1}{k}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>:</mo><mtext> </mtext><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mo>⋅</mo><mn>3</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>k</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">P(k+1):\\ \\frac{1}{1\\cdot 2}+\\frac{1}{2\\cdot 3}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k}{k+1}</annotation></semantics></math></span><br>לפי הנחת האינדוקציה, הסכום של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">k-1</annotation></semantics></math></span> האיברים הראשונים שווה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{k-1}{k}</annotation></semantics></math></span>, ולכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>1</mn><mo>⋅</mo><mn>2</mn></mrow></mfrac><mo>+</mo><mo>⋯</mo><mo>+</mo><mfrac><mn>1</mn><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mi>k</mi></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><mi>k</mi></mfrac><mo>+</mo><mfrac><mn>1</mn><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><msup><mi>k</mi><mn>2</mn></msup><mo>−</mo><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><msup><mi>k</mi><mn>2</mn></msup><mrow><mi>k</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>k</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding=\"application/x-tex\">\\frac{1}{1\\cdot 2}+\\dots+\\frac{1}{(k-1)k}+\\frac{1}{k(k+1)}=\\frac{k-1}{k}+\\frac{1}{k(k+1)}=\\frac{(k-1)(k+1)+1}{k(k+1)}=\\frac{k^2-1+1}{k(k+1)}=\\frac{k^2}{k(k+1)}=\\frac{k}{k+1}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow P(k+1)=T</annotation></semantics></math></span>.<br>מסקנה: מ-I ו-II, לפי עקרון האינדוקציה, לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi></mrow><annotation encoding=\"application/x-tex\">2\\le n\\in\\mathbb{N}</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">P(n)=T</annotation></semantics></math></span>.<br>אפשרות אחרת: לפרק לסכום טלסקופי.",
-   "pointsTotal": 12
+   "pointsTotal": 12,
+   "pitfallsHtml": [
+    "לבדוק בסיס ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n=1</annotation></semantics></math></span>: הטענה מוגדרת מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n=2</annotation></semantics></math></span>, וב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n=1</annotation></semantics></math></span> הסכום ריק.",
+    "להשתמש ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k+1)</annotation></semantics></math></span> עצמה בתוך ההוכחה (הנחה מעגלית) במקום להסתמך על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>k</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(k)</annotation></semantics></math></span> בלבד.",
+    "טעות אלגברית בצירוף השברים, בעיקר ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>1</mn><mo>=</mo><msup><mi>k</mi><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">(k-1)(k+1)+1=k^2</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 2,
@@ -220,6 +669,83 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "$a\\in B$ וגם $b\\notin B$ (כי $B\\cap\\{a,b\\}=\\{a\\}$)",
+     "points": 2,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\in B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\notin B</annotation></semantics></math></span> (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>∩</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">B\\cap\\{a,b\\}=\\{a\\}</annotation></semantics></math></span>)"
+    },
+    {
+     "text": "שאר האותיות $c,d,e,f$ חופשיות: כל אחת נמצאת או לא",
+     "points": 1,
+     "html": "שאר האותיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">c,d,e,f</annotation></semantics></math></span> חופשיות: כל אחת נמצאת או לא"
+    },
+    {
+     "text": "מספר האפשרויות $2^4=16$",
+     "points": 2,
+     "html": "מספר האפשרויות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><mn>16</mn></mrow><annotation encoding=\"application/x-tex\">2^4=16</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לספור את כל $2^6$ תתי הקבוצות או לשכוח לקבע את $a$ ו-$b$.",
+    "לחשוב שגם $a$ וגם $b$ חייבות להיות ב-$B$: החיתוך הוא $\\{a\\}$ בלבד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה נדרש מ-$a$ ומ-$b$ ב-$B$ כדי ש-$B\\cap\\{a,b\\}=\\{a\\}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a\\notin B$ וגם $b\\in B$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\notin B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a\\in B$ וגם $b\\notin B$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\in B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\notin B</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a\\in B$ וגם $b\\in B$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\in B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אין דרישה על $a$ ו-$b$",
+       "html": "אין דרישה על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$a$ חייבת להיות בחיתוך ו-$b$ אסורה בו.",
+     "promptHtml": "מה נדרש מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ומ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> כדי ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>∩</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">B\\cap\\{a,b\\}=\\{a\\}</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> חייבת להיות בחיתוך ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> אסורה בו."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה אותיות חופשיות נשארות (אותיות שאין להן אילוץ)?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "הן $c,d,e,f$.",
+     "promptHtml": "כמה אותיות חופשיות נשארות (אותיות שאין להן אילוץ)?",
+     "explainHtml": "הן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">c,d,e,f</annotation></semantics></math></span>."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תתי-קבוצות $B$ מקיימות את התנאי?",
+     "answer": 16,
+     "tol": 0,
+     "explain": "$2^4=16$ (נבדק בסקריפט בספירה מלאה של $2^6$ תתי-קבוצות).",
+     "promptHtml": "כמה תתי-קבוצות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> מקיימות את התנאי?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><mn>16</mn></mrow><annotation encoding=\"application/x-tex\">2^4=16</annotation></semantics></math></span> (נבדק בסקריפט בספירה מלאה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">2^6</annotation></semantics></math></span> תתי-קבוצות)."
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q2b",
    "partKey": "b",
    "examCode": "26A-A",
@@ -229,7 +755,11 @@ window.OPEN_BANK = {
    "topicLabel": "קבוצות וקבוצת חזקה",
    "questionHtml": "תהי הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo separator=\"true\">,</mo><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{a,b,c,d,e,f\\}</annotation></semantics></math></span>.<br>כמה תתי-קבוצות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> מקיימות את התנאי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>∩</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">B\\cap\\{a,b\\}=\\{a\\}</annotation></semantics></math></span> ?",
    "solutionHtml": "בכל תת-קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> צריך שתהיה האות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> (כי היא בחיתוך), ושלא תהיה האות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> (כי לא בחיתוך), שאר האותיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{c,d,e,f\\}</annotation></semantics></math></span> יכולות להופיע ויכולות גם לא להופיע.<br>לכן כל תת-קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span> היא מהצורה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo><mo>∪</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">B=\\{a\\}\\cup C</annotation></semantics></math></span>, כאשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span> היא תת-קבוצה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{c,d,e,f\\}</annotation></semantics></math></span>. מספר תתי הקבוצות של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>c</mi><mo separator=\"true\">,</mo><mi>d</mi><mo separator=\"true\">,</mo><mi>e</mi><mo separator=\"true\">,</mo><mi>f</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{c,d,e,f\\}</annotation></semantics></math></span> הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup></mrow><annotation encoding=\"application/x-tex\">2^4</annotation></semantics></math></span>, וכל תת קבוצה כזו אנו נאחד עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{a\\}</annotation></semantics></math></span>.<br>לכן התשובה היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup><mo>=</mo><mn>16</mn></mrow><annotation encoding=\"application/x-tex\">2^4=16</annotation></semantics></math></span>.",
-   "pointsTotal": 5
+   "pointsTotal": 5,
+   "pitfallsHtml": [
+    "לספור את כל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>6</mn></msup></mrow><annotation encoding=\"application/x-tex\">2^6</annotation></semantics></math></span> תתי הקבוצות או לשכוח לקבע את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span>.",
+    "לחשוב שגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">a</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">b</annotation></semantics></math></span> חייבות להיות ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">B</annotation></semantics></math></span>: החיתוך הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{a\\}</annotation></semantics></math></span> בלבד."
+   ]
   },
   {
    "num": 2,
@@ -242,6 +772,118 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) רפלקסיביות נותנת שהזהות מוכלת בשני היחסים",
+     "points": 1,
+     "html": "(1) רפלקסיביות נותנת שהזהות מוכלת בשני היחסים"
+    },
+    {
+     "text": "(1) סימטריה ואנטי-סימטריה נותנות שאין זוגות מחוץ לאלכסון, ולכן $R_1=R_2=$ זהות",
+     "points": 2,
+     "html": "(1) סימטריה ואנטי-סימטריה נותנות שאין זוגות מחוץ לאלכסון, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo></mrow><annotation encoding=\"application/x-tex\">R_1=R_2=</annotation></semantics></math></span> זהות"
+    },
+    {
+     "text": "(1) $R_1\\triangle R_2=\\emptyset$ ולכן טרנזיטיבי: הטענה נכונה",
+     "points": 1,
+     "html": "(1) <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mi mathvariant=\"normal\">△</mi><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mi mathvariant=\"normal\">∅</mi></mrow><annotation encoding=\"application/x-tex\">R_1\\triangle R_2=\\emptyset</annotation></semantics></math></span> ולכן טרנזיטיבי: הטענה נכונה"
+    },
+    {
+     "text": "(2) שני יחסי הסדר המלא היחידים על $\\{1,2\\}$",
+     "points": 1,
+     "html": "(2) שני יחסי הסדר המלא היחידים על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "(2) האיחוד $\\{(1,1),(2,2),(1,2),(2,1)\\}$",
+     "points": 1,
+     "html": "(2) האיחוד <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(1,2),(2,1)\\}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "(2) האיחוד אינו אנטי-סימטרי ולכן אינו סדר: הטענה לא נכונה",
+     "points": 2,
+     "html": "(2) האיחוד אינו אנטי-סימטרי ולכן אינו סדר: הטענה לא נכונה"
+    }
+   ],
+   "pitfalls": [
+    "להפריך את (1) בדוגמה, בלי לשים לב שהתנאים (רפלקסיבי, סימטרי, אנטי-סימטרי) מכריחים את הזהות.",
+    "להוכיח את (2) בטענה כללית על איחוד: איחוד של סדרים הפוכים אינו אנטי-סימטרי, ולכן צריך דוגמה נגדית."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסים על $\\{1,2,3\\}$ הם רפלקסיביים, סימטריים וגם אנטי-סימטריים?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "רק יחס הזהות (נבדק בסקריפט בבדיקת כל $2^9$ היחסים).",
+     "promptHtml": "כמה יחסים על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3\\}</annotation></semantics></math></span> הם רפלקסיביים, סימטריים וגם אנטי-סימטריים?",
+     "explainHtml": "רק יחס הזהות (נבדק בסקריפט בבדיקת כל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>9</mn></msup></mrow><annotation encoding=\"application/x-tex\">2^9</annotation></semantics></math></span> היחסים)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסי סדר מלא שונים יש על $\\{1,2\\}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$\\{(1,1),(2,2),(1,2)\\}$ ו-$\\{(1,1),(2,2),(2,1)\\}$ (נבדק בסקריפט).",
+     "promptHtml": "כמה יחסי סדר מלא שונים יש על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(1,2)\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(2,1)\\}</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איך מפריכים את טענה (2)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מציגים דוגמה נגדית: שני סדרים שהאיחוד שלהם אינו סדר מלא",
+       "html": "מציגים דוגמה נגדית: שני סדרים שהאיחוד שלהם אינו סדר מלא"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מוכיחים שהאיחוד תמיד רפלקסיבי",
+       "html": "מוכיחים שהאיחוד תמיד רפלקסיבי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מניחים בשלילה שהאיחוד סדר ומקבלים $R_1=R_2$",
+       "html": "מניחים בשלילה שהאיחוד סדר ומקבלים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">R_1=R_2</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "בודקים אינדוקציה על גודל הקבוצה",
+       "html": "בודקים אינדוקציה על גודל הקבוצה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפרכה של טענה כללית נעשית בדוגמה נגדית אחת.",
+     "promptHtml": "איך מפריכים את טענה (2)?",
+     "explainHtml": "הפרכה של טענה כללית נעשית בדוגמה נגדית אחת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהפרכת טענה (2) שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "על $\\{1,2\\}$ יש רק שני יחסי סדר מלא: $R_1=\\{(1,1),(2,2),(1,2)\\}$ ו-$R_2=\\{(1,1),(2,2),(2,1)\\}$.",
+      "$R_2\\cup R_1=\\{(1,1),(2,2),(1,2),(2,1)\\}$",
+      "היחס $R_2\\cup R_1$ אינו סדר חלקי, כי אינו רפלקסיבי.",
+      "מסקנה: טענה (2) אינה נכונה."
+     ],
+     "bugIndex": 2,
+     "explain": "האיחוד כן רפלקסיבי (מכיל $(1,1),(2,2)$); הבעיה היא שאינו אנטי-סימטרי כי יש בו $(1,2)$ ו-$(2,1)$ (נבדק בסקריפט).",
+     "promptHtml": "בהפרכת טענה (2) שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "האיחוד כן רפלקסיבי (מכיל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1),(2,2)</annotation></semantics></math></span>); הבעיה היא שאינו אנטי-סימטרי כי יש בו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,2)</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,1)</annotation></semantics></math></span> (נבדק בסקריפט).",
+     "linesHtml": [
+      "על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span> יש רק שני יחסי סדר מלא: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1=\\{(1,1),(2,2),(1,2)\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_2=\\{(1,1),(2,2),(2,1)\\}</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>∪</mo><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_2\\cup R_1=\\{(1,1),(2,2),(1,2),(2,1)\\}</annotation></semantics></math></span>",
+      "היחס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>∪</mo><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">R_2\\cup R_1</annotation></semantics></math></span> אינו סדר חלקי, כי אינו רפלקסיבי.",
+      "מסקנה: טענה (2) אינה נכונה."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q2c",
    "partKey": "c",
    "examCode": "26A-A",
@@ -251,7 +893,11 @@ window.OPEN_BANK = {
    "topicLabel": "יחסים ותכונותיהם",
    "questionHtml": "הוכיחו או הפריכו:<br>(1) אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=\"true\">,</mo><msub><mi>R</mi><mn>2</mn></msub><mo>⊆</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo><mo>×</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1,R_2\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}</annotation></semantics></math></span> יחסים רפלקסיביים, סימטריים וגם אנטי-סימטריים, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mtext> </mtext><mi mathvariant=\"normal\">△</mi><mtext> </mtext><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">R_1\\,\\triangle\\,R_2</annotation></semantics></math></span> הוא יחס טרנזיטיבי.<br>(2) אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=\"true\">,</mo><msub><mi>R</mi><mn>2</mn></msub><mo>⊆</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo><mo>×</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1,R_2\\subseteq\\{1,2\\}\\times\\{1,2\\}</annotation></semantics></math></span> הם יחסי סדר מלא שונים על הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span>, אז גם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>∪</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">R_1\\cup R_2</annotation></semantics></math></span> הוא יחס סדר מלא על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span>.",
    "solutionHtml": "<strong>(1)</strong> טענה זו נכונה. נוכיח אותה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=\"true\">,</mo><msub><mi>R</mi><mn>2</mn></msub><mo>⊆</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo><mo>×</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1,R_2\\subseteq\\{1,2,3\\}\\times\\{1,2,3\\}</annotation></semantics></math></span> יחסים רפלקסיביים. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>⊆</mo><msub><mi>R</mi><mn>1</mn></msub><mo>∩</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(3,3)\\}\\subseteq R_1\\cap R_2</annotation></semantics></math></span>. מכיוון ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo separator=\"true\">,</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">R_1,R_2</annotation></semantics></math></span> הם יחסים סימטריים וגם אנטי-סימטריים, נשיג ש: אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo mathvariant=\"normal\">≠</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a\\ne b</annotation></semantics></math></span>, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">∉</mo><msub><mi>R</mi><mn>1</mn></msub></mrow><annotation encoding=\"application/x-tex\">(a,b)\\notin R_1</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">∉</mo><msub><mi>R</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">(a,b)\\notin R_2</annotation></semantics></math></span>.<br>מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1=R_2=\\{(1,1),(2,2),(3,3)\\}</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mi mathvariant=\"normal\">△</mi><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mi mathvariant=\"normal\">∅</mi></mrow><annotation encoding=\"application/x-tex\">R_1\\triangle R_2=\\emptyset</annotation></semantics></math></span> וזהו יחס טרנזיטיבי.<br><strong>(2)</strong> על הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span> יש רק 2 יחסי סדר מלא שונים והם: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1=\\{(1,1),(2,2),(1,2)\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_2=\\{(1,1),(2,2),(2,1)\\}</annotation></semantics></math></span>.<br>אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>∪</mo><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_2\\cup R_1=\\{(1,1),(2,2),(1,2),(2,1)\\}</annotation></semantics></math></span> אינו סדר חלקי (כי הוא לא אנטי-סימטרי).<br>מסקנה: טענה זו לא נכונה.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "להפריך את (1) בדוגמה, בלי לשים לב שהתנאים (רפלקסיבי, סימטרי, אנטי-סימטרי) מכריחים את הזהות.",
+    "להוכיח את (2) בטענה כללית על איחוד: איחוד של סדרים הפוכים אינו אנטי-סימטרי, ולכן צריך דוגמה נגדית."
+   ]
   },
   {
    "num": 3,
@@ -264,6 +910,137 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $5\\mid 5x=4x+x$",
+     "points": 1,
+     "html": "רפלקסיביות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mn>5</mn><mi>x</mi><mo>=</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">5\\mid 5x=4x+x</annotation></semantics></math></span>"
+    },
+    {
+     "text": "סימטריה: סכום $(4x+y)+(4y+x)=5(x+y)$ וחיסור $4x+y$",
+     "points": 2,
+     "html": "סימטריה: סכום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>5</mn><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(4x+y)+(4y+x)=5(x+y)</annotation></semantics></math></span> וחיסור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">4x+y</annotation></semantics></math></span>"
+    },
+    {
+     "text": "טרנזיטיביות: סכום $(4x+y)+(4y+z)=(4x+z)+5y$ והסקה $5\\mid(4x+z)$",
+     "points": 3,
+     "html": "טרנזיטיביות: סכום <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mn>5</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">(4x+y)+(4y+z)=(4x+z)+5y</annotation></semantics></math></span> והסקה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4x+z)</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב מחלקות השקילות $[r]=\\{5k+r\\}$ ל-$r=0,\\dots,4$ וכך $\\mathbb{Z}/R$ חמש מחלקות",
+     "points": 3,
+     "html": "חישוב מחלקות השקילות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mi>r</mi><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mi>r</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[r]=\\{5k+r\\}</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">r=0,\\dots,4</annotation></semantics></math></span> וכך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">/</mi><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}/R</annotation></semantics></math></span> חמש מחלקות"
+    },
+    {
+     "text": "(2) $R$ אינו סדר חלקי כי אינו אנטי-סימטרי: $0R5$ וגם $5R0$",
+     "points": 1,
+     "html": "(2) <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> אינו סדר חלקי כי אינו אנטי-סימטרי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mi>R</mi><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">0R5</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mi>R</mi><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">5R0</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "להוכיח רק רפלקסיביות וסימטריה ולשכוח טרנזיטיביות, או לבדוק דוגמאות מספריות במקום הוכחה כללית.",
+    "לפרט מחלקות שקילות בלי להראות שהן מכסות את $\\mathbb{Z}$, ולכן אין עוד מחלקות.",
+    "להסיק שיחס שקילות הוא גם יחס סדר: סדר חלקי דורש אנטי-סימטריה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה צריך להראות כדי להוכיח ש-$R$ הוא יחס שקילות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "רפלקסיביות, אנטי-סימטריה וטרנזיטיביות",
+       "html": "רפלקסיביות, אנטי-סימטריה וטרנזיטיביות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רפלקסיביות, סימטריה וטרנזיטיביות",
+       "html": "רפלקסיביות, סימטריה וטרנזיטיביות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "רק רפלקסיביות וסימטריה",
+       "html": "רק רפלקסיביות וסימטריה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "רק טרנזיטיביות",
+       "html": "רק טרנזיטיביות"
+      }
+     ],
+     "correctId": "b",
+     "explain": "זו ההגדרה של יחס שקילות; אנטי-סימטריה שייכת לסדר חלקי.",
+     "promptHtml": "מה צריך להראות כדי להוכיח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> הוא יחס שקילות?",
+     "explainHtml": "זו ההגדרה של יחס שקילות; אנטי-סימטריה שייכת לסדר חלקי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$\\mathbb{Z}/R$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$[0],[1],[2],[3],[4]$ (נבדק בסקריפט: $xRy\\iff 5\\mid 4x+y$).",
+     "promptHtml": "כמה מחלקות שקילות יש ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">/</mi><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}/R</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>0</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>2</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>3</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>4</mn><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">[0],[1],[2],[3],[4]</annotation></semantics></math></span> (נבדק בסקריפט: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>R</mi><mi>y</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mn>5</mn><mo>∣</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">xRy\\iff 5\\mid 4x+y</annotation></semantics></math></span>)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $[4]=\\{5k+r\\}$, מהו $r$ בין 0 ל-4?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$4Ry\\iff 5\\mid(16+y)\\iff y\\equiv 4 \\pmod 5$ (נבדק בסקריפט).",
+     "promptHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>4</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mi>r</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[4]=\\{5k+r\\}</annotation></semantics></math></span>, מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">r</annotation></semantics></math></span> בין 0 ל-4?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>R</mi><mi>y</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>16</mn><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mi>y</mi><mo>≡</mo><mn>4</mn><mspace></mspace><mspace width=\"0.4444em\"/><mo stretchy=\"false\">(</mo><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow><mspace width=\"0.3333em\"/><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">4Ry\\iff 5\\mid(16+y)\\iff y\\equiv 4 \\pmod 5</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נתון $(x,y)\\in R$ וגם $(y,z)\\in R$, צריך להראות $(x,z)\\in R$.",
+      "כלומר $5\\mid(4x+y)$ וגם $5\\mid(4y+z)$.",
+      "לכן $5\\mid\\big((4x+y)+(4y+z)\\big)$, כלומר $5\\mid\\big((4x+z)+5y\\big)$.",
+      "גם $5\\mid 5y$, ולכן $5\\mid(4x+z)$.",
+      "מכאן $(x,z)\\in R$ ו-$R$ טרנזיטיבי."
+     ],
+     "explain": "מניחים, פותחים את התנאים, מחברים, מחסירים $5y$, ומסיקים.",
+     "promptHtml": "סדרו את הוכחת הטרנזיטיביות.",
+     "explainHtml": "מניחים, פותחים את התנאים, מחברים, מחסירים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">5y</annotation></semantics></math></span>, ומסיקים.",
+     "linesHtml": [
+      "נתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,y)\\in R</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(y,z)\\in R</annotation></semantics></math></span>, צריך להראות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,z)\\in R</annotation></semantics></math></span>.",
+      "כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4x+y)</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4y+z)</annotation></semantics></math></span>.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+y)+(4y+z)\\big)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mn>5</mn><mi>y</mi><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+z)+5y\\big)</annotation></semantics></math></span>.",
+      "גם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mn>5</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">5\\mid 5y</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4x+z)</annotation></semantics></math></span>.",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,z)\\in R</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> טרנזיטיבי."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת הסימטריה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "נתון $(x,y)\\in R$, כלומר $5\\mid(4x+y)$, וצריך להראות $5\\mid(4y+x)$.",
+      "$(4x+y)+(4y+x)=6x+5y=5(x+y)$",
+      "לכן $5\\mid\\big((4x+y)+(4y+x)\\big)$.",
+      "לפי משפט, $5\\mid\\big((4x+y+4y+x)-(4x+y)\\big)=(4y+x)$.",
+      "מכאן $(y,x)\\in R$ ו-$R$ סימטרי."
+     ],
+     "bugIndex": 1,
+     "explain": "הסכום הוא $5x+5y$ (נבדק בסקריפט עם sympy), לא $6x+5y$.",
+     "promptHtml": "בהוכחת הסימטריה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "הסכום הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">5x+5y</annotation></semantics></math></span> (נבדק בסקריפט עם sympy), לא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">6x+5y</annotation></semantics></math></span>.",
+     "linesHtml": [
+      "נתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,y)\\in R</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4x+y)</annotation></semantics></math></span>, וצריך להראות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4y+x)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>=</mo><mn>5</mn><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(4x+y)+(4y+x)=6x+5y=5(x+y)</annotation></semantics></math></span>",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+y)+(4y+x)\\big)</annotation></semantics></math></span>.",
+      "לפי משפט, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+y+4y+x)-(4x+y)\\big)=(4y+x)</annotation></semantics></math></span>.",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(y,x)\\in R</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> סימטרי."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q3a",
    "partKey": "a",
    "examCode": "26A-A",
@@ -273,7 +1050,12 @@ window.OPEN_BANK = {
    "topicLabel": "יחסי שקילות",
    "questionHtml": "יהי נתון היחס <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi><mo>⊆</mo><mi mathvariant=\"double-struck\">Z</mi><mo>×</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">R\\subseteq\\mathbb{Z}\\times\\mathbb{Z}</annotation></semantics></math></span> שמוגדר לפי הכלל הבא: לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">x,y\\in\\mathbb{Z}</annotation></semantics></math></span>, מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mi>R</mi><mi>y</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">xRy\\iff 4x+y</annotation></semantics></math></span> הוא מספר שמתחלק ב-5.<br>(1) הוכיחו ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> הוא יחס שקילות ומצאו את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">/</mi><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}/R</annotation></semantics></math></span>.<br>(2) האם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> הוא יחס סדר חלקי ?",
    "solutionHtml": "<strong>(1)</strong> נוכיח יחס שקילות:<br><strong>רפלקסיביות:</strong> צ״ל: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∀</mi><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo separator=\"true\">,</mo><mtext> </mtext><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\forall x\\in\\mathbb{Z},\\ (x,x)\\in R</annotation></semantics></math></span>. ואכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"normal\">∀</mi><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo separator=\"true\">,</mo><mtext> </mtext><mn>5</mn><mo>∣</mo><mn>5</mn><mi>x</mi><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\forall x\\in\\mathbb{Z},\\ 5\\mid 5x\\Rightarrow 5\\mid(4x+x)\\Rightarrow(x,x)\\in R</annotation></semantics></math></span><br><strong>סימטריות:</strong> נתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,y)\\in R</annotation></semantics></math></span> כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4x+y)</annotation></semantics></math></span>, נוכיח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(y,x)\\in R</annotation></semantics></math></span>. כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">5\\mid(4y+x)</annotation></semantics></math></span>. ואכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"normal\">∀</mi><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>:</mo><mtext> </mtext><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\forall x,y\\in\\mathbb{Z}:\\ (x,y)\\in R\\Rightarrow 5\\mid(4x+y)</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo>=</mo><mn>5</mn><mi>x</mi><mo>+</mo><mn>5</mn><mi>y</mi><mo>=</mo><mn>5</mn><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">4x+y+4y+x=5x+5y=5(x+y)\\Rightarrow 5\\mid(4x+y+4y+x)</annotation></semantics></math></span><br>לפי משפט: אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid a</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid b</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">c\\mid(a-b)</annotation></semantics></math></span>, לכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow 5\\mid\\big((4x+y+4y+x)-(4x+y)\\big)\\Rightarrow 5\\mid(4y+x)\\Rightarrow(y,x)\\in R</annotation></semantics></math></span><br><strong>טרנזיטיביות:</strong> נתון: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,y)\\in R</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(y,z)\\in R</annotation></semantics></math></span>, צ״ל ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(x,z)\\in R</annotation></semantics></math></span>. ואכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"normal\">∀</mi><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>z</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>:</mo><mtext> </mtext><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi><mo>∧</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\forall x,y,z\\in\\mathbb{Z}:\\ (x,y)\\in R\\wedge(y,z)\\in R\\Rightarrow 5\\mid(4x+y)\\wedge 5\\mid(4y+z)</annotation></semantics></math></span><br>לפי משפט: אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid a</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid b</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">c\\mid(a+b)</annotation></semantics></math></span>, לכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>y</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mn>5</mn><mi>y</mi><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo><mo separator=\"true\">,</mo><mtext> </mtext><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+y)+(4y+z)\\big)\\Rightarrow 5\\mid\\big((4x+z)+5y\\big),\\ y\\in\\mathbb{Z}</annotation></semantics></math></span><br>שוב לפי משפט: אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>a</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid a</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">c\\mid b</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>c</mi><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">c\\mid(a-b)</annotation></semantics></math></span>, לכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mn>5</mn><mo>∣</mo><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">(</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mn>5</mn><mi>y</mi><mo fence=\"false\" stretchy=\"true\" minsize=\"1.2em\" maxsize=\"1.2em\">)</mo><mtext> </mtext><mo>∧</mo><mtext> </mtext><mn>5</mn><mo>∣</mo><mn>5</mn><mi>y</mi><mo>⇒</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mi>x</mi><mo>+</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>z</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">5\\mid\\big((4x+z)+5y\\big)\\ \\wedge\\ 5\\mid 5y\\Rightarrow 5\\mid(4x+z)\\Rightarrow(x,z)\\in R</annotation></semantics></math></span><br>מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> הוא יחס רפלקסיבי, סימטרי וטרנזיטיבי ולכן הוא יחס שקילות.<br>נחשב את מחלקות השקילות:<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>0</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>0</mn><mi>R</mi><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>0</mn><mi>x</mi><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[0]=\\{y:y\\in\\mathbb{Z}\\wedge 0Ry\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(0x+y)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid y\\}=\\{5k:k\\in\\mathbb{Z}\\}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>1</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>1</mn><mi>R</mi><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>4</mn><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>−</mo><mn>4</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mn>1</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[1]=\\{y:y\\in\\mathbb{Z}\\wedge 1Ry\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(4+y)\\}=\\{5k-4:k\\in\\mathbb{Z}\\}=\\{5k+1:k\\in\\mathbb{Z}\\}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>2</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>2</mn><mi>R</mi><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>8</mn><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>3</mn><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>−</mo><mn>3</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mn>2</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[2]=\\{y:y\\in\\mathbb{Z}\\wedge 2Ry\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(8+y)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+3+5)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+3)\\}=\\{5k-3:k\\in\\mathbb{Z}\\}=\\{5k+2:k\\in\\mathbb{Z}\\}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>3</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>3</mn><mi>R</mi><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>2</mn><mo>+</mo><mn>10</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>−</mo><mn>2</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mn>3</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[3]=\\{y:y\\in\\mathbb{Z}\\wedge 3Ry\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(12+y)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+2+10)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+2)\\}=\\{5k-2:k\\in\\mathbb{Z}\\}=\\{5k+3:k\\in\\mathbb{Z}\\}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>4</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>4</mn><mi>R</mi><mi>y</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>16</mn><mo>+</mo><mi>y</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo>+</mo><mn>15</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mi>y</mi><mo>:</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo>∧</mo><mn>5</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>−</mo><mn>1</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mi>k</mi><mo>+</mo><mn>4</mn><mo>:</mo><mi>k</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">[4]=\\{y:y\\in\\mathbb{Z}\\wedge 4Ry\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(16+y)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+1+15)\\}=\\{y:y\\in\\mathbb{Z}\\wedge 5\\mid(y+1)\\}=\\{5k-1:k\\in\\mathbb{Z}\\}=\\{5k+4:k\\in\\mathbb{Z}\\}</annotation></semantics></math></span><br>מכיוון ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>0</mn><mo stretchy=\"false\">]</mo><mo>∪</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo stretchy=\"false\">]</mo><mo>∪</mo><mo stretchy=\"false\">[</mo><mn>2</mn><mo stretchy=\"false\">]</mo><mo>∪</mo><mo stretchy=\"false\">[</mo><mn>3</mn><mo stretchy=\"false\">]</mo><mo>∪</mo><mo stretchy=\"false\">[</mo><mn>4</mn><mo stretchy=\"false\">]</mo><mo>=</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">[0]\\cup[1]\\cup[2]\\cup[3]\\cup[4]=\\mathbb{Z}</annotation></semantics></math></span> אין עוד מחלקות שקילות. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">/</mi><mi>R</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">[</mo><mn>0</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>2</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>3</mn><mo stretchy=\"false\">]</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">[</mo><mn>4</mn><mo stretchy=\"false\">]</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}/R=\\{[0],[1],[2],[3],[4]\\}</annotation></semantics></math></span>.<br><strong>(2)</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">R</annotation></semantics></math></span> אינו יחס סדר חלקי כי אינו אנטי סימטרי. לדוגמה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(0,5)\\in R</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>5</mn><mo separator=\"true\">,</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>∈</mo><mi>R</mi></mrow><annotation encoding=\"application/x-tex\">(5,0)\\in R</annotation></semantics></math></span> אך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo mathvariant=\"normal\">≠</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">0\\ne 5</annotation></semantics></math></span>.",
-   "pointsTotal": 10
+   "pointsTotal": 10,
+   "pitfallsHtml": [
+    "להוכיח רק רפלקסיביות וסימטריה ולשכוח טרנזיטיביות, או לבדוק דוגמאות מספריות במקום הוכחה כללית.",
+    "לפרט מחלקות שקילות בלי להראות שהן מכסות את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}</annotation></semantics></math></span>, ולכן אין עוד מחלקות.",
+    "להסיק שיחס שקילות הוא גם יחס סדר: סדר חלקי דורש אנטי-סימטריה."
+   ]
   },
   {
    "num": 3,
@@ -286,6 +1068,82 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "שלבי החילוק של Euclid: $84=1\\cdot 49+35$, $49=1\\cdot 35+14$, $35=2\\cdot 14+7$, $14=2\\cdot 7$",
+     "points": 4,
+     "html": "שלבי החילוק של Euclid: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>84</mn><mo>=</mo><mn>1</mn><mo>⋅</mo><mn>49</mn><mo>+</mo><mn>35</mn></mrow><annotation encoding=\"application/x-tex\">84=1\\cdot 49+35</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn><mo>=</mo><mn>1</mn><mo>⋅</mo><mn>35</mn><mo>+</mo><mn>14</mn></mrow><annotation encoding=\"application/x-tex\">49=1\\cdot 35+14</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>35</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>14</mn><mo>+</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">35=2\\cdot 14+7</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>14</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">14=2\\cdot 7</annotation></semantics></math></span>"
+    },
+    {
+     "text": "זיהוי $\\gcd(49,84)=7$",
+     "points": 1,
+     "html": "זיהוי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>49</mn><mo separator=\"true\">,</mo><mn>84</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(49,84)=7</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חישוב המקדמים בחזרה דרך הטבלה: $x=-5$, $y=3$",
+     "points": 2,
+     "html": "חישוב המקדמים בחזרה דרך הטבלה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">x=-5</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">y=3</annotation></semantics></math></span>"
+    },
+    {
+     "text": "כתיבת השוויון $7=49\\cdot(-5)+84\\cdot 3$",
+     "points": 1,
+     "html": "כתיבת השוויון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn><mo>=</mo><mn>49</mn><mo>⋅</mo><mo stretchy=\"false\">(</mo><mo>−</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>84</mn><mo>⋅</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">7=49\\cdot(-5)+84\\cdot 3</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לעצור בחישוב ה-gcd בלי להפיק את המקדמים $x,y$.",
+    "טעות סימן בהצבה לאחור, ולכן שוויון שאינו מתקיים: צריך לבדוק $49x+84y=7$ בסוף."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית בחילוק $84$ ב-$49$?",
+     "answer": 35,
+     "tol": 0,
+     "explain": "$84=1\\cdot 49+35$ (נבדק בסקריפט).",
+     "promptHtml": "מהי השארית בחילוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>84</mn></mrow><annotation encoding=\"application/x-tex\">84</annotation></semantics></math></span> ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn></mrow><annotation encoding=\"application/x-tex\">49</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>84</mn><mo>=</mo><mn>1</mn><mo>⋅</mo><mn>49</mn><mo>+</mo><mn>35</mn></mrow><annotation encoding=\"application/x-tex\">84=1\\cdot 49+35</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי החילוק של האלגוריתם של Euclid עבור $84$ ו-$49$.",
+     "lines": [
+      "$84=1\\cdot 49+35$",
+      "$49=1\\cdot 35+14$",
+      "$35=2\\cdot 14+7$",
+      "$14=2\\cdot 7+0$"
+     ],
+     "explain": "כל שלב מחליף את הזוג ב-(המחלק, השארית) עד שהשארית 0; השארית האחרונה שאינה אפס היא ה-gcd.",
+     "promptHtml": "סדרו את שלבי החילוק של האלגוריתם של Euclid עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>84</mn></mrow><annotation encoding=\"application/x-tex\">84</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn></mrow><annotation encoding=\"application/x-tex\">49</annotation></semantics></math></span>.",
+     "explainHtml": "כל שלב מחליף את הזוג ב-(המחלק, השארית) עד שהשארית 0; השארית האחרונה שאינה אפס היא ה-gcd.",
+     "linesHtml": [
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>84</mn><mo>=</mo><mn>1</mn><mo>⋅</mo><mn>49</mn><mo>+</mo><mn>35</mn></mrow><annotation encoding=\"application/x-tex\">84=1\\cdot 49+35</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn><mo>=</mo><mn>1</mn><mo>⋅</mo><mn>35</mn><mo>+</mo><mn>14</mn></mrow><annotation encoding=\"application/x-tex\">49=1\\cdot 35+14</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>35</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>14</mn><mo>+</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">35=2\\cdot 14+7</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>14</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>7</mn><mo>+</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">14=2\\cdot 7+0</annotation></semantics></math></span>"
+     ]
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(49,84)$?",
+     "answer": 7,
+     "tol": 0,
+     "explain": "השארית האחרונה שאינה 0 (נבדק בסקריפט).",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>49</mn><mo separator=\"true\">,</mo><mn>84</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\gcd(49,84)</annotation></semantics></math></span>?",
+     "explainHtml": "השארית האחרונה שאינה 0 (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אם $y=3$, איזה $x$ מקיים $\\gcd(49,84)=49x+84y$ לפי הטבלה?",
+     "answer": -5,
+     "tol": 0,
+     "explain": "$49\\cdot(-5)+84\\cdot 3=-245+252=7$ (נבדק בסקריפט).",
+     "promptHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">y=3</annotation></semantics></math></span>, איזה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> מקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>49</mn><mo separator=\"true\">,</mo><mn>84</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>49</mn><mi>x</mi><mo>+</mo><mn>84</mn><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\gcd(49,84)=49x+84y</annotation></semantics></math></span> לפי הטבלה?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn><mo>⋅</mo><mo stretchy=\"false\">(</mo><mo>−</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>84</mn><mo>⋅</mo><mn>3</mn><mo>=</mo><mo>−</mo><mn>245</mn><mo>+</mo><mn>252</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">49\\cdot(-5)+84\\cdot 3=-245+252=7</annotation></semantics></math></span> (נבדק בסקריפט)."
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q3b",
    "partKey": "b",
    "examCode": "26A-A",
@@ -295,7 +1153,11 @@ window.OPEN_BANK = {
    "topicLabel": "התחלקות ו-gcd",
    "questionHtml": "מצאו על ידי האלגוריתם המורחב של Euclid שני מספרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">x,y\\in\\mathbb{Z}</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>49</mn><mo separator=\"true\">,</mo><mn>84</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>49</mn><mo>⋅</mo><mi>x</mi><mo>+</mo><mn>84</mn><mo>⋅</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">\\gcd(49,84)=49\\cdot x+84\\cdot y</annotation></semantics></math></span>.",
    "solutionHtml": "הטבלה של האלגוריתם המורחב (בכל שורה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi></mrow><annotation encoding=\"application/x-tex\">d</annotation></semantics></math></span> הוא ה-gcd, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>←</mo><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\leftarrow y&#x27;</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>y</mi><mo>←</mo><msup><mi>x</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>−</mo><msup><mi>y</mi><mo mathvariant=\"normal\" lspace=\"0em\" rspace=\"0em\">′</mo></msup><mo>⋅</mo><mo stretchy=\"false\">⌊</mo><mi>a</mi><mi mathvariant=\"normal\">/</mi><mi>b</mi><mo stretchy=\"false\">⌋</mo></mrow><annotation encoding=\"application/x-tex\">y\\leftarrow x&#x27;-y&#x27;\\cdot\\lfloor a/b\\rfloor</annotation></semantics></math></span> מחושבים מהשורה שמתחת):<pre class=\"code-block\" dir=\"ltr\"><code>  a    b    floor(a/b)   d    x    y\n 49   84        0        7   -5    3\n 84   49        1        7    3   -5\n 49   35        1        7   -2    3\n 35   14        2        7    1   -2\n 14    7        2        7    0    1\n  7    0       --        7    1    0</code></pre><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>49</mn><mo separator=\"true\">,</mo><mn>84</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>7</mn><mo>=</mo><mn>49</mn><mo>⋅</mo><mo stretchy=\"false\">(</mo><mo>−</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>84</mn><mo>⋅</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(49,84)=7=49\\cdot(-5)+84\\cdot 3</annotation></semantics></math></span>",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "לעצור בחישוב ה-gcd בלי להפיק את המקדמים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo separator=\"true\">,</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">x,y</annotation></semantics></math></span>.",
+    "טעות סימן בהצבה לאחור, ולכן שוויון שאינו מתקיים: צריך לבדוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>49</mn><mi>x</mi><mo>+</mo><mn>84</mn><mi>y</mi><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">49x+84y=7</annotation></semantics></math></span> בסוף."
+   ]
   },
   {
    "num": 3,
@@ -308,6 +1170,131 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "לקיחת $x$ שרירותי בצד שמאל",
+     "points": 1,
+     "html": "לקיחת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> שרירותי בצד שמאל"
+    },
+    {
+     "text": "הגדרת האיחוד: $x$ בראשון או בשני",
+     "points": 1,
+     "html": "הגדרת האיחוד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> בראשון או בשני"
+    },
+    {
+     "text": "הגדרת ההפרש: $x\\in B\\wedge x\\notin A$ ודומה עבור $C$",
+     "points": 2,
+     "html": "הגדרת ההפרש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in B\\wedge x\\notin A</annotation></semantics></math></span> ודומה עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">C</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חוק הפילוג: הוצאת $x\\notin A$ כגורם משותף",
+     "points": 2,
+     "html": "חוק הפילוג: הוצאת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\notin A</annotation></semantics></math></span> כגורם משותף"
+    },
+    {
+     "text": "מסקנה: $x\\in(B\\cup C)-A$",
+     "points": 1,
+     "html": "מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in(B\\cup C)-A</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לבלבל בין $\\vee$ ל-$\\wedge$ בהוצאת $x\\notin A$ כגורם משותף.",
+    "להתחיל מצד ימין ולהניח את מה שצריך להוכיח."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איך מוכיחים הכלה $X\\subseteq Y$ בין קבוצות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מראים ש-$X$ ו-$Y$ בעלות אותו גודל",
+       "html": "מראים ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi></mrow><annotation encoding=\"application/x-tex\">X</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">Y</annotation></semantics></math></span> בעלות אותו גודל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בודקים דוגמה אחת",
+       "html": "בודקים דוגמה אחת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לוקחים $x\\in X$ שרירותי ומראים $x\\in Y$",
+       "html": "לוקחים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>X</mi></mrow><annotation encoding=\"application/x-tex\">x\\in X</annotation></semantics></math></span> שרירותי ומראים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">x\\in Y</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מניחים $X=Y$",
+       "html": "מניחים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo>=</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X=Y</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "c",
+     "explain": "זו הגדרת ההכלה.",
+     "promptHtml": "איך מוכיחים הכלה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>X</mi><mo>⊆</mo><mi>Y</mi></mrow><annotation encoding=\"application/x-tex\">X\\subseteq Y</annotation></semantics></math></span> בין קבוצות?",
+     "explainHtml": "זו הגדרת ההכלה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2,3\\}$, $B=\\{3,4,5\\}$, $C=\\{5,6\\}$: כמה איברים ב-$(B-A)\\cup(C-A)$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\{4,5\\}\\cup\\{5,6\\}=\\{4,5,6\\}$, והוא שווה ל-$(B\\cup C)-A$ (נבדק בסקריפט).",
+     "promptHtml": "עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2,3\\}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">B=\\{3,4,5\\}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mo separator=\"true\">,</mo><mn>6</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">C=\\{5,6\\}</annotation></semantics></math></span>: כמה איברים ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(B-A)\\cup(C-A)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">}</mo><mo>∪</mo><mo stretchy=\"false\">{</mo><mn>5</mn><mo separator=\"true\">,</mo><mn>6</mn><mo stretchy=\"false\">}</mo><mo>=</mo><mo stretchy=\"false\">{</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>5</mn><mo separator=\"true\">,</mo><mn>6</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{4,5\\}\\cup\\{5,6\\}=\\{4,5,6\\}</annotation></semantics></math></span>, והוא שווה ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">(B\\cup C)-A</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שרשרת ההסקות.",
+     "lines": [
+      "יהי $x\\in(B-A)\\cup(C-A)$ שרירותי.",
+      "$x\\in(B-A)\\vee x\\in(C-A)$",
+      "$(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$",
+      "$(x\\in B\\vee x\\in C)\\wedge x\\notin A$",
+      "$x\\in(B\\cup C)\\wedge x\\notin A$",
+      "$x\\in(B\\cup C)-A$"
+     ],
+     "explain": "מהגדרת איחוד, דרך הגדרת הפרש וחוק הפילוג, להגדרת ההפרש של האיחוד.",
+     "promptHtml": "סדרו את שרשרת ההסקות.",
+     "explainHtml": "מהגדרת איחוד, דרך הגדרת הפרש וחוק הפילוג, להגדרת ההפרש של האיחוד.",
+     "linesHtml": [
+      "יהי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x\\in(B-A)\\cup(C-A)</annotation></semantics></math></span> שרירותי.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x\\in(B-A)\\vee x\\in(C-A)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∨</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\vee x\\in C)\\wedge x\\notin A</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in(B\\cup C)\\wedge x\\notin A</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in(B\\cup C)-A</annotation></semantics></math></span>"
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בשרשרת הבאה שורה אחת שונתה והמעבר שגוי. מצאו אותה.",
+     "lines": [
+      "יהי $x\\in(B-A)\\cup(C-A)$ שרירותי.",
+      "$x\\in(B-A)\\vee x\\in(C-A)$",
+      "$(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)$",
+      "$(x\\in B\\wedge x\\in C)\\wedge x\\notin A$",
+      "$x\\in(B\\cup C)\\wedge x\\notin A$",
+      "$x\\in(B\\cup C)-A$"
+     ],
+     "bugIndex": 3,
+     "explain": "פילוג נותן $(x\\in B\\vee x\\in C)$ ולא $\\wedge$; הדוגמה $x\\in B\\setminus C$ מפריכה (נבדק בסקריפט).",
+     "promptHtml": "בשרשרת הבאה שורה אחת שונתה והמעבר שגוי. מצאו אותה.",
+     "explainHtml": "פילוג נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∨</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\vee x\\in C)</annotation></semantics></math></span> ולא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∧</mo></mrow><annotation encoding=\"application/x-tex\">\\wedge</annotation></semantics></math></span>; הדוגמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∖</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">x\\in B\\setminus C</annotation></semantics></math></span> מפריכה (נבדק בסקריפט).",
+     "linesHtml": [
+      "יהי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x\\in(B-A)\\cup(C-A)</annotation></semantics></math></span> שרירותי.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">x\\in(B-A)\\vee x\\in(C-A)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∧</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\wedge x\\in C)\\wedge x\\notin A</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in(B\\cup C)\\wedge x\\notin A</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\in(B\\cup C)-A</annotation></semantics></math></span>"
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q3c",
    "partKey": "c",
    "examCode": "26A-A",
@@ -317,7 +1304,11 @@ window.OPEN_BANK = {
    "topicLabel": "קבוצות וקבוצת חזקה",
    "questionHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi><mo separator=\"true\">,</mo><mi>C</mi></mrow><annotation encoding=\"application/x-tex\">A,B,C</annotation></semantics></math></span> הן קבוצות לא ריקות, הראו ש:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>⊆</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">(B-A)\\cup(C-A)\\subseteq(B\\cup C)-A</annotation></semantics></math></span>",
    "solutionHtml": "נוכיח את הטענה:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi mathvariant=\"normal\">∀</mi><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>C</mi><mo>−</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\forall x\\in(B-A)\\cup(C-A)\\Rightarrow x\\in(B-A)\\vee x\\in(C-A)\\Rightarrow</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∨</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>∈</mo><mi>B</mi><mo>∨</mo><mi>x</mi><mo>∈</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">(x\\in B\\wedge x\\notin A)\\vee(x\\in C\\wedge x\\notin A)\\Rightarrow(x\\in B\\vee x\\in C)\\wedge(x\\notin A)\\Rightarrow</annotation></semantics></math></span><br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mo>⇒</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi><mo>⇒</mo><mi>x</mi><mo>∈</mo><mo stretchy=\"false\">(</mo><mi>B</mi><mo>∪</mo><mi>C</mi><mo stretchy=\"false\">)</mo><mo>−</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow x\\in(B\\cup C)\\wedge x\\notin A\\Rightarrow x\\in(B\\cup C)-A</annotation></semantics></math></span><br>הסבר המעברים: לפי הגדרת איחוד והפרש ולפי חוק הפילוג.",
-   "pointsTotal": 7
+   "pointsTotal": 7,
+   "pitfallsHtml": [
+    "לבלבל בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∨</mo></mrow><annotation encoding=\"application/x-tex\">\\vee</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>∧</mo></mrow><annotation encoding=\"application/x-tex\">\\wedge</annotation></semantics></math></span> בהוצאת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">x\\notin A</annotation></semantics></math></span> כגורם משותף.",
+    "להתחיל מצד ימין ולהניח את מה שצריך להוכיח."
+   ]
   },
   {
    "num": 4,
@@ -330,6 +1321,156 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1) ניסוח ה-contrapositive: $A\\not\\subseteq B\\wedge B\\not\\subseteq A\\Rightarrow P(A)\\cup P(B)\\ne P(A\\cup B)$",
+     "points": 2,
+     "html": "(1) ניסוח ה-contrapositive: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi><mo>∧</mo><mi>B</mi><mo>⊈</mo><mi>A</mi><mo>⇒</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B\\wedge B\\not\\subseteq A\\Rightarrow P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>"
+    },
+    {
+     "text": "(2) הנחת השלילה של המסקנה והוצאת איברים $a\\in A\\setminus B$ ו-$b\\in B\\setminus A$",
+     "points": 3,
+     "html": "(2) הנחת השלילה של המסקנה והוצאת איברים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi><mo>∖</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\in A\\setminus B</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi><mo>∖</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B\\setminus A</annotation></semantics></math></span>"
+    },
+    {
+     "text": "הראיה ש-$\\{a,b\\}\\in P(A\\cup B)$",
+     "points": 2,
+     "html": "הראיה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>∈</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\in P(A\\cup B)</annotation></semantics></math></span>"
+    },
+    {
+     "text": "הראיה ש-$\\{a,b\\}\\notin P(A)\\cup P(B)$ ולכן אי-שוויון",
+     "points": 2,
+     "html": "הראיה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\notin P(A)\\cup P(B)</annotation></semantics></math></span> ולכן אי-שוויון"
+    }
+   ],
+   "pitfalls": [
+    "לשלול את הטענה בצורה שגויה: שלילת ״$B\\subseteq A$ או $A\\subseteq B$״ היא ״וגם״ של שתי אי-הכלות.",
+    "לשכוח שהאיבר שמפריד בין הקבוצות הוא תת-קבוצה $\\{a,b\\}$ ולא האיברים $a,b$ בעצמם."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "הטענה היא ״אם $P(A)\\cup P(B)=P(A\\cup B)$ אז $B\\subseteq A$ או $A\\subseteq B$״. באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הוכחה ישירה",
+       "html": "הוכחה ישירה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה",
+       "html": "אינדוקציה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ספירה",
+       "html": "ספירה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הוכחה בעזרת הטענה הנגדית-חיובית (contrapositive)",
+       "html": "הוכחה בעזרת הטענה הנגדית-חיובית (contrapositive)"
+      }
+     ],
+     "correctId": "d",
+     "explain": "הפתרון הרשמי שולל את המסקנה (שתי אי-הכלות) ומראה אי-שוויון בין הקבוצות. גם שיטות אחרות (כמו הוכחה בשלילה) עובדות, אבל זו השיטה של הפתרון הרשמי.",
+     "promptHtml": "הטענה היא ״אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)=P(A\\cup B)</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊆</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\subseteq A</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊆</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\subseteq B</annotation></semantics></math></span>״. באיזו שיטה משתמש הפתרון הרשמי?",
+     "explainHtml": "הפתרון הרשמי שולל את המסקנה (שתי אי-הכלות) ומראה אי-שוויון בין הקבוצות. גם שיטות אחרות (כמו הוכחה בשלילה) עובדות, אבל זו השיטה של הפתרון הרשמי."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו ה-contrapositive?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq B$ וגם $B\\not\\subseteq A$ אז $P(A)\\cup P(B)\\ne P(A\\cup B)$",
+       "html": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq B$ או $B\\not\\subseteq A$ אז $P(A)\\cup P(B)\\ne P(A\\cup B)$",
+       "html": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $B\\subseteq A$ או $A\\subseteq B$ אז $P(A)\\cup P(B)=P(A\\cup B)$",
+       "html": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊆</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\subseteq A</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊆</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\subseteq B</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)=P(A\\cup B)</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq B$ וגם $B\\not\\subseteq A$ אז $P(A)\\cup P(B)=P(A\\cup B)$",
+       "html": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span> אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)=P(A\\cup B)</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מחליפים בין המקדים למסקנה ושוללים את שניהם: שלילת ״או״ היא ״וגם״.",
+     "promptHtml": "מהו ה-contrapositive?",
+     "explainHtml": "מחליפים בין המקדים למסקנה ושוללים את שניהם: שלילת ״או״ היא ״וגם״."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2\\}$, $B=\\{2,3\\}$: בכמה איברים $P(A\\cup B)$ גדולה מ-$P(A)\\cup P(B)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$|P(A\\cup B)|=8$ ו-$|P(A)\\cup P(B)|=6$; החסרים: $\\{1,3\\}$ ו-$\\{1,2,3\\}$ (נבדק בסקריפט).",
+     "promptHtml": "עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2\\}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">B=\\{2,3\\}</annotation></semantics></math></span>: בכמה איברים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A\\cup B)</annotation></semantics></math></span> גדולה מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">|P(A\\cup B)|=8</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">|P(A)\\cup P(B)|=6</annotation></semantics></math></span>; החסרים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,3\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3\\}</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "נניח $A\\not\\subseteq B$ וגם $B\\not\\subseteq A$.",
+      "קיימים $a\\in A$ עם $a\\notin B$ ו-$b\\in B$ עם $b\\notin A$.",
+      "$\\{a,b\\}\\subseteq A\\cup B$, לכן $\\{a,b\\}\\in P(A\\cup B)$.",
+      "$\\{a,b\\}\\not\\subseteq A\\iff\\{a,b\\}\\notin P(A)$ וגם $\\{a,b\\}\\not\\subseteq B\\iff\\{a,b\\}\\notin P(B)$.",
+      "לכן $\\{a,b\\}\\notin P(A)\\cup P(B)$ ומכאן $P(A)\\cup P(B)\\ne P(A\\cup B)$."
+     ],
+     "explain": "מניחים את שלילת המסקנה, בוחרים $a,b$, בונים תת-קבוצה $\\{a,b\\}$ ומראים שהיא בצד אחד בלבד.",
+     "promptHtml": "סדרו את שלבי ההוכחה.",
+     "explainHtml": "מניחים את שלילת המסקנה, בוחרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a,b</annotation></semantics></math></span>, בונים תת-קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}</annotation></semantics></math></span> ומראים שהיא בצד אחד בלבד.",
+     "linesHtml": [
+      "נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span>.",
+      "קיימים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">a\\in A</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\notin B</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">b\\notin A</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊆</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\subseteq A\\cup B</annotation></semantics></math></span>, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>∈</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\in P(A\\cup B)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>A</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq A\\iff\\{a,b\\}\\notin P(A)</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>B</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq B\\iff\\{a,b\\}\\notin P(B)</annotation></semantics></math></span>.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\notin P(A)\\cup P(B)</annotation></semantics></math></span> ומכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $A\\not\\subseteq B$ וגם $B\\not\\subseteq A$.",
+      "קיימים $a\\in A$ עם $a\\notin B$ ו-$b\\in B$ עם $b\\notin A$.",
+      "$\\{a,b\\}\\subseteq A\\cup B$, לכן $\\{a,b\\}\\in P(A\\cup B)$.",
+      "$\\{a,b\\}\\not\\subseteq A\\iff\\{a,b\\}\\in P(A)$ וגם $\\{a,b\\}\\not\\subseteq B\\iff\\{a,b\\}\\notin P(B)$.",
+      "לכן $\\{a,b\\}\\notin P(A)\\cup P(B)$ ומכאן $P(A)\\cup P(B)\\ne P(A\\cup B)$."
+     ],
+     "bugIndex": 3,
+     "explain": "$\\{a,b\\}\\not\\subseteq A$ פירושו שהיא לא שייכת ל-$P(A)$ (נבדק בסקריפט בכל זוגות הקבוצות מעל $\\{0,1,2\\}$).",
+     "promptHtml": "בהוכחה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq A</annotation></semantics></math></span> פירושו שהיא לא שייכת ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)</annotation></semantics></math></span> (נבדק בסקריפט בכל זוגות הקבוצות מעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{0,1,2\\}</annotation></semantics></math></span>).",
+     "linesHtml": [
+      "נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span>.",
+      "קיימים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">a\\in A</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">a\\notin B</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">b\\notin A</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊆</mo><mi>A</mi><mo>∪</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\subseteq A\\cup B</annotation></semantics></math></span>, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>∈</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\in P(A\\cup B)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>A</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>∈</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq A\\iff\\{a,b\\}\\in P(A)</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>B</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq B\\iff\\{a,b\\}\\notin P(B)</annotation></semantics></math></span>.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\notin P(A)\\cup P(B)</annotation></semantics></math></span> ומכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q4a",
    "partKey": "a",
    "examCode": "26A-A",
@@ -339,7 +1480,11 @@ window.OPEN_BANK = {
    "topicLabel": "קבוצות וקבוצת חזקה",
    "questionHtml": "תהיינה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo separator=\"true\">,</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A,B</annotation></semantics></math></span> שתי קבוצות לא ריקות.<br>(1) נסחו את ה-contrapositive של הטענה הבאה: ״אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)=P(A\\cup B)</annotation></semantics></math></span>, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊆</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\subseteq A</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊆</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\subseteq B</annotation></semantics></math></span>.״<br>(2) הוכיחו את הטענה.",
    "solutionHtml": "<strong>(1)</strong> אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span>, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>.<br><strong>(2)</strong> נניח ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span>. מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> נובע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∃</mi><mi>a</mi><mo>∈</mo><mi>A</mi><mtext> </mtext><mi mathvariant=\"normal\">&amp;</mi><mtext> </mtext><mi>a</mi><mo mathvariant=\"normal\">∉</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">\\exists a\\in A\\ \\&amp;\\ a\\notin B</annotation></semantics></math></span>, ומ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span> נובע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∃</mi><mi>b</mi><mo>∈</mo><mi>B</mi><mtext> </mtext><mi mathvariant=\"normal\">&amp;</mi><mtext> </mtext><mi>b</mi><mo mathvariant=\"normal\">∉</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">\\exists b\\in B\\ \\&amp;\\ b\\notin A</annotation></semantics></math></span>.<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi><mtext> </mtext><mi mathvariant=\"normal\">&amp;</mi><mtext> </mtext><mi>b</mi><mo>∈</mo><mi>B</mi><mo>⇒</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊆</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo>⇒</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>∈</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">a\\in A\\ \\&amp;\\ b\\in B\\Rightarrow\\{a,b\\}\\subseteq A\\cup B\\Rightarrow\\{a,b\\}\\in P(A\\cup B)</annotation></semantics></math></span>.<br>מצד שני, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>A</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq A\\iff\\{a,b\\}\\notin P(A)</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>⊈</mo><mi>B</mi><mtext>  </mtext><mo>⟺</mo><mtext>  </mtext><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\not\\subseteq B\\iff\\{a,b\\}\\notin P(B)</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo mathvariant=\"normal\">∉</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}\\notin P(A)\\cup P(B)</annotation></semantics></math></span>.<br>מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>, ומסקנה: הטענה נכונה.<br>או: אפשר להוכיח את ה-contrapositive, כלומר: אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\not\\subseteq B</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\not\\subseteq A</annotation></semantics></math></span>, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo stretchy=\"false\">)</mo><mo>∪</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>B</mi><mo stretchy=\"false\">)</mo><mo mathvariant=\"normal\">≠</mo><mi>P</mi><mo stretchy=\"false\">(</mo><mi>A</mi><mo>∪</mo><mi>B</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">P(A)\\cup P(B)\\ne P(A\\cup B)</annotation></semantics></math></span>, וזה מה שהוכחנו.",
-   "pointsTotal": 9
+   "pointsTotal": 9,
+   "pitfallsHtml": [
+    "לשלול את הטענה בצורה שגויה: שלילת ״<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>⊆</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\subseteq A</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>⊆</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\subseteq B</annotation></semantics></math></span>״ היא ״וגם״ של שתי אי-הכלות.",
+    "לשכוח שהאיבר שמפריד בין הקבוצות הוא תת-קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{a,b\\}</annotation></semantics></math></span> ולא האיברים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi></mrow><annotation encoding=\"application/x-tex\">a,b</annotation></semantics></math></span> בעצמם."
+   ]
   },
   {
    "num": 4,
@@ -348,10 +1493,87 @@ window.OPEN_BANK = {
    "topic": "functions",
    "points": 8,
    "question": "מצאו קבוצה $A$ כך שהפונקציה $f:\\mathbb{N}^*\\to A$ היא על, כאשר $f$ מוגדרת לפי הכלל $f(x)=\\gcd(12,x)$ לכל $x\\in\\mathbb{N}^*$.",
-   "solution": "תחילה נשים לב ש: $12=2^2\\cdot 3$ לכל $x\\in\\mathbb{N}^*$:\n1. אם $x\\mid 2$ וגם $x\\nmid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=2$\n2. אם $x\\mid 2$ וגם $x\\nmid 3$ וגם $x\\mid 2^2$ אז: $\\gcd(12,x)=4$\n3. אם $x\\mid 2$ וגם $x\\mid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=6$\n4. אם $x\\mid 2$ וגם $x\\mid 3$ וגם $x\\mid 2^2$ אז: $\\gcd(12,x)=12$\n5. אם $x\\nmid 2$ וגם $x\\mid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=3$\n6. אם $x\\nmid 2$ וגם $x\\nmid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=1$\nלכן על מנת שהפונקציה תהיה על הקבוצה $A$ צריכה להיות: $A=\\{1,2,3,4,6,12\\}$.\nאו:\nהמחלקים של $12$ הם $1,2,3,4,6,12$ ואז $f(x)\\in\\{1,2,3,4,6,12\\}$ לכל $x\\in\\mathbb{N}^*$. בנוסף: $f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12$ וגם $1,2,3,4,6,12\\in\\mathbb{N}^*$.\nלכן $f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}$ היא על.",
-   "solutionSource": "lecturer-solution",
-   "official": true,
+   "solution": "הפתרון הרשמי עם תיקון שגיאת הקלדה: x|2 → 2|x\nתחילה נשים לב ש: $12=2^2\\cdot 3$ לכל $x\\in\\mathbb{N}^*$:\n1. אם $2\\mid x$ וגם $3\\nmid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=2$\n2. אם $2\\mid x$ וגם $3\\nmid x$ וגם $2^2\\mid x$ אז: $\\gcd(12,x)=4$\n3. אם $2\\mid x$ וגם $3\\mid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=6$\n4. אם $2\\mid x$ וגם $3\\mid x$ וגם $2^2\\mid x$ אז: $\\gcd(12,x)=12$\n5. אם $2\\nmid x$ וגם $3\\mid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=3$\n6. אם $2\\nmid x$ וגם $3\\nmid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=1$\nלכן על מנת שהפונקציה תהיה על הקבוצה $A$ צריכה להיות: $A=\\{1,2,3,4,6,12\\}$.\nאו:\nהמחלקים של $12$ הם $1,2,3,4,6,12$ ואז $f(x)\\in\\{1,2,3,4,6,12\\}$ לכל $x\\in\\mathbb{N}^*$. בנוסף: $f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12$ וגם $1,2,3,4,6,12\\in\\mathbb{N}^*$.\nלכן $f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}$ היא על.",
+   "solutionSource": "solved",
+   "official": false,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "$f(x)=\\gcd(12,x)$ מחלק את 12, ולכן התמונה בתוך $\\{1,2,3,4,6,12\\}$",
+     "points": 3,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x)=\\gcd(12,x)</annotation></semantics></math></span> מחלק את 12, ולכן התמונה בתוך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3,4,6,12\\}</annotation></semantics></math></span>"
+    },
+    {
+     "text": "כל מחלק $d$ של 12 מתקבל: $f(d)=d$",
+     "points": 3,
+     "html": "כל מחלק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi></mrow><annotation encoding=\"application/x-tex\">d</annotation></semantics></math></span> של 12 מתקבל: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>d</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>d</mi></mrow><annotation encoding=\"application/x-tex\">f(d)=d</annotation></semantics></math></span>"
+    },
+    {
+     "text": "קביעת $A=\\{1,2,3,4,6,12\\}$",
+     "points": 2,
+     "html": "קביעת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2,3,4,6,12\\}</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לבחור $A=\\mathbb{N}^*$ או $\\{1,\\dots,12\\}$: הפונקציה אינה על קבוצה כזו.",
+    "לשכוח להראות שכל מחלק אכן מתקבל (למשל $f(6)=6$), ולהסתפק בהכלה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקים חיוביים יש ל-12?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$1,2,3,4,6,12$ (נבדק בסקריפט).",
+     "promptHtml": "כמה מחלקים חיוביים יש ל-12?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">1,2,3,4,6,12</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(8)=\\gcd(12,8)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "(נבדק בסקריפט).",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>8</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mn>8</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(8)=\\gcd(12,8)</annotation></semantics></math></span>?",
+     "explainHtml": "(נבדק בסקריפט)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה $A$ הופכת את $f$ לפונקציה על?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{1,2,3,4,6\\}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3,4,6\\}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{1,2,\\dots,12\\}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,\\dots,12\\}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{2,3,4,6,12\\}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{2,3,4,6,12\\}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{1,2,3,4,6,12\\}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3,4,6,12\\}</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "d",
+     "explain": "התמונה היא בדיוק קבוצת המחלקים של 12, ובכל מחלק $d$ מתקבל $f(d)=d$ (נבדק בסקריפט על $x\\le 2000$).",
+     "promptHtml": "איזו קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> הופכת את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> לפונקציה על?",
+     "explainHtml": "התמונה היא בדיוק קבוצת המחלקים של 12, ובכל מחלק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>d</mi></mrow><annotation encoding=\"application/x-tex\">d</annotation></semantics></math></span> מתקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>d</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>d</mi></mrow><annotation encoding=\"application/x-tex\">f(d)=d</annotation></semantics></math></span> (נבדק בסקריפט על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>≤</mo><mn>2000</mn></mrow><annotation encoding=\"application/x-tex\">x\\le 2000</annotation></semantics></math></span>)."
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q4b",
    "partKey": "b",
    "examCode": "26A-A",
@@ -360,8 +1582,12 @@ window.OPEN_BANK = {
    "source": "exam",
    "topicLabel": "פונקציות",
    "questionHtml": "מצאו קבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> כך שהפונקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup><mo>→</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">f:\\mathbb{N}^*\\to A</annotation></semantics></math></span> היא על, כאשר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> מוגדרת לפי הכלל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x)=\\gcd(12,x)</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{N}^*</annotation></semantics></math></span>.",
-   "solutionHtml": "תחילה נשים לב ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>=</mo><msup><mn>2</mn><mn>2</mn></msup><mo>⋅</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">12=2^2\\cdot 3</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{N}^*</annotation></semantics></math></span>:<br>1. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\nmid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=2</annotation></semantics></math></span><br>2. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\nmid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\mid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=4</annotation></semantics></math></span><br>3. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=6</annotation></semantics></math></span><br>4. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\mid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=12</annotation></semantics></math></span><br>5. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∣</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\mid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=3</annotation></semantics></math></span><br>6. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">x\\nmid 3</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∤</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding=\"application/x-tex\">x\\nmid 2^2</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=1</annotation></semantics></math></span><br>לכן על מנת שהפונקציה תהיה על הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> צריכה להיות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2,3,4,6,12\\}</annotation></semantics></math></span>.<br>או:<br>המחלקים של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">12</annotation></semantics></math></span> הם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">1,2,3,4,6,12</annotation></semantics></math></span> ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">f(x)\\in\\{1,2,3,4,6,12\\}</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{N}^*</annotation></semantics></math></span>. בנוסף: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>4</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>6</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>12</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">1,2,3,4,6,12\\in\\mathbb{N}^*</annotation></semantics></math></span>.<br>לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup><mo>→</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}</annotation></semantics></math></span> היא על.",
-   "pointsTotal": 8
+   "solutionHtml": "הפתרון הרשמי עם תיקון שגיאת הקלדה: x|2 → 2|x<br>תחילה נשים לב ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn><mo>=</mo><msup><mn>2</mn><mn>2</mn></msup><mo>⋅</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">12=2^2\\cdot 3</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{N}^*</annotation></semantics></math></span>:<br>1. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\nmid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\nmid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=2</annotation></semantics></math></span><br>2. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\nmid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\mid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=4</annotation></semantics></math></span><br>3. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\nmid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=6</annotation></semantics></math></span><br>4. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\mid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=12</annotation></semantics></math></span><br>5. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\nmid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∣</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\mid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\nmid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=3</annotation></semantics></math></span><br>6. אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2\\nmid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">3\\nmid x</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>2</mn><mn>2</mn></msup><mo>∤</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">2^2\\nmid x</annotation></semantics></math></span> אז: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>12</mn><mo separator=\"true\">,</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(12,x)=1</annotation></semantics></math></span><br>לכן על מנת שהפונקציה תהיה על הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> צריכה להיות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">A=\\{1,2,3,4,6,12\\}</annotation></semantics></math></span>.<br>או:<br>המחלקים של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">12</annotation></semantics></math></span> הם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">1,2,3,4,6,12</annotation></semantics></math></span> ואז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>∈</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">f(x)\\in\\{1,2,3,4,6,12\\}</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{N}^*</annotation></semantics></math></span>. בנוסף: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>2</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>3</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>4</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>4</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>6</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn><mo separator=\"true\">,</mo><mtext> </mtext><mi>f</mi><mo stretchy=\"false\">(</mo><mn>12</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo>∈</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">1,2,3,4,6,12\\in\\mathbb{N}^*</annotation></semantics></math></span>.<br>לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup><mo>→</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}</annotation></semantics></math></span> היא על.",
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "לבחור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>=</mo><msup><mi mathvariant=\"double-struck\">N</mi><mo>∗</mo></msup></mrow><annotation encoding=\"application/x-tex\">A=\\mathbb{N}^*</annotation></semantics></math></span> או <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>12</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,\\dots,12\\}</annotation></semantics></math></span>: הפונקציה אינה על קבוצה כזו.",
+    "לשכוח להראות שכל מחלק אכן מתקבל (למשל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>6</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">f(6)=6</annotation></semantics></math></span>), ולהסתפק בהכלה."
+   ]
   },
   {
    "num": 4,
@@ -374,6 +1600,120 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה נכונה והנחת השלילה (או חלוקה למקרים $p=2$ ו-$p>2$)",
+     "points": 2,
+     "html": "קביעה שהטענה נכונה והנחת השלילה (או חלוקה למקרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p&gt;2</annotation></semantics></math></span>)"
+    },
+    {
+     "text": "המקרה $p=2$: $p^2+3p+2=12$ אינו ראשוני",
+     "points": 1,
+     "html": "המקרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2=12</annotation></semantics></math></span> אינו ראשוני"
+    },
+    {
+     "text": "טיעון הזוגיות: $p>2$ אי-זוגי ולכן $p+3$ זוגי ו-$p(p+3)$ זוגי",
+     "points": 3,
+     "html": "טיעון הזוגיות: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p&gt;2</annotation></semantics></math></span> אי-זוגי ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> זוגי ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p(p+3)</annotation></semantics></math></span> זוגי"
+    },
+    {
+     "text": "מסקנה: $p^2+3p+2$ זוגי וגדול מ-2, ולכן אינו ראשוני (או סתירה)",
+     "points": 2,
+     "html": "מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> זוגי וגדול מ-2, ולכן אינו ראשוני (או סתירה)"
+    }
+   ],
+   "pitfalls": [
+    "לשכוח את המקרה $p=2$ (הראשוני הזוגי היחיד).",
+    "להסיק שהתוצאה זוגית ולכן אינה ראשונית בלי לבדוק שהיא גדולה מ-2."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "הטענה היא ״לא קיים ראשוני $p$ כך ש-$p^2+3p+2$ ראשוני״. באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "בדרך השלילה (בשלילה)",
+       "html": "בדרך השלילה (בשלילה)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה",
+       "html": "אינדוקציה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "ספירה",
+       "html": "ספירה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שובך היונים",
+       "html": "שובך היונים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון הרשמי מניח שקיים כזה ומגיע לסתירה בזוגיות. גם שיטות אחרות עובדות (למשל חלוקה למקרים), אבל זו השיטה של הפתרון הרשמי.",
+     "promptHtml": "הטענה היא ״לא קיים ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> כך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> ראשוני״. באיזו שיטה משתמש הפתרון הרשמי?",
+     "explainHtml": "הפתרון הרשמי מניח שקיים כזה ומגיע לסתירה בזוגיות. גם שיטות אחרות עובדות (למשל חלוקה למקרים), אבל זו השיטה של הפתרון הרשמי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $p^2+3p+2$ עבור $p=2$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$4+6+2=12$, מורכב (נבדק בסקריפט, וגם שאין ראשוני $p<20000$ שמתאים).",
+     "promptHtml": "מהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn><mo>+</mo><mn>6</mn><mo>+</mo><mn>2</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">4+6+2=12</annotation></semantics></math></span>, מורכב (נבדק בסקריפט, וגם שאין ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>&lt;</mo><mn>20000</mn></mrow><annotation encoding=\"application/x-tex\">p&lt;20000</annotation></semantics></math></span> שמתאים)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את ההוכחה בדרך השלילה.",
+     "lines": [
+      "נניח בשלילה שקיים ראשוני $p$ כך ש-$p^2+3p+2$ ראשוני.",
+      "$p^2+3p+2>2$ וראשוני, ולכן אי-זוגי.",
+      "לכן $p^2+3p=p(p+3)$ אי-זוגי.",
+      "לכן $p$ אי-זוגי וגם $p+3$ אי-זוגי.",
+      "אבל אם $p$ אי-זוגי אז $p+3$ זוגי, סתירה."
+     ],
+     "explain": "הנחת השלילה, אי-זוגיות, פירוק $p(p+3)$, סתירה.",
+     "promptHtml": "סדרו את ההוכחה בדרך השלילה.",
+     "explainHtml": "הנחת השלילה, אי-זוגיות, פירוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p(p+3)</annotation></semantics></math></span>, סתירה.",
+     "linesHtml": [
+      "נניח בשלילה שקיים ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> כך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> ראשוני.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2&gt;2</annotation></semantics></math></span> וראשוני, ולכן אי-זוגי.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>=</mo><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p^2+3p=p(p+3)</annotation></semantics></math></span> אי-זוגי.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> אי-זוגי.",
+      "אבל אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> זוגי, סתירה."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה במקרים שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "**מקרה 1:** $p=2$ ולכן $p^2+3p+2=12$, שאינו ראשוני.",
+      "**מקרה 2:** $p>2$, ולכן $p$ אי-זוגי, $p+3$ אי-זוגי ו-$p(p+3)$ אי-זוגי.",
+      "$p(p+3)+2$ זוגי וגדול מ-2.",
+      "ל-$p^2+3p+2$ יש לפחות 3 מחלקים $1,\\ 2,\\ p^2+3p+2$, ולכן אינו ראשוני."
+     ],
+     "bugIndex": 1,
+     "explain": "אם $p$ אי-זוגי אז $p+3$ זוגי (נבדק בסקריפט), ולכן המכפלה זוגית.",
+     "promptHtml": "בהוכחה במקרים שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> זוגי (נבדק בסקריפט), ולכן המכפלה זוגית.",
+     "linesHtml": [
+      "<strong>מקרה 1:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2=12</annotation></semantics></math></span>, שאינו ראשוני.",
+      "<strong>מקרה 2:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p&gt;2</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> אי-זוגי ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p(p+3)</annotation></semantics></math></span> אי-זוגי.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p(p+3)+2</annotation></semantics></math></span> זוגי וגדול מ-2.",
+      "ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> יש לפחות 3 מחלקים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><mo separator=\"true\">,</mo><mtext> </mtext><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">1,\\ 2,\\ p^2+3p+2</annotation></semantics></math></span>, ולכן אינו ראשוני."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q4c",
    "partKey": "c",
    "examCode": "26A-A",
@@ -383,7 +1723,11 @@ window.OPEN_BANK = {
    "topicLabel": "התחלקות ו-gcd",
    "questionHtml": "הוכיחו או הפריכו:<br>לא קיים מספר ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> מספר ראשוני.",
    "solutionHtml": "טענה זו נכונה, לא קיים מספר ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> מספר ראשוני.<br>נניח בשלילה שקיים מספר ראשוני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> מספר ראשוני. כיוון ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> הוא מספר ראשוני הגדול מ-2, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> הוא אי-זוגי. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p^2+3p</annotation></semantics></math></span> הוא גם כן אי-זוגי. כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p(p+3)</annotation></semantics></math></span> הוא מס׳ אי-זוגי. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> חייב להיות אי-זוגי, וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> חייב להיות אי זוגי. אבל זה לא יתכן, כי אם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי, אז <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> חייב להיות זוגי. סתירה.<br>או:<br><strong>מקרה 1:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn><mo>=</mo><mn>12</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2=12</annotation></semantics></math></span>, שאינו מספר ראשוני.<br><strong>מקרה 2:</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p&gt;2</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span> אי-זוגי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">p+3</annotation></semantics></math></span> זוגי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p(p+3)</annotation></semantics></math></span> זוגי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow</annotation></semantics></math></span> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo stretchy=\"false\">(</mo><mi>p</mi><mo>+</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p(p+3)+2</annotation></semantics></math></span> זוגי וגדול מ-2.<br>אז: ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p^2+3p+2</annotation></semantics></math></span> יש לפחות 3 מחלקים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><mo separator=\"true\">,</mo><mtext> </mtext><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><mn>3</mn><mi>p</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">1,\\ 2,\\ p^2+3p+2</annotation></semantics></math></span>, ולכן הוא לא ראשוני.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "לשכוח את המקרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">p=2</annotation></semantics></math></span> (הראשוני הזוגי היחיד).",
+    "להסיק שהתוצאה זוגית ולכן אינה ראשונית בלי לבדוק שהיא גדולה מ-2."
+   ]
   },
   {
    "num": 5,
@@ -397,6 +1741,111 @@ window.OPEN_BANK = {
    "official": true,
    "confidence": "high",
    "verdict": true,
+   "rubric": [
+    {
+     "text": "שני המספרים זוגיים",
+     "points": 1,
+     "html": "שני המספרים זוגיים"
+    },
+    {
+     "text": "$37\\mid(7^{72}-1)$ לפי Fermat (כתיבה כ-$49^{36}-1$)",
+     "points": 3,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(7^{72}-1)</annotation></semantics></math></span> לפי Fermat (כתיבה כ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>49</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">49^{36}-1</annotation></semantics></math></span>)"
+    },
+    {
+     "text": "$37\\mid(36^{36}+36!)$ לפי Fermat ו-Wilson",
+     "points": 3,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(36^{36}+36!)</annotation></semantics></math></span> לפי Fermat ו-Wilson"
+    },
+    {
+     "text": "$\\gcd(2,37)=1$ ולכן $74$ מחלק את שניהם, ולכן $74\\le\\gcd$: הטענה נכונה",
+     "points": 2,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>37</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(2,37)=1</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn></mrow><annotation encoding=\"application/x-tex\">74</annotation></semantics></math></span> מחלק את שניהם, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>≤</mo><mi>gcd</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">74\\le\\gcd</annotation></semantics></math></span>: הטענה נכונה"
+    }
+   ],
+   "pitfalls": [
+    "לשכוח לבדוק ש-37 אינו מחלק את 49 ואת 36 לפני שימוש ב-Fermat.",
+    "להסיק ש-$2\\cdot 37$ מחלק רק מתוך כך ש-2 מחלק ו-37 מחלק, בלי $\\gcd(2,37)=1$.",
+    "לטעות במשפט Wilson: $(p-1)!\\equiv -1 \\pmod p$, לכן $(p-1)!+1$ מתחלק ב-$p$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם הטענה $74\\le\\gcd(36^{36}+36!,\\ 7^{72}-1)$ נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "נכונה: שני המספרים מתחלקים ב-74",
+       "html": "נכונה: שני המספרים מתחלקים ב-74"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא נכונה: ה-gcd קטן מ-74",
+       "html": "לא נכונה: ה-gcd קטן מ-74"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "נכונה: כי ה-gcd תמיד גדול מ-74",
+       "html": "נכונה: כי ה-gcd תמיד גדול מ-74"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא ניתן לדעת בלי לחשב את ה-gcd",
+       "html": "לא ניתן לדעת בלי לחשב את ה-gcd"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$74=2\\cdot 37$ מחלק את שני המספרים (נבדק בסקריפט על המספרים עצמם).",
+     "promptHtml": "האם הטענה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>≤</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo separator=\"true\">,</mo><mtext> </mtext><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">74\\le\\gcd(36^{36}+36!,\\ 7^{72}-1)</annotation></semantics></math></span> נכונה?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>37</mn></mrow><annotation encoding=\"application/x-tex\">74=2\\cdot 37</annotation></semantics></math></span> מחלק את שני המספרים (נבדק בסקריפט על המספרים עצמם)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $7^{72}$ בחילוק ב-37?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$7^{72}=49^{36}\\equiv 1 \\pmod{37}$ לפי Fermat (נבדק בסקריפט).",
+     "promptHtml": "מהי השארית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup></mrow><annotation encoding=\"application/x-tex\">7^{72}</annotation></semantics></math></span> בחילוק ב-37?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>=</mo><msup><mn>49</mn><mn>36</mn></msup><mo>≡</mo><mn>1</mn><mspace></mspace><mspace width=\"0.4444em\"/><mo stretchy=\"false\">(</mo><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow><mspace width=\"0.3333em\"/><mn>37</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">7^{72}=49^{36}\\equiv 1 \\pmod{37}</annotation></semantics></math></span> לפי Fermat (נבדק בסקריפט)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $36!$ בחילוק ב-37 (בין 0 ל-36)?",
+     "answer": 36,
+     "tol": 0,
+     "explain": "לפי Wilson $36!\\equiv -1\\equiv 36 \\pmod{37}$ (נבדק בסקריפט).",
+     "promptHtml": "מהי השארית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>36</mn><mo stretchy=\"false\">!</mo></mrow><annotation encoding=\"application/x-tex\">36!</annotation></semantics></math></span> בחילוק ב-37 (בין 0 ל-36)?",
+     "explainHtml": "לפי Wilson <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>36</mn><mo stretchy=\"false\">!</mo><mo>≡</mo><mo>−</mo><mn>1</mn><mo>≡</mo><mn>36</mn><mspace></mspace><mspace width=\"0.4444em\"/><mo stretchy=\"false\">(</mo><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow><mspace width=\"0.3333em\"/><mn>37</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">36!\\equiv -1\\equiv 36 \\pmod{37}</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בנימוק שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "שני המספרים $7^{72}-1$ ו-$36^{36}+36!$ זוגיים.",
+      "$7^{72}-1=49^{36}-1=49^{37-1}-1$, ו-37 ראשוני שאינו מחלק את 49, ולכן לפי Fermat $37\\mid(7^{72}-1)$.",
+      "$36^{36}+36!=(36^{36}-1)+(36!-1)$",
+      "$37\\mid(36^{36}-1)$ לפי Fermat ו-$37\\mid(36!+1)$ לפי Wilson, ולכן $37\\mid(36^{36}+36!)$.",
+      "$\\gcd(2,37)=1$, ולכן $74=2\\cdot 37$ מחלק את שני המספרים, ומכאן $74\\le\\gcd$."
+     ],
+     "bugIndex": 2,
+     "explain": "הפירוק הנכון הוא $(36^{36}-1)+(36!+1)$; בפירוק הכתוב הסכום קטן ב-2 (נבדק בסקריפט).",
+     "promptHtml": "בנימוק שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "הפירוק הנכון הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(36^{36}-1)+(36!+1)</annotation></semantics></math></span>; בפירוק הכתוב הסכום קטן ב-2 (נבדק בסקריפט).",
+     "linesHtml": [
+      "שני המספרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">7^{72}-1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo></mrow><annotation encoding=\"application/x-tex\">36^{36}+36!</annotation></semantics></math></span> זוגיים.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>49</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>49</mn><mrow><mn>37</mn><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">7^{72}-1=49^{36}-1=49^{37-1}-1</annotation></semantics></math></span>, ו-37 ראשוני שאינו מחלק את 49, ולכן לפי Fermat <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(7^{72}-1)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">36^{36}+36!=(36^{36}-1)+(36!-1)</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(36^{36}-1)</annotation></semantics></math></span> לפי Fermat ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(36!+1)</annotation></semantics></math></span> לפי Wilson, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(36^{36}+36!)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>37</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(2,37)=1</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>37</mn></mrow><annotation encoding=\"application/x-tex\">74=2\\cdot 37</annotation></semantics></math></span> מחלק את שני המספרים, ומכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>≤</mo><mi>gcd</mi><mo>⁡</mo></mrow><annotation encoding=\"application/x-tex\">74\\le\\gcd</annotation></semantics></math></span>."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q5a",
    "partKey": "a",
    "examCode": "26A-A",
@@ -406,7 +1855,12 @@ window.OPEN_BANK = {
    "topicLabel": "חשבון מודולרי, פרמה, וילסון",
    "questionHtml": "הוכיחו או הפריכו:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mn>74</mn><mo>≤</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mtext> </mtext><mo separator=\"true\">,</mo><mtext> </mtext><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">74\\le\\gcd(36^{36}+36!\\ ,\\ 7^{72}-1)</annotation></semantics></math></span>",
    "solutionHtml": "המספרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">7^{72}-1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo></mrow><annotation encoding=\"application/x-tex\">36^{36}+36!</annotation></semantics></math></span> הם זוגיים, כלומר מתחלקים ב-2.<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>49</mn><mn>36</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><msup><mn>49</mn><mrow><mn>37</mn><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">7^{72}-1=49^{36}-1=49^{37-1}-1</annotation></semantics></math></span>. כיוון ש-37 ראשוני ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∤</mo><mn>49</mn></mrow><annotation encoding=\"application/x-tex\">37\\nmid 49</annotation></semantics></math></span>, לפי Fermat מתקבל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(7^{72}-1)</annotation></semantics></math></span>.<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo>=</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mrow><mn>37</mn><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>+</mo><mo stretchy=\"false\">(</mo><mo stretchy=\"false\">(</mo><mn>37</mn><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">!</mo><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>⇒</mo><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">36^{36}+36!=(36^{37-1}-1)+((37-1)!+1)\\Rightarrow 37\\mid(36^{36}+36!)</annotation></semantics></math></span><br>כי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∤</mo><mn>36</mn></mrow><annotation encoding=\"application/x-tex\">37\\nmid 36</annotation></semantics></math></span> ו-37 ראשוני, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mrow><mn>37</mn><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid(36^{37-1}-1)</annotation></semantics></math></span> (Fermat), ומצד שני <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><mo stretchy=\"false\">(</mo><mn>37</mn><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">!</mo><mo>+</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">37\\mid((37-1)!+1)</annotation></semantics></math></span> כי 37 ראשוני (Wilson).<br>כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>37</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">1=\\gcd(2,37)</annotation></semantics></math></span> נקבל ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">74=2\\cdot 37\\mid(7^{72}-1)</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>=</mo><mn>2</mn><mo>⋅</mo><mn>37</mn><mo>∣</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">74=2\\cdot 37\\mid(36^{36}+36!)</annotation></semantics></math></span>.<br>לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>74</mn><mo>≤</mo><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo><mtext> </mtext><mo separator=\"true\">,</mo><mtext> </mtext><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">74\\le\\gcd(36^{36}+36!\\ ,\\ 7^{72}-1)</annotation></semantics></math></span>, כלומר המספרים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>7</mn><mn>72</mn></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">7^{72}-1</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mn>36</mn><mn>36</mn></msup><mo>+</mo><mn>36</mn><mo stretchy=\"false\">!</mo></mrow><annotation encoding=\"application/x-tex\">36^{36}+36!</annotation></semantics></math></span> מתחלקים ב-74. הטענה נכונה.",
-   "pointsTotal": 9
+   "pointsTotal": 9,
+   "pitfallsHtml": [
+    "לשכוח לבדוק ש-37 אינו מחלק את 49 ואת 36 לפני שימוש ב-Fermat.",
+    "להסיק ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>⋅</mo><mn>37</mn></mrow><annotation encoding=\"application/x-tex\">2\\cdot 37</annotation></semantics></math></span> מחלק רק מתוך כך ש-2 מחלק ו-37 מחלק, בלי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>gcd</mi><mo>⁡</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>37</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\gcd(2,37)=1</annotation></semantics></math></span>.",
+    "לטעות במשפט Wilson: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">!</mo><mo>≡</mo><mo>−</mo><mn>1</mn><mspace></mspace><mspace width=\"0.4444em\"/><mo stretchy=\"false\">(</mo><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow><mspace width=\"0.3333em\"/><mi>p</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p-1)!\\equiv -1 \\pmod p</annotation></semantics></math></span>, לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>−</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">!</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">(p-1)!+1</annotation></semantics></math></span> מתחלק ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi></mrow><annotation encoding=\"application/x-tex\">p</annotation></semantics></math></span>."
+   ]
   },
   {
    "num": 5,
@@ -419,6 +1873,152 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "הנחת $f(x_1)=f(x_2)$ ופירוק לשוויון רכיבים",
+     "points": 2,
+     "html": "הנחת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x_1)=f(x_2)</annotation></semantics></math></span> ופירוק לשוויון רכיבים"
+    },
+    {
+     "text": "הסקת $x_1=x_2$ ומסקנה ש-$f$ חח״ע",
+     "points": 2,
+     "html": "הסקת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">x_1=x_2</annotation></semantics></math></span> ומסקנה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> חח״ע"
+    },
+    {
+     "text": "הראיה ש-$f$ אינה על: הזוג $(1,1)$ אינו בתמונה, כי $x=0$ ו-$x=-2$ סותרים",
+     "points": 3,
+     "html": "הראיה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה על: הזוג <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1)</annotation></semantics></math></span> אינו בתמונה, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span> סותרים"
+    },
+    {
+     "text": "מסקנה: $f$ אינה על, ולכן אינה הפיכה",
+     "points": 1,
+     "html": "מסקנה: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה על, ולכן אינה הפיכה"
+    }
+   ],
+   "pitfalls": [
+    "להסיק שחח״ע גוררת הפיכה: הפיכות דורשת גם על.",
+    "לבדוק חח״ע בדוגמאות מספריות בלבד במקום הוכחה כללית."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "כדי להראות ש-$f$ חח״ע, מהי נקודת ההתחלה הסטנדרטית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה על $x$",
+       "html": "אינדוקציה על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הוכחה ישירה: מניחים $f(x_1)=f(x_2)$ ומראים $x_1=x_2$",
+       "html": "הוכחה ישירה: מניחים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x_1)=f(x_2)</annotation></semantics></math></span> ומראים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">x_1=x_2</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוכחה בדרך השלילה בעזרת ספירה",
+       "html": "הוכחה בדרך השלילה בעזרת ספירה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מראים שכל איבר ב-$\\mathbb{Z}\\times\\mathbb{Z}$ מתקבל",
+       "html": "מראים שכל איבר ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mo>×</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}\\times\\mathbb{Z}</annotation></semantics></math></span> מתקבל"
+      }
+     ],
+     "correctId": "b",
+     "explain": "זו ההגדרה של חח״ע.",
+     "promptHtml": "כדי להראות ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> חח״ע, מהי נקודת ההתחלה הסטנדרטית?",
+     "explainHtml": "זו ההגדרה של חח״ע."
+    },
+    {
+     "type": "choice",
+     "prompt": "למה $f$ אינה הפיכה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי אינה על: למשל $(1,1)$ אינו בתמונה",
+       "html": "כי אינה על: למשל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,1)</annotation></semantics></math></span> אינו בתמונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי אינה חח״ע",
+       "html": "כי אינה חח״ע"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי תחומה אינסופי",
+       "html": "כי תחומה אינסופי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי היא לא מוגדרת לכל $x$",
+       "html": "כי היא לא מוגדרת לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפיכה = חח״ע ועל. החח״ע הוכחה, ולכן הבעיה בעל.",
+     "promptHtml": "למה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה הפיכה?",
+     "explainHtml": "הפיכה = חח״ע ועל. החח״ע הוכחה, ולכן הבעיה בעל."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הרכיב השני של $f(0)$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$f(0)=(1,5)$, ולכן $2x+5=5\\ne 1$ עבור $x=0$ (נבדק בסקריפט).",
+     "promptHtml": "מהו הרכיב השני של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(0)</annotation></semantics></math></span>?",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mn>0</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(0)=(1,5)</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>5</mn><mo mathvariant=\"normal\">≠</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2x+5=5\\ne 1</annotation></semantics></math></span> עבור <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span> (נבדק בסקריפט)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת החח״ע.",
+     "lines": [
+      "נניח $f(x_1)=f(x_2)$, כלומר $(x_1+1,\\ 2x_1+5)=(x_2+1,\\ 2x_2+5)$.",
+      "משוויון הרכיבים: $x_1+1=x_2+1$ וגם $2x_1+5=2x_2+5$.",
+      "לכן $x_1=x_2$.",
+      "מכאן $f$ חד-חד-ערכית."
+     ],
+     "explain": "הנחה, פירוק לרכיבים, מסקנה.",
+     "promptHtml": "סדרו את הוכחת החח״ע.",
+     "explainHtml": "הנחה, פירוק לרכיבים, מסקנה.",
+     "linesHtml": [
+      "נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x_1)=f(x_2)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x_1+1,\\ 2x_1+5)=(x_2+1,\\ 2x_2+5)</annotation></semantics></math></span>.",
+      "משוויון הרכיבים: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">x_1+1=x_2+1</annotation></semantics></math></span> וגם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>5</mn><mo>=</mo><mn>2</mn><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">2x_1+5=2x_2+5</annotation></semantics></math></span>.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">x_1=x_2</annotation></semantics></math></span>.",
+      "מכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> חד-חד-ערכית."
+     ]
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה ש-$f$ אינה על שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "נחפש $x\\in\\mathbb{Z}$ כך ש-$f(x)=(1,1)$.",
+      "$x+1=1\\Rightarrow x=0$",
+      "$2x+5=1\\Rightarrow x=-3$",
+      "$0\\ne -2$, ולכן אין $x$ כזה, $f$ אינה על ולכן אינה הפיכה."
+     ],
+     "bugIndex": 2,
+     "explain": "$2x+5=1$ נותן $x=-2$ (נבדק בסקריפט עם sympy), וזה מה שסותר את $x=0$.",
+     "promptHtml": "בהוכחה ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה על שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2x+5=1</annotation></semantics></math></span> נותן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">x=-2</annotation></semantics></math></span> (נבדק בסקריפט עם sympy), וזה מה שסותר את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x=0</annotation></semantics></math></span>.",
+     "linesHtml": [
+      "נחפש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{Z}</annotation></semantics></math></span> כך ש-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x)=(1,1)</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>1</mn><mo>⇒</mo><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x+1=1\\Rightarrow x=0</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>1</mn><mo>⇒</mo><mi>x</mi><mo>=</mo><mo>−</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">2x+5=1\\Rightarrow x=-3</annotation></semantics></math></span>",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo mathvariant=\"normal\">≠</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">0\\ne -2</annotation></semantics></math></span>, ולכן אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span> כזה, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה על ולכן אינה הפיכה."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q5b",
    "partKey": "b",
    "examCode": "26A-A",
@@ -428,7 +2028,11 @@ window.OPEN_BANK = {
    "topicLabel": "פונקציות",
    "questionHtml": "הראו שהפונקציה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo>:</mo><mi mathvariant=\"double-struck\">Z</mi><mo>→</mo><mi mathvariant=\"double-struck\">Z</mi><mo>×</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">f:\\mathbb{Z}\\to\\mathbb{Z}\\times\\mathbb{Z}</annotation></semantics></math></span> שמוגדרת לפי הכלל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x)=(x+1,\\ 2x+5)</annotation></semantics></math></span> לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{Z}</annotation></semantics></math></span>, היא חד-חד-ערכית.<br>האם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> הפיכה ?",
    "solutionHtml": "<strong>פתרון:</strong> נניח <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo stretchy=\"false\">)</mo><mo>=</mo><mi>f</mi><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x_1)=f(x_2)</annotation></semantics></math></span>, כלומר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>2</mn><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(x_1+1,\\ 2x_1+5)=(x_2+1,\\ 2x_2+5)</annotation></semantics></math></span>, ולכן:<br><span class=\"math-block\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mrow><mo fence=\"true\">{</mo><mtable rowspacing=\"0.36em\" columnalign=\"left left\" columnspacing=\"1em\"><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel=\"0\" displaystyle=\"false\"><mrow><mn>2</mn><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><mn>5</mn><mo>=</mo><mn>2</mn><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mn>5</mn></mrow></mstyle></mtd></mtr></mtable></mrow><mo>⇒</mo><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\begin{cases}x_1+1=x_2+1\\\\ 2x_1+5=2x_2+5\\end{cases}\\Rightarrow x_1=x_2</annotation></semantics></math></span><br>לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> היא חח״ע.<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> אינה על: אין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>∈</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">x\\in\\mathbb{Z}</annotation></semantics></math></span> כך ש: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">f(x)=(1,1)</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi><mo>+</mo><mn>1</mn><mo>=</mo><mn>1</mn><mo>⇒</mo><mi>x</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">x+1=1\\Rightarrow x=0</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mi>x</mi><mo>+</mo><mn>5</mn><mo>=</mo><mn>1</mn><mo>⇒</mo><mi>x</mi><mo>=</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2x+5=1\\Rightarrow x=-2</annotation></semantics></math></span>, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo mathvariant=\"normal\">≠</mo><mo>−</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">0\\ne -2</annotation></semantics></math></span>. לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi></mrow><annotation encoding=\"application/x-tex\">f</annotation></semantics></math></span> לא הפיכה.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "להסיק שחח״ע גוררת הפיכה: הפיכות דורשת גם על.",
+    "לבדוק חח״ע בדוגמאות מספריות בלבד במקום הוכחה כללית."
+   ]
   },
   {
    "num": 5,
@@ -441,6 +2045,124 @@ window.OPEN_BANK = {
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
+   "rubric": [
+    {
+     "text": "$\\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}$ ולכן עוצמתה $\\aleph_0$",
+     "points": 2,
+     "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mo>=</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}</annotation></semantics></math></span> ולכן עוצמתה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חסם עליון: $\\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}$ ולכן עוצמתה $\\le\\aleph_0$",
+     "points": 2,
+     "html": "חסם עליון: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>⊆</mo><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}</annotation></semantics></math></span> ולכן עוצמתה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>≤</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\le\\aleph_0</annotation></semantics></math></span>"
+    },
+    {
+     "text": "חסם תחתון: סדרה אינסופית של מספרים רציונליים שונים ב-$[1,2)$, כמו $1+\\frac1n$",
+     "points": 3,
+     "html": "חסם תחתון: סדרה אינסופית של מספרים רציונליים שונים ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">[1,2)</annotation></semantics></math></span>, כמו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">1+\\frac1n</annotation></semantics></math></span>"
+    },
+    {
+     "text": "מסקנה לפי קנטור-ברנשטיין: שוויון עוצמות $\\aleph_0$",
+     "points": 1,
+     "html": "מסקנה לפי קנטור-ברנשטיין: שוויון עוצמות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0</annotation></semantics></math></span>"
+    }
+   ],
+   "pitfalls": [
+    "לטעון שכל תת-קבוצה אינסופית של $\\mathbb{Q}$ בת מנייה בלי להראות חסם תחתון: תת-קבוצה היא רק חסם עליון.",
+    "לבחור סדרה שחלק מאיבריה מחוץ ל-$[1,2)$ (למשל $1+\\frac11=2$)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו שיטה מראה ששתי קבוצות אינסופיות הן בעלות אותה עוצמה בלי בניית התאמה מפורשת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה על האיברים",
+       "html": "אינדוקציה על האיברים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הוכחה בדרך השלילה בעזרת הבדלי זוגיות",
+       "html": "הוכחה בדרך השלילה בעזרת הבדלי זוגיות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "חסם עליון וחסם תחתון על העוצמה (קנטור-ברנשטיין)",
+       "html": "חסם עליון וחסם תחתון על העוצמה (קנטור-ברנשטיין)"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "ספירה של איברי הקבוצה",
+       "html": "ספירה של איברי הקבוצה"
+      }
+     ],
+     "correctId": "c",
+     "explain": "מראים $\\aleph_0\\le|X|\\le\\aleph_0$ ולכן $|X|=\\aleph_0$.",
+     "promptHtml": "איזו שיטה מראה ששתי קבוצות אינסופיות הן בעלות אותה עוצמה בלי בניית התאמה מפורשת?",
+     "explainHtml": "מראים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi>X</mi><mi mathvariant=\"normal\">∣</mi><mo>≤</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0\\le|X|\\le\\aleph_0</annotation></semantics></math></span> ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi>X</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">|X|=\\aleph_0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הקבוצה $\\mathbb{Z}\\cap\\mathbb{R}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\mathbb{Z}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\mathbb{R}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{R}</annotation></semantics></math></span>"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הקבוצה הריקה",
+       "html": "הקבוצה הריקה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\mathbb{Q}$",
+       "html": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}</annotation></semantics></math></span>"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל מספר שלם הוא ממשי, ולכן החיתוך הוא $\\mathbb{Z}$ ועוצמתו $\\aleph_0$.",
+     "promptHtml": "מהי הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}\\cap\\mathbb{R}</annotation></semantics></math></span>?",
+     "explainHtml": "כל מספר שלם הוא ממשי, ולכן החיתוך הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}</annotation></semantics></math></span> ועוצמתו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0</annotation></semantics></math></span>."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "lines": [
+      "$|\\mathbb{Z}\\cap\\mathbb{R}|=|\\mathbb{Z}|=\\aleph_0$, כי $\\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}$.",
+      "$|\\mathbb{Q}\\cap[1,2)|\\le|\\mathbb{Q}|=|\\mathbb{R}|$, כי $\\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}$.",
+      "$\\{1,\\ 1+\\frac12,\\ 1+\\frac13,\\dots\\}\\subseteq\\mathbb{Q}\\cap[1,2)$, ולכן $\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|$.",
+      "לכן $\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|\\le\\aleph_0$ ומכאן $|\\mathbb{Q}\\cap[1,2)|=\\aleph_0=|\\mathbb{Z}\\cap\\mathbb{R}|$."
+     ],
+     "bugIndex": 1,
+     "explain": "עוצמת $\\mathbb{Q}$ היא $\\aleph_0$ ולא עוצמת $\\mathbb{R}$; הסדרה $1+\\frac1n$ ל-$n\\ge 2$ שונה ונמצאת ב-$[1,2)$ (נבדק בסקריפט).",
+     "promptHtml": "בהוכחה שורה אחת שונתה והיא שגויה. מצאו אותה.",
+     "explainHtml": "עוצמת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}</annotation></semantics></math></span> היא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0</annotation></semantics></math></span> ולא עוצמת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{R}</annotation></semantics></math></span>; הסדרה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac></mrow><annotation encoding=\"application/x-tex\">1+\\frac1n</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n\\ge 2</annotation></semantics></math></span> שונה ונמצאת ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">[1,2)</annotation></semantics></math></span> (נבדק בסקריפט).",
+     "linesHtml": [
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">|\\mathbb{Z}\\cap\\mathbb{R}|=|\\mathbb{Z}|=\\aleph_0</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mo>=</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">R</mi><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">|\\mathbb{Q}\\cap[1,2)|\\le|\\mathbb{Q}|=|\\mathbb{R}|</annotation></semantics></math></span>, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>⊆</mo><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}</annotation></semantics></math></span>.",
+      "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mtext> </mtext><mo stretchy=\"false\">}</mo><mo>⊆</mo><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,\\ 1+\\frac12,\\ 1+\\frac13,\\dots\\}\\subseteq\\mathbb{Q}\\cap[1,2)</annotation></semantics></math></span>, ולכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|</annotation></semantics></math></span>.",
+      "לכן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>≤</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|\\le\\aleph_0</annotation></semantics></math></span> ומכאן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>=</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">|\\mathbb{Q}\\cap[1,2)|=\\aleph_0=|\\mathbb{Z}\\cap\\mathbb{R}|</annotation></semantics></math></span>."
+     ]
+    }
+   ],
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified",
    "id": "26A-A-Q5c",
    "partKey": "c",
    "examCode": "26A-A",
@@ -450,7 +2172,11 @@ window.OPEN_BANK = {
    "topicLabel": "עוצמות",
    "questionHtml": "הראו שהקבוצות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}\\cap[1,2)</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Z}\\cap\\mathbb{R}</annotation></semantics></math></span> שוות עוצמה.",
    "solutionHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mi mathvariant=\"normal\">∣</mi><mtext> </mtext><mo>⇐</mo><mtext> </mtext><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mo>=</mo><mi mathvariant=\"double-struck\">Z</mi></mrow><annotation encoding=\"application/x-tex\">\\aleph_0=|\\mathbb{Z}|=|\\mathbb{Z}\\cap\\mathbb{R}|\\ \\Leftarrow\\ \\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mi mathvariant=\"normal\">∣</mi><mtext> </mtext><mo>⇐</mo><mtext> </mtext><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>⊆</mo><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">|\\mathbb{Q}\\cap[1,2)|\\le|\\mathbb{Q}|\\ \\Leftarrow\\ \\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mo>…</mo><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mtext> </mtext><mo stretchy=\"false\">}</mo><mo>⊆</mo><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo>⇒</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,\\ 1+\\frac12,\\ 1+\\frac13,\\ \\dots,\\ 1+\\frac1n,\\dots\\}\\subseteq\\mathbb{Q}\\cap[1,2)\\Rightarrow</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>⇒</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>=</mo><mrow><mo fence=\"true\">∣</mo><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mtext> </mtext><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mtext> </mtext><mo stretchy=\"false\">}</mo><mo fence=\"true\">∣</mo></mrow><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi><mo>≤</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\">\\Rightarrow\\aleph_0=\\left|\\{1,\\ 1+\\frac12,\\ 1+\\frac13,\\dots\\}\\right|\\le|\\mathbb{Q}\\cap[1,2)|\\le|\\mathbb{Q}|=\\aleph_0</annotation></semantics></math></span><br>לכן: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Z</mi><mo>∩</mo><mi mathvariant=\"double-struck\">R</mi><mi mathvariant=\"normal\">∣</mi><mo>=</mo><msub><mi mathvariant=\"normal\">ℵ</mi><mn>0</mn></msub><mo>=</mo><mi mathvariant=\"normal\">∣</mi><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mi mathvariant=\"normal\">∣</mi></mrow><annotation encoding=\"application/x-tex\">|\\mathbb{Z}\\cap\\mathbb{R}|=\\aleph_0=|\\mathbb{Q}\\cap[1,2)|</annotation></semantics></math></span>.",
-   "pointsTotal": 8
+   "pointsTotal": 8,
+   "pitfallsHtml": [
+    "לטעון שכל תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}</annotation></semantics></math></span> בת מנייה בלי להראות חסם תחתון: תת-קבוצה היא רק חסם עליון.",
+    "לבחור סדרה שחלק מאיבריה מחוץ ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">[</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">[1,2)</annotation></semantics></math></span> (למשל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>1</mn></mfrac><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">1+\\frac11=2</annotation></semantics></math></span>)."
+   ]
   }
  ]
 };

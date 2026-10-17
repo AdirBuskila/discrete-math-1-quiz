@@ -91,8 +91,8 @@
      "explain": "טאוטולוגיה = אמת בכל השמה. העמודה האחרונה כולה $T$."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -130,17 +130,17 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "איזו שיטת הוכחה מתאימה כאן: נתון ש-$2^m-1$ ראשוני ורוצים להוכיח ש-$m$ ראשוני?",
+     "prompt": "נתון ש-$2^m-1$ ראשוני ורוצים להוכיח ש-$m$ ראשוני. באיזו שיטה משתמש הפתרון הרשמי?",
      "options": [
       {
        "id": "a",
        "type": "text",
-       "value": "הוכחה ישירה"
+       "value": "אינדוקציה"
       },
       {
        "id": "b",
        "type": "text",
-       "value": "אינדוקציה"
+       "value": "ספירה"
       },
       {
        "id": "c",
@@ -150,11 +150,11 @@
       {
        "id": "d",
        "type": "text",
-       "value": "הוכחה בעזרת הטענה הנגדית-חיובית (contrapositive)"
+       "value": "שובך היונים"
       }
      ],
      "correctId": "c",
-     "explain": "מניחים ש-$m$ פריק ומגיעים לכך ש-$2^m-1$ פריק, בסתירה לנתון."
+     "explain": "הפתרון הרשמי מניח ש-$m$ פריק ומגיע לכך ש-$2^m-1$ פריק, בסתירה לנתון. גם שיטות אחרות עובדות כאן, אבל זו השיטה של הפתרון הרשמי."
     },
     {
      "type": "numeric",
@@ -189,8 +189,8 @@
      "explain": "הגורם הנכון הוא $2^q-1$: הפרש חזקות $x^n-1=(x-1)(x^{n-1}+\\dots+1)$ ולא $(x+1)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -280,8 +280,8 @@
      "explain": "הזהות מוכלת בכל יחס שקילות ולא מכילה אותו; למשל $A\\times A$ אינו מוכל בזהות (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -383,8 +383,8 @@
      "explain": "המונה הנכון הוא $(k-1)(k+1)+1$ ולא $-1$ (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -459,8 +459,8 @@
      "explain": "$2^4=16$ (נבדק בסקריפט בספירה מלאה של $2^6$ תתי-קבוצות)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -547,16 +547,6 @@
      "explain": "הפרכה של טענה כללית נעשית בדוגמה נגדית אחת."
     },
     {
-     "type": "order",
-     "prompt": "סדרו את ההוכחה של טענה (1).",
-     "lines": [
-      "$R_1,R_2$ רפלקסיביים, לכן $\\{(1,1),(2,2),(3,3)\\}\\subseteq R_1\\cap R_2$.",
-      "$R_1,R_2$ סימטריים ואנטי-סימטריים, לכן אם $a\\ne b$ אז $(a,b)\\notin R_1$ וגם $(a,b)\\notin R_2$.",
-      "מסקנה: $R_1=R_2=\\{(1,1),(2,2),(3,3)\\}$, ולכן $R_1\\triangle R_2=\\emptyset$ וזהו יחס טרנזיטיבי."
-     ],
-     "explain": "רפלקסיביות, אין זוגות מחוץ לאלכסון, מסקנה."
-    },
-    {
      "type": "findbug",
      "prompt": "בהפרכת טענה (2) שורה אחת שונתה והיא שגויה. מצאו אותה.",
      "lines": [
@@ -569,8 +559,8 @@
      "explain": "האיחוד כן רפלקסיבי (מכיל $(1,1),(2,2)$); הבעיה היא שאינו אנטי-סימטרי כי יש בו $(1,2)$ ו-$(2,1)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -679,8 +669,8 @@
      "explain": "הסכום הוא $5x+5y$ (נבדק בסקריפט עם sympy), לא $6x+5y$."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -749,8 +739,8 @@
      "explain": "$49\\cdot(-5)+84\\cdot 3=-245+252=7$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -853,8 +843,8 @@
      "explain": "פילוג נותן $(x\\in B\\vee x\\in C)$ ולא $\\wedge$; הדוגמה $x\\in B\\setminus C$ מפריכה (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -892,7 +882,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "הטענה היא ״אם $P(A)\\cup P(B)=P(A\\cup B)$ אז $B\\subseteq A$ או $A\\subseteq B$״. איזו שיטה נוחה כאן?",
+     "prompt": "הטענה היא ״אם $P(A)\\cup P(B)=P(A\\cup B)$ אז $B\\subseteq A$ או $A\\subseteq B$״. באיזו שיטה משתמש הפתרון הרשמי?",
      "options": [
       {
        "id": "a",
@@ -907,7 +897,7 @@
       {
        "id": "c",
        "type": "text",
-       "value": "בדרך השלילה (בשלילה)"
+       "value": "ספירה"
       },
       {
        "id": "d",
@@ -916,7 +906,7 @@
       }
      ],
      "correctId": "d",
-     "explain": "קל יותר לשלול את המסקנה (שתי אי-הכלות) ולהראות אי-שוויון בין הקבוצות."
+     "explain": "הפתרון הרשמי שולל את המסקנה (שתי אי-הכלות) ומראה אי-שוויון בין הקבוצות. גם שיטות אחרות (כמו הוכחה בשלילה) עובדות, אבל זו השיטה של הפתרון הרשמי."
     },
     {
      "type": "choice",
@@ -979,8 +969,8 @@
      "explain": "$\\{a,b\\}\\not\\subseteq A$ פירושו שהיא לא שייכת ל-$P(A)$ (נבדק בסקריפט בכל זוגות הקבוצות מעל $\\{0,1,2\\}$)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -989,9 +979,9 @@
    "topic": "functions",
    "points": 8,
    "question": "מצאו קבוצה $A$ כך שהפונקציה $f:\\mathbb{N}^*\\to A$ היא על, כאשר $f$ מוגדרת לפי הכלל $f(x)=\\gcd(12,x)$ לכל $x\\in\\mathbb{N}^*$.",
-   "solution": "תחילה נשים לב ש: $12=2^2\\cdot 3$ לכל $x\\in\\mathbb{N}^*$:\n1. אם $x\\mid 2$ וגם $x\\nmid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=2$\n2. אם $x\\mid 2$ וגם $x\\nmid 3$ וגם $x\\mid 2^2$ אז: $\\gcd(12,x)=4$\n3. אם $x\\mid 2$ וגם $x\\mid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=6$\n4. אם $x\\mid 2$ וגם $x\\mid 3$ וגם $x\\mid 2^2$ אז: $\\gcd(12,x)=12$\n5. אם $x\\nmid 2$ וגם $x\\mid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=3$\n6. אם $x\\nmid 2$ וגם $x\\nmid 3$ וגם $x\\nmid 2^2$ אז: $\\gcd(12,x)=1$\nלכן על מנת שהפונקציה תהיה על הקבוצה $A$ צריכה להיות: $A=\\{1,2,3,4,6,12\\}$.\nאו:\nהמחלקים של $12$ הם $1,2,3,4,6,12$ ואז $f(x)\\in\\{1,2,3,4,6,12\\}$ לכל $x\\in\\mathbb{N}^*$. בנוסף: $f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12$ וגם $1,2,3,4,6,12\\in\\mathbb{N}^*$.\nלכן $f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}$ היא על.",
-   "solutionSource": "lecturer-solution",
-   "official": true,
+   "solution": "הפתרון הרשמי עם תיקון שגיאת הקלדה: x|2 → 2|x\nתחילה נשים לב ש: $12=2^2\\cdot 3$ לכל $x\\in\\mathbb{N}^*$:\n1. אם $2\\mid x$ וגם $3\\nmid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=2$\n2. אם $2\\mid x$ וגם $3\\nmid x$ וגם $2^2\\mid x$ אז: $\\gcd(12,x)=4$\n3. אם $2\\mid x$ וגם $3\\mid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=6$\n4. אם $2\\mid x$ וגם $3\\mid x$ וגם $2^2\\mid x$ אז: $\\gcd(12,x)=12$\n5. אם $2\\nmid x$ וגם $3\\mid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=3$\n6. אם $2\\nmid x$ וגם $3\\nmid x$ וגם $2^2\\nmid x$ אז: $\\gcd(12,x)=1$\nלכן על מנת שהפונקציה תהיה על הקבוצה $A$ צריכה להיות: $A=\\{1,2,3,4,6,12\\}$.\nאו:\nהמחלקים של $12$ הם $1,2,3,4,6,12$ ואז $f(x)\\in\\{1,2,3,4,6,12\\}$ לכל $x\\in\\mathbb{N}^*$. בנוסף: $f(1)=1,\\ f(2)=2,\\ f(3)=3,\\ f(4)=4,\\ f(6)=6,\\ f(12)=12$ וגם $1,2,3,4,6,12\\in\\mathbb{N}^*$.\nלכן $f:\\mathbb{N}^*\\to\\{1,2,3,4,6,12\\}$ היא על.",
+   "solutionSource": "solved",
+   "official": false,
    "confidence": "high",
    "rubric": [
     {
@@ -1055,8 +1045,8 @@
      "explain": "התמונה היא בדיוק קבוצת המחלקים של 12, ובכל מחלק $d$ מתקבל $f(d)=d$ (נבדק בסקריפט על $x\\le 2000$)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1094,7 +1084,7 @@
    "steps": [
     {
      "type": "choice",
-     "prompt": "הטענה היא ״לא קיים ראשוני $p$ כך ש-$p^2+3p+2$ ראשוני״. איזו שיטה מתאימה?",
+     "prompt": "הטענה היא ״לא קיים ראשוני $p$ כך ש-$p^2+3p+2$ ראשוני״. באיזו שיטה משתמש הפתרון הרשמי?",
      "options": [
       {
        "id": "a",
@@ -1104,21 +1094,21 @@
       {
        "id": "b",
        "type": "text",
-       "value": "הוכחה ישירה"
+       "value": "אינדוקציה"
       },
       {
        "id": "c",
        "type": "text",
-       "value": "אינדוקציה"
+       "value": "ספירה"
       },
       {
        "id": "d",
        "type": "text",
-       "value": "הוכחה בעזרת הטענה הנגדית-חיובית (contrapositive)"
+       "value": "שובך היונים"
       }
      ],
      "correctId": "a",
-     "explain": "מניחים שקיים כזה ומגיעים לסתירה בזוגיות (אפשר גם חלוקה למקרים)."
+     "explain": "הפתרון הרשמי מניח שקיים כזה ומגיע לסתירה בזוגיות. גם שיטות אחרות עובדות (למשל חלוקה למקרים), אבל זו השיטה של הפתרון הרשמי."
     },
     {
      "type": "numeric",
@@ -1152,8 +1142,8 @@
      "explain": "אם $p$ אי-זוגי אז $p+3$ זוגי (נבדק בסקריפט), ולכן המכפלה זוגית."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1234,18 +1224,6 @@
      "explain": "לפי Wilson $36!\\equiv -1\\equiv 36 \\pmod{37}$ (נבדק בסקריפט)."
     },
     {
-     "type": "order",
-     "prompt": "סדרו את הנימוק לכך ש-74 מחלק את שני המספרים.",
-     "lines": [
-      "שני המספרים $7^{72}-1$ ו-$36^{36}+36!$ זוגיים.",
-      "$7^{72}-1=49^{36}-1=49^{37-1}-1$, ו-37 ראשוני שאינו מחלק את 49, ולכן לפי Fermat $37\\mid(7^{72}-1)$.",
-      "$36^{36}+36!=(36^{36}-1)+(36!+1)$",
-      "$37\\mid(36^{36}-1)$ לפי Fermat ו-$37\\mid(36!+1)$ לפי Wilson, ולכן $37\\mid(36^{36}+36!)$.",
-      "$\\gcd(2,37)=1$, ולכן $74=2\\cdot 37$ מחלק את שני המספרים, ומכאן $74\\le\\gcd$."
-     ],
-     "explain": "זוגיות, Fermat, פירוק עם Wilson, ואז גורמים זרים."
-    },
-    {
      "type": "findbug",
      "prompt": "בנימוק שורה אחת שונתה והיא שגויה. מצאו אותה.",
      "lines": [
@@ -1259,8 +1237,8 @@
      "explain": "הפירוק הנכון הוא $(36^{36}-1)+(36!+1)$; בפירוק הכתוב הסכום קטן ב-2 (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1383,8 +1361,8 @@
      "explain": "$2x+5=1$ נותן $x=-2$ (נבדק בסקריפט עם sympy), וזה מה שסותר את $x=0$."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1477,17 +1455,6 @@
      "explain": "כל מספר שלם הוא ממשי, ולכן החיתוך הוא $\\mathbb{Z}$ ועוצמתו $\\aleph_0$."
     },
     {
-     "type": "order",
-     "prompt": "סדרו את שלבי ההוכחה.",
-     "lines": [
-      "$|\\mathbb{Z}\\cap\\mathbb{R}|=|\\mathbb{Z}|=\\aleph_0$, כי $\\mathbb{Z}\\cap\\mathbb{R}=\\mathbb{Z}$.",
-      "$|\\mathbb{Q}\\cap[1,2)|\\le|\\mathbb{Q}|=\\aleph_0$, כי $\\mathbb{Q}\\cap[1,2)\\subseteq\\mathbb{Q}$.",
-      "$\\{1,\\ 1+\\frac12,\\ 1+\\frac13,\\dots\\}\\subseteq\\mathbb{Q}\\cap[1,2)$, ולכן $\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|$.",
-      "לכן $\\aleph_0\\le|\\mathbb{Q}\\cap[1,2)|\\le\\aleph_0$ ומכאן $|\\mathbb{Q}\\cap[1,2)|=\\aleph_0=|\\mathbb{Z}\\cap\\mathbb{R}|$."
-     ],
-     "explain": "תחילה $\\mathbb{Z}\\cap\\mathbb{R}$, אחר כך חסם עליון, חסם תחתון, ומסקנה."
-    },
-    {
      "type": "findbug",
      "prompt": "בהוכחה שורה אחת שונתה והיא שגויה. מצאו אותה.",
      "lines": [
@@ -1500,8 +1467,8 @@
      "explain": "עוצמת $\\mathbb{Q}$ היא $\\aleph_0$ ולא עוצמת $\\mathbb{R}$; הסדרה $1+\\frac1n$ ל-$n\\ge 2$ שונה ונמצאת ב-$[1,2)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   }
  ]
 }
