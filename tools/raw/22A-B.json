@@ -17,7 +17,97 @@
    "solution": "הגדרה: אם לפסוקים $A,B$ יש אותה טבלת אמת, אז הם נקראים שקולים לוגית.\nטבלת אמת:\n```\np q r | p∧q | (p∧q)→r | ¬q∨r | p→(¬q∨r)\nT T T |  T  |    T    |   T   |     T\nT T F |  T  |    F    |   F   |     F\nT F T |  F  |    T    |   T   |     T\nT F F |  F  |    T    |   T   |     T\nF T T |  F  |    T    |   T   |     T\nF T F |  F  |    T    |   F   |     T\nF F T |  F  |    T    |   T   |     T\nF F F |  F  |    T    |   T   |     T\n```\nהעמודות (p∧q)→r ו-p→(¬q∨r) זהות. מסקנה: הפסוקים שקולים לוגית.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת",
+     "points": 3
+    },
+    {
+     "text": "בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים",
+     "points": 6
+    },
+    {
+     "text": "השוואת שתי העמודות הסופיות",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: הפסוקים שקולים לוגית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
+    "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר.",
+    "להשוות עמודות ביניים במקום את שתי העמודות הסופיות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מתוך 8 השורות הפסוק $(p\\wedge q)\\to r$ שקר?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "גרירה שקרית רק כשהמקדים אמת והמסקנה שקר."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו השמה $(p,q,r)$ הפסוק $(p\\wedge q)\\to r$ שקר?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=F$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=F,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=T$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "צריך $p\\wedge q$ אמת ו-$r$ שקר."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה המסקנה מהשוואת שתי העמודות האחרונות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הפסוקים שקולים לוגית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפסוקים אינם שקולים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הפסוקים סותרים זה את זה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שני הפסוקים טאוטולוגיות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית, ולכן אינם טאוטולוגיות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +119,115 @@
    "solution": "(1) $\\gcd(-68,-84)=\\gcd(68,84)=\\gcd(84,68)$. נריץ את האלגוריתם על $84,68$ (עמודות: $a,\\ b,\\ \\lfloor a/b\\rfloor,\\ d,\\ x=y',\\ y=x'-y'\\lfloor a/b\\rfloor$):\n```\na    b    [a/b]   d    x     y\n84   68   1       4    -4    1-(-4)*1 = 5\n68   16   4       4    1     0-1*4 = -4\n16   4    4       4    0     1-0*4 = 1\n4    0    -       4    1     0\n```\n$\\gcd(84,68)=84\\cdot(-4)+68\\cdot5$, כלומר $x_1=5,\\ y_1=-4$.\n$\\gcd(-68,-84)=(-68)\\cdot(-5)+(-84)\\cdot4$, כלומר $x_2=-5,\\ y_2=4$.\n(2) נסמן $d=\\gcd(a,b)$ ו-$m=\\operatorname{lcm}(a,b)$. אז $\\gcd(d,m)=d$ כי: $d\\mid m\\Leftarrow d\\mid a\\wedge a\\mid m$, ו-$d\\mid d$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הרצת האלגוריתם המורחב של Euclid על $84,68$ עם עמודת המנות",
+     "points": 3
+    },
+    {
+     "text": "הצבה לאחור וקבלת $4=84\\cdot(-4)+68\\cdot5$ ותרגום ל-$x_1,y_1$",
+     "points": 2
+    },
+    {
+     "text": "טיפול בסימנים של $\\gcd(-a,-b)$ וקבלת $x_2,y_2$",
+     "points": 2
+    },
+    {
+     "text": "(2): סימון $d=\\gcd(a,b)$ ו-$m=\\operatorname{lcm}(a,b)$",
+     "points": 1
+    },
+    {
+     "text": "(2): הוכחה ש-$d\\mid m$",
+     "points": 2
+    },
+    {
+     "text": "(2): מסקנה $\\gcd(m,d)=d$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בסדר המקדמים: $84x+68y$ שונה מ-$68x+84y$ (המקדמים מתחלפים).",
+    "להניח $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))=1$: הוא שווה ל-$\\gcd(a,b)$.",
+    "לשכוח שהמקדמים של המספרים השליליים מחליפים סימן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(84,68)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "השארית האחרונה שאינה אפס היא 4."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שורות החילוק של האלגוריתם על $84,68$.",
+     "lines": [
+      "$84=1\\cdot68+16$",
+      "$68=4\\cdot16+4$",
+      "$16=4\\cdot4+0$"
+     ],
+     "explain": "כל שורה משתמשת בשארית של השורה הקודמת."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x_1,y_1)$ מקיים $4=68x_1+84y_1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(5,-4)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(-4,5)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(5,4)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(4,-5)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הצבה: $84\\cdot(-4)+68\\cdot5=-336+340=4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\gcd(a,b)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\operatorname{lcm}(a,b)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a\\cdot b$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$d=\\gcd(a,b)$ מחלק את $m=\\operatorname{lcm}(a,b)$, ולכן $\\gcd(m,d)=d$ (למשל ב-$84,68$: $\\gcd(1428,4)=4$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +239,79 @@
    "solution": "נסמן $a=25^{20}+40!$ ו-$b=8^{80}+40$.\n$b=8^{80}+40=64^{40}+40=(64^{41-1}-1)+41$. מכיוון ש-$41\\nmid64$ ו-41 ראשוני, לפי פרמה $41\\mid64^{41-1}-1$, ולכן $41\\mid b$.\n$a=25^{20}+40!=(5^{41-1}-1)+((41-1)!+1)$. מכיוון ש-$41\\nmid5$ ו-41 ראשוני, לפי פרמה $41\\mid5^{41-1}-1$; ומכיוון ש-41 ראשוני, לפי וילסון $41\\mid(41-1)!+1$. לכן $41\\mid a$.\nמסקנה: $41\\mid a\\wedge41\\mid b\\Rightarrow41\\le\\gcd(a,b)$, ולכן $40<41\\le\\gcd(a,b)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שימוש ב-41 הראשוני: $41\\mid b$ בעזרת פרמה והצגת $b$ כ-$(c^{40}-1)+41$",
+     "points": 2
+    },
+    {
+     "text": "$41\\mid a$ בעזרת פרמה על הבסיס ו-וילסון על $40!$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $41\\le\\gcd(a,b)$ ולכן $40<\\gcd(a,b)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל את פרמה על בסיס שמתחלק ב-41.",
+    "לשכוח שווילסון נותן $40!\\equiv-1\\pmod{41}$, כלומר $41\\mid40!+1$ ולא $41\\mid40!$.",
+    "להסיק $\\gcd=41$ במקום $41\\le\\gcd$: מספיק לדעת שהוא לפחות 41."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מספר ראשוני משתמש בו הפתרון הרשמי כדי להראות שה-gcd גדול מ-40?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "41"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "37"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "43"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "47"
+      }
+     ],
+     "correctId": "a",
+     "explain": "41 מחלק את שני המספרים, ולכן ה-gcd הוא לפחות 41; הראשוניים האחרים אינם מחלקים את ה-gcd."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $25^{20}$ בחלוקה ב-41?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "לפי פרמה השארית היא 1, כי $a^{20}=(\\ldots)^{40}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $40!$ בחלוקה ב-41?",
+     "answer": 40,
+     "tol": 0,
+     "explain": "לפי וילסון $40!\\equiv-1\\equiv40\\pmod{41}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $8^{80}+40$ בחלוקה ב-41?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "החזקה נותנת 1 והסכום עם 40 הוא 41, כלומר 0."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +323,91 @@
    "solution": "**I. בסיס:** $P(1)$: $1^2\\le5^1\\iff1\\le5\\Rightarrow P(1)=\\text{TRUE}$.\n**II. צעד:** $P(k)=\\text{TRUE}$ עבור $1\\le k\\in\\mathbb{N}$ $\\Rightarrow$ $P(k+1)=\\text{TRUE}$.\n$P(k):\\ k^2\\le5^k$ $\\qquad$ $P(k+1):\\ (k+1)^2\\le5^{k+1}$\n$$(k+1)^2=k^2+2k+1\\le k^2+2\\cdot k^2+k^2=4k^2\\le5k^2\\le5\\cdot5^k=5^{k+1}$$\n$\\Rightarrow P(k+1)=\\text{TRUE}$.\n**III. מסקנה:** מ-I ו-II, לכל $1\\le n\\in\\mathbb{N}$ מתקיים $P(n)=\\text{TRUE}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בסיס: בדיקת $P(1)$",
+     "points": 3
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $P(k)$ ומה צריך להוכיח",
+     "points": 3
+    },
+    {
+     "text": "פתיחת $(k+1)^2$ והחסמת $2k+1$ בעזרת $k\\ge1$",
+     "points": 6
+    },
+    {
+     "text": "שימוש בהנחת האינדוקציה לחסם ב-$5\\cdot5^k$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש ב-$P(k+1)$ בתוך ההוכחה שלו.",
+    "לשכוח את התנאי $k\\ge1$ בחסימה של $2k+1$ על ידי $3k^2$.",
+    "להכפיל את שני אגפי ההנחה בקבוע שגוי במקום להשתמש ב-5."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "בצעד מחליפים $2k$ ב-$2k^2$ ואת $1$ ב-$k^2$. איזו עובדה מצדיקה זאת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$k^2\\le k$ לכל $k\\ge1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2k+1\\le k$ לכל $k\\ge1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$k^2\\le2k+1$ לכל $k\\ge1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לכל $k\\ge1$ מתקיים $k\\le k^2$ וגם $1\\le k^2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "$(k+1)^2=k^2+2k+1$",
+      "$k^2+2k+1\\le k^2+2k^2+k^2$, כי $k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$",
+      "$k^2+2k^2+k^2=4k^2\\le5k^2$",
+      "$5k^2\\le5\\cdot5^k$ לפי הנחת האינדוקציה $k^2\\le5^k$",
+      "$5\\cdot5^k=5^{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "explain": "פתיחה, חסימה, איחוד, הנחת האינדוקציה, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של הצעד שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$(k+1)^2=k^2+2k+1$",
+      "$k^2+2k+1\\le k^2+2k^2+k^2$, כי $k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$",
+      "$k^2+2k^2+k^2=3k^2\\le5k^2$",
+      "$5k^2\\le5\\cdot5^k$ לפי הנחת האינדוקציה $k^2\\le5^k$",
+      "$5\\cdot5^k=5^{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "bugIndex": 2,
+     "explain": "השורה ששונתה אינה נכונה מבחינה חשבונית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +419,79 @@
    "solution": "לכל $m\\in\\{1,\\ldots,10\\}$: $5^m=3^0\\cdot5^m\\in A$, ולכן $B\\subset A$.\n$|A-B|=|A|-|B|=121-10=111$.\n$|P(A\\times B)|=2^{|A\\times B|}=2^{|A|\\cdot|B|}=2^{121\\cdot10}=2^{1210}$.\n$|P(A\\cup B)|=|P(A)|=2^{|A|}=2^{121}$.\nמסקנה: $$2^{121}+2^{1210}+111$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב הגודל של הקבוצה הנדרשת ($|A|$ או $|A\\cup B|$) מתיאור האיברים",
+     "points": 2
+    },
+    {
+     "text": "חישוב $|A-B|$ בעזרת $B\\subseteq A$ וחישוב $|A\\times B|$",
+     "points": 2
+    },
+    {
+     "text": "הצבה בחזקות של 2 וכתיבת הביטוי הסופי",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
+    "לשכוח ש-$B\\subseteq A$ ולכן $A\\cup B=A$ ו-$|A-B|=|A|-|B|$.",
+    "לחשב $|A\\times B|=|A|+|B|$ במקום המכפלה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A|$?",
+     "answer": 121,
+     "tol": 0,
+     "explain": "$11\\cdot11=121$ (הערכים של $n$ ושל $m$ נותנים מספרים שונים)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A-B|$?",
+     "answer": 111,
+     "tol": 0,
+     "explain": "$B\\subset A$ ולכן $121-10=111$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\times B|$ (המעריך של 2 ב-$|P(A\\times B)|$)?",
+     "answer": 1210,
+     "tol": 0,
+     "explain": "$121\\cdot10=1210$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הביטוי הסופי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$111+2^{1210}+2^{121}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$111+2^{1210}+121$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{111}+2^{1210}+2^{121}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$111+2^{121}+2^{121}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +503,85 @@
    "solution": "ה-contrapositive הוא: אם $A-B\\not\\subseteq C$, אז $A\\not\\subseteq B\\cup C$.\n**הוכחת הטענה** (הוכחת ה-contrapositive):\n$A-B\\not\\subseteq C\\Rightarrow\\exists x\\in A-B\\ \\wedge\\ x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\wedge x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\cup C\\Rightarrow A\\not\\subseteq B\\cup C$.\n**דרך שנייה (בשלילה):** נניח בשלילה ש-$A\\subseteq B\\cup C$ וגם $A-B\\not\\subseteq C$. אז $\\exists x\\in A-B\\ \\wedge\\ x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\wedge x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\cup C\\Rightarrow A\\not\\subseteq B\\cup C$, סתירה לנתון.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "ניסוח ה-contrapositive: $\\neg Q\\to\\neg P$",
+     "points": 3
+    },
+    {
+     "text": "הנחה ש-$Q$ שקרית ומציאת איבר $x$ מתאים",
+     "points": 2
+    },
+    {
+     "text": "שרשרת הגרירות עד שלילת $P$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה שהטענה המקורית נכונה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
+    "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
+    "להוכיח את הטענה המקורית ישירות במקום לעבוד עם הניסוח ההפוך שנדרש."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "ה-contrapositive של $P\\to Q$ הוא $\\neg Q\\to\\neg P$. מהו ה-contrapositive של הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $A-B\\not\\subseteq C$, אז $A\\not\\subseteq B\\cup C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq B\\cup C$, אז $A-B\\not\\subseteq C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $A-B\\subseteq C$, אז $A\\subseteq B\\cup C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $A\\subseteq B\\cup C$, אז $A-B\\not\\subseteq C$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שוללים את המסקנה והופכים אותה למקדים, ושוללים את הנתון והופכים אותו למסקנה."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת ה-contrapositive.",
+     "lines": [
+      "נניח $A-B\\not\\subseteq C$, כלומר קיים $x\\in A-B$ כך ש-$x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\wedge x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\cup C$",
+      "לכן $A\\not\\subseteq B\\cup C$, וזה ה-contrapositive שנדרש"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $A-B\\not\\subseteq C$, כלומר קיים $x\\in A-B$ כך ש-$x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\wedge x\\notin C$",
+      "$x\\in A\\wedge x\\in B\\cup C$",
+      "לכן $A\\not\\subseteq B\\cup C$, וזה ה-contrapositive שנדרש"
+     ],
+     "bugIndex": 2,
+     "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +593,112 @@
    "solution": "**$R$ רפלקסיבי:** לכל $x\\in\\mathbb{Z}$: $xRx\\iff9x+5x=14x$ הוא זוגי (נכון).\n**$R$ סימטרי:** לכל $x,y\\in\\mathbb{Z}$, אם $xRy$ אז $yRx$. $2k=9x+5y$ עבור $k\\in\\mathbb{Z}$ ($xRy$). נראה: $(9x+5y)+(9y+5x)=14x+14y$ זוגי; סכום של שני מספרים הוא זוגי, ואחד מהם זוגי, לכן גם $9y+5x$ זוגי, כלומר $yRx$.\n**$R$ טרנזיטיבי:** לכל $x,y,z\\in\\mathbb{Z}$: $xRy$ וגם $yRz$. $9x+5y$ זוגי ו-$9y+5z$ זוגי, ולכן $(9x+5z)+14y$ זוגי, כלומר $9x+5z$ זוגי, כלומר $xRz$.\nלכן $R$ הוא יחס שקילות על $\\mathbb{Z}$.\n$[0]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR0\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge2\\mid9x\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge2\\mid x\\}=\\{2k:\\ k\\in\\mathbb{Z}\\}$ (כי $2\\nmid9$)\n$[1]=\\{x:\\ x\\in\\mathbb{Z}\\wedge xR1\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge2\\mid(9x+5)\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge2\\nmid9x\\}=\\{x:\\ x\\in\\mathbb{Z}\\wedge2\\nmid x\\}=\\{2k+1:\\ k\\in\\mathbb{Z}\\}$\n$[0]\\cup[1]=\\mathbb{Z}$, ולכן $\\mathbb{Z}/R=\\{[0],[1]\\}$.\n(המפתח אינו עונה על השאלה האחרונה. בדיקה בסקריפט: $R$ אינו יחס סדר חלקי, כי $0R2$ וגם $2R0$ אך $0\\ne2$, ולכן $R$ אינו אנטי-סימטרי.)",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $x R x$ כי $ax+bx=(a+b)x$ זוגי",
+     "points": 3
+    },
+    {
+     "text": "סימטריה: חיבור $ax+by$ ו-$ay+bx$ לסכום זוגי",
+     "points": 4
+    },
+    {
+     "text": "טרנזיטיביות: חיבור שני המספרים הזוגיים וקבלת $ax+bz$ זוגי",
+     "points": 4
+    },
+    {
+     "text": "מציאת המחלקות $[0]$ ו-$[1]$ (זוגיים ואי-זוגיים) וקבוצת המנה $\\mathbb{Z}/R$",
+     "points": 4
+    },
+    {
+     "text": "$R$ אינו סדר חלקי כי אינו אנטי-סימטרי, עם זוג מפריך",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
+    "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
+    "לבלבל בין יחס שקילות ליחס סדר חלקי: סדר חלקי דורש אנטי-סימטריה, ויחס עם מחלקה של יותר מאיבר אחד אינו אנטי-סימטרי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$\\mathbb{Z}/R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$xRy$ בדיוק כש-$x$ ו-$y$ בעלי אותה זוגיות (הוכח בבדיקה), ולכן שתי מחלקות: הזוגיים והאי-זוגיים."
+    },
+    {
+     "type": "choice",
+     "prompt": "בהוכחת הסימטריה מחברים את $9x+5y$ ואת $9y+5x$. מהו הסכום?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$14(x+y)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$12(x+y)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$16(x+y)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$14x+12y$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(9x+5y)+(9y+5x)=14x+14y$, שזוגי."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח ש-$9x+5y$ זוגי וגם $9y+5z$ זוגי",
+      "נחבר: $(9x+5y)+(9y+5z)=9x+5z+14y$ זוגי",
+      "$14y$ זוגי (כי $14$ זוגי), ולכן גם $9x+5z$ זוגי",
+      "כלומר $xRz$ ולכן $R$ טרנזיטיבי"
+     ],
+     "explain": "הנחות, חיבור, הפרשת הכפולה הזוגית, מסקנה."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי אינו אנטי-סימטרי: $1R3$ וגם $3R1$ אך $1\\ne3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי אינו רפלקסיבי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי הוא יחס שקילות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי אינו טרנזיטיבי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +710,55 @@
    "solution": "חישוב הערכים:\n```\nf(1) = 1 (mod 6) + lcm(2, gcd(2,1)) = 1 + 2 = 3\nf(2) = 4 (mod 6) + lcm(2, gcd(2,2)) = 4 + 2 = 6\nf(3) = 9 (mod 6) + lcm(2, gcd(2,3)) = 3 + 2 = 5\nf(4) = 16 (mod 6) + lcm(2, gcd(2,4)) = 4 + 2 = 6\nf(5) = 25 (mod 6) + lcm(2, gcd(2,5)) = 1 + 2 = 3\nf(6) = 36 (mod 6) + lcm(2, gcd(2,6)) = 0 + 2 = 2\nf(7) = 49 (mod 6) + lcm(2, gcd(2,7)) = 1 + 2 = 3\n```\nלדוגמה $A=\\{1,2,3,6\\}$: $1\\mapsto3,\\ 2\\mapsto6,\\ 3\\mapsto5,\\ 6\\mapsto2$ (התאמה חד-חד-ערכית ועל).\n$f^{-1}(2)=6,\\ f^{-1}(3)=1,\\ f^{-1}(5)=3,\\ f^{-1}(6)=2$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב $f(k)$ לכל $k\\in\\{1,\\ldots,7\\}$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי הערכים בעלי יותר ממקור אחד",
+     "points": 2
+    },
+    {
+     "text": "בחירת $A$ עם מקור אחד לכל ערך",
+     "points": 1
+    },
+    {
+     "text": "חישוב $f^{-1}$ בעזרת המקורות שנבחרו",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $A$ שמכילה שני מקורות לאותו ערך: אז $f$ אינה חד-חד-ערכית.",
+    "לשכוח שהטווח הנתון הוא $\\{2,3,5,6\\}$ ולכן כל ערך חייב מקור ב-$A$.",
+    "לטעות בחישוב $k^2\\bmod6$ (למשל $25\\bmod6=1$ ולא 5)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה ערכי $k\\in\\{1,\\ldots,7\\}$ מקיימים $f(k)=3$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$f(1)=f(5)=f(7)=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך היחיד של $k$ שעבורו $f(k)=5$ (כלומר $f^{-1}(5)$)?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "רק $f(3)=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה קבוצות $A\\subseteq\\{1,\\ldots,7\\}$ מקיימות ש-$f:A\\to\\{2,3,5,6\\}$ הפיכה?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "צריך בדיוק מקור אחד לכל ערך: $3$ אפשרויות לערך 3, $2$ לערך 6, ו-$1$ לכל אחד משני האחרים, כלומר $3\\cdot2=6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +770,70 @@
    "solution": "מכיוון ש-$R\\subseteq A^2$ רפלקסיבי, לכל $x\\in A$ מתקיים $(x,x)\\in R$.\nנניח ש-$(x,y)\\in R$ כך ש: $x\\ne y$. מכיוון ש-$R$ סימטרי, $(y,x)\\in R$. אז $(x,y),(y,x)\\in R$ ו-$x=y$ (כי $R$ אנטי-סימטרי), סתירה.\nמסקנה: $R=\\{(x,x):\\ x\\in A\\}$, ולכן $R$ הוא יחס שקילות. הטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שימוש ברפלקסיביות: $(x,x)\\in R$ לכל $x$",
+     "points": 1
+    },
+    {
+     "text": "הנחה בשלילה על זוג $(x,y)$ עם $x\\ne y$",
+     "points": 1
+    },
+    {
+     "text": "סתירה משילוב הסימטריה והאנטי-סימטריה",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $R$ יחס הזהות, ולכן יחס שקילות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שיחס אנטי-סימטרי ובו זוג הפוך אסור תמיד: הוא אסור רק כש-$x\\ne y$.",
+    "לשכוח שגם יחס הזהות מקיים את שלוש התכונות ולכן הוא היחיד שנשאר.",
+    "להשתמש בטרנזיטיביות כשאין בה צורך."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי התשובה לטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הטענה נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הטענה אינה נכונה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "היחס היחיד שמקיים את שלוש התכונות הוא יחס הזהות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות סדורים יש ב-$R$, כש-$|A|=5$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "יחס הזהות על 5 איברים (הוכח בבדיקת כל היחסים על $n\\le4$ ובטיעון על $n=5$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$",
+      "נניח בשלילה ש-$(x,y)\\in R$ עבור $x\\ne y$",
+      "מסימטריה $(y,x)\\in R$, ולכן מאנטי-סימטריה $x=y$, סתירה",
+      "לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס שקילות"
+     ],
+     "explain": "רפלקסיביות, הנחה בשלילה, סתירה, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +845,114 @@
    "solution": "$S\\subseteq\\mathbb{Q}\\Rightarrow|S|\\le|\\mathbb{Q}|$.\nהקבוצה $B=\\left\\{3+\\frac12,\\ 3+\\frac1{2^2},\\ \\ldots,\\ 3+\\frac1{2^n},\\ \\ldots\\right\\}$ היא תת-קבוצה אינסופית של $S$, ו-$|B|=|\\mathbb{N}|$.\nמכאן: $|\\mathbb{N}|=|B|\\le|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|\\Rightarrow|S|=|\\mathbb{N}|$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חסם עליון: $S\\subseteq\\mathbb{Q}$ ולכן $|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$",
+     "points": 2
+    },
+    {
+     "text": "חסם תחתון: תת-קבוצה אינסופית בת-מנייה של $S$",
+     "points": 2
+    },
+    {
+     "text": "קנטור-ברנשטיין והמסקנה $|S|=\\aleph_0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$S$ בעוצמת הרצף כי היא נמצאת בקטע: רק המספרים הרציונליים שבקטע נכללים.",
+    "להראות רק חסם אחד בלי השני.",
+    "לבחור תת-קבוצה שאינה מוכלת ב-$S$ (למשל עם מספרים אי-רציונליים)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי עוצמת $S$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\aleph_0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\mathfrak{c}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סופית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{\\mathfrak{c}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$S$ אינסופית ומוכלת ב-$\\mathbb{Q}$ הבת-מנייה."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו תת-קבוצה אינסופית של $S$ משמשת להוכחה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{3+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{3+\\frac{\\sqrt2}{n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{8+\\frac1n:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{3-\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכלה בשני כיוונים: $|\\mathbb{N}|\\le|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$ (קנטור-ברנשטיין)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בנייה של התאמה מפורשת בין $S$ ל-$\\mathbb{N}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טיעון אלכסוני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שתי הכלות נותנות שוויון עוצמות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +964,75 @@
    "solution": "$B\\cup\\{1,3,5,\\ldots,2n+1\\}=A\\iff B=\\{2,4,6,\\ldots,2n\\}\\cup C\\ \\wedge\\ C\\subseteq\\{1,3,\\ldots,2n+1\\}$.\nלכן מספר ה-$B$-ים שווה למספר ה-$C$-ים: $|P(\\{1,3,\\ldots,2n+1\\})|=2^{|\\{1,3,\\ldots,2n+1\\}|}=2^{n+1}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "תיאור $B$: מכילה את כל האיברים שאינם בקבוצה הנתונה ותת-קבוצה כלשהי של האחרים",
+     "points": 3
+    },
+    {
+     "text": "ספירת הבחירות החופשיות והתשובה הכללית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$B$ חייבת להכיל את אברי הקבוצה הנתונה: הם כבר מכוסים על ידה.",
+    "לספור את מספר האיברים החופשיים בטעות ($n$ מול $n+1$).",
+    "לבלבל בין תנאי האיחוד לתנאי החיתוך."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים זוגיים יש ב-$A$ כש-$n=4$ ($A=\\{1,\\ldots,9\\}$)?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$n=4$: האיברים $2,4,6,8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים אי-זוגיים (חופשיים) יש ב-$A$ כש-$n=4$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$n+1=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תת-קבוצות $B$ מקיימות את התנאי כש-$n=4$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "הזוגיים חייבים להיכלל והאי-זוגיים חופשיים: $2^5=32$ (הוכח בבדיקת כל 512 הקבוצות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התשובה הכללית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{n+1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{n}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{2n+1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{n+1}-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיברים האי-זוגיים חופשיים והזוגיים חייבים להיכלל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -149,7 +1044,97 @@
    "solution": "הגדרה: אם לפסוקים $A,B$ יש אותה טבלת אמת, אז הם נקראים שקולים לוגית.\nטבלת אמת:\n```\np q r | p→r | q→r | (p→r)∧(q→r) | p∨q | (p∨q)→r\nT T T |  T  |  T  |      T       |  T  |    T\nT T F |  F  |  F  |      F       |  T  |    F\nT F T |  T  |  T  |      T       |  T  |    T\nT F F |  F  |  T  |      F       |  T  |    F\nF T T |  T  |  T  |      T       |  T  |    T\nF T F |  T  |  F  |      F       |  T  |    F\nF F T |  T  |  T  |      T       |  F  |    T\nF F F |  T  |  T  |      T       |  F  |    T\n```\nהעמודות (p→r)∧(q→r) ו-(p∨q)→r זהות. מסקנה: הפסוקים שקולים לוגית.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת",
+     "points": 3
+    },
+    {
+     "text": "בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים",
+     "points": 6
+    },
+    {
+     "text": "השוואת שתי העמודות הסופיות",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: הפסוקים שקולים לוגית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
+    "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר.",
+    "להשוות עמודות ביניים במקום את שתי העמודות הסופיות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מתוך 8 השורות הפסוק $(p\\vee q)\\to r$ שקר?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "צריך $p\\vee q$ אמת ו-$r$ שקר: שלוש שורות."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו השמה $(p,q,r)$ שני הצדדים $(p\\to r)\\wedge(q\\to r)$ ו-$(p\\vee q)\\to r$ אמת ו-$r$ שקר?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=F,\\ q=F,\\ r=F$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=F$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=F,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=F$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כש-$r$ שקר צריך $p$ ו-$q$ שקריים כדי ששני הצדדים יהיו אמת."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה המסקנה מהשוואת שתי העמודות האחרונות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הפסוקים שקולים לוגית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הפסוקים אינם שקולים"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הפסוקים סותרים זה את זה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שני הפסוקים טאוטולוגיות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית, ולכן אינם טאוטולוגיות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -161,7 +1146,115 @@
    "solution": "(1) הפתרון דומה לגרסה 1. נריץ את האלגוריתם על $84,68$:\n```\na    b    [a/b]   d    x     y\n84   68   1       4    -4    1-(-4)*1 = 5\n68   16   4       4    1     0-1*4 = -4\n16   4    4       4    0     1-0*4 = 1\n4    0    -       4    1     0\n```\n$\\gcd(84,68)=84\\cdot(-4)+68\\cdot5$, כלומר $x_1=-4,\\ y_1=5$.\n$\\gcd(-84,-68)=(-84)\\cdot4+(-68)\\cdot(-5)$, כלומר $x_2=4,\\ y_2=-5$.\n(2) נסמן $d=\\gcd(a,b)$ ו-$m=\\operatorname{lcm}(a,b)$. אז $\\gcd(d,m)=d$ כי: $d\\mid m\\Leftarrow d\\mid a\\wedge a\\mid m$, ו-$d\\mid d$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הרצת האלגוריתם המורחב של Euclid על $84,68$ עם עמודת המנות",
+     "points": 3
+    },
+    {
+     "text": "הצבה לאחור וקבלת $4=84\\cdot(-4)+68\\cdot5$ ותרגום ל-$x_1,y_1$",
+     "points": 2
+    },
+    {
+     "text": "טיפול בסימנים של $\\gcd(-a,-b)$ וקבלת $x_2,y_2$",
+     "points": 2
+    },
+    {
+     "text": "(2): סימון $d=\\gcd(a,b)$ ו-$m=\\operatorname{lcm}(a,b)$",
+     "points": 1
+    },
+    {
+     "text": "(2): הוכחה ש-$d\\mid m$",
+     "points": 2
+    },
+    {
+     "text": "(2): מסקנה $\\gcd(m,d)=d$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בסדר המקדמים: $84x+68y$ שונה מ-$68x+84y$ (המקדמים מתחלפים).",
+    "להניח $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))=1$: הוא שווה ל-$\\gcd(a,b)$.",
+    "לשכוח שהמקדמים של המספרים השליליים מחליפים סימן."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\gcd(84,68)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "השארית האחרונה שאינה אפס היא 4."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שורות החילוק של האלגוריתם על $84,68$.",
+     "lines": [
+      "$84=1\\cdot68+16$",
+      "$68=4\\cdot16+4$",
+      "$16=4\\cdot4+0$"
+     ],
+     "explain": "כל שורה משתמשת בשארית של השורה הקודמת."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $(x_1,y_1)$ מקיים $4=84x_1+68y_1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(-4,5)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(5,-4)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(4,5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(-5,4)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הצבה: $84\\cdot(-4)+68\\cdot5=-336+340=4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\gcd(a,b)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\operatorname{lcm}(a,b)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a\\cdot b$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$d=\\gcd(a,b)$ מחלק את $m=\\operatorname{lcm}(a,b)$, ולכן $\\gcd(m,d)=d$ (למשל ב-$84,68$: $\\gcd(1428,4)=4$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -173,7 +1266,79 @@
    "solution": "נסמן $a=36^{20}+40!$ ו-$b=10^{80}+40$.\n$a=6^{40}+40!=(6^{41-1}-1)+((41-1)!+1)$. מכיוון ש-$41\\nmid6$ ו-41 ראשוני, לפי פרמה $41\\mid6^{41-1}-1$; ומכיוון ש-41 ראשוני, לפי וילסון $41\\mid(41-1)!+1$. לכן $41\\mid a$.\n$b=10^{80}+40=(100^{41-1}-1)+41$. מכיוון ש-$41\\nmid100$ ו-41 ראשוני, לפי פרמה $41\\mid100^{41-1}-1$, ולכן $41\\mid b$.\nמסקנה: $41\\mid a\\wedge41\\mid b\\Rightarrow41\\le\\gcd(a,b)$, ולכן $40<41\\le\\gcd(a,b)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שימוש ב-41 הראשוני: $41\\mid b$ בעזרת פרמה והצגת $b$ כ-$(c^{40}-1)+41$",
+     "points": 2
+    },
+    {
+     "text": "$41\\mid a$ בעזרת פרמה על הבסיס ו-וילסון על $40!$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $41\\le\\gcd(a,b)$ ולכן $40<\\gcd(a,b)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפעיל את פרמה על בסיס שמתחלק ב-41.",
+    "לשכוח שווילסון נותן $40!\\equiv-1\\pmod{41}$, כלומר $41\\mid40!+1$ ולא $41\\mid40!$.",
+    "להסיק $\\gcd=41$ במקום $41\\le\\gcd$: מספיק לדעת שהוא לפחות 41."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מספר ראשוני משתמש בו הפתרון הרשמי כדי להראות שה-gcd גדול מ-40?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "41"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "37"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "43"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "47"
+      }
+     ],
+     "correctId": "a",
+     "explain": "41 מחלק את שני המספרים, ולכן ה-gcd הוא לפחות 41; הראשוניים האחרים אינם מחלקים את ה-gcd."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $36^{20}$ בחלוקה ב-41?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "לפי פרמה השארית היא 1, כי $a^{20}=(\\ldots)^{40}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $40!$ בחלוקה ב-41?",
+     "answer": 40,
+     "tol": 0,
+     "explain": "לפי וילסון $40!\\equiv-1\\equiv40\\pmod{41}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי השארית של $10^{80}+40$ בחלוקה ב-41?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "החזקה נותנת 1 והסכום עם 40 הוא 41, כלומר 0."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -185,7 +1350,91 @@
    "solution": "**I. בסיס:** כמו בגרסה 1: $P(1)$: $1^2\\le4^1\\iff1\\le4\\Rightarrow P(1)=\\text{TRUE}$.\n**II. צעד:** $P(k):\\ k^2\\le4^k$, $P(k+1):\\ (k+1)^2\\le4^{k+1}$.\n$$(k+1)^2=k^2+2k+1\\le k^2+2\\cdot k^2+k^2=4k^2\\le4\\cdot4^k=4^{k+1}$$\n**III. מסקנה:** מ-I ו-II, לכל $1\\le n\\in\\mathbb{N}$ מתקיים $P(n)=\\text{TRUE}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בסיס: בדיקת $P(1)$",
+     "points": 3
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $P(k)$ ומה צריך להוכיח",
+     "points": 3
+    },
+    {
+     "text": "פתיחת $(k+1)^2$ והחסמת $2k+1$ בעזרת $k\\ge1$",
+     "points": 6
+    },
+    {
+     "text": "שימוש בהנחת האינדוקציה לחסם ב-$4\\cdot4^k$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש ב-$P(k+1)$ בתוך ההוכחה שלו.",
+    "לשכוח את התנאי $k\\ge1$ בחסימה של $2k+1$ על ידי $3k^2$.",
+    "להכפיל את שני אגפי ההנחה בקבוע שגוי במקום להשתמש ב-4."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "בצעד מחליפים $2k$ ב-$2k^2$ ואת $1$ ב-$k^2$. איזו עובדה מצדיקה זאת?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$k^2\\le k$ לכל $k\\ge1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2k+1\\le k$ לכל $k\\ge1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$k^2\\le2k+1$ לכל $k\\ge1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לכל $k\\ge1$ מתקיים $k\\le k^2$ וגם $1\\le k^2$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "$(k+1)^2=k^2+2k+1$",
+      "$k^2+2k+1\\le k^2+2k^2+k^2$, כי $k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$",
+      "$k^2+2k^2+k^2=4k^2$",
+      "$4k^2\\le4\\cdot4^k$ לפי הנחת האינדוקציה $k^2\\le4^k$",
+      "$4\\cdot4^k=4^{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "explain": "פתיחה, חסימה, איחוד, הנחת האינדוקציה, מסקנה."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של הצעד שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "$(k+1)^2=k^2+2k+1$",
+      "$k^2+2k+1\\le k^2+2k^2+k^2$, כי $k\\le k^2$ ו-$1\\le k^2$ לכל $k\\ge1$",
+      "$k^2+2k^2+k^2=3k^2$",
+      "$4k^2\\le4\\cdot4^k$ לפי הנחת האינדוקציה $k^2\\le4^k$",
+      "$4\\cdot4^k=4^{k+1}$, כלומר $P(k+1)$ נכון"
+     ],
+     "bugIndex": 2,
+     "explain": "השורה ששונתה אינה נכונה מבחינה חשבונית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -197,7 +1446,79 @@
    "solution": "**הפתרון הרשמי עם תיקון $|P(A-B)|=2^{111}$ (ולא $111$):** הפתרון הרשמי מחשב נכון $|A-B|=111$, אבל בשורת הסיכום מציב $111$ במקום $|P(A-B)|=2^{|A-B|}=2^{111}$ ומקבל $232+2^{1210}$. התשובה המתוקנת היא $121+2^{1210}+2^{111}$ (נבדק בסקריפט).\nלכל $n\\in\\{1,\\ldots,10\\}$: $3^n=3^n\\cdot5^0\\in A$, ולכן $B\\subseteq A$.\n$A\\cup B=A\\Rightarrow|A\\cup B|=|A|=11\\cdot11=121$.\n$|P(A\\times B)|=2^{|A\\times B|}=2^{|A|\\cdot|B|}=2^{121\\cdot10}=2^{1210}$.\n$|A-B|=|A|-|B|=121-10=111$ (כי $B\\subseteq A$), ולכן $|P(A-B)|=2^{111}$.\nמסקנה: $$121+2^{1210}+2^{111}$$",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "חישוב הגודל של הקבוצה הנדרשת ($|A|$ או $|A\\cup B|$) מתיאור האיברים",
+     "points": 2
+    },
+    {
+     "text": "חישוב $|A-B|$ בעזרת $B\\subseteq A$ וחישוב $|A\\times B|$",
+     "points": 2
+    },
+    {
+     "text": "הצבה בחזקות של 2 וכתיבת הביטוי הסופי",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
+    "לשכוח ש-$B\\subseteq A$ ולכן $A\\cup B=A$ ו-$|A-B|=|A|-|B|$.",
+    "לחשב $|A\\times B|=|A|+|B|$ במקום המכפלה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\cup B|$?",
+     "answer": 121,
+     "tol": 0,
+     "explain": "$B\\subseteq A$ ולכן $A\\cup B=A$ ו-$|A|=11\\cdot11=121$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A-B|$?",
+     "answer": 111,
+     "tol": 0,
+     "explain": "$121-10=111$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\times B|$ (המעריך של 2 ב-$|P(A\\times B)|$)?",
+     "answer": 1210,
+     "tol": 0,
+     "explain": "$121\\cdot10=1210$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו הביטוי הסופי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$121+2^{1210}+2^{111}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$232+2^{1210}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$121+2^{1210}+111$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$121+2^{1210}+2^{121}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -209,7 +1530,85 @@
    "solution": "ה-contrapositive הוא: אם $A-B\\not\\subseteq C$, אז $A\\not\\subseteq B\\cup C$.\n**הוכחת הטענה** (הוכחת ה-contrapositive):\n$A-B\\not\\subseteq C\\Rightarrow\\exists x\\in A-B\\ \\wedge\\ x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\wedge x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\cup C\\Rightarrow A\\not\\subseteq B\\cup C$.\n**דרך שנייה (בשלילה):** נניח בשלילה ש-$A\\subseteq B\\cup C$ וגם $A-B\\not\\subseteq C$. אז $\\exists x\\in A-B\\ \\wedge\\ x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\wedge x\\notin C\\Rightarrow x\\in A\\wedge x\\notin B\\cup C\\Rightarrow A\\not\\subseteq B\\cup C$, סתירה לנתון.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "ניסוח ה-contrapositive: $\\neg Q\\to\\neg P$",
+     "points": 3
+    },
+    {
+     "text": "הנחה ש-$Q$ שקרית ומציאת איבר $x$ מתאים",
+     "points": 2
+    },
+    {
+     "text": "שרשרת הגרירות עד שלילת $P$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה שהטענה המקורית נכונה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
+    "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
+    "להוכיח את הטענה המקורית ישירות במקום לעבוד עם הניסוח ההפוך שנדרש."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "ה-contrapositive של $P\\to Q$ הוא $\\neg Q\\to\\neg P$. מהו ה-contrapositive של הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $A-B\\not\\subseteq C$, אז $A\\not\\subseteq B\\cup C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $A\\not\\subseteq B\\cup C$, אז $A-B\\not\\subseteq C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $A-B\\subseteq C$, אז $A\\subseteq B\\cup C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $A\\subseteq B\\cup C$, אז $A-B\\not\\subseteq C$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שוללים את המסקנה והופכים אותה למקדים, ושוללים את הנתון והופכים אותו למסקנה."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת ה-contrapositive.",
+     "lines": [
+      "נניח $A-B\\not\\subseteq C$, כלומר קיים $x\\in A-B$ כך ש-$x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\wedge x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\cup C$",
+      "לכן $A\\not\\subseteq B\\cup C$, וזה ה-contrapositive שנדרש"
+     ],
+     "explain": "כל שורה נובעת מהקודמת."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $A-B\\not\\subseteq C$, כלומר קיים $x\\in A-B$ כך ש-$x\\notin C$",
+      "$x\\in A\\wedge x\\notin B\\wedge x\\notin C$",
+      "$x\\in A\\wedge x\\in B\\cup C$",
+      "לכן $A\\not\\subseteq B\\cup C$, וזה ה-contrapositive שנדרש"
+     ],
+     "bugIndex": 2,
+     "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 7,
@@ -221,7 +1620,112 @@
    "solution": "(המפתח פותר רק את גרסה 1; הפתרון כאן נכתב לפי המספרים של גרסה 2 ונבדק בסקריפט.)\n**$R$ רפלקסיבי:** לכל $x\\in\\mathbb{Z}$: $3x+7x=10x=2\\cdot5x$ זוגי, ולכן $xRx$.\n**$R$ סימטרי:** יהיו $x,y\\in\\mathbb{Z}$ עם $xRy$, כלומר $3x+7y$ זוגי. $(3x+7y)+(3y+7x)=10x+10y$ זוגי, ולכן $3y+7x=(10x+10y)-(3x+7y)$ הוא הפרש של שני מספרים זוגיים, כלומר זוגי, ולכן $yRx$.\n**$R$ טרנזיטיבי:** יהיו $x,y,z\\in\\mathbb{Z}$ עם $xRy$ וגם $yRz$, כלומר $3x+7y$ ו-$3y+7z$ זוגיים. אז $3x+7z=\\big((3x+7y)+(3y+7z)\\big)-10y$ הוא הפרש של מספרים זוגיים, ולכן זוגי, כלומר $xRz$.\nלכן $R$ הוא יחס שקילות על $\\mathbb{Z}$.\n$[0]=\\{x\\in\\mathbb{Z}:\\ xR0\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid3x\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid x\\}=\\{2k:\\ k\\in\\mathbb{Z}\\}$ (כי $2\\nmid3$).\n$[1]=\\{x\\in\\mathbb{Z}:\\ xR1\\}=\\{x\\in\\mathbb{Z}:\\ 2\\mid(3x+7)\\}=\\{x\\in\\mathbb{Z}:\\ 2\\nmid3x\\}=\\{x\\in\\mathbb{Z}:\\ 2\\nmid x\\}=\\{2k+1:\\ k\\in\\mathbb{Z}\\}$.\n$[0]\\cup[1]=\\mathbb{Z}$, ולכן $\\mathbb{Z}/R=\\{[0],[1]\\}$.\n**האם $R$ יחס סדר חלקי?** לא. $0R2$ (כי $3\\cdot0+7\\cdot2=14$ זוגי) וגם $2R0$ (כי $3\\cdot2+7\\cdot0=6$ זוגי), אבל $0\\ne2$. לכן $R$ אינו אנטי-סימטרי, ולכן אינו יחס סדר חלקי.",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $x R x$ כי $ax+bx=(a+b)x$ זוגי",
+     "points": 3
+    },
+    {
+     "text": "סימטריה: חיבור $ax+by$ ו-$ay+bx$ לסכום זוגי",
+     "points": 4
+    },
+    {
+     "text": "טרנזיטיביות: חיבור שני המספרים הזוגיים וקבלת $ax+bz$ זוגי",
+     "points": 4
+    },
+    {
+     "text": "מציאת המחלקות $[0]$ ו-$[1]$ (זוגיים ואי-זוגיים) וקבוצת המנה $\\mathbb{Z}/R$",
+     "points": 4
+    },
+    {
+     "text": "$R$ אינו סדר חלקי כי אינו אנטי-סימטרי, עם זוג מפריך",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
+    "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
+    "לבלבל בין יחס שקילות ליחס סדר חלקי: סדר חלקי דורש אנטי-סימטריה, ויחס עם מחלקה של יותר מאיבר אחד אינו אנטי-סימטרי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$\\mathbb{Z}/R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$xRy$ בדיוק כש-$x$ ו-$y$ בעלי אותה זוגיות (הוכח בבדיקה), ולכן שתי מחלקות: הזוגיים והאי-זוגיים."
+    },
+    {
+     "type": "choice",
+     "prompt": "בהוכחת הסימטריה מחברים את $3x+7y$ ואת $3y+7x$. מהו הסכום?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$10(x+y)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$8(x+y)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$12(x+y)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$10x+8y$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(3x+7y)+(3y+7x)=10x+10y$, שזוגי."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח ש-$3x+7y$ זוגי וגם $3y+7z$ זוגי",
+      "נחבר: $(3x+7y)+(3y+7z)=3x+7z+10y$ זוגי",
+      "$10y$ זוגי (כי $10$ זוגי), ולכן גם $3x+7z$ זוגי",
+      "כלומר $xRz$ ולכן $R$ טרנזיטיבי"
+     ],
+     "explain": "הנחות, חיבור, הפרשת הכפולה הזוגית, מסקנה."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא, כי אינו אנטי-סימטרי: $1R3$ וגם $3R1$ אך $1\\ne3$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, כי אינו רפלקסיבי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כן, כי הוא יחס שקילות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא, כי אינו טרנזיטיבי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 7,
@@ -233,7 +1737,55 @@
    "solution": "חישוב הערכים:\n```\nf(1) = 1 (mod 6) + lcm(2, gcd(2,1)) = 1 + 2 = 3\nf(2) = 4 (mod 6) + lcm(2, gcd(2,2)) = 4 + 2 = 6\nf(3) = 9 (mod 6) + lcm(2, gcd(2,3)) = 3 + 2 = 5\nf(4) = 16 (mod 6) + lcm(2, gcd(2,4)) = 4 + 2 = 6\nf(5) = 25 (mod 6) + lcm(2, gcd(2,5)) = 1 + 2 = 3\nf(6) = 36 (mod 6) + lcm(2, gcd(2,6)) = 0 + 2 = 2\nf(7) = 49 (mod 6) + lcm(2, gcd(2,7)) = 1 + 2 = 3\n```\nלדוגמה $A=\\{1,2,3,6\\}$: $1\\mapsto3,\\ 2\\mapsto6,\\ 3\\mapsto5,\\ 6\\mapsto2$ (התאמה חד-חד-ערכית ועל).\n$f^{-1}(2)=6,\\ f^{-1}(3)=1,\\ f^{-1}(5)=3,\\ f^{-1}(6)=2$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב $f(k)$ לכל $k\\in\\{1,\\ldots,7\\}$",
+     "points": 3
+    },
+    {
+     "text": "זיהוי הערכים בעלי יותר ממקור אחד",
+     "points": 2
+    },
+    {
+     "text": "בחירת $A$ עם מקור אחד לכל ערך",
+     "points": 1
+    },
+    {
+     "text": "חישוב $f^{-1}$ בעזרת המקורות שנבחרו",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $A$ שמכילה שני מקורות לאותו ערך: אז $f$ אינה חד-חד-ערכית.",
+    "לשכוח שהטווח הנתון הוא $\\{2,3,5,6\\}$ ולכן כל ערך חייב מקור ב-$A$.",
+    "לטעות בחישוב $k^2\\bmod6$ (למשל $25\\bmod6=1$ ולא 5)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה ערכי $k\\in\\{1,\\ldots,7\\}$ מקיימים $f(k)=3$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$f(1)=f(5)=f(7)=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הערך היחיד של $k$ שעבורו $f(k)=5$ (כלומר $f^{-1}(5)$)?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "רק $f(3)=5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה קבוצות $A\\subseteq\\{1,\\ldots,7\\}$ מקיימות ש-$f:A\\to\\{2,3,5,6\\}$ הפיכה?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "צריך בדיוק מקור אחד לכל ערך: $3$ אפשרויות לערך 3, $2$ לערך 6, ו-$1$ לכל אחד משני האחרים, כלומר $3\\cdot2=6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 7,
@@ -245,7 +1797,70 @@
    "solution": "הפתרון דומה לגרסה 1: מכיוון ש-$R$ רפלקסיבי, $(x,x)\\in R$ לכל $x\\in A$. אם $(x,y)\\in R$ עם $x\\ne y$, אז מסימטריה $(y,x)\\in R$, ומאנטי-סימטריה $x=y$, סתירה.\nלכן $R=\\{(x,x):\\ x\\in A\\}$, ולכן $R$ הוא יחס סדר חלקי. הטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שימוש ברפלקסיביות: $(x,x)\\in R$ לכל $x$",
+     "points": 1
+    },
+    {
+     "text": "הנחה בשלילה על זוג $(x,y)$ עם $x\\ne y$",
+     "points": 1
+    },
+    {
+     "text": "סתירה משילוב הסימטריה והאנטי-סימטריה",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $R$ יחס הזהות, ולכן יחס סדר חלקי",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שיחס אנטי-סימטרי ובו זוג הפוך אסור תמיד: הוא אסור רק כש-$x\\ne y$.",
+    "לשכוח שגם יחס הזהות מקיים את שלוש התכונות ולכן הוא היחיד שנשאר.",
+    "להשתמש בטרנזיטיביות כשאין בה צורך."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי התשובה לטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הטענה נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הטענה אינה נכונה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "היחס היחיד שמקיים את שלוש התכונות הוא יחס הזהות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות סדורים יש ב-$R$, כש-$|A|=5$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "יחס הזהות על 5 איברים (הוכח בבדיקת כל היחסים על $n\\le4$ ובטיעון על $n=5$)."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$",
+      "נניח בשלילה ש-$(x,y)\\in R$ עבור $x\\ne y$",
+      "מסימטריה $(y,x)\\in R$, ולכן מאנטי-סימטריה $x=y$, סתירה",
+      "לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס סדר חלקי"
+     ],
+     "explain": "רפלקסיביות, הנחה בשלילה, סתירה, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 8,
@@ -257,7 +1872,114 @@
    "solution": "$S\\subseteq\\mathbb{Q}\\Rightarrow|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$.\nהקבוצה $B=\\left\\{5+\\frac12,\\ 5+\\frac1{2^2},\\ \\ldots,\\ 5+\\frac1{2^n},\\ \\ldots\\right\\}$ היא תת-קבוצה אינסופית של $S$, ו-$|B|=|\\mathbb{N}|$.\nמסקנה: $|S|=|\\mathbb{N}|=\\aleph_0$ כי $|\\mathbb{N}|=|B|\\le|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חסם עליון: $S\\subseteq\\mathbb{Q}$ ולכן $|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$",
+     "points": 2
+    },
+    {
+     "text": "חסם תחתון: תת-קבוצה אינסופית בת-מנייה של $S$",
+     "points": 2
+    },
+    {
+     "text": "קנטור-ברנשטיין והמסקנה $|S|=\\aleph_0$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$S$ בעוצמת הרצף כי היא נמצאת בקטע: רק המספרים הרציונליים שבקטע נכללים.",
+    "להראות רק חסם אחד בלי השני.",
+    "לבחור תת-קבוצה שאינה מוכלת ב-$S$ (למשל עם מספרים אי-רציונליים)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי עוצמת $S$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\aleph_0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\mathfrak{c}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סופית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{\\mathfrak{c}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$S$ אינסופית ומוכלת ב-$\\mathbb{Q}$ הבת-מנייה."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו תת-קבוצה אינסופית של $S$ משמשת להוכחה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{5+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{5+\\frac{\\sqrt2}{n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{9+\\frac1n:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{5-\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הכלה בשני כיוונים: $|\\mathbb{N}|\\le|S|\\le|\\mathbb{Q}|=|\\mathbb{N}|$ (קנטור-ברנשטיין)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בנייה של התאמה מפורשת בין $S$ ל-$\\mathbb{N}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טיעון אלכסוני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שתי הכלות נותנות שוויון עוצמות."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 8,
@@ -269,7 +1991,75 @@
    "solution": "$B\\cup\\{2,4,6,\\ldots,2n\\}=A\\iff B=\\{1,3,5,\\ldots,2n+1\\}\\cup C\\ \\wedge\\ C\\subseteq\\{2,4,\\ldots,2n\\}$.\nלכן מספר ה-$B$-ים שווה למספר ה-$C$-ים: $|P(\\{2,4,\\ldots,2n\\})|=2^{|\\{2,4,\\ldots,2n\\}|}=2^n$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "תיאור $B$: מכילה את כל האיברים שאינם בקבוצה הנתונה ותת-קבוצה כלשהי של האחרים",
+     "points": 3
+    },
+    {
+     "text": "ספירת הבחירות החופשיות והתשובה הכללית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$B$ חייבת להכיל את אברי הקבוצה הנתונה: הם כבר מכוסים על ידה.",
+    "לספור את מספר האיברים החופשיים בטעות ($n$ מול $n+1$).",
+    "לבלבל בין תנאי האיחוד לתנאי החיתוך."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים אי-זוגיים יש ב-$A$ כש-$n=4$ ($A=\\{1,\\ldots,9\\}$)?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$n+1=5$ האיברים $1,3,5,7,9$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים זוגיים (חופשיים) יש ב-$A$ כש-$n=4$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$n=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תת-קבוצות $B$ מקיימות את התנאי כש-$n=4$?",
+     "answer": 16,
+     "tol": 0,
+     "explain": "האי-זוגיים חייבים להיכלל והזוגיים חופשיים: $2^4=16$ (הוכח בבדיקת כל 512 הקבוצות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי התשובה הכללית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{n}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{n+1}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{2n+1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{n}-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיברים הזוגיים חופשיים והאי-זוגיים חייבים להיכלל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
