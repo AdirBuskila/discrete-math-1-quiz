@@ -1,0 +1,99 @@
+{
+  "slug": "discrete-math-1",
+  "titleHe": "בדידה 1",
+  "descriptionHe": "תרגול מבחנים - בדידה 1",
+  "accent": "#f472b6",
+  "accent2": "#7c3aed",
+  "sourceFolder": "C:/Users/Adir/Desktop/BSC/שנה א/סמסטר א/בדידה",
+  "topics": [
+    [
+      "logic_propositional",
+      "לוגיקה פסוקית"
+    ],
+    [
+      "quantifiers_proofs",
+      "כמתים ושיטות הוכחה"
+    ],
+    [
+      "induction",
+      "אינדוקציה"
+    ],
+    [
+      "number_theory_gcd",
+      "התחלקות ו-gcd"
+    ],
+    [
+      "modular_fermat_wilson",
+      "חשבון מודולרי, פרמה, וילסון"
+    ],
+    [
+      "sets_power_set",
+      "קבוצות וקבוצת חזקה"
+    ],
+    [
+      "cardinality_sets",
+      "עוצמות"
+    ],
+    [
+      "relations_properties",
+      "יחסים ותכונותיהם"
+    ],
+    [
+      "equivalence_relations",
+      "יחסי שקילות"
+    ],
+    [
+      "partial_orders",
+      "יחסי סדר חלקי"
+    ],
+    [
+      "functions",
+      "פונקציות"
+    ],
+    [
+      "recurrence_sums",
+      "סכומים ונוסחאות נסיגה"
+    ],
+    [
+      "combinatorics",
+      "קומבינטוריקה"
+    ],
+    [
+      "graphs_intro",
+      "גרפים"
+    ]
+  ],
+  "briefs": [],
+  "needHelp": [
+    {
+      "id": "induction",
+      "titleHe": "אינדוקציה",
+      "icon": "🪜",
+      "topic": "induction",
+      "entryLabelHe": "צריך עזרה באינדוקציה?"
+    },
+    {
+      "id": "relations",
+      "titleHe": "יחסי שקילות וסדר",
+      "icon": "🕸️",
+      "topic": "equivalence_relations",
+      "entryLabelHe": "צריך עזרה ביחסים?"
+    },
+    {
+      "id": "number_theory",
+      "titleHe": "תורת המספרים וחשבון מודולרי",
+      "icon": "🔢",
+      "topic": "modular_fermat_wilson",
+      "entryLabelHe": "צריך עזרה בתורת המספרים ובחשבון מודולרי?"
+    },
+    {
+      "id": "counting",
+      "titleHe": "ספירה וסכומים",
+      "icon": "🎲",
+      "topic": "combinatorics",
+      "entryLabelHe": "צריך עזרה בספירה ובסכומים?"
+    }
+  ],
+  "storePrefix": "discrete-math-1",
+  "includeDrafts": false
+}

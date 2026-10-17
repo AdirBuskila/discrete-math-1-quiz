@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Overlapping sets">
+  <rect width="32" height="32" rx="7.5" fill="#0d0f14"/>
+  <g transform="translate(2 2) scale(1.1667)" color="#f472b6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.8" cy="12" r="5.8"/><circle cx="15.2" cy="12" r="5.8"/><path d="M12 7.2A5.8 5.8 0 0 1 12 16.8 5.8 5.8 0 0 1 12 7.2Z" fill="currentColor" stroke="none" opacity=".5"/></g>
+</svg>
