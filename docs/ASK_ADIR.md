@@ -67,4 +67,75 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking; FYI.
 - Status: info
 
+
+### 22A-B Q6b (form 2 Q2b) - printed key disagrees with its own computation
+- Path: tools/raw/22A-B.json
+- Page: p.8 (form 2 Q2 b)
+- Question: the key ends with "232 + 2^1210"; the expression is |A u B| + |P(AxB)| + |P(A-B)|, which is 121 + 2^1210 + 2^111 (script-checked).
+- Needed: confirm the intended answer.
+- Status: hold
+
+### 22A-B Q7a (form 2 Q3a) - no key
+- Path: tools/raw/22A-B.json
+- Page: p.11 (form 2 Q3 a)
+- Question: the key covers form 1 only (9x+5y); form 2 uses 3x+7y and has no solution.
+- Needed: nothing, route to the solver.
+- Status: hold
+
+### 22A-B Q3a / Q3b / Q1b-c - key slips (FYI)
+- Path: tools/raw/22A-B.json
+- Page: p.10 (Q3 a, b); p.5 (form 2 Q1 b, c)
+- Question: Q3a: the key never answers "is R a partial order" (added from a script, flagged in the text). Q3b: the summary line says f(5)=6, the key's own table gives f(5)=3 (line omitted). Form 2 Q1b: header written gcd(-84,-64), meant -68. Form 2 Q1c: key writes 60 where 6 is meant (6^40 = 6^(41-1)).
+- Needed: nothing blocking.
+- Status: info
+
+### 22A-A Q6b (form 2 Q2b) - printed key disagrees with its own sizes
+- Path: tools/raw/22A-A.json
+- Page: p.9 (form 2 Q2 b)
+- Question: the key writes |A|*|B| = 300*300 = 90000, but |A|=|B|=900 (it also writes |A-B| = 30*30-30 = 870). Expected 870 + 2^810000 + 2^30 (script-checked); the key gives 870 + 2^90000 + 2^30.
+- Needed: confirm the intended answer.
+- Status: hold
+
+### 22A-A Q7a (form 2 Q3a) - key says only "same as form 1"
+- Path: tools/raw/22A-A.json
+- Page: p.12 (form 2 Q3 a)
+- Question: form 2 uses 3x+7y; the key only says it is like form 1 and gives no worked answer.
+- Needed: nothing, route to the solver.
+- Status: hold
+
+### 22A-A Q3a / Q3b - handwriting slips (FYI)
+- Path: tools/raw/22A-A.json
+- Page: p.10 (Q3 a), p.11 (Q3 b)
+- Question: Q3a symmetry: the key writes 3x+5y=2m-2k where 3y+5x=2m-2k is meant (transcribed as 3y+5x). Q3b f(5): the key shows gcd(2,6)/lcm(2,2) where gcd(2,5)/lcm(2,1) is meant; the value 3 is right.
+- Needed: nothing blocking.
+- Status: info
+
+### 20A-A Q2a - key arithmetic slip
+- Path: tools/raw/20A-A.json
+- Page: part 1 p.5 (Q2 a)
+- Question: (1) 720 = 3!*5! is right. (2) the key writes C(7,2)*5! = 7!/2 = 2560, but both equal 2520.
+- Needed: confirm 2520 is the intended answer.
+- Status: hold
+
+### 20A-A Q2b - key answers (1) as if letters cannot repeat
+- Path: tools/raw/20A-A.json
+- Page: part 1 pp.5-6 (Q2 b)
+- Question: (1) asks for 7-letter sequences, first 4 letters from A and the rest from B; the key answers 144 = 3!*4! (each letter once). Part (2) then adds "every letter appears once", so (1) seems to allow repeats (4^4*3^3 = 6912). (2) = 72 matches the key.
+- Needed: which reading is intended.
+- Status: hold
+
+### 20A-A Q2c - key's formula for phi(n) is not valid
+- Path: tools/raw/20A-A.json
+- Page: part 1 p.6 (Q2 c)
+- Question: (1) phi(1)=1=phi(2) is fine. In (2) the key writes phi(n) = 3^a 5^b m (1-1/3)(1-1/5) phi(m), which has stray factors m and phi(m); the last line 2*4*3^(a-1)*5^(b-1)*phi(m) and the claim 8 | phi(n) are right.
+- Needed: nothing blocking; decide whether to ship with a corrected derivation or send to the solver.
+- Status: hold
+
+### 20A-A - exam-only file is a different version; other key notes (FYI)
+- Path: tools/raw/20A-A.json
+- Page: exam-only file pp.1-4; part 1 p.3 (Q1 d), part 2 p.6 (Q6 a)
+- Question: the exam-only PDF prints different numbers/questions in Q1a, Q1e, Q3c, Q4b, Q5a-b, Q6a-c than the two solution PDFs; the solution PDFs were used as the sitting. Q1d: the key shows only n=2,3,4, nothing for n>=5 (script: only n=4 works for n<=12). Q6a: key writes (1-2/3) where (1-1/3) is meant; the result is right.
+- Needed: nothing blocking.
+- Status: info
+
 ## Resolved
