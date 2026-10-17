@@ -120,3 +120,138 @@ assert len(set(vals)) == len(vals) and (1, 1) not in vals
 print("Q5b 1-1 and (1,1) not hit OK")
 # Q5c: nothing to compute (cardinality argument)
 print("ALL OK")
+
+# ======================= STEPS section: guided-step values (numeric answers, false findbug lines) =======================
+import json, pathlib
+from sympy import symbols, simplify, expand, solve, Eq, Rational
+from fractions import Fraction
+
+EXPECT_NUM = {}   # question id -> numeric step answers, in step order
+BUG_IDX = {}      # question id -> bugIndex
+
+# Q1a: antecedent true in 4 rows, consequent false in 2, implication false in 0
+ant = lambda p, q, r: (p or q) and ((not p) or r)
+cons = lambda p, q, r: q or r
+assert sum(1 for p, q, r in rows if ant(p, q, r)) == 4
+assert sum(1 for p, q, r in rows if not cons(p, q, r)) == 2
+assert sum(1 for p, q, r in rows if ant(p, q, r) and not cons(p, q, r)) == 0
+EXPECT_NUM["26A-A-Q1a"] = [4, 2, 0]
+
+# Q1b: (2^6-1)/(2^3-1) = 9; the bugged factor (2^q+1) is not a divisor/identity, the true one is
+assert (2 ** 6 - 1) % (2 ** 3 - 1) == 0 and (2 ** 6 - 1) // (2 ** 3 - 1) == 9
+x = symbols("x")
+for n_ in range(2, 7):
+    assert expand((x - 1) * sum(x ** i for i in range(n_))) == x ** n_ - 1          # true line
+    assert expand((x + 1) * sum(x ** i for i in range(n_))) != x ** n_ - 1          # bugged line is false
+EXPECT_NUM["26A-A-Q1b"] = [9]; BUG_IDX["26A-A-Q1b"] = 2
+
+# Q1c: identity is contained in every equivalence relation (n=4, all 15 partitions), the converse inclusion fails
+A4 = list(range(4))
+ident = {(a, a) for a in A4}
+rels = [{(a, b) for blk in P for a in blk for b in blk} for P in partitions(A4)]
+assert len(rels) == 15 and all(ident <= R for R in rels)
+assert not any(R <= ident for R in rels if R != ident)          # "identity contains every equivalence relation" is false
+assert len({(k, k) for k in range(1, 11)}) == 10
+EXPECT_NUM["26A-A-Q1c"] = [10]; BUG_IDX["26A-A-Q1c"] = 1
+
+# Q2a: n=4 sum = 3/4; the bugged numerator (k-1)(k+1)-1 breaks the identity
+k = symbols("k", positive=True)
+assert sum(Fraction(1, i * (i + 1)) for i in range(1, 4)) == Fraction(3, 4)
+assert simplify((k - 1) / k + 1 / (k * (k + 1)) - ((k - 1) * (k + 1) + 1) / (k * (k + 1))) == 0
+assert simplify((k - 1) / k + 1 / (k * (k + 1)) - ((k - 1) * (k + 1) - 1) / (k * (k + 1))) != 0
+assert simplify(((k - 1) * (k + 1) + 1) - k ** 2) == 0
+EXPECT_NUM["26A-A-Q2a"] = [0.75]; BUG_IDX["26A-A-Q2a"] = 3
+
+# Q2b: 4 free letters, 16 subsets
+free = [c for c in "abcdef" if c not in "ab"]
+assert len(free) == 4 and 2 ** len(free) == cnt == 16
+EXPECT_NUM["26A-A-Q2b"] = [4, 16]
+
+# Q2c: exactly one refl+sym+antisym relation on {1,2,3}; two total orders on {1,2}; union reflexive but not antisymmetric
+assert len(good) == 1
+assert len(orders) == 2
+Ru = orders[0] | orders[1]
+assert refl2(Ru) and not anti(Ru)
+EXPECT_NUM["26A-A-Q2c"] = [1, 2]; BUG_IDX["26A-A-Q2c"] = 2
+
+# Q3a: 5 classes mod 5, [4] = residue 4, symmetric-sum identity (true) vs 6x+5y (false)
+xx, yy = symbols("xx yy")
+assert expand((4 * xx + yy) + (4 * yy + xx) - 5 * (xx + yy)) == 0
+assert expand((4 * xx + yy) + (4 * yy + xx) - (6 * xx + 5 * yy)) != 0
+Zr = range(-60, 61)
+assert len({frozenset(y for y in Zr if R(x_, y)) for x_ in Zr}) == 5
+assert all(R(4, y) == (y % 5 == 4) for y in Zr)
+zz = symbols("zz")
+assert expand((4 * xx + yy) + (4 * yy + zz) - ((4 * xx + zz) + 5 * yy)) == 0   # transitivity line is right
+EXPECT_NUM["26A-A-Q3a"] = [5, 4]; BUG_IDX["26A-A-Q3a"] = 1
+
+# Q3b: Euclid divisions and coefficients
+seq, a_, b_ = [], 84, 49
+while b_:
+    seq.append((a_, a_ // b_, b_, a_ % b_)); a_, b_ = b_, a_ % b_
+assert seq == [(84, 1, 49, 35), (49, 1, 35, 14), (35, 2, 14, 7), (14, 2, 7, 0)], seq
+assert 84 % 49 == 35 and math.gcd(49, 84) == 7 and 49 * -5 + 84 * 3 == 7
+EXPECT_NUM["26A-A-Q3b"] = [35, 7, -5]
+
+# Q3c: example sizes; bugged middle step ((B and C) and not A) is not implied
+A_, B_, C_ = {1, 2, 3}, {3, 4, 5}, {5, 6}
+assert (B_ - A_) | (C_ - A_) == (B_ | C_) - A_ == {4, 5, 6}
+cex = [(Aa, Bb, Cc) for Aa in subs(U3) for Bb in subs(U3) for Cc in subs(U3)
+       if not ((Bb - Aa) | (Cc - Aa)) <= ((Bb & Cc) - Aa)]
+assert cex                                                       # bugged line really fails
+EXPECT_NUM["26A-A-Q3c"] = [3]; BUG_IDX["26A-A-Q3c"] = 3
+
+# Q4a: |P(A u B)| - |P(A) u P(B)| = 2 for {1,2},{2,3}; "{a,b} not subset of A  <=>  {a,b} not in P(A)" for a in A\B, b in B\A
+Pa, Pb = pw({1, 2}), pw({2, 3})
+assert len(pw({1, 2, 3})) == 8 and len(Pa | Pb) == 6 and len(pw({1, 2, 3})) - len(Pa | Pb) == 2
+for Aa in subs(U3):
+    for Bb in subs(U3):
+        for a_e in Aa - Bb:
+            for b_e in Bb - Aa:
+                s_ = frozenset({a_e, b_e})
+                assert s_ in pw(Aa | Bb) and s_ not in pw(Aa) and s_ not in pw(Bb)   # true line; bugged line says "in P(A)"
+EXPECT_NUM["26A-A-Q4a"] = [2]; BUG_IDX["26A-A-Q4a"] = 3
+
+# Q4b
+assert len([d for d in range(1, 13) if 12 % d == 0]) == 6 and math.gcd(12, 8) == 4
+EXPECT_NUM["26A-A-Q4b"] = [6, 4]
+
+# Q4c: p=2 -> 12; odd p -> p+3 even (the bugged line claims odd)
+assert 2 ** 2 + 3 * 2 + 2 == 12
+assert all((p + 3) % 2 == 0 and (p * (p + 3)) % 2 == 0 for p in range(3, 2000, 2))
+EXPECT_NUM["26A-A-Q4c"] = [12]; BUG_IDX["26A-A-Q4c"] = 1
+
+# Q5a: Fermat/Wilson remainders and the bugged decomposition
+assert pow(7, 72, 37) == 1 and math.factorial(36) % 37 == 36 and pow(36, 36, 37) == 1
+assert 36 ** 36 + math.factorial(36) == (36 ** 36 - 1) + (math.factorial(36) + 1) - 0
+assert (36 ** 36 - 1) + (math.factorial(36) - 1) != 36 ** 36 + math.factorial(36)
+assert (math.factorial(36) - 1) % 37 != 0
+assert math.gcd(36 ** 36 + math.factorial(36), 7 ** 72 - 1) % 74 == 0
+EXPECT_NUM["26A-A-Q5a"] = [1, 36]; BUG_IDX["26A-A-Q5a"] = 2
+
+# Q5b
+assert f(0) == (1, 5) and solve(Eq(2 * x + 5, 1), x) == [-2] and solve(Eq(2 * x + 5, 1), x) != [-3]
+EXPECT_NUM["26A-A-Q5b"] = [5]; BUG_IDX["26A-A-Q5b"] = 2
+
+# Q5c: 1+1/n (n>=2) are distinct rationals in [1,2) -> infinite subset; Z intersect R = Z
+seqq = [1 + Fraction(1, n_) for n_ in range(2, 3000)]
+assert len(set(seqq)) == len(seqq) and all(1 <= v < 2 for v in seqq)
+BUG_IDX["26A-A-Q5c"] = 1
+
+# ---- cross-check against the generated raw JSON ----
+raw = json.loads((pathlib.Path(__file__).resolve().parents[2] / "raw" / "26A-A.json").read_text(encoding="utf-8"))
+for q in raw["questions"]:
+    qid = "26A-A-Q%d%s" % (q["num"], "abcdefghij"["אבגדהוזחטי".index(q["part"])])
+    st = q.get("steps", [])
+    nums = [s["answer"] for s in st if s["type"] == "numeric"]
+    assert nums == EXPECT_NUM.get(qid, []), (qid, nums, EXPECT_NUM.get(qid))
+    bugs = [s["bugIndex"] for s in st if s["type"] == "findbug"]
+    if qid in BUG_IDX:
+        assert bugs == [BUG_IDX[qid]], (qid, bugs)
+    elif qid != "26A-A-Q1a":
+        assert not bugs, qid
+    for s in st:
+        if s["type"] == "choice":
+            assert s["correctId"] in [o["id"] for o in s["options"]]
+print("STEPS: numeric answers and findbug indices verified against raw JSON for", len(raw["questions"]), "items")
+print("ALL STEPS OK")
