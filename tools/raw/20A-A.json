@@ -121,7 +121,7 @@
    "topic": "recurrence_sums",
    "points": 10,
    "question": "מצאו את הצורה המפורשת של $a_n$, כאשר $a_0=14,\\ a_1=27$ וגם $a_n+a_{n-2}=15\\cdot2^n,\\ n\\ge2$.",
-   "solution": "המשוואה האופיינית: $x^2+1=0\\Rightarrow x_{1,2}=\\pm i\\Rightarrow x_{1,2}=\\cos\\frac\\pi2\\pm i\\sin\\frac\\pi2$.\nהפתרון הכללי של $a_n+a_{n-2}=0$ הוא: $a_n^{(h)}=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}$.\nפתרון פרטי של $a_n+a_{n-2}=15\\cdot2^n$ (\\*\\*) הוא מהצורה $a_n^{(p)}=A\\cdot2^n$. נציב ב-(\\*\\*): $A\\cdot2^n+A\\cdot2^{n-2}=15\\cdot2^n\\ \\ |:2^{n-2}\\Rightarrow4A+A=15\\cdot4\\Rightarrow A=12\\Rightarrow a_n^{(p)}=12\\cdot2^n$.\nהפתרון הרקורסיבי הוא: $a_n=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}+12\\cdot2^n$.\n$a_0=C_1+12=14\\Rightarrow C_1=2$\n$a_1=C_2+24=27\\Rightarrow C_2=3$\n$$a_n=2\\cos\\frac{n\\pi}{2}+3\\sin\\frac{n\\pi}{2}+12\\cdot2^n,\\quad n\\in\\mathbb{N}$$",
+   "solution": "המשוואה האופיינית: $x^2+1=0\\Rightarrow x_{1,2}=\\pm i\\Rightarrow x_{1,2}=\\cos\\frac\\pi2\\pm i\\sin\\frac\\pi2$.\nהפתרון הכללי של $a_n+a_{n-2}=0$ הוא: $a_n^{(h)}=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}$.\nפתרון פרטי של $a_n+a_{n-2}=15\\cdot2^n$ (⋆⋆) הוא מהצורה $a_n^{(p)}=A\\cdot2^n$. נציב ב-(⋆⋆): $A\\cdot2^n+A\\cdot2^{n-2}=15\\cdot2^n\\ \\ |:2^{n-2}\\Rightarrow4A+A=15\\cdot4\\Rightarrow A=12\\Rightarrow a_n^{(p)}=12\\cdot2^n$.\nהפתרון הרקורסיבי הוא: $a_n=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}+12\\cdot2^n$.\n$a_0=C_1+12=14\\Rightarrow C_1=2$\n$a_1=C_2+24=27\\Rightarrow C_2=3$\n$$a_n=2\\cos\\frac{n\\pi}{2}+3\\sin\\frac{n\\pi}{2}+12\\cdot2^n,\\quad n\\in\\mathbb{N}$$",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med"

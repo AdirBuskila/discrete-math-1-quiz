@@ -10,7 +10,7 @@ Run: PYTHONUTF8=1 py tools/gen/gen_20A-A.py
  - Q2a, Q2b, Q2c, Q4b, Q5c, Q6a are ONE item each (sub-parts 1/2/3 inside)."""
 import json, pathlib
 
-OUT = pathlib.Path(__file__).resolve(⋆⋆).parents[1] / "raw" / "20A-A.json"
+OUT = pathlib.Path(__file__).resolve().parents[1] / "raw" / "20A-A.json"
 
 
 def Q(num, part, kind, topic, points, question, solution, **kw):
@@ -131,7 +131,7 @@ add(Q(3, "ב", "computation", "recurrence_sums", 10,
       "\n"
       r"הפתרון הכללי של $a_n+a_{n-2}=0$ הוא: $a_n^{(h)}=C_1\cos\frac{n\pi}{2}+C_2\sin\frac{n\pi}{2}$."
       "\n"
-      r"פתרון פרטי של $a_n+a_{n-2}=15\cdot2^n$ (\*\*) הוא מהצורה $a_n^{(p)}=A\cdot2^n$. נציב ב-(\*\*): "
+      r"פתרון פרטי של $a_n+a_{n-2}=15\cdot2^n$ (⋆⋆) הוא מהצורה $a_n^{(p)}=A\cdot2^n$. נציב ב-(⋆⋆): "
       r"$A\cdot2^n+A\cdot2^{n-2}=15\cdot2^n\ \ |:2^{n-2}\Rightarrow4A+A=15\cdot4\Rightarrow A=12\Rightarrow a_n^{(p)}=12\cdot2^n$."
       "\n"
       r"הפתרון הרקורסיבי הוא: $a_n=C_1\cos\frac{n\pi}{2}+C_2\sin\frac{n\pi}{2}+12\cdot2^n$."
