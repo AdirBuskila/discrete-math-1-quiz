@@ -320,6 +320,11 @@ exam = {
     "contexts": {},
     "questions": questions,
 }
+for _q in questions:
+    for _k in ("question", "solution"):
+        if _k in _q:
+            _q[_k] = _q[_k].replace('\\"', '"')
+
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(json.dumps(exam, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print(f"wrote {OUT.name}: {len(questions)} questions")
