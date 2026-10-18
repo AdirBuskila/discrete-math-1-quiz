@@ -17,7 +17,64 @@
    "solution": "**הגדרה:** פסוק מורכב הוא פסוק שנוצר על ידי שימוש בפסוקים (אטומיים) ובקשרים לוגיים שמחברים בין הפסוקים האטומיים.\n**דוגמה לפסוק מורכב:** \"1+1=2\" וגם \"3<5\".\n**דוגמה לפסוק אטומי (בסיסי):** \"היום יום א'\".",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: פסוק מורכב נבנה מפסוקים אטומיים וקשרים לוגיים",
+     "points": 2
+    },
+    {
+     "text": "דוגמה לפסוק מורכב (שני פסוקים אטומיים וקשר)",
+     "points": 2
+    },
+    {
+     "text": "דוגמה לפסוק אטומי (פסוק בסיסי בלי קשרים)",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לתת כדוגמה לפסוק מורכב משפט שאין בו קשר לוגי.",
+    "לתת כדוגמה לפסוק אטומי משפט שאינו פסוק, כמו שאלה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מהפסוקים הבאים הוא אטומי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p\\wedge q$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\neg p$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p\\to q$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "פסוק אטומי אינו כולל אף קשר לוגי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה שורות יש בטבלת האמת של פסוק מורכב שבנוי משני פסוקים אטומיים שונים?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2^2=4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +86,96 @@
    "solution": "**הגדרה:** ההפרש הסימטרי של הקבוצות $A$ ו-$B$ הוא $A\\Delta B=(A-B)\\cup(B-A)$.\n**תשובה:** כן. נבחר $B_1=A$ ו-$B_2=\\varnothing$.\n$A\\Delta B_1=A\\Delta A=(A-A)\\cup(A-A)=\\varnothing$, ו-$A\\Delta B_2=A\\Delta\\varnothing=(A-\\varnothing)\\cup(\\varnothing-A)=A\\cup\\varnothing=A$.\nמסקנה: קיימות קבוצות $B_1,B_2$ המתאימות.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: ההפרש הסימטרי $A\\Delta B=(A-B)\\cup(B-A)$",
+     "points": 2
+    },
+    {
+     "text": "$B_1=A$ נותן $A\\Delta A=\\varnothing$",
+     "points": 1
+    },
+    {
+     "text": "$B_2=\\varnothing$ נותן $A\\Delta\\varnothing=A$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: קיימות קבוצות כאלה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $B_1=\\varnothing$: אז $A\\Delta B_1=A\\ne\\varnothing$.",
+    "להחליף בין התפקידים של $B_1$ ו-$B_2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה $B_1$ מקיימת $A\\Delta B_1=\\varnothing$ (לכל $A\\ne\\varnothing$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$B_1=A$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$B_1=\\varnothing$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$B_1=A\\cup\\{a\\}$ עבור $a\\notin A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$B_1=A-\\{a\\}$ עבור $a\\in A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$A\\Delta B=\\varnothing$ בדיוק כש-$A=B$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה $B_2$ מקיימת $A\\Delta B_2=A$ (לכל $A\\ne\\varnothing$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$B_2=\\varnothing$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$B_2=A$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$B_2=A\\cup\\{a\\}$ עבור $a\\notin A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$B_2=A-\\{a\\}$ עבור $a\\in A$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$A\\Delta B=A$ בדיוק כש-$B=\\varnothing$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\Delta B|$ עבור $A=\\{1,2,3\\}$ ו-$B=\\{3,4\\}$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$A\\Delta B=\\{1,2,4\\}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +187,68 @@
    "solution": "**הגדרה:** תהי $A$ קבוצה, $R\\subseteq A\\times A$. נאמר כי $R$ יחס טרנזיטיבי אם מקיים התנאי: לכל $x,y,z\\in A$, אם $xRy$ וגם $yRz$, אז $xRz$.\n**דוגמה:**\n$R_1=\\{(1,1),(2,2),(3,3),(1,2)\\}$\n$R_2=\\{(1,1),(2,2),(3,3),(2,1)\\}$\n$R_1\\Delta R_2=\\{(1,2),(2,1)\\}$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: יחס טרנזיטיבי",
+     "points": 1
+    },
+    {
+     "text": "בחירת $R_1,R_2$ רפלקסיביים וטרנזיטיביים",
+     "points": 2
+    },
+    {
+     "text": "חישוב $R_1\\Delta R_2=\\{(1,2),(2,1)\\}$",
+     "points": 1
+    },
+    {
+     "text": "סימטרי אך לא אנטי-סימטרי",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור $R_1=R_2$: אז $R_1\\Delta R_2=\\varnothing$, שהוא גם אנטי-סימטרי.",
+    "לבחור יחסים שאינם רפלקסיביים, או שאינם טרנזיטיביים."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה זוג יחסים על $\\{1,2,3\\}$ עונה על כל הדרישות?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$R_1=D\\cup\\{(1,2)\\}$ ו-$R_2=D\\cup\\{(2,1)\\}$, כאשר $D$ יחס הזהות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$R_1=R_2=D\\cup\\{(1,2)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$R_1=D\\cup\\{(1,2)\\}$ ו-$R_2=D\\cup\\{(1,2),(2,1)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$R_1=D$ ו-$R_2=D\\cup\\{(1,3)\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בשלוש האחרות ההפרש הסימטרי ריק, או לא סימטרי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש ב-$R_1\\Delta R_2$ בדוגמה הנכונה?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$\\{(1,2),(2,1)\\}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -53,7 +260,75 @@
    "solution": "**הגדרה:** תהי $A$ קבוצה ו-$R\\subseteq A\\times A$. $R$ נקרא יחס סדר חלקי אם $R$ הוא רפלקסיבי, אנטי-סימטרי וטרנזיטיבי על $A$.\n**דוגמה:** $A=\\{1,2\\}$ ו-$R=\\{(1,1),(2,2)\\}$ הוא יחס סדר חלקי שאינו מלא (אין קשר בין 1 ל-2).",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: סדר חלקי",
+     "points": 2
+    },
+    {
+     "text": "בחירת $R=\\{(1,1),(2,2)\\}$ על $A=\\{1,2\\}$",
+     "points": 1
+    },
+    {
+     "text": "בדיקת רפלקסיבי, אנטי-סימטרי וטרנזיטיבי",
+     "points": 1
+    },
+    {
+     "text": "הסבר שאינו מלא: 1 ו-2 אינם ניתנים להשוואה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור יחס שהוא סדר מלא.",
+    "לבחור יחס שמכיל את $(1,2)$ ואת $(2,1)$: אינו אנטי-סימטרי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה יחס על $\\{1,2\\}$ הוא סדר חלקי שאינו סדר מלא?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2)\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(1,2)\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(2,1)\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(1,1),(2,2),(1,2),(2,1)\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האפשרויות האמצעיות הן סדרים מלאים, והאחרונה אינה אנטי-סימטרית."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסי סדר חלקי יש על $\\{1,2\\}$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "יחס הזהות, ועוד כל אחד משני הזוגות $(1,2)$ או $(2,1)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מהם הם סדר מלא?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "אלה שמכילים את אחד הזוגות $(1,2)$, $(2,1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -65,7 +340,58 @@
    "solution": "**הגדרה:** תהי $f:A\\to B$ פונקציה. $f$ נקראת על אם לכל $b\\in B$ קיים $a\\in A$ כך ש: $f(a)=b$, כלומר $f(A)=B$.\nמכיוון ש-$\\{1,2,3,4,5\\}=A=B$ ו-$|A|=|B|=5<\\infty$, $f:A\\to B$ על $\\iff f$ חד-חד-ערכית $\\iff f$ הפיכה.\nמ-$f(\\{1,2\\})=\\{1,2\\}$ נובע שיש $2!$ אפשרויות עבור $f$ על $\\{1,2\\}$; ו-$f(\\{3,4,5\\})=\\{3,4,5\\}$, ולכן יש $3!$ אפשרויות עבור $\\{3,4,5\\}$.\nלפי כלל המכפלה: $12=2!\\cdot3!$ פונקציות מתאימות.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: פונקציה על",
+     "points": 1
+    },
+    {
+     "text": "על בקבוצה סופית מעצמה לעצמה שקול להפיכה",
+     "points": 1
+    },
+    {
+     "text": "$2!$ אפשרויות על $\\{1,2\\}$",
+     "points": 1
+    },
+    {
+     "text": "$3!$ אפשרויות על $\\{3,4,5\\}$",
+     "points": 1
+    },
+    {
+     "text": "כפל: $2!\\cdot3!=12$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$f(\\{3,4,5\\})=\\{3,4,5\\}$ נובע מההפיכות.",
+    "לחשב $5!=120$ בלי התנאי, או לחבר במקום להכפיל."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה דרכים יש להגדיר את $f$ על $\\{1,2\\}$ כך ש-$f(\\{1,2\\})=\\{1,2\\}$ (ו-$f$ הפיכה)?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$2!=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה דרכים יש להגדיר את $f$ על $\\{3,4,5\\}$ בהתאם?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$3!=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות על מקיימות את התנאי?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$2\\cdot6=12$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -77,7 +403,97 @@
    "solution": "טבלת האמת (T = אמת, F = שקר):\n```\np q r | p∧q | ¬q | ¬q∨r | (p∧q)↔(¬q∨r)\nT T T |  T  |  F |   T   |       T\nT T F |  T  |  F |   F   |       F\nT F T |  F  |  T |   T   |       F\nT F F |  F  |  T |   T   |       F\nF T T |  F  |  F |   T   |       F\nF T F |  F  |  F |   F   |       T\nF F T |  F  |  T |   T   |       F\nF F F |  F  |  T |   T   |       F\n```\nלכן צורת ה-DNF היא:\n$$(p\\wedge q\\wedge r)\\vee(\\neg p\\wedge q\\wedge\\neg r)$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בניית טבלת אמת בת 8 שורות עם עמודות ביניים",
+     "points": 2
+    },
+    {
+     "text": "זיהוי שתי השורות שבהן הפסוק אמת",
+     "points": 1
+    },
+    {
+     "text": "כתיבת מונח צירופי לכל שורה",
+     "points": 1
+    },
+    {
+     "text": "חיבור שני המונחים בדיסיונקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בטבלת האמת של $\\leftrightarrow$: היא אמת כששני האגפים שווים, גם כששניהם שקר.",
+    "לפספס את השורה $p=F,q=T,r=F$ שבה שני האגפים שקריים.",
+    "במונח של שורה לשכוח לשלול משתנה ששערכו שקר."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 ההשמות הפסוק $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$ אמת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "בדיקת כל 8 השורות."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו השמה מספקת את הפסוק $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=F,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=F,\\ q=F,\\ r=F$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בהשמה הראשונה שני האגפים שקריים; בשאר האגפים שונים."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו המונח ב-DNF שמתאים להשמה $p=F,\\ q=T,\\ r=F$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\neg p\\wedge q\\wedge\\neg r$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p\\wedge q\\wedge r$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\neg p\\wedge\\neg q\\wedge\\neg r$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p\\vee\\neg q\\vee r$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "משתנה ששערכו שקר נכתב בשלילה, ומשתנה ששערכו אמת נכתב כמו שהוא."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -89,7 +505,85 @@
    "solution": "השלילה: “קיים $x\\in A$ כך שלכל זוג $(y,z)\\in B\\times C$ מתקיים: $x\\le y+z$”.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שלילת \"לכל $x$\": הופך ל\"קיים $x$\"",
+     "points": 1
+    },
+    {
+     "text": "שלילת \"קיים זוג $(y,z)$\": הופך ל\"לכל זוג $(y,z)$\"",
+     "points": 2
+    },
+    {
+     "text": "שלילת הגוף: $x>y+z$ הופך ל-$x\\le y+z$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפוך רק חלק מהכמתים.",
+    "לכתוב $x<y+z$ ולשכוח את מקרה השוויון."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי שלילת הטענה, ללא קשר השלילה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קיים $x\\in A$ כך שלכל זוג $(y,z)\\in B\\times C$ מתקיים $x\\le y+z$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לכל $x\\in A$ ולכל זוג $(y,z)\\in B\\times C$ מתקיים $x\\le y+z$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קיים $x\\in A$ כך שקיים זוג $(y,z)\\in B\\times C$ עם $x\\le y+z$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "קיים $x\\in A$ כך שלכל זוג $(y,z)\\in B\\times C$ מתקיים $x<y+z$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל הכמתים מתהפכים וגם הגוף נשלל במדויק."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי שלילת $x>y+z$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x\\le y+z$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x<y+z$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x\\ge y+z$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x=y+z$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הערכים שבהם $x>y+z$ שקרי הם $x<y+z$ וגם $x=y+z$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -101,7 +595,119 @@
    "solution": "$P(n):\\ \\dfrac1{1\\cdot5}+\\dfrac1{5\\cdot9}+\\ldots+\\dfrac1{(4n-3)(4n+1)}=\\dfrac n{4n+1}$, לכל $n\\in\\mathbb{N}$, $n\\ge1$.\n**I.** $P(1):\\ \\dfrac1{1\\cdot5}=\\dfrac1{4+1}$ — הטענה נכונה.\n**II.** נוכיח: אם $P(k)=\\text{TRUE}$ עבור $1\\le k$, אז גם $P(k+1)=\\text{TRUE}$.\n$P(k):\\ \\dfrac1{1\\cdot5}+\\ldots+\\dfrac1{(4k-3)(4k+1)}=\\dfrac k{4k+1}$\n$P(k+1):\\ \\dfrac1{1\\cdot5}+\\ldots+\\dfrac1{(4k-3)(4k+1)}+\\dfrac1{(4k+1)(4k+5)}=\\dfrac{k+1}{4k+5}$\nלפי $P(k)$, הסכום עד $\\dfrac1{(4k-3)(4k+1)}$ שווה ל-$\\dfrac k{4k+1}$, ולכן אגף שמאל של $P(k+1)$ הוא:\n$$\\frac k{4k+1}+\\frac1{(4k+1)(4k+5)}=\\frac{k(4k+5)+1}{(4k+1)(4k+5)}=\\frac{4k^2+5k+1}{(4k+1)(4k+5)}=\\frac{4k^2+4k+k+1}{(4k+1)(4k+5)}=\\frac{4k(k+1)+(k+1)}{(4k+1)(4k+5)}$$\n$$=\\frac{(4k+1)(k+1)}{(4k+1)(4k+5)}=\\frac{k+1}{4k+5}$$\nלכן $P(k+1)=\\text{TRUE}$.\n**מסקנה:** מ-I ו-II נובע ש-$P(n)=\\text{TRUE}$ לכל $1\\le n\\in\\mathbb{N}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בדיקת בסיס $n=1$: $\\frac15=\\frac15$",
+     "points": 2
+    },
+    {
+     "text": "ניסוח הנחת האינדוקציה $P(k)$ והוספת האיבר $\\frac1{(4k+1)(4k+5)}$ לאגף שלה",
+     "points": 3
+    },
+    {
+     "text": "מכנה משותף ופישוט עד $\\frac{4k^2+5k+1}{(4k+1)(4k+5)}$",
+     "points": 2
+    },
+    {
+     "text": "פירוק $4k^2+5k+1=(4k+1)(k+1)$ וצמצום",
+     "points": 2
+    },
+    {
+     "text": "מסקנה לפי עקרון האינדוקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוסיף את האיבר הלא נכון: האיבר החדש הוא $\\frac1{(4k+1)(4k+5)}$ ולא $\\frac1{(4k+5)(4k+9)}$.",
+    "לא לצמצם את הגורם $4k+1$ ולהיתקע בביטוי מורכב.",
+    "להשתמש ב-$P(k+1)$ בהוכחה שלו."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו הערך של האגף השמאלי עבור $n=2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac29$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac15$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac14$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\frac19$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\frac1{1\\cdot5}+\\frac1{5\\cdot9}=\\frac15+\\frac1{45}=\\frac{10}{45}=\\frac29$, כמו $\\frac n{4n+1}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "לאיזה מכפלה מתפרק $4k^2+5k+1$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(4k+1)(k+1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(4k+5)(k+1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(4k+1)(k+5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(2k+1)^2$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(4k+1)(k+1)=4k^2+5k+1$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "אגף שמאל של $P(k+1)$ לפי $P(k)$: $\\frac k{4k+1}+\\frac1{(4k+1)(4k+5)}$",
+      "$=\\frac{k(4k+5)+1}{(4k+1)(4k+5)}$",
+      "$=\\frac{4k^2+5k+1}{(4k+1)(4k+5)}$",
+      "$=\\frac{(4k+1)(k+1)}{(4k+1)(4k+5)}$",
+      "$=\\frac{k+1}{4k+5}$, כלומר $P(k+1)$ נכון"
+     ],
+     "explain": "הנחה, מכנה משותף, פתיחה, פירוק וצמצום."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של הצעד שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "אגף שמאל של $P(k+1)$ לפי $P(k)$: $\\frac k{4k+1}+\\frac1{(4k+1)(4k+5)}$",
+      "$=\\frac{k(4k+5)+1}{(4k+1)(4k+5)}$",
+      "$=\\frac{4k^2+5k+1}{(4k+1)(4k+5)}$",
+      "$=\\frac{(4k+5)(k+1)}{(4k+1)(4k+5)}$",
+      "$=\\frac{k+1}{4k+5}$, כלומר $P(k+1)$ נכון"
+     ],
+     "bugIndex": 3,
+     "explain": "$4k^2+5k+1=(4k+1)(k+1)$ ולא $(4k+5)(k+1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +719,87 @@
    "solution": "ההצבות: $|A|=10\\cdot10=100$, $|B|=|C|=10$.\n$|P(A\\times B)\\times C|=|P(A\\times B)|\\cdot|C|=2^{|A\\times B|}\\cdot|C|=2^{|A|\\cdot|B|}\\cdot|C|=2^{100\\cdot10}\\cdot10=10\\cdot2^{1000}$.\n$B\\Delta C=(B-C)\\cup(C-B)$, ו-$B\\cap C=\\{2^0\\}=\\{1\\}=\\{3^0\\}$. לכן $|B\\Delta C|=|B-C|+|C-B|=9+9=18$.\n$(B\\times C)-(B\\cup C)=B\\times C$, כי איברי $B\\times C$ הם זוגות סדורים ואיברי $B\\cup C$ הם מספרים, ולכן $(B\\times C)\\cap(B\\cup C)=\\varnothing$. לכן $|(B\\times C)-(B\\cup C)|=|B\\times C|=|B|\\cdot|C|=100$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$|A|=100$ ו-$|B|=|C|=10$",
+     "points": 1
+    },
+    {
+     "text": "$B\\cap C=\\{1\\}$",
+     "points": 1
+    },
+    {
+     "text": "$|B\\Delta C|=9+9=18$",
+     "points": 2
+    },
+    {
+     "text": "$B\\times C$ מכיל זוגות סדורים ו-$B\\cup C$ מספרים, ולכן $(B\\times C)-(B\\cup C)=B\\times C$ בגודל 100",
+     "points": 3
+    },
+    {
+     "text": "$|P(A\\times B)\\times C|=2^{|A||B|}\\cdot|C|=10\\cdot2^{1000}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $|B\\Delta C|=20$ בלי להפחית את האיבר המשותף $1$.",
+    "לחסר 10 או 19 מ-$|B\\times C|$ בחיסור $B\\cup C$: איבריהן מסוגים שונים.",
+    "לכתוב $|P(X)|=|X|^2$ במקום $2^{|X|}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים משותפים יש ל-$B$ ול-$C$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "רק $1=2^0=3^0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|B\\Delta C|$?",
+     "answer": 18,
+     "tol": 0,
+     "explain": "$9+9=18$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|(B\\times C)-(B\\cup C)|$?",
+     "answer": 100,
+     "tol": 0,
+     "explain": "$|B\\times C|=10\\cdot10$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $|P(A\\times B)\\times C|$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$10\\cdot2^{1000}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$10\\cdot2^{100}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{1000}+10$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{10000}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|A\\times B|=100\\cdot10=1000$, ולכן $|P(A\\times B)|=2^{1000}$ וכופלים ב-$|C|=10$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -125,7 +811,79 @@
    "solution": "$f(n)=\\sum_{k=0}^{n}\\binom nk4^k=\\sum_{k=0}^{n}\\binom nk4^k1^{n-k}=(4+1)^n=5^n$.\nהאם $f(n)=5^n=O(4^n)$ ? נניח בשלילה ש-$5^n=O(4^n)$: אז קיימים $c_0>0$ ו-$n_0\\in\\mathbb{N}$ כך ש-$5^n\\le c_0\\cdot4^n$ לכל $n_0\\le n\\in\\mathbb{N}$, כלומר $\\dfrac{5^n}{4^n}\\le c_0$ לכל $n_0\\le n\\in\\mathbb{N}$.\nאך $\\lim_{n\\to\\infty}\\left(\\dfrac54\\right)^n=\\infty\\le c_0$, סתירה.\nמסקנה: $f(n)\\ne O(4^n)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "משפט הבינום: $\\sum\\binom nk4^k1^{n-k}=(4+1)^n=5^n$",
+     "points": 2
+    },
+    {
+     "text": "הנחת השלילה: קיימים $c_0,n_0$ כך ש-$5^n\\le c_0 4^n$",
+     "points": 1
+    },
+    {
+     "text": "$(5/4)^n\\le c_0$ לכל $n\\ge n_0$",
+     "points": 1
+    },
+    {
+     "text": "$\\lim(5/4)^n=\\infty$, סתירה",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: $f(n)\\ne O(4^n)$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $(4+1)^n$ בלי לזהות את הבינום, או לכתוב $4^n$.",
+    "להסיק $5^n=O(4^n)$ כי הבסיסים קרובים: היחס בין החזקות גדל בלי גבול."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\sum_{k=0}^{3}\\binom3k4^k$?",
+     "answer": 125,
+     "tol": 0,
+     "explain": "$(4+1)^3=125$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי כדי להראות ש-$5^n\\ne O(4^n)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "בשלילה: מניחים $5^n\\le c_0\\cdot4^n$ ומראים ש-$(5/4)^n$ אינו חסום"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מראים ש-$\\lim4^n/5^n=\\infty$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינדוקציה על $n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מוצאים $c_0=1$ ו-$n_0=1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הגבול של $4^n/5^n$ הוא $0$ ולא $\\infty$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו ה-$n$ הקטן ביותר שעבורו $(5/4)^n>100$?",
+     "answer": 21,
+     "tol": 0,
+     "explain": "$1.25^{20}\\approx86.7$ ו-$1.25^{21}\\approx108.4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -137,7 +895,94 @@
    "solution": "**(1) $R$ רפלקסיבי:** לכל $x\\in\\mathbb{Z}-\\{0\\}$ מתקיים $xRx$. הטענה נכונה כי $xRx\\iff x\\cdot x>0$, ולכן $x\\ne0$.\n**(2) $R$ סימטרי:** לכל $x,y\\in\\mathbb{Z}-\\{0\\}$, אם $xRy$ אז $yRx$, כי $xRy\\iff x\\cdot y>0\\iff y\\cdot x>0\\iff yRx$.\n**(3) $R$ טרנזיטיבי:** לכל $x,y,z\\in\\mathbb{Z}-\\{0\\}$, אם $xRy$ ו-$yRz$ אז $xRz$. אכן, $xy>0\\iff xRy$ ו-$yz>0\\iff yRz$, ולכן $x\\cdot y^2\\cdot z>0$. מכיוון ש-$y\\ne0$, $y^2>0$, ולכן $xz>0$, כלומר $xRz$.\nמסקנה: $R$ הוא יחס שקילות.\n$[1]=\\{x:\\ x\\in\\mathbb{Z}-\\{0\\}\\wedge x\\cdot1>0\\}=\\{x:\\ x\\in\\mathbb{Z}-\\{0\\},\\ x>0\\}$\n$[-1]=\\{x:\\ x\\in\\mathbb{Z}-\\{0\\}\\wedge x\\cdot(-1)>0\\}=\\{x:\\ x\\in\\mathbb{Z}-\\{0\\},\\ x<0\\}$\n$[-1]\\cup[1]=\\mathbb{Z}-\\{0\\}$ ו-$[-1]\\cap[1]=\\varnothing$, ולכן $(\\mathbb{Z}-\\{0\\})/R=\\{[-1],[1]\\}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות ($x\\cdot x>0$ כי $x\\ne0$) וסימטריה ($xy=yx$)",
+     "points": 2
+    },
+    {
+     "text": "טרנזיטיביות: מכפלת ההנחות $xzy^2>0$ ולכן $xz>0$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: יחס שקילות",
+     "points": 1
+    },
+    {
+     "text": "מחלקות $[1]$ (החיוביים) ו-$[-1]$ (השליליים)",
+     "points": 2
+    },
+    {
+     "text": "קבוצת המנה $\\{[1],[-1]\\}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$0$ אינו בתחום, ולכן $x^2>0$.",
+    "לבדוק רק שתיים משלוש התכונות.",
+    "לטעות במספר המחלקות: אין מחלקה לכל מספר שלם."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי מחלקת השקילות $[1]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{x\\in\\mathbb{Z}-\\{0\\}:\\ x>0\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{x\\in\\mathbb{Z}-\\{0\\}:\\ x<0\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{1\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\mathbb{Z}-\\{0\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$1Rx\\iff x>0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$(\\mathbb{Z}-\\{0\\})/R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "החיוביים והשליליים."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח $xy>0$ וגם $yz>0$",
+      "נכפיל: $(xy)(yz)=xz\\cdot y^2>0$, ומכיוון ש-$y\\ne0$ מתקיים $y^2>0$",
+      "מחלקים ב-$y^2$ ומקבלים $xz>0$, כלומר $xRz$"
+     ],
+     "explain": "הנחות, כפל, חילוק."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $xy>0$ וגם $yz>0$",
+      "נכפיל: $(xy)(yz)=xz\\cdot y>0$, ומכיוון ש-$y\\ne0$ מתקיים $y^2>0$",
+      "מחלקים ב-$y^2$ ומקבלים $xz>0$, כלומר $xRz$"
+     ],
+     "bugIndex": 1,
+     "explain": "$(xy)(yz)=xz\\cdot y^2$ ולא $xz\\cdot y$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -149,7 +994,78 @@
    "solution": "ה-contrapositive הוא: “תהיינה $A,B$ שתי קבוצות לא ריקות. אם $B\\not\\subseteq A$ וגם $A\\not\\subseteq B$, אז $P(A\\cup B)\\ne P(A)\\cup P(B)$.”\n**הוכחה** (נבדוק את ה-contrapositive): $B\\not\\subseteq A$ וגם $A\\not\\subseteq B$ גורר שקיימים $b\\in B-A$ וגם $a\\in A-B$.\n$\\{a,b\\}\\subseteq A\\cup B$, כלומר $\\{a,b\\}\\in P(A\\cup B)$.\n$\\{a,b\\}\\not\\subseteq A$ (כי $b\\notin A$) ו-$\\{a,b\\}\\not\\subseteq B$ (כי $a\\notin B$), ולכן $\\{a,b\\}\\notin P(A)\\cup P(B)$.\nמסקנה: $P(A\\cup B)\\ne P(A)\\cup P(B)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "ניסוח ה-contrapositive: שלילת המסקנה גוררת שלילת ההנחה",
+     "points": 3
+    },
+    {
+     "text": "בחירת $a\\in A-B$ ו-$b\\in B-A$",
+     "points": 2
+    },
+    {
+     "text": "$\\{a,b\\}\\in P(A\\cup B)$ אך לא ב-$P(A)\\cup P(B)$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: אי-השוויון בין הקבוצות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להחליף את ה-contrapositive בהיפוך (converse) של הטענה.",
+    "לשכוח שהשלילה של ”$A\\subseteq B$ או $B\\subseteq A$\\\" היא ”וגם” בין שני אי-ההכלות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו ה-contrapositive של הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אם $B\\not\\subseteq A$ וגם $A\\not\\subseteq B$, אז $P(A\\cup B)\\ne P(A)\\cup P(B)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אם $A\\subseteq B$ או $B\\subseteq A$, אז $P(A\\cup B)=P(A)\\cup P(B)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אם $P(A\\cup B)\\ne P(A)\\cup P(B)$, אז $B\\not\\subseteq A$ וגם $A\\not\\subseteq B$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אם $B\\not\\subseteq A$ או $A\\not\\subseteq B$, אז $P(A\\cup B)\\ne P(A)\\cup P(B)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ה-contrapositive של \"אם P אז Q\" הוא \"אם לא Q אז לא P\"; בשלילת \"או\" מקבלים \"וגם\"."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $A=\\{1,2\\}$ ו-$B=\\{2,3\\}$: בכמה איברים $P(A\\cup B)$ גדולה מ-$P(A)\\cup P(B)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$8-6=2$: הקבוצות $\\{1,3\\}$ ו-$\\{1,2,3\\}$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה של ה-contrapositive.",
+     "lines": [
+      "קיימים $b\\in B-A$ וגם $a\\in A-B$, כי $B\\not\\subseteq A$ וגם $A\\not\\subseteq B$",
+      "$\\{a,b\\}\\in P(A\\cup B)$, אך $\\{a,b\\}\\notin P(A)\\cup P(B)$ (כי $b\\notin A$ וגם $a\\notin B$)",
+      "לכן $P(A\\cup B)\\ne P(A)\\cup P(B)$"
+     ],
+     "explain": "בחירת איברים, הצבעה על קבוצה, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -161,7 +1077,64 @@
    "solution": "לפי ההגדרה: $B=\\{7\\}\\cup C$, כאשר $C\\subseteq\\{5,6,8,\\ldots,n\\}$, כלומר $C\\in P(\\{5,6,8,\\ldots,n\\})$.\nמספר ה-$B$-ים שווה למספר ה-$C$-ים: $|P(\\{5,6,8,\\ldots,n\\})|=2^{|\\{5,6,8,\\ldots,n\\}|}=2^{n-5}$, כי $|\\{5,6,8,\\ldots,n\\}|=|\\{1,2,\\ldots,n\\}-\\{1,2,3,4,7\\}|=n-5$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$B=\\{7\\}\\cup C$ כאשר $C$ מוכלת ב-$\\{5,6,8,\\ldots,n\\}$",
+     "points": 1
+    },
+    {
+     "text": "גודל $\\{5,6,8,\\ldots,n\\}$ הוא $n-5$",
+     "points": 1
+    },
+    {
+     "text": "$2^{n-5}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שגם $7$ מוצא מהאיברים החופשיים: חופשיים $n-5$ ולא $n-4$.",
+    "לספור $n-5$ במקום $2^{n-5}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה קבוצות $B$ מקיימות את התנאים כש-$n=10$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "$2^{10-5}=32$."
+    },
+    {
+     "type": "choice",
+     "prompt": "כמה קבוצות $B$ מקיימות את התנאים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{n-5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{n-4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{n-6}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n-5$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "האיברים $1,2,3,4$ נאסרים ו-$7$ חייב להיכלל; $n-5$ איברים חופשיים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -173,7 +1146,54 @@
    "solution": "נתון: $S$ היא קבוצה בת 8 איברים, ולכן $m=\\binom84$ הוא מספר תתי-הקבוצות בגודל 4.\n$m=\\dfrac{8!}{4!\\,4!}=\\dfrac{5\\cdot6\\cdot7\\cdot8}{2\\cdot3\\cdot4}=70=2\\cdot5\\cdot7$.\n$\\varnothing(m^2)=\\varnothing(70^2)=\\varnothing(2^2\\cdot5^2\\cdot7^2)=70^2\\left(1-\\frac12\\right)\\left(1-\\frac15\\right)\\left(1-\\frac17\\right)=70\\cdot70\\cdot\\frac12\\cdot\\frac45\\cdot\\frac67=70\\cdot24=1680$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$m=\\binom84=70$",
+     "points": 2
+    },
+    {
+     "text": "פירוק $70^2=2^2\\cdot5^2\\cdot7^2$",
+     "points": 1
+    },
+    {
+     "text": "נוסחת Euler עם הגורמים הראשוניים",
+     "points": 2
+    },
+    {
+     "text": "$\\varphi(m^2)=1680$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\varphi(m^2)=\\varphi(m)^2$: הנוסחה הנכונה היא $m\\cdot\\varphi(m)$.",
+    "לחשב $\\binom84=\\frac{8!}{4!}$ בלי לחלק גם ב-$4!$ השני."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $m=\\binom84$?",
+     "answer": 70,
+     "tol": 0,
+     "explain": "$\\frac{8!}{4!\\,4!}=70$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(70)$?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$70\\cdot\\frac12\\cdot\\frac45\\cdot\\frac67=24$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(m^2)$?",
+     "answer": 1680,
+     "tol": 0,
+     "explain": "$70\\cdot24=1680$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -185,7 +1205,64 @@
    "solution": "$f$ היא פונקציה $\\iff$ נבחר את $f(1),f(2),f(3),f(4)$: $f(1)\\in\\{1,\\ldots,6\\}$ — 6 אפשרויות, וכן הלאה לכל אחד מארבעת האיברים.\nמסקנה: $|F|=6^4$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בחירת $f(1),f(2),f(3),f(4)$ בלתי תלויה",
+     "points": 1
+    },
+    {
+     "text": "לכל ערך 6 אפשרויות",
+     "points": 1
+    },
+    {
+     "text": "$6^4=1296$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $4^6$: מספר הפונקציות הוא (גודל הטווח) בחזקת (גודל התחום).",
+    "לחשב $6\\cdot4=24$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות יש ב-$F$?",
+     "answer": 1296,
+     "tol": 0,
+     "explain": "$6^4=1296$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את מספר הפונקציות מקבוצה בת 4 איברים לקבוצה בת 6 איברים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$6^4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$4^6$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$6\\cdot4$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\binom64$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לכל אחד מארבעת האיברים בוחרים אחד מ-6 ערכים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -197,7 +1274,43 @@
    "solution": "$f\\in F$ יורדת ממש $\\iff f(1)>f(2)>f(3)>f(4)$. כל תת-קבוצה של $\\{1,2,\\ldots,6\\}$ בגודל 4 מגדירה פונקציה אחת בלבד שיורדת ממש: $\\{f(1),f(2),f(3),f(4)\\}$.\nלכן מספר הפונקציות היורדות ממש הוא $\\binom64=\\binom62=\\dfrac{6\\cdot5}{1\\cdot2}=15$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פונקציה יורדת ממש: $f(1)>f(2)>f(3)>f(4)$",
+     "points": 1
+    },
+    {
+     "text": "התאמה חד-חד-ערכית ועל בין פונקציות יורדות ממש לתתי-קבוצות בגודל 4",
+     "points": 1
+    },
+    {
+     "text": "$\\binom64=15$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור $6^4$ או $P(6,4)$.",
+    "לחשוב שלכל תת-קבוצה יש כמה פונקציות יורדות: יש בדיוק אחת."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות יורדות ממש יש ב-$F$?",
+     "answer": 15,
+     "tol": 0,
+     "explain": "$\\binom64=15$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות יורדות ממש מקבלות בדיוק את הערכים $\\{2,3,4,5\\}$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "סידור הערכים בסדר יורד קובע את הפונקציה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -209,7 +1322,50 @@
    "solution": "עבור $f\\in F$ חד-חד-ערכית עם $f(\\{1,2\\})=\\{1,2\\}$: יש $2!$ אפשרויות עבור $f$ על $\\{1,2\\}$; ועבור $f(3),f(4)$ — $P(4,2)$ אפשרויות (שני ערכים שונים מתוך $\\{3,4,5,6\\}$).\nלפי כלל המכפלה: $24=4!=2!\\cdot\\dfrac{4!}{2!}$ פונקציות מתאימות.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$f$ על $\\{1,2\\}$: $2!$ אפשרויות",
+     "points": 1
+    },
+    {
+     "text": "$f(3),f(4)$ מתוך $\\{3,4,5,6\\}$ ללא חזרה: $4\\cdot3=12$",
+     "points": 2
+    },
+    {
+     "text": "כפל: $2\\cdot12=24$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לאפשר ל-$f(3)$ ו-$f(4)$ לקבל את הערכים $1,2$: זה מפר חד-חד-ערכיות.",
+    "לשכוח שהערכים של $f(3),f(4)$ חייבים להיות שונים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה דרכים יש לבחור את $f(1),f(2)$ כך ש-$f(\\{1,2\\})=\\{1,2\\}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$2!=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה דרכים יש לבחור את $f(3),f(4)$ שונים מתוך $\\{3,4,5,6\\}$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$4\\cdot3=12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות חד-חד-ערכיות מקיימות את התנאי?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$2\\cdot12=24$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -221,7 +1377,75 @@
    "solution": "דוגמה: $S=\\{15,7,143\\}\\iff a=3\\cdot5,\\ b=7,\\ c=11\\cdot13$, כלומר $\\{\\{3,5\\},\\{7\\},\\{11,13\\}\\}$ היא חלוקה של $\\{3,5,7,11,13\\}$ ל-3 קבוצות.\nכל חלוקה של $\\{3,5,7,11,13\\}$ ל-3 קבוצות מגדירה בדיוק קבוצה $S$ אחת, ולהפך. לכן מספר הקבוצות $S$ שווה למספר STIRLING:\n$S(5,3)$, כאשר $S(n,n)=S(n,1)=1$ ו-$S(n,k)=S(n-1,k-1)+k\\cdot S(n-1,k)$.\n$S(3,2)=S(2,1)+2S(2,2)=1+2\\cdot1=3$\n$S(4,2)=S(3,1)+2S(3,2)=1+2\\cdot3=7$\n$S(4,3)=S(3,2)+3S(3,3)=3+3\\cdot1=6$\n$S(5,3)=S(4,2)+3S(4,3)=7+3\\cdot6=7+18=25$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "התאמה בין קבוצות $S$ לחלוקות של $\\{3,5,7,11,13\\}$ לשלוש קבוצות",
+     "points": 3
+    },
+    {
+     "text": "מספר Stirling $S(5,3)$ ונוסחת הנסיגה",
+     "points": 2
+    },
+    {
+     "text": "חישוב ערכי הביניים $S(3,2),S(4,2),S(4,3)$",
+     "points": 1
+    },
+    {
+     "text": "$S(5,3)=7+3\\cdot6=25$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור תמורות (120) במקום חלוקות לא סדורות.",
+    "לשכוח את הגורם $k$ בנוסחת הנסיגה $S(n,k)=S(n-1,k-1)+kS(n-1,k)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה אובייקט מתאים במדויק לכל קבוצה $S=\\{a,b,c\\}$ עם $abc=3\\cdot5\\cdot7\\cdot11\\cdot13$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חלוקה של $\\{3,5,7,11,13\\}$ לשלוש קבוצות לא ריקות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "תמורה של $\\{3,5,7,11,13\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "תת-קבוצה בגודל 3 של $\\{3,5,7,11,13\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "פונקציה מ-$\\{3,5,7,11,13\\}$ ל-$\\{a,b,c\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל גורם ראשוני שייך לבדיוק אחד מהמספרים a, b, c."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $S(4,3)$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$S(3,2)+3S(3,3)=3+3=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $S(5,3)$?",
+     "answer": 25,
+     "tol": 0,
+     "explain": "$S(4,2)+3S(4,3)=7+18=25$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -233,7 +1457,43 @@
    "solution": "הספרה האחרונה צריכה להיות 2, 4 או 6: 3 אפשרויות. לספרה הראשונה 5 אפשרויות, לשנייה 4 ולשלישית 3.\nמסקנה: ניתן ליצור $5\\cdot4\\cdot3\\cdot3=180$ מספרים מתאימים.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הספרה האחרונה זוגית: 3 אפשרויות",
+     "points": 1
+    },
+    {
+     "text": "הספרות האחרות: $5\\cdot4\\cdot3$",
+     "points": 2
+    },
+    {
+     "text": "כפל: $3\\cdot60=180$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להתחיל מהספרה הראשונה ולשכוח את אילוץ הזוגיות של הספרה האחרונה.",
+    "לאפשר חזרה על ספרות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה אפשרויות יש לספרה האחרונה?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "2, 4 או 6."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מספרים זוגיים בעלי 4 ספרות שונות אפשר ליצור?",
+     "answer": 180,
+     "tol": 0,
+     "explain": "$3\\cdot5\\cdot4\\cdot3=180$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -245,7 +1505,54 @@
    "solution": "נתייחס לבלוק $1,2,3$ כאל יחידה אחת: יש $4!$ סידורים של 4 היחידות ($1,2,3$ כבלוק, $4,5,6$), ו-$3!$ סידורים פנימיים של הבלוק.\nלכן מספר התמורות הוא $144=24\\cdot6=4!\\cdot3!$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בלוק $\\{1,2,3\\}$ נחשב כיחידה אחת",
+     "points": 1
+    },
+    {
+     "text": "סידור 4 היחידות: $4!$",
+     "points": 1
+    },
+    {
+     "text": "סידור פנימי של הבלוק: $3!$",
+     "points": 1
+    },
+    {
+     "text": "כפל: $24\\cdot6=144$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הסידור הפנימי של הבלוק, ולקבל $4!=24$.",
+    "לחשב $6!=720$ בלי האילוץ."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה סידורים יש ל-4 היחידות (הבלוק, 4, 5, 6)?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$4!=24$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה סידורים פנימיים יש לבלוק $1,2,3$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$3!=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות של $A$ מקיימות שהמספרים $1,2,3$ בסמיכות?",
+     "answer": 144,
+     "tol": 0,
+     "explain": "$24\\cdot6=144$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -257,7 +1564,90 @@
    "solution": "$3\\mid n\\iff n=3^\\alpha\\cdot m$ עבור $1\\le\\alpha$ ו-$\\gcd(3,m)=1$.\n$\\varnothing(n)=\\varnothing(3^\\alpha)\\cdot\\varnothing(m)=3^\\alpha\\left(1-\\frac13\\right)\\varnothing(m)=3^{\\alpha-1}\\cdot2\\cdot\\varnothing(m)$.\n$\\varnothing(3n)=\\varnothing(3^{\\alpha+1}\\cdot m)=\\varnothing(3^{\\alpha+1})\\varnothing(m)=3^{\\alpha+1}\\left(1-\\frac13\\right)\\varnothing(m)=3\\cdot3^{\\alpha-1}\\cdot2\\cdot\\varnothing(m)=3\\varnothing(n)$.\nמסקנה: $\\varnothing(3n)=3\\varnothing(n)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "כתיבת $n=3^\\alpha m$ עם $\\gcd(3,m)=1$",
+     "points": 2
+    },
+    {
+     "text": "כפליות $\\varphi$ על מספרים זרים",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\varphi(n)=2\\cdot3^{\\alpha-1}\\varphi(m)$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $\\varphi(3n)=2\\cdot3^\\alpha\\varphi(m)$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $\\varphi(3n)=3\\varphi(n)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בכפליות בלי שהמספרים זרים: $\\varphi(3^\\alpha m)=\\varphi(3^\\alpha)\\varphi(m)$ דורש $\\gcd(3,m)=1$.",
+    "לשכוח ש-$3\\mid n$ משנה את החזקה: ב-$3n$ החזקה היא $\\alpha+1$.",
+    "לטעון $\\varphi(3n)=\\varphi(3)\\varphi(n)=2\\varphi(n)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזה תנאי מותר לכתוב $\\varphi(ab)=\\varphi(a)\\varphi(b)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כש-$\\gcd(a,b)=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "תמיד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כש-$a=b$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כש-$a,b$ זוגיים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "למשל $\\varphi(2\\cdot2)=2$ ואילו $\\varphi(2)\\varphi(2)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(12)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$12\\cdot\\frac12\\cdot\\frac23=4$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(36)$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$3\\cdot\\varphi(12)=12$, כי $3\\mid12$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי ההוכחה.",
+     "lines": [
+      "כותבים $n=3^\\alpha m$ עם $\\alpha\\ge1$ ו-$\\gcd(3,m)=1$",
+      "$\\varphi(n)=\\varphi(3^\\alpha)\\varphi(m)=2\\cdot3^{\\alpha-1}\\varphi(m)$ וגם $\\varphi(3n)=\\varphi(3^{\\alpha+1})\\varphi(m)=2\\cdot3^{\\alpha}\\varphi(m)$",
+      "לכן $\\varphi(3n)=3\\cdot\\left(2\\cdot3^{\\alpha-1}\\varphi(m)\\right)=3\\varphi(n)$"
+     ],
+     "explain": "פירוק, שני החישובים, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -269,7 +1659,89 @@
    "solution": "נסמן $A=(\\mathbb{Q}\\cap[1,5])\\cup(\\mathbb{Z}\\cap[20.5,100.5])$.\nמכיוון ש-$A\\subseteq\\mathbb{Q}$, $|A|\\le|\\mathbb{Q}|$.\nב-$A$ יש תת-קבוצה אינסופית שניתנת לסידור בסדרה של $\\mathbb{N}$: $B=\\left\\{1+\\frac12,\\ 1+\\frac13,\\ 1+\\frac14,\\ \\ldots,\\ 1+\\frac1n,\\ \\ldots\\right\\}$.\n$|\\mathbb{Z}|=|\\mathbb{N}|=|B|\\le|A|\\le|\\mathbb{Q}|=|\\mathbb{N}|=|\\mathbb{Z}|$.\nמסקנה: $|A|=|\\mathbb{Z}|$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$A\\subseteq\\mathbb{Q}$ ולכן $|A|\\le|\\mathbb{Q}|$",
+     "points": 2
+    },
+    {
+     "text": "תת-קבוצה אינסופית $B=\\{1+\\frac1n\\}$ של $A$",
+     "points": 2
+    },
+    {
+     "text": "שרשרת $|\\mathbb{Z}|=|\\mathbb{N}|=|B|\\le|A|\\le|\\mathbb{Q}|=|\\mathbb{Z}|$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $|A|=|\\mathbb{Z}|$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להתעלם מהחלק $\\mathbb{Z}\\cap[20.5,100.5]$: הוא סופי ואינו משפיע, אבל צריך לציין זאת.",
+    "להראות רק אחד משני אי-השוויונות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חסם מלמעלה בהכלה ב-$\\mathbb{Q}$ וחסם מלמטה בתת-קבוצה אינסופית בת-מנייה, ואז שוויון"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בניית התאמה מפורשת בין $A$ ל-$\\mathbb{Z}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טיעון אלכסוני של קנטור"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שני אי-שוויונות בין עוצמות נותנים שוויון."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו תת-קבוצה אינסופית של $A$ בוחר הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{1+\\frac12,1+\\frac13,1+\\frac14,\\ldots\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{1-\\frac12,1-\\frac13,1-\\frac14,\\ldots\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{21,22,\\ldots,100\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{5+\\frac12,5+\\frac13,\\ldots\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "השנייה והרביעית מחוץ ל-$A$, והשלישית סופית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -281,7 +1753,96 @@
    "solution": "נציב $F_n=r^n$: $r^n=r^{n-1}+r^{n-2}$, ונחלק ב-$r^{n-2}$: $r^2-r-1=0$.\n$r_{1,2}=\\dfrac{1\\pm\\sqrt5}2$, כלומר $r_1=\\dfrac{1-\\sqrt5}2$ ו-$r_2=\\dfrac{1+\\sqrt5}2$, $r_1\\ne r_2$.\n$F_n=C_1r_1^n+C_2r_2^n$.\n$F_0=C_1+C_2=0\\Rightarrow C_1=-C_2$, ו-$F_1=C_1r_1+C_2r_2=1$, ולכן $C_2(r_2-r_1)=1$, כלומר $C_2=\\dfrac1{r_2-r_1}=\\dfrac1{\\sqrt5}$ ו-$C_1=\\dfrac{-1}{\\sqrt5}$.\nמסקנה: $F_n=-\\dfrac1{\\sqrt5}\\left(\\dfrac{1-\\sqrt5}2\\right)^n+\\dfrac1{\\sqrt5}\\left(\\dfrac{1+\\sqrt5}2\\right)^n$, לכל $n\\in\\mathbb{N}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הצבת $F_n=r^n$ ומשוואה אופיינית $r^2-r-1=0$",
+     "points": 2
+    },
+    {
+     "text": "שורשים $r_{1,2}=\\frac{1\\pm\\sqrt5}2$ ופתרון כללי",
+     "points": 2
+    },
+    {
+     "text": "מערכת מ-$F_0=0$, $F_1=1$: $C_1=-C_2$ ו-$C_2=\\frac1{\\sqrt5}$",
+     "points": 2
+    },
+    {
+     "text": "הנוסחה הסופית",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$r_1\\ne r_2$ ולכן אין צורך בגורם $n$.",
+    "לטעות בסימן של $C_1$: מ-$F_0=0$ מקבלים $C_1=-C_2$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהם שורשי המשוואה האופיינית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac{1\\pm\\sqrt5}2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\frac{-1\\pm\\sqrt5}2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\pm\\sqrt5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1$ ו-$-1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$r^2-r-1=0$ נותן $r=\\frac{1\\pm\\sqrt5}2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $C_2$ (המקדם של $\\left(\\frac{1+\\sqrt5}2\\right)^n$)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\frac1{\\sqrt5}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$-\\frac1{\\sqrt5}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac12$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$C_2(r_2-r_1)=1$ ו-$r_2-r_1=\\sqrt5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $F_{10}$?",
+     "answer": 55,
+     "tol": 0,
+     "explain": "סדרת Fibonacci: $0,1,1,2,3,5,8,13,21,34,55$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }

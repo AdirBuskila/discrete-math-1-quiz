@@ -17,7 +17,60 @@
    "solution": "**הגדרה:** פסוק מורכב הוא פסוק שנוצר על ידי שימוש בפסוקים אטומיים וקשרים לוגיים שמחברים בין הפסוקים האטומיים.\n**דוגמה:** אני אוכל גלידה וגם קורא עיתון.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: פסוק מורכב נבנה מפסוקים אטומיים וקשרים לוגיים",
+     "points": 1
+    },
+    {
+     "text": "דוגמה בעברית שמחברת שני פסוקים אטומיים בקשר (\"וגם\", \"או\", \"אם...אז\")",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לתת פסוק אטומי כדוגמה, בלי קשר לוגי.",
+    "לתת משפט שאינו פסוק (שאלה או ציווי): אין לו ערך אמת."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה מהפסוקים הבאים הוא פסוק מורכב?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p\\wedge\\neg q$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$q$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$r$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק הראשון בנוי מפסוקים אטומיים באמצעות קשרים; האחרים אטומיים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה השמות אפשריות לשלושה פסוקים אטומיים $p,q,r$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$2^3=8$ שורות בטבלת האמת של פסוק מורכב בשלושה משתנים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +82,50 @@
    "solution": "**הגדרה:** תהיינה $A$ ו-$B$ קבוצות. הקבוצה $A\\times B$ שמוגדרת לפי הכלל $A\\times B=\\{(a,b):\\ a\\in A\\wedge b\\in B\\}$ נקראת המכפלה הקרטזית של הקבוצות $A$ ו-$B$.\nהקבוצה הראשונה (משמאל ל-$\\times$) כוללת 3 איברים, והקבוצה $\\{1,P(\\{1,2\\})\\}$ כוללת 2 איברים.\nלכן בקבוצה $\\{\\ldots\\}\\times\\{\\ldots\\}$ יש $6=3\\cdot2$ איברים.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: מכפלה קרטזית $A\\times B$ היא קבוצת הזוגות הסדורים",
+     "points": 1
+    },
+    {
+     "text": "$|A|=3$ ו-$|B|=2$",
+     "points": 1
+    },
+    {
+     "text": "כפל: $|A\\times B|=3\\cdot2=6$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחבר $3+2=5$ במקום לכפול.",
+    "לספור את $P(\\{1,2\\})$ כארבעה איברים בקבוצה השנייה: הוא איבר אחד, והוא שונה מ-$1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש בקבוצה $\\{\\{\\{\\{\\varnothing\\}\\}\\},\\ P(\\{\\{\\{1\\}\\},\\varnothing\\}),\\ \\{\\{\\varnothing\\}\\}\\}$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "שלושה איברים שונים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש בקבוצה $\\{1,P(\\{1,2\\})\\}$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$1$ ו-$P(\\{1,2\\})$ שונים זה מזה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש במכפלה הקרטזית?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$3\\cdot2=6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +137,50 @@
    "solution": "**הגדרה:** תהי $A$ קבוצה. היחס $R\\subseteq A\\times A$ נקרא סימטרי אם לכל $x,y\\in A$ מתקיים: אם $xRy$ אז $yRx$ (כלומר: לכל $x,y\\in A$, אם $(x,y)\\in R$ אז $(y,x)\\in R$).\n**תשובה:** 8. היחסים הם:\n$\\varnothing$, $\\{(1,1)\\}$, $\\{(2,2)\\}$, $\\{(1,1),(2,2)\\}$, $\\{(1,2),(2,1)\\}$, $\\{(1,1),(1,2),(2,1)\\}$, $\\{(2,2),(1,2),(2,1)\\}$, $\\{(1,1),(2,2),(1,2),(2,1)\\}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: יחס סימטרי",
+     "points": 1
+    },
+    {
+     "text": "שלוש בחירות בלתי תלויות: $(1,1)$, $(2,2)$, והזוג $\\{(1,2),(2,1)\\}$ ביחד או בכלל לא",
+     "points": 1
+    },
+    {
+     "text": "$2^3=8$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור $2^4=16$ (כל יחס) ולשכוח שהזוגות $(1,2),(2,1)$ נכללים יחד או לא נכללים יחד.",
+    "לשכוח את היחס הריק."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה בחירות בלתי תלויות מגדירות יחס סימטרי על $\\{1,2\\}$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$(1,1)$, $(2,2)$, והזוג הסימטרי $\\{(1,2),(2,1)\\}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסים סימטריים יש על $\\{1,2\\}$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$2^3=8$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסים סימטריים יש על $\\{1,2,3\\}$?",
+     "answer": 64,
+     "tol": 0,
+     "explain": "$2^6=64$: שלושה זוגות אלכסון ושלושה זוגות סימטריים."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -53,7 +192,64 @@
    "solution": "**הגדרה:** תהי $A$ קבוצה ו-$R\\subseteq A\\times A$. $R$ הוא יחס סדר מלא אם $R$ הוא יחס סדר חלקי (כלומר רפלקסיבי, אנטי-סימטרי וטרנזיטיבי) ומתקיים: לכל $a,b\\in A$, אם $(a,b)\\in R$ או $(b,a)\\in R$.\n**דוגמה:** $R\\subseteq(0,1]\\times(0,1]$, כאשר $x\\le y\\iff(x,y)\\in R$. ל-$R$ יש איבר מקסימום (1), אך אין לו איבר מינימום.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: סדר מלא = סדר חלקי שבו כל שני איברים ניתנים להשוואה",
+     "points": 1
+    },
+    {
+     "text": "בחירת $(0,1]$ עם $\\le$",
+     "points": 1
+    },
+    {
+     "text": "נימוק: $1$ מקסימום ואין מינימום, כי לכל $x$ מתקיים $\\frac x2<x$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור קטע סגור $[0,1]$, שיש לו גם מינימום.",
+    "לבחור קבוצה סופית: בסדר מלא על קבוצה סופית יש תמיד מינימום."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו קבוצה עם $\\le$ היא סדר מלא עם מקסימום אך בלי מינימום?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(0,1]$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$[0,1]$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(0,1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$[0,1)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ב-$[0,1]$ יש גם $0$, ב-$(0,1)$ אין אף קצה ובקטע $[0,1)$ יש מינימום ואין מקסימום."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו איבר המקסימום של $(0,1]$ עם $\\le$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "$1\\in(0,1]$ וכל איבר קטן או שווה לו."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -65,7 +261,71 @@
    "solution": "**הגדרה:** תהיינה $A,B$ קבוצות ו-$f:A\\to B$ פונקציה. $f$ נקראת פונקציה על אם לכל $b\\in B$ קיים $a\\in A$ כך ש: $f(a)=b$, כלומר $f(A)=B$.\nמכיוון ש-$|\\{1,2,3\\}|=3=|\\{1,2,3\\}|$, כל $f$ על היא גם חד-חד-ערכית ולכן גם הפיכה. כלומר: $f$ על $\\iff f$ מתאימה בין איברי $\\{1,2,3\\}$ בצורה חד-חד-ערכית.\n**תשובה:** $3!=6$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה: פונקציה על",
+     "points": 1
+    },
+    {
+     "text": "על בין קבוצות סופיות שוות גודל גוררת חד-חד-ערכית",
+     "points": 1
+    },
+    {
+     "text": "מספר התמורות: $3!=6$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור את כל 27 הפונקציות.",
+    "לספור $\\binom33$ או לחשב $3^3-3$ בלי נימוק."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "כל פונקציה על מ-$\\{1,2,3\\}$ לעצמה היא בהכרח:",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חד-חד-ערכית (ולכן הפיכה)"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "פונקציה קבועה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "פונקציית הזהות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "פונקציה עולה ממש"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בקבוצה סופית, על שקול לחד-חד-ערכית כאשר הגדלים שווים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות על יש מ-$\\{1,2,3\\}$ ל-$\\{1,2,3\\}$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$3!=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות מ-$\\{1,2,3\\}$ לעצמה אינן על?",
+     "answer": 21,
+     "tol": 0,
+     "explain": "$27-6=21$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -77,7 +337,97 @@
    "solution": "טבלת האמת (T = אמת, F = שקר):\n```\np q r | p∧q | ¬q | ¬q∨r | (p∧q)↔(¬q∨r)\nT T T |  T  |  F |   T   |       T\nT T F |  T  |  F |   F   |       F\nT F T |  F  |  T |   T   |       F\nT F F |  F  |  T |   T   |       F\nF T T |  F  |  F |   T   |       F\nF T F |  F  |  F |   F   |       T\nF F T |  F  |  T |   T   |       F\nF F F |  F  |  T |   T   |       F\n```\nהפסוק אמת בשתי שורות, ולכן צורת ה-DNF היא:\n$$(p\\wedge q\\wedge r)\\vee(\\neg p\\wedge q\\wedge\\neg r)$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בניית טבלת אמת בת 8 שורות עם עמודות ביניים",
+     "points": 2
+    },
+    {
+     "text": "זיהוי שתי השורות שבהן הפסוק אמת",
+     "points": 1
+    },
+    {
+     "text": "כתיבת מונח צירופי לכל שורה",
+     "points": 1
+    },
+    {
+     "text": "חיבור שני המונחים בדיסיונקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בטבלת האמת של $\\leftrightarrow$: היא אמת כששני האגפים שווים בערכם, גם כששניהם שקר.",
+    "לפספס את השורה $p=F,q=T,r=F$ שבה שני האגפים שקריים.",
+    "במונח של שורה לשכוח לשלול משתנה ששערכו שקר."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בכמה מ-8 ההשמות הפסוק $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$ אמת?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "בדיקת כל 8 השורות."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו השמה מספקת את הפסוק $(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$p=F,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p=T,\\ q=T,\\ r=F$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$p=T,\\ q=F,\\ r=T$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p=F,\\ q=F,\\ r=F$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בהשמה הראשונה שני האגפים שקריים. בשנייה האגף השמאלי אמת והימני שקר, ובשתי האחרונות האגף השמאלי שקר והימני אמת."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו המונח ב-DNF שמתאים להשמה $p=F,\\ q=T,\\ r=F$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\neg p\\wedge q\\wedge\\neg r$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$p\\wedge q\\wedge r$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\neg p\\wedge\\neg q\\wedge\\neg r$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$p\\vee\\neg q\\vee r$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "משתנה ששערכו שקר נכתב בשלילה, ומשתנה ששערכו אמת נכתב כמו שהוא."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -89,7 +439,85 @@
    "solution": "השלילה: “קיים $x\\in A$ וקיים $y\\in B$ כך שלכל $z\\in C$ מתקיים $y+z\\ge x$”.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שלילת הכמתים: \"לכל $x$ ולכל $y$\" הופך ל\"קיים $x$ וקיים $y$\"",
+     "points": 2
+    },
+    {
+     "text": "שלילת הכמת \"קיים $z$\": הופך ל\"לכל $z$\"",
+     "points": 1
+    },
+    {
+     "text": "שלילת הגוף: $y+z<x$ הופך ל-$y+z\\ge x$ (בלי קשר שלילה)",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפוך רק חלק מהכמתים.",
+    "לכתוב $y+z>x$ ולשכוח את מקרה השוויון."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי שלילת הטענה, ללא קשר השלילה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קיים $x\\in A$ וקיים $y\\in B$ כך שלכל $z\\in C$ מתקיים $y+z\\ge x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לכל $x\\in A$ ולכל $y\\in B$ ולכל $z\\in C$ מתקיים $y+z\\ge x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קיים $x\\in A$ וקיים $y\\in B$ כך שקיים $z\\in C$ עם $y+z\\ge x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "קיים $x\\in A$ כך שלכל $y\\in B$ ולכל $z\\in C$ מתקיים $y+z\\ge x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל כמת מתהפך, וגם הגוף נשלל."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי שלילת $y+z<x$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$y+z\\ge x$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$y+z>x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$y+z\\le x$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$y+z=x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הערכים שבהם $y+z<x$ שקרי הם כל הערכים עם $y+z>x$ או $y+z=x$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -101,7 +529,96 @@
    "solution": "$P(n):\\ (n+1)+(n+2)+\\ldots+(2n-1)+(2n)=n(3n+1)/2$, לכל $n\\in\\mathbb{N}$, $n\\ge1$.\n**I.** $P(1):\\ 1+1=1\\cdot(3+1)/2\\iff2=2$ — TRUE.\n**II.** נוכיח: אם $P(k)=\\text{TRUE}$ עבור $k\\ge1$, אז גם $P(k+1)=\\text{TRUE}$.\n$P(k):\\ (k+1)+(k+2)+\\ldots+(2k-1)+(2k)=k(3k+1)/2$\n$P(k+1):\\ (k+2)+\\ldots+(2k)+(2k+1)+(2k+2)=(k+1)(3k+4)/2$\nלפי $P(k)=\\text{TRUE}$, הסכום $(k+2)+\\ldots+(2k)$ שווה ל-$k(3k+1)/2-(k+1)$, ולכן אגף שמאל של $P(k+1)$ הוא:\n$$\\frac{k(3k+1)}2-(k+1)+(2k+1)+(2k+2)=\\frac{k(3k+1)}2+3k+2=\\frac{3k^2+7k+4}2$$\nואגף ימין: $\\dfrac{(k+1)(3k+4)}2=\\dfrac{3k^2+4k+3k+4}2=\\dfrac{3k^2+7k+4}2$.\nלכן $P(k+1)=\\text{TRUE}$.\n**III.** מ-I ו-II נובע ש-$P(n)=\\text{TRUE}$ לכל $n\\in\\mathbb{N}$, $n\\ge1$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "בדיקת בסיס $n=1$: $2=2$",
+     "points": 2
+    },
+    {
+     "text": "ניסוח $P(k)$ ו-$P(k+1)$",
+     "points": 1
+    },
+    {
+     "text": "מעבר מ-$P(k)$ ל-$P(k+1)$: מורידים את $(k+1)$ ומוסיפים $(2k+1)+(2k+2)$",
+     "points": 3
+    },
+    {
+     "text": "פישוט אלגברי עד $\\frac{3k^2+7k+4}2$",
+     "points": 2
+    },
+    {
+     "text": "השוואה לאגף ימין ומסקנה לפי עקרון האינדוקציה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח להוריד את $(k+1)$: הסכום ב-$P(k+1)$ מתחיל ב-$k+2$.",
+    "להוסיף רק את $2k+2$ ולא גם את $2k+1$.",
+    "להשתמש ב-$P(k+1)$ בהוכחה של עצמו."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו הסכום $(n+1)+\\ldots+(2n)$ עבור $n=3$?",
+     "answer": 15,
+     "tol": 0,
+     "explain": "$4+5+6=15=\\frac{3\\cdot10}2$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איך עוברים מהסכום של $P(k)$ לסכום של $P(k+1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "מורידים את $k+1$ ומוסיפים $(2k+1)+(2k+2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מוסיפים רק $2k+2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מוסיפים $(2k+1)+(2k+2)$ בלי להוריד כלום"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מורידים את $2k$ ומוסיפים $2k+2$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הסכום של $P(k)$ הוא $(k+1)+\\ldots+2k$ והסכום של $P(k+1)$ הוא $(k+2)+\\ldots+(2k+2)$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הצעד.",
+     "lines": [
+      "אגף שמאל של $P(k+1)$ לפי $P(k)$: $\\frac{k(3k+1)}2-(k+1)+(2k+1)+(2k+2)$",
+      "$=\\frac{k(3k+1)}2+3k+2$",
+      "$=\\frac{3k^2+k+6k+4}2=\\frac{3k^2+7k+4}2$",
+      "$(k+1)(3k+4)=3k^2+7k+4$, ולכן האגף שווה ל-$\\frac{(k+1)(3k+4)}2$, כלומר $P(k+1)$ נכון"
+     ],
+     "explain": "מהנחה, לפישוט, ולהשוואה לאגף ימין."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של הצעד שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "אגף שמאל של $P(k+1)$ לפי $P(k)$: $\\frac{k(3k+1)}2-(k+1)+(2k+1)+(2k+2)$",
+      "$=\\frac{k(3k+1)}2+3k+4$",
+      "$=\\frac{3k^2+k+6k+4}2=\\frac{3k^2+7k+4}2$",
+      "$(k+1)(3k+4)=3k^2+7k+4$, ולכן האגף שווה ל-$\\frac{(k+1)(3k+4)}2$, כלומר $P(k+1)$ נכון"
+     ],
+     "bugIndex": 1,
+     "explain": "$-(k+1)+(2k+1)+(2k+2)=3k+2$ ולא $3k+4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -113,7 +630,75 @@
    "solution": "$x\\in A\\iff x=2^m5^n11^q$ ו-$x\\in B\\iff x=3^{m'}5^{n'}7^{q'}$. לפי יחידות הפירוק לגורמים ראשוניים:\n$x\\in A\\cap B\\iff m=0,\\ q=0,\\ m'=0,\\ q'=0,\\ n=n'\\in\\{0,1,\\ldots,19\\}$.\nלכן $A\\cap B=\\{5^n:\\ n\\in\\{0,1,\\ldots,19\\}\\}$, ו-$|A\\cap B|=20$.\n$|A|=|B|=20^3$, ולכן $|A\\cup B|=|A|+|B|-|A\\cap B|=20^3+20^3-20=2\\cdot20^3-20$.\nנסמן $M=|A\\cup B|=2\\cdot20^3-20$. אז $|P(A\\cup B)|=2^{|A\\cup B|}=2^M=2^{2\\cdot20^3-20}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "זיהוי $A\\cap B=\\{5^n\\}$ לפי יחידות הפירוק לראשוניים",
+     "points": 2
+    },
+    {
+     "text": "$|A\\cap B|=20$",
+     "points": 1
+    },
+    {
+     "text": "$|A|=|B|=20^3$ והכלה והפרדה: $|A\\cup B|=2\\cdot20^3-20$",
+     "points": 2
+    },
+    {
+     "text": "$|P(A\\cup B)|=2^{|A\\cup B|}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $|A\\cup B|=|A|+|B|$ בלי להפחית את החיתוך.",
+    "לכתוב $|P(X)|=2\\cdot|X|$ או $|X|^2$ במקום $2^{|X|}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\cap B|$?",
+     "answer": 20,
+     "tol": 0,
+     "explain": "רק החזקות $5^n$ משותפות לשתי הקבוצות."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $|A\\cup B|$?",
+     "answer": 15980,
+     "tol": 0,
+     "explain": "$8000+8000-20=15980$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $|P(A\\cup B)|$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{2\\cdot20^3-20}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{2\\cdot20^3}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{20^3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2\\cdot20^3-20$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|P(X)|=2^{|X|}$ עם $|X|=2\\cdot20^3-20$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -125,7 +710,60 @@
    "solution": "הטענה אינה נכונה. דוגמה נגדית: $A=\\varnothing$, $B=\\{1\\}$ — קבוצות שונות, ו-$A\\times B=\\varnothing=B\\times A$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה שקרית",
+     "points": 1
+    },
+    {
+     "text": "דוגמה נגדית $A=\\varnothing$, $B=\\{1\\}$, ואימות $A\\times B=B\\times A=\\varnothing$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות להוכיח את הטענה: מספיקה דוגמה נגדית אחת.",
+    "לבחור קבוצות לא ריקות ושונות: אז שתי המכפלות שונות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה זוג קבוצות שונות מקיים $A\\times B=B\\times A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$A=\\varnothing$, $B=\\{1\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$A=\\{1\\}$, $B=\\{2\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$A=\\{1\\}$, $B=\\{1,2\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$A=\\{1,2\\}$, $B=\\{1,2,3\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "אם אחת הקבוצות ריקה שתי המכפלות ריקות; אחרת יש הבדל בין $(a,b)$ ל-$(b,a)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה איברים יש ב-$\\varnothing\\times\\{1\\}$?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "אין זוגות סדורים כשהמרכיב הראשון ריק."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -137,7 +775,101 @@
    "solution": "הטענה נכונה.\n**I.** נבדוק ש: $A\\times(B\\cap C)\\subseteq(A\\times B)\\cap(A\\times C)$.\nלכל $(x,y)\\in A\\times(B\\cap C)$: $x\\in A$ ו-$y\\in B\\cap C$, ולכן $(x\\in A\\wedge y\\in B)$ וגם $(x\\in A\\wedge y\\in C)$, כלומר $(x,y)\\in A\\times B$ וגם $(x,y)\\in A\\times C$, ולכן $(x,y)\\in(A\\times B)\\cap(A\\times C)$.\n**II.** נבדוק ש: $(A\\times B)\\cap(A\\times C)\\subseteq A\\times(B\\cap C)$.\nלכל $(x,y)\\in(A\\times B)\\cap(A\\times C)$: $(x,y)\\in A\\times B$ וגם $(x,y)\\in A\\times C$, כלומר $(x\\in A\\wedge y\\in B)$ וגם $(x\\in A\\wedge y\\in C)$, ולכן $x\\in A$ ו-$y\\in B\\cap C$, כלומר $(x,y)\\in A\\times(B\\cap C)$.\nמסקנה: הטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה נכונה",
+     "points": 1
+    },
+    {
+     "text": "כיוון I: $A\\times(B\\cap C)\\subseteq(A\\times B)\\cap(A\\times C)$ עם איבר שרירותי",
+     "points": 3
+    },
+    {
+     "text": "כיוון II: ההכלה ההפוכה עם איבר שרירותי",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: שוויון הקבוצות משתי ההכלות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להוכיח רק כיוון אחד של ההכלה ולהסיק שוויון.",
+    "לבלבל בין $\\cap$ ל-$\\cup$ בשלב הפירוק של הזוג.",
+    "לחפש דוגמה נגדית לטענה נכונה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה נכון לגבי הטענה $A\\times(B\\cap C)=(A\\times B)\\cap(A\\times C)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "נכונה לכל שלוש קבוצות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שקרית: יש דוגמה נגדית עם קבוצות לא ריקות ושונות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "נכונה רק כש-$A\\subseteq B$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "נכונה רק כש-$B=C$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הזוג $(x,y)$ שייך לשני הצדדים בדיוק כש-$x\\in A$ ו-$y\\in B\\cap C$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להוכחת השוויון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שתי הכלות, כל אחת עם איבר שרירותי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "טבלת אמת"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינדוקציה על גודל הקבוצות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "דוגמה נגדית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שוויון קבוצות מוכיחים על ידי הכלה בשני הכיוונים."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי כיוון I.",
+     "lines": [
+      "יהי $(x,y)\\in A\\times(B\\cap C)$, כלומר $x\\in A$ ו-$y\\in B\\cap C$",
+      "לכן $(x\\in A\\wedge y\\in B)$ וגם $(x\\in A\\wedge y\\in C)$",
+      "כלומר $(x,y)\\in A\\times B$ וגם $(x,y)\\in A\\times C$",
+      "לכן $(x,y)\\in(A\\times B)\\cap(A\\times C)$"
+     ],
+     "explain": "כל שורה משתמשת בהגדרת מכפלה או חיתוך על השורה שלפניה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -149,7 +881,94 @@
    "solution": "**(1) $R$ רפלקסיבי:** לכל $x\\in\\mathbb{Q}-\\{0\\}$, $xRx\\iff0<x\\cdot x=x^2$. הטענה נכונה כי $x\\ne0$.\n**(2) $R$ סימטרי:** לכל $x,y\\in\\mathbb{Q}-\\{0\\}$, אם $xRy$ אז $yRx$, כי $xRy\\iff x\\cdot y>0\\iff y\\cdot x>0\\iff yRx$.\n**(3) $R$ טרנזיטיבי:** לכל $x,y,z\\in\\mathbb{Q}-\\{0\\}$, אם $xRy$ ו-$yRz$ אז $xRz$. אכן, $0<xy\\iff xRy$ ו-$0<yz\\iff yRz$, ולכן $0<(x\\cdot z)\\cdot y^2=(xy)\\cdot(yz)$. מכיוון ש-$y\\ne0$, $0<y^2$, ולכן $xz>0$, כלומר $xRz$.\nמסקנה: $R$ הוא יחס שקילות.\n$[1]=\\{x:\\ x\\in\\mathbb{Q}-\\{0\\}\\wedge x\\cdot1>0\\}=\\{x\\in\\mathbb{Q}-\\{0\\}:\\ x>0\\}$\n$[-1]=\\{x:\\ x\\in\\mathbb{Q}-\\{0\\}\\wedge x\\cdot(-1)>0\\}=\\{x\\in\\mathbb{Q}-\\{0\\}:\\ x<0\\}$\n$[1]\\cup[-1]=\\mathbb{Q}-\\{0\\}$, ולכן $(\\mathbb{Q}-\\{0\\})/R=\\{[1],[-1]\\}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $x\\cdot x=x^2>0$ כי $x\\ne0$",
+     "points": 2
+    },
+    {
+     "text": "סימטריה: $xy=yx$",
+     "points": 2
+    },
+    {
+     "text": "טרנזיטיביות: מכפלת ההנחות $xzy^2>0$ ולכן $xz>0$",
+     "points": 3
+    },
+    {
+     "text": "מסקנה: יחס שקילות",
+     "points": 1
+    },
+    {
+     "text": "מחלקות $[1]$ (החיוביים) ו-$[-1]$ (השליליים) וקבוצת המנה $\\{[1],[-1]\\}$",
+     "points": 4
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$0$ אינו בתחום, ולכן $x^2>0$ ולא רק $x^2\\ge0$.",
+    "לבדוק רק שתיים משלוש התכונות של יחס שקילות.",
+    "לחשוב שיש מחלקה לכל מספר רציונלי במקום שתי מחלקות בלבד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי מחלקת השקילות $[1]$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{x\\in\\mathbb{Q}-\\{0\\}:\\ x>0\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{x\\in\\mathbb{Q}-\\{0\\}:\\ x<0\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{1\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\mathbb{Q}-\\{0\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$1Rx\\iff1\\cdot x>0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$(\\mathbb{Q}-\\{0\\})/R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "החיוביים והשליליים."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את שלבי הוכחת הטרנזיטיביות.",
+     "lines": [
+      "נניח $xy>0$ וגם $yz>0$",
+      "נכפיל: $(xy)(yz)=xz\\cdot y^2>0$, ומכיוון ש-$y\\ne0$ מתקיים $y^2>0$",
+      "מחלקים ב-$y^2$ ומקבלים $xz>0$, כלומר $xRz$"
+     ],
+     "explain": "הנחות, כפל, חילוק."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה שורה אחת שגויה. מצאו אותה.",
+     "lines": [
+      "נניח $xy>0$ וגם $yz>0$",
+      "נכפיל: $(xy)(yz)=xz\\cdot y>0$, ומכיוון ש-$y\\ne0$ מתקיים $y^2>0$",
+      "מחלקים ב-$y^2$ ומקבלים $xz>0$, כלומר $xRz$"
+     ],
+     "bugIndex": 1,
+     "explain": "$(xy)(yz)=xz\\cdot y^2$ ולא $xz\\cdot y$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -161,7 +980,79 @@
    "solution": "$|D|=|A|-(3+5)=4$. מספר הזוגות ב-$R$ שכוללים את $a$ תלוי במחלקה שבה $a$ נמצא:\n**מקרה 1:** $a\\in C$ ($[a]=C$, $|C|=3$). אז $(a,a)\\in R$, ולכל $x\\in C-\\{a\\}$ מתקיים $(a,x),(x,a)\\in R$. סה״כ $1+2\\cdot2=5$ זוגות ב-$R$.\n**מקרה 2:** $a\\in B$ ($[a]=B$, $|B|=5$). אז $(a,a)\\in R$, ולכל $x\\in B-\\{a\\}$ מתקיים $(a,x),(x,a)\\in R$. סה״כ $1+4+4=9$ זוגות ב-$R$.\n**מקרה 3:** $a\\in D$ ($[a]=D$, $|D|=4$). אז $(a,a)\\in R$, ולכל $x\\in D-\\{a\\}$ מתקיים $(a,x),(x,a)\\in R$. סה״כ $1+3+3=7$ זוגות ב-$R$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב $|D|=12-5-3=4$",
+     "points": 1
+    },
+    {
+     "text": "הצגת שלושה מקרים לפי המחלקה של $a$",
+     "points": 1
+    },
+    {
+     "text": "$a\\in C$: $1+2\\cdot2=5$ זוגות",
+     "points": 1
+    },
+    {
+     "text": "$a\\in B$: $1+4+4=9$ זוגות",
+     "points": 1
+    },
+    {
+     "text": "$a\\in D$: $1+3+3=7$ זוגות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור $2s$ במקום $2s-1$: הזוג $(a,a)$ נספר פעם אחת בלבד.",
+    "לענות על מקרה אחד, כשהשאלה מבקשת את כל המקרים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $|D|$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$12-5-3=4$."
+    },
+    {
+     "type": "choice",
+     "prompt": "אם $a$ שייך למחלקה בגודל $s$, כמה זוגות ב-$R$ כוללים את $a$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2s-1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$s$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$s^2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2s$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הזוגות $(a,x)$ ו-$(x,a)$ לכל $x$, כשהזוג $(a,a)$ נספר פעם אחת."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות ב-$R$ כוללים את $a$ אם $a\\in B$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$2\\cdot5-1=9$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -173,7 +1064,76 @@
    "solution": "$f(n)=S_1+S_2$, כאשר $S_1=\\sum_{k=0}^{n}\\binom nk3^{2k}$ ו-$S_2=\\sum_{k=0}^{n}\\binom nk2^{2k}$.\n$S_1=\\sum_{k=0}^{n}\\binom nk9^k=\\sum_{k=0}^{n}\\binom nk9^k1^{n-k}=(9+1)^n=10^n$\n$S_2=\\sum_{k=0}^{n}\\binom nk4^k=\\sum_{k=0}^{n}\\binom nk4^k1^{n-k}=(4+1)^n=5^n$\nמסקנה: $f(n)=10^n+5^n$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פיצול הסכום לשני סכומים",
+     "points": 2
+    },
+    {
+     "text": "$S_1=\\sum\\binom nk9^k1^{n-k}=(9+1)^n=10^n$",
+     "points": 2
+    },
+    {
+     "text": "$S_2=\\sum\\binom nk4^k1^{n-k}=(4+1)^n=5^n$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $f(n)=10^n+5^n$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $3^{2k}=6^k$ במקום $9^k$.",
+    "לשכוח את הגורם $1^{n-k}$ ולכן לא לזהות את משפט הבינום.",
+    "לחשב $(9+4)^n$ בבת אחת: הבינום חל על כל סכום בנפרד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "רושמים כל חזקה כ-$a^k1^{n-k}$ ומפעילים את משפט הבינום של Newton"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על $n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משפט Fermat הקטן"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "סכום סדרה הנדסית"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\sum\\binom nka^k=(a+1)^n$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\sum_{k=0}^{2}\\binom2k9^k$?",
+     "answer": 100,
+     "tol": 0,
+     "explain": "$(9+1)^2=100$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(3)$?",
+     "answer": 1125,
+     "tol": 0,
+     "explain": "$10^3+5^3=1000+125=1125$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -185,7 +1145,64 @@
    "solution": "מספר הפונקציות $f:A\\to A$ הוא $10^{10}$, כי לכל אחד מ-10 האיברים $f(1),\\ldots,f(10)\\in A$ יש 10 אפשרויות, וכל אחת מהפונקציות מגדירה יחס.\n$f:A\\to A$ היא חד-חד-ערכית $\\iff f$ הפיכה, כי $A$ סופית, ומספר הפונקציות הללו הוא $10\\cdot9\\cdot8\\cdots1=10!$ ($f(1)\\in A$: 10 אפשרויות, $f(2)\\in A-\\{f(1)\\}$: 9 אפשרויות, ... , $f(10)\\in A-\\{f(1),\\ldots,f(9)\\}$: אפשרות אחת).\nמסקנה: מספר היחסים $R\\subseteq A\\times A$ שהם פונקציות אך לא חד-חד-ערכיות הוא $10^{10}-10!$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "מספר הפונקציות $A\\to A$ הוא $10^{10}$",
+     "points": 2
+    },
+    {
+     "text": "מספר החד-חד-ערכיות הוא $10!$",
+     "points": 2
+    },
+    {
+     "text": "החסרה: $10^{10}-10!$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להפוך את ההחסרה: $10!-10^{10}$ שלילי.",
+    "לחשב $\\binom{10}{2}$ כמספר החד-חד-ערכיות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "על קבוצה בת 3 איברים: כמה פונקציות $A\\to A$ אינן חד-חד-ערכיות?",
+     "answer": 21,
+     "tol": 0,
+     "explain": "$27-6=21$."
+    },
+    {
+     "type": "choice",
+     "prompt": "כמה פונקציות $A\\to A$ אינן חד-חד-ערכיות כש-$|A|=10$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$10^{10}-10!$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$10!-10^{10}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$10^{10}-\\binom{10}{2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$10^{10}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מכלל הפונקציות $10^{10}$ מחסרים את החד-חד-ערכיות, שמספרן $10!$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -197,7 +1214,71 @@
    "solution": "$f$ עולה ממש $\\iff f(1)<f(2)<\\ldots<f(10)\\iff\\{f(1),f(2),\\ldots,f(10)\\}$ היא תת-קבוצה בגודל 10 של $B$.\nהנימוק: אם $\\{b_1,\\ldots,b_{10}\\}\\in P(B)$, כך ש-$b_1<b_2<\\ldots<b_{10}$, אז ניתן להבנות פונקציה $f:A\\to B$ אחת בלבד שעולה ממש.\nמסקנה: מספר הפונקציות $f:A\\to B$ העולות ממש שווה למספר תתי-הקבוצות בגודל 10 של $B$, כלומר $\\binom{20}{10}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פונקציה עולה ממש: $f(1)<\\ldots<f(10)$",
+     "points": 1
+    },
+    {
+     "text": "התאמה חד-חד-ערכית ועל בין פונקציות עולות ממש לתתי-קבוצות בגודל 10 של $B$",
+     "points": 2
+    },
+    {
+     "text": "$\\binom{20}{10}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור $20^{10}$ או $P(20,10)$ במקום תתי-קבוצות.",
+    "לשכוח שלכל תת-קבוצה מתאימה פונקציה עולה אחת בלבד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה קובע פונקציה עולה ממש $f:A\\to B$ באופן יחיד?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קבוצת הערכים שלה, שהיא תת-קבוצה של $B$ בגודל $|A|$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הערך $f(1)$ בלבד"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "תמורה של $B$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "סדרה של $|A|$ ערכים עם חזרות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "סידור הערכים בסדר עולה משחזר את הפונקציה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות עולות ממש יש מ-$\\{1,2,3\\}$ ל-$\\{1,2,3,4,5\\}$?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$\\binom53=10$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות עולות ממש יש מ-$A$ ל-$B$ בשאלה?",
+     "answer": 184756,
+     "tol": 0,
+     "explain": "$\\binom{20}{10}=184756$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -209,7 +1290,64 @@
    "solution": "נסמן $\\Omega=\\{A_1,A_2,A_3\\}$, כאשר $A_1=\\{1,2\\}$, $A_2=\\{3\\}$, $A_3=\\{4,5\\}$. $\\Omega$ היא חלוקה של $C$, כי:\n(1) $A_i\\ne\\varnothing$ לכל $i$; (2) $A_i\\cap A_j=\\varnothing$ לכל $i\\ne j$; (3) $A_1\\cup A_2\\cup A_3=C$.\nלכן קיים יחס שקילות $R\\subseteq C\\times C$ כך ש-$C/R=\\Omega$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "זיהוי שלושת תנאי החלוקה: איברים לא ריקים, זרים בזוגות, איחוד שווה ל-$C$",
+     "points": 3
+    },
+    {
+     "text": "בדיקה שהם מתקיימים עבור $\\Omega$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה: כל חלוקה מגדירה יחס שקילות שמחלקותיו הן איברי החלוקה",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק זרות ולשכוח שהאיחוד חייב להיות כל $C$.",
+    "לשכוח את הדרישה שאף איבר אינו ריק."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מה מראים כדי להסיק ש-$\\Omega$ היא קבוצת המנה של יחס שקילות על $C$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "ש-$\\Omega$ חלוקה של $C$: איבריה לא ריקים, זרים בזוגות ואיחודם $C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "שכל איבר של $\\Omega$ בגודל 2"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "שהחיתוך של כל איברי $\\Omega$ אינו ריק"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שכל איברי $\\Omega$ בגודל זהה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שלושת התנאים האחרונים אינם מתקיימים אפילו ב-$\\Omega$ הנתונה."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש ביחס השקילות שמתאים ל-$\\Omega$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$4+1+4=9$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -221,7 +1359,72 @@
    "solution": "מתקיים $C/R=\\{\\{1,2\\},\\{3\\},\\{4,5\\}\\}$, ולכן:\n$[1]=[2]=\\{1,2\\}\\iff(1,1),(2,2),(1,2),(2,1)\\in R$\n$[3]=\\{3\\}\\iff(3,3)\\in R$\n$[4]=[5]=\\{4,5\\}\\iff(4,4),(5,5),(4,5),(5,4)\\in R$\nמסקנה: $R=\\{(1,1),(2,2),(3,3),(4,4),(5,5),(1,2),(2,1),(4,5),(5,4)\\}$.\n$R$ אינו יחס סדר חלקי, כי $(1,2),(2,1)\\in R$ ו-$1\\ne2$ (אינו אנטי-סימטרי).",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "זוגות המחלקה $\\{1,2\\}$: 4 זוגות",
+     "points": 1
+    },
+    {
+     "text": "זוג המחלקה $\\{3\\}$: $(3,3)$",
+     "points": 1
+    },
+    {
+     "text": "זוגות המחלקה $\\{4,5\\}$: 4 זוגות",
+     "points": 1
+    },
+    {
+     "text": "$R$ היא איחוד של 9 הזוגות",
+     "points": 1
+    },
+    {
+     "text": "$R$ אינו סדר חלקי, כי אינו אנטי-סימטרי: $(1,2),(2,1)\\in R$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את זוגות האלכסון $(a,a)$ בכל מחלקה.",
+    "להניח שכל יחס שקילות הוא סדר חלקי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה זוגות יש ב-$R$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$4+1+4=9$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $R$ הוא יחס סדר חלקי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא: הוא אינו אנטי-סימטרי, כי $(1,2),(2,1)\\in R$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן: הוא רפלקסיבי וטרנזיטיבי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא: הוא אינו רפלקסיבי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא: הוא אינו טרנזיטיבי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$R$ רפלקסיבי וטרנזיטיבי (הוא יחס שקילות), אך $1\\ne2$ ושני הזוגות ב-$R$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -233,7 +1436,96 @@
    "solution": "מכיוון ש-$p$ ראשוני, $\\varnothing(p)=p-1$. מכיוון ש-$q$ ראשוני, $\\varnothing(q)=q-1$.\n$\\varnothing(p)^{\\varnothing(q)}-1=(p-1)^{q-1}-1$. מכיוון ש-$p<q$, $q\\nmid(p-1)$, ולכן לפי משפט Fermat: $q\\mid\\left((p-1)^{q-1}-1\\right)$.\n$\\left(1+\\varnothing(q)\\right)^{\\varnothing(p)}-1=(1+q-1)^{p-1}-1=q^{p-1}-1$. מכיוון ש-$p,q$ ראשוניים ו-$p<q$, $p\\nmid q$, ולכן לפי משפט Fermat: $p\\mid\\left(q^{p-1}-1\\right)$.\nלכן $(p\\cdot q)\\mid n$, כלומר $n\\pmod{pq}\\equiv0$, כאשר $n=\\left((p-1)^{q-1}-1\\right)\\left(q^{p-1}-1\\right)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$\\varphi(p)=p-1$ ו-$\\varphi(q)=q-1$",
+     "points": 1
+    },
+    {
+     "text": "$q\\mid(p-1)^{q-1}-1$ לפי Fermat כי $q\\nmid p-1$",
+     "points": 2
+    },
+    {
+     "text": "$p\\mid q^{p-1}-1$ לפי Fermat כי $p\\nmid q$",
+     "points": 1
+    },
+    {
+     "text": "$p,q$ זרים ולכן $pq\\mid n$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש ב-$q^{p-1}-1$ כגורם המתחלק ב-$q$: הוא מתחלק ב-$p$ ולא ב-$q$.",
+    "לשכוח לוודא ש-$q\\nmid p-1$ (תנאי של משפט Fermat)."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזה משפט משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "משפט Fermat הקטן"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט Wilson"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משפט השאר הסיני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "האלגוריתם של Euclid"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שני הגורמים הם מהצורה $a^{r-1}-1$ עבור $r$ ראשוני."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה מהגורמים של $n$ מתחלק ב-$q$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(p-1)^{q-1}-1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$q^{p-1}-1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אף אחד מהם"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שניהם"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$q^{p-1}-1\\equiv-1\\pmod q$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $n$ עבור $p=3$, $q=5$?",
+     "answer": 360,
+     "tol": 0,
+     "explain": "$(2^4-1)\\cdot(5^2-1)=15\\cdot24=360$, והוא מתחלק ב-15."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -245,7 +1537,72 @@
    "solution": "הטענה לא נכונה: $1,2\\in\\mathbb{N}-\\{0\\}$ ו-$\\varnothing(1)=\\varnothing(2)=1$, מספר אי-זוגי.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "קביעה שהטענה שקרית",
+     "points": 1
+    },
+    {
+     "text": "בחירת $m=1$, $n=2$ (שונים זה מזה)",
+     "points": 1
+    },
+    {
+     "text": "$\\varphi(1)=1$",
+     "points": 1
+    },
+    {
+     "text": "$\\varphi(2)=1$",
+     "points": 1
+    },
+    {
+     "text": "שני הערכים אי-זוגיים, ולכן אין ביניהם זוגי",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לנסות להוכיח את הטענה: מספיקה דוגמה נגדית.",
+    "לבחור זוג כמו $(1,3)$: $\\varphi(3)=2$ זוגי."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(2)$?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "רק $1$ זר ל-2 ובין $1$ ל-2."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג $m\\ne n$ מפריך את הטענה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$m=1$, $n=2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$m=2$, $n=3$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$m=1$, $n=3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$m=3$, $n=4$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\varphi(3)=\\varphi(4)=2$ זוגיים, ו-$\\varphi(1)=\\varphi(2)=1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -257,7 +1614,75 @@
    "solution": "הטענה נכונה. בין שלושה מספרים שונים ב-$\\mathbb{N}-\\{0\\}$ יש לפחות אחד, נסמנו $q$, כך ש-$2<q$ (רק $1,2$ אינם גדולים מ-2). נראה שעבור כל $2<q\\in\\mathbb{N}$ מתקיים $2\\mid\\varnothing(q)$.\nנכתוב $q=p_1^{\\alpha_1}p_2^{\\alpha_2}\\cdots p_k^{\\alpha_k}$ (*), כאשר $p_i$ ראשוני ו-$1\\le\\alpha_i\\in\\mathbb{N}$ לכל $i$. אז:\n$$\\varnothing(q)=p_1^{\\alpha_1}\\cdots p_k^{\\alpha_k}\\left(1-\\frac1{p_1}\\right)\\cdots\\left(1-\\frac1{p_k}\\right)=p_1^{\\alpha_1-1}p_2^{\\alpha_2-1}\\cdots p_k^{\\alpha_k-1}(p_1-1)\\cdots(p_k-1)$$\n**מקרה 1:** בפירוק (*) קיים $p_i$ עם $2<p_i$. אז $2\\mid(p_i-1)$ ו-$(p_i-1)\\mid\\varnothing(q)$, ולכן $2\\mid\\varnothing(q)$.\n**מקרה 2:** בפירוק (*) אין $2<p_i$, כלומר $q=2^{\\alpha_1}$, ומכיוון ש-$2<q$ מתקיים $2\\le\\alpha_1$. אז $\\varnothing(q)=2^{\\alpha_1}\\left(1-\\frac12\\right)=2^{\\alpha_1-1}$, ו-$\\alpha_1-1\\ge1$, ולכן $2\\mid\\varnothing(q)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הסקה שבין שלושה מספרים שונים יש $q>2$",
+     "points": 1
+    },
+    {
+     "text": "נוסחת Euler: $\\varphi(q)=\\prod p_i^{\\alpha_i-1}(p_i-1)$",
+     "points": 1
+    },
+    {
+     "text": "מקרה 1: קיים ראשוני אי-זוגי $p_i\\mid q$, ו-$2\\mid p_i-1$",
+     "points": 2
+    },
+    {
+     "text": "מקרה 2: $q=2^\\alpha$ עם $\\alpha\\ge2$ ו-$\\varphi(q)=2^{\\alpha-1}$ זוגי",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב ש-$\\varphi(n)$ זוגי תמיד: $\\varphi(1)=\\varphi(2)=1$.",
+    "לשכוח את המקרה $q=2^\\alpha$, שבו אין ראשוני אי-זוגי."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מדוע לפחות אחד משלושת הערכים זוגי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אחד המספרים גדול מ-2, ו-$\\varphi(q)$ זוגי לכל $q>2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $\\varphi(n)$ זוגי לכל $n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי סכום שלושה מספרים שונים הוא זוגי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $\\varphi(n)$ זוגי לכל $n>1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\varphi(1)=1$ אי-זוגי, ולכן הטענה הראשונה שקרית."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מספרים $n\\le100$ מקיימים ש-$\\varphi(n)$ אי-זוגי?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$n=1$ ו-$n=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varphi(8)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$2^{3-1}=4$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -269,7 +1694,89 @@
    "solution": "**טענה 1:** $|\\mathbb{Q}|=|\\mathbb{N}\\times\\mathbb{N}|=|\\mathbb{N}|$.\n**טענה 2:** $|\\mathbb{Q}\\cap(1,5]|\\le|\\mathbb{Q}|$, כי $\\mathbb{Q}\\cap(1,5]\\subseteq\\mathbb{Q}$.\n**טענה 3:** $\\mathbb{Q}\\cap(1,5]$ היא קבוצה אינסופית: $B=\\left\\{1+\\frac12,\\ 1+\\frac13,\\ 1+\\frac14,\\ \\ldots,\\ 1+\\frac1n,\\ \\ldots\\right\\}\\subseteq\\mathbb{Q}\\cap(1,5]$, ולכן $|\\mathbb{N}|=|B|\\le|\\mathbb{Q}\\cap(1,5]|$.\n**מסקנה:** $|\\mathbb{N}|=|B|\\le|\\mathbb{Q}\\cap(1,5]|\\le|\\mathbb{Q}|=|\\mathbb{N}|$, ולכן $|\\mathbb{Q}\\cap(1,5]|=|\\mathbb{N}|=|\\mathbb{N}\\times\\mathbb{N}|$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "טענה 1: $|\\mathbb{Q}|=|\\mathbb{N}\\times\\mathbb{N}|=|\\mathbb{N}|$",
+     "points": 2
+    },
+    {
+     "text": "טענה 2: $|\\mathbb{Q}\\cap(1,5]|\\le|\\mathbb{Q}|$ מהכלה",
+     "points": 2
+    },
+    {
+     "text": "טענה 3: תת-קבוצה אינסופית $B=\\{1+\\frac1n\\}$ נותנת $|\\mathbb{N}|\\le|\\mathbb{Q}\\cap(1,5]|$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה משרשרת אי-השוויונות",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להראות רק כיוון אחד של אי-השוויון.",
+    "לבחור תת-קבוצה שאינה מוכלת ב-$(1,5]$, כמו $\\{1,2,3,\\ldots\\}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "חסם מלמעלה (הכלה ב-$\\mathbb{Q}$) וחסם מלמטה (תת-קבוצה אינסופית בת-מנייה), ואז שוויון"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בניית התאמה מפורשת בין $\\mathbb{N}\\times\\mathbb{N}$ לבין הקבוצה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טיעון אלכסוני של קנטור"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שני אי-שוויונות בין עוצמות נותנים שוויון."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו תת-קבוצה אינסופית של $\\mathbb{Q}\\cap(1,5]$ בוחר הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{1+\\frac12,1+\\frac13,1+\\frac14,\\ldots\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{1-\\frac12,1-\\frac13,1-\\frac14,\\ldots\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{1,2,3,4,5,6,\\ldots\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{5+\\frac12,5+\\frac13,\\ldots\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק בקבוצה הראשונה כל האיברים בקטע $(1,5]$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -281,7 +1788,76 @@
    "solution": "המשוואה האופיינית: $r^2-6r+9=0$, ולכן $r_1=r_2=3$. לכן $a_n=C_1\\cdot3^n+C_2\\cdot n\\cdot3^n$.\n$a_0=C_1=5$\n$a_1=3C_1+3C_2=21\\ \\Rightarrow\\ C_1+C_2=7$\nנקבל $C_1=5$, $C_2=2$.\nמסקנה: $a_n=5\\cdot3^n+2\\cdot n\\cdot3^n$, לכל $n\\in\\mathbb{N}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "משוואה אופיינית $r^2-6r+9=0$ ושורש כפול $r=3$",
+     "points": 2
+    },
+    {
+     "text": "צורת הפתרון $a_n=C_13^n+C_2n3^n$",
+     "points": 2
+    },
+    {
+     "text": "מערכת מתנאי ההתחלה: $C_1=5$, $3C_1+3C_2=21$",
+     "points": 2
+    },
+    {
+     "text": "$C_2=2$ ופתרון סופי",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לכתוב $C_13^n+C_23^n$ לשורש כפול: זה נותן רק פרמטר חופשי אחד.",
+    "לשכוח את הגורם $n$ בפתרון השני.",
+    "לפתור את המערכת לפי $a_1,a_2$ במקום $a_0,a_1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי צורת הפתרון הכללי כשיש שורש כפול $r=3$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(C_1+C_2n)3^n$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$C_13^n+C_2(-3)^n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$C_13^n+C_23^n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$C_16^n+C_29^n$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שורש כפול נותן את הפתרונות $3^n$ ו-$n3^n$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $C_2$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$C_1=5$ ו-$3\\cdot5+3C_2=21$ נותן $C_2=2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$?",
+     "answer": 81,
+     "tol": 0,
+     "explain": "$6\\cdot21-9\\cdot5=81=(5+4)\\cdot9$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
