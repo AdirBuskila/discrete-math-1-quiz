@@ -1,0 +1,84 @@
+{
+ "code": "18A-B",
+ "refuter": "dm1 refute run",
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "D4=9, 4!=24, 15 with fixed point; options checked by enumeration"
+  },
+  "1b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "(1) true (countably infinite both); (2) false, A={1},B={2}"
+  },
+  "1c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "exists (x,y) in AxB forall z: z>x+y"
+  },
+  "2a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "independent derivation: (n+1)(3n+1); step diff 6n+7; findbug idx 2 unique"
+  },
+  "2b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "counterexample valid; steps agree"
+  },
+  "2c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "same parity; 2 classes; not antisymmetric; findbug idx 2 unique"
+  },
+  "3a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "f(2)+f(3)=1; f(p)=0 for odd p; f(p)=1 only p=2. MINOR: part (4) answer is any B={2,p}, p odd prime; solution gives only {2,3} (matches official example), step asks only |B|=2 which is fine"
+  },
+  "3b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "a_n=(2-2n)2^n+18*3^n; a2=154 verified"
+  },
+  "4a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "f=10^n+5^n; f(3)=1125; c=2"
+  },
+  "4b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "36, 15, 12 verified by brute force"
+  },
+  "4c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "AGREE with 10726916243718 (ordered words, lengths 14..22, brute-force sum of multinomials) and 495 (count vectors) and 165 (sum exactly 22). The relabel is mathematically right for the literal text (words are sequences; 4b(2) states \"ללא חשיבות לסדר\" explicitly, 4c does not). CAVEAT: the official handwritten solution (page-11) answers 495, so the lecturer likely intended unordered; the key and rubric should keep the exam-intent note (495 earns 3/5 under the rubric)."
+  }
+ },
+ "transcription": "checked against page-01/02 PNGs: no mismatch"
+}

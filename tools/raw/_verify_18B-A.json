@@ -1,0 +1,98 @@
+{
+ "code": "18B-A",
+ "refuter": "dm1 refute run",
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "{1}x{2} vs {2}x{1}; A2={1},B2=empty valid"
+  },
+  "1b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "(1) false; (2) true; brute force over subsets of {0..4} found no counterexample; findbug idx 3 unique"
+  },
+  "1c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "forall x in A forall y in B exists z: x>y+z (matches official page-03)"
+  },
+  "2a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "disagree",
+   "pitfalls": "agree",
+   "note": "solutions and steps agree (k=3: 28; c=8; findbug idx 4). RUBRIC: items sum to 10 only if both (1) and (2) are done, but the exam says \"או\" (one of them); a single-option answer maxes at 7 for (1) or 6 for (2). First divergence: rubric entries 1..7 vs 10 points for one option."
+  },
+  "2b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "a_n=4^n-1; a3=63; a0=0 not prime; statement true"
+  },
+  "2c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "f=7^n+10^n; f(3)=1343; c=2"
+  },
+  "3a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "(1) false (phi(1)=phi(2)); (2) true, n=3 unique (checked n<3000). MINOR: written solution never mentions n=1 (only n=2,3,>3); pitfalls do. Conclusion still correct."
+  },
+  "3b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "both R1,R2 total orders; true"
+  },
+  "3c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "same parity; 2 classes; not antisymmetric (2,4); findbug idx 2 unique"
+  },
+  "4a": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "101*2^99"
+  },
+  "4b": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "144"
+  },
+  "4c": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "10 (y1+y2+y3=3)"
+  },
+  "4d": {
+   "solution": "agree",
+   "steps": "agree (all steps)",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "note": "n=11, phi(132)=40, phi(40)=16, 8|16 yes"
+  }
+ },
+ "transcription": "checked against page-01/02 PNGs: no mismatch"
+}
