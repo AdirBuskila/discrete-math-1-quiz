@@ -1,7 +1,7 @@
 /* relations, level 2 - equivalence classes and the quotient set. ai-verified (tools/verify/needhelp/relations/check.py) */
 COURSE_LEVEL("relations", {
   id: "C02", order: 2, icon: "🕸️", title: "מחלקות שקילות וקבוצת מנה",
-  goal: "אחרי השלב הזה אפשר לחשב מחלקת שקילות, לספור מחלקות ולכתוב את קבוצת המנה $A/R$.",
+  goal: "אחרי השלב הזה אפשר לחשב מחלקת שקילות, לספור מחלקות ולכתוב את קבוצת המנה A/R.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>ביחס שקילות $R$ על $A$, <b>מחלקת השקילות</b> של $a$ היא כל האיברים הקשורים אליו: $[a]=\{b\in A:\ aRb\}$. <b>קבוצת המנה</b> $A/R$ היא קבוצה של מחלקות: $A/R=\{[a]:\ a\in A\}$, וכל מחלקה נרשמת פעם אחת.</p>

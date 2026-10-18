@@ -1,7 +1,7 @@
 /* relations, level 3 - partitions and the size of R. ai-verified (tools/verify/needhelp/relations/check.py) */
 COURSE_LEVEL("relations", {
   id: "C03", order: 3, icon: "🕸️", title: "חלוקות וגודל היחס",
-  goal: "אחרי השלב הזה אפשר לזהות חלוקה, לבנות ממנה את יחס השקילות ולחשב את $|R|$.",
+  goal: "אחרי השלב הזה אפשר לזהות חלוקה, לבנות ממנה את יחס השקילות ולחשב את |R|.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p><b>חלוקה</b> של $A$ היא משפחה של תת-קבוצות (בלוקים) שמקיימת שלושה דברים: אף בלוק אינו ריק, כל שני בלוקים שונים זרים, ואיחוד הבלוקים הוא כל $A$.</p>

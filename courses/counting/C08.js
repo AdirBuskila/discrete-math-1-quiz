@@ -1,7 +1,7 @@
 /* counting, level 8 - binomial theorem sums and big-O. ai-verified (tools/verify/needhelp/counting/check.py) */
 COURSE_LEVEL("counting", {
   id: "C08", order: 8, icon: "∑", title: "סכומי בינום ו-O",
-  goal: "אחרי השלב הזה אפשר לחשב סכומים עם מקדמים בינומיים בצורה סגורה ולבדוק טענות מהצורה $f(n)=O(g(n))$.",
+  goal: "אחרי השלב הזה אפשר לחשב סכומים עם מקדמים בינומיים בצורה סגורה ולבדוק טענות מהצורה f(n)=O(g(n)).",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>סכום עם $\binom nk$ הוא כמעט תמיד הבינום של ניוטון בהסוואה.</p>

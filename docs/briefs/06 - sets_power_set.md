@@ -40,6 +40,8 @@
 
 > 🪤 הערך המדויק בשאלות הספירה ($|A|=121$ ולא $100$) נקבע מהטווחים ($n,m\in\{0,\dots,10\}$ נותן $11\cdot11$).
 
+**הפרש סימטרי:** $A\triangle B=(A-B)\cup(B-A)=(A\cup B)-(A\cap B)$. תכונות: $A\triangle\varnothing=A$, $A\triangle A=\varnothing$, $A\triangle B=B\triangle A$. לכן $A\triangle X=A$ אם ורק אם $X=\varnothing$, ו-$A\triangle X=\varnothing$ אם ורק אם $X=A$. בשאלה "האם קיימות $B_1,B_2$ עם $A\triangle B_2=A$ ו-$A\triangle B_1=\varnothing$": כן, $B_2=\varnothing$ ו-$B_1=A$.
+
 ## דוגמה פתורה
 $A=\{2^m3^n:\ m,n\in\{0,\dots,9\}\}$ ו-$B=\{3^n5^m:\ m,n\in\{0,\dots,9\}\}$. חשבו $|P(A\cap B)|$.
 

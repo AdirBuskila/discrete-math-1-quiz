@@ -1,7 +1,7 @@
 /* number_theory, level 6 - Euler's phi function. ai-verified (tools/verify/needhelp/number_theory/check.py) */
 COURSE_LEVEL("number_theory", {
   id: "C06", order: 6, icon: "φ", title: "פונקציית אוילר",
-  goal: "אחרי השלב הזה אפשר לחשב $\\varphi(n)$ מהפירוק לראשוניים ולהשתמש בה במשפט אוילר.",
+  goal: "אחרי השלב הזה אפשר לחשב \φ(n) מהפירוק לראשוניים ולהשתמש בה במשפט אוילר.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>$\varphi(n)$ הוא מספר המספרים $1\le m\le n$ שזרים ל-$n$ (כלומר $\gcd(m,n)=1$). למשל $\varphi(10)=4$: המספרים $1,3,7,9$.</p>

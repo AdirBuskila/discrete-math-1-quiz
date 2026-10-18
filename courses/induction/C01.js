@@ -1,6 +1,6 @@
 /* induction, level 1 - the idea: base, step, conclusion. ai-verified (tools/verify/needhelp/induction/check.py) */
 COURSE_LEVEL("induction", {
-  id: "C01", order: 1, icon: "🪜", title: "הרעיון: דומינו",
+  id: "C01", order: 1, icon: "📈", title: "הרעיון: דומינו",
   goal: "אחרי השלב הזה אפשר להסביר מה שני החלקים של הוכחה באינדוקציה ומה מניחים בכל אחד.",
   source: "ai-verified",
   lesson: { html: String.raw`

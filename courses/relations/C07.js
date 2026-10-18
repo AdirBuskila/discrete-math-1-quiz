@@ -1,7 +1,7 @@
 /* relations, level 7 - boss: real exam questions. ai-verified (tools/verify/needhelp/relations/check.py) */
 COURSE_LEVEL("relations", {
   id: "C07", order: 7, icon: "🏆", title: "בוס: שאלות מבחן אמיתיות", boss: true,
-  goal: "אחרי השלב הזה אפשר לפתור שאלות יחסי שקילות מהמבחנים: הוכחה חשבונית, חלוקות, חישוב $|R|$ והפרכה או הוכחה.",
+  goal: "אחרי השלב הזה אפשר לפתור שאלות יחסי שקילות מהמבחנים: הוכחה חשבונית, חלוקות, חישוב |R| והפרכה או הוכחה.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>חמש שאלות אמיתיות. מזכירים את הדרך:</p>

@@ -2,7 +2,12 @@
 
 Open questions for Adir. One entry per item; the orchestrator moves it to Resolved when answered.
 
-## Open
+## Open - short list (details below)
+- Decide: OK to go public (gate 3) and has the deck redesign been done? You have not yet tried the app (gate 2).
+- Confirm (optional): 24A-A Q3c corrected key line; 19A-A Q1b corrected DNF (shipped as "official with correction").
+- FYI only, nothing blocking: every other entry below is info (key slips, unclear handwriting, duplicate labels).
+- Known render issue: Hebrew lines that contain inline math reorder their punctuation and "ו-" prefixes (bidi); cosmetic, being handled in the renderer.
+
 
 <!-- Entry format:
 ### <exam code> Q<number> - <short title>

@@ -1,7 +1,7 @@
 /* number_theory, level 7 - a common prime divisor and k <= gcd. ai-verified (tools/verify/needhelp/number_theory/check.py) */
 COURSE_LEVEL("number_theory", {
   id: "C07", order: 7, icon: "🎯", title: "ראשוני משותף ו-gcd",
-  goal: "אחרי השלב הזה אפשר להוכיח שאי-שוויון או מחלק על $\\gcd(A,B)$ מתקיימים: למצוא ראשוני שמחלק את שני הביטויים, אחד לפי פרמה והשני לפי וילסון.",
+  goal: "אחרי השלב הזה אפשר להוכיח שאי-שוויון או מחלק על gcd(A,B) מתקיימים: למצוא ראשוני שמחלק את שני הביטויים, אחד לפי פרמה והשני לפי וילסון.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>שאלות מהצורה "הראו ש-$k\le\gcd(A,B)$" נפתרות תמיד באותה דרך:</p>

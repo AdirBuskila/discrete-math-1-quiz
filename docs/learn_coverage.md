@@ -1,6 +1,6 @@
 # Learn-mode coverage (discrete-math-1)
 
-Built from the question text and solutions in `tools/raw/*.json` (186 shipped questions). Brief files are in `docs/briefs/`.
+Built from the question text and solutions in `tools/raw/*.json` (242 shipped questions; re-checked against the full bank in QA). Brief files are in `docs/briefs/`.
 
 | Concept | Brief section | Example question ids |
 |---|---|---|
@@ -37,6 +37,9 @@ Built from the question text and solutions in `tools/raw/*.json` (186 shipped qu
 | Stars and bars with minimum counts | 13 | 20A-A-Q5b |
 | Binomial theorem sums, even subsets, sum of sizes, big-O | 13 | 18A-A-Q4a, 19A-B-Q3c, 20A-A-Q4a, 20A-A-Q4c |
 | Complement graph, degrees, Euler, Hamilton (Dirac), bipartite, diameter, degree sequences | 14 graphs_intro | 20A-A-Q1c, 20A-A-Q1d, 20A-A-Q3c, 20A-A-Q5a, 20A-A-Q5c, 20A-A-Q6c |
+| Derangements, 1-before-2 in permutations | 13 combinatorics: recipes | 18A-B-Q1a, 20A-A-Q2a |
+| Symmetric difference identities | 06: recipes | 19S-A-Q1b, 19S-A-Q1c |
+| Fibonacci closed form (irrational roots) | 12: definitions | 19S-A-Q5c |
 | Course-wide formula and theorem sheet | 15 cheat | all |
 
 ## Gaps

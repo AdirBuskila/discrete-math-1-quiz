@@ -1,6 +1,6 @@
 /* counting, level 1 - product and sum principles, words with repetition, complement. ai-verified (tools/verify/needhelp/counting/check.py) */
 COURSE_LEVEL("counting", {
-  id: "C01", order: 1, icon: "🧱", title: "עקרון הכפל, עקרון החיבור ומשלים",
+  id: "C01", order: 1, icon: "📦", title: "עקרון הכפל, עקרון החיבור ומשלים",
   goal: "אחרי השלב הזה אפשר לספור תהליך בשלבים (מכפילים), מקרים נפרדים (מחברים) ולהשתמש בספירת המשלים.",
   source: "ai-verified",
   lesson: { html: String.raw`
