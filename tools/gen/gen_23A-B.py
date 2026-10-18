@@ -67,7 +67,7 @@ questions = [
       "\n"
       r"אם $p_1=2$ אז $2m+1=(p_2)^{\alpha_2}\cdot\ldots\cdot(p_k)^{\alpha_k}$ ולכן $f(\alpha_1,m)=q$."
       "\n"
-      r"אם $p_1>2$ אז $2m+1=(p_1)^{\alpha_1}\cdot(p_2)^{\alpha_2}\cdot\ldots\cdot(p_k)^{\alpha_k}$ ולכן $f(0,m)=q$."
+      r"אם $p_1>2$ אז $2m+1=(p_1)^{\alpha_1}\cdot(p_2)^{\alpha_2}\cdot\ldots\cdot(p_k)^{\alpha_k}$ ולכן $f(m,0)=q$."
       "\n"
       r"מסקנה: $f$ היא פונקציה על.", True),
 
@@ -273,7 +273,7 @@ def put(num_, part, rubric, pitfalls, steps):
                 raise KeyError("held")
             assert sum(r["points"] for r in rubric) == q["points"], (num_, part, sum(r["points"] for r in rubric))
             assert 2 <= len(steps) <= 5, (num_, part, len(steps))
-            q.update(rubric=rubric, rubricSource="ai-draft", pitfalls=pitfalls, steps=steps, stepsSource="ai-draft")
+            q.update(rubric=rubric, rubricSource="ai-verified", pitfalls=pitfalls, steps=steps, stepsSource="ai-verified")
             return
     raise KeyError((num_, part))
 
@@ -318,7 +318,7 @@ put(1, "ג",
         (r"המקרה $q=1$: $f(0,0)=1$", 1),
         ("פירוק $q$ לראשוניים לפי המשפט היסודי של האריתמטיקה", 2),
         ("המקרה שבו 2 מופיע בפירוק: מוצאים מקור מהצורה $2^n(2m+1)$", 2),
-        ("המקרה שבו 2 אינו מופיע בפירוק: המקור הוא $f(0,m)$", 1),
+        ("המקרה שבו 2 אינו מופיע בפירוק: המקור הוא $f(m,0)$", 1),
         ("מסקנה: $f$ על", 1)),
     ["להוכיח חד-חד-ערכיות במקום על: צריך להראות שלכל ערך בטווח יש מקור.",
      "לבדוק רק כמה ערכים: על דורשת מקור לכל מספר טבעי חיובי.",

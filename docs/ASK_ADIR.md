@@ -225,3 +225,23 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: nothing blocking.
 - Status: resolved (2026-10-17)
 - Ruling: converted from a note to the standing typo rule: prefix names the n=8 correction (280, not 560); answer C(n,2)C(n-2,3) for n>=9, 280 for n=8; solved, official false. verify.py counts distinct relations for n=8,9,10.
+
+### 23A-B Q1c - key swaps the coordinates of f(m,n)
+- Path: tools/raw/23A-B.json
+- Page: Q1 c (key)
+- Question: f(m,n)=2^n(2m+1), but the key writes f(alpha_1,m)=q and f(0,m)=q; the preimages are (m,alpha_1) and (m,0).
+- Needed: nothing, final claim (f is onto) is unaffected.
+- Status: resolved (2026-10-18)
+- Ruling: intermediate slip, fixed silently in the solution and the rubric (f(m,alpha_1), f(m,0)); stays lecturer-solution, official. verify.py checks the preimages by brute force.
+
+### 20A-A Q1a, Q1c, Q3c, Q4b, Q5a, Q5c, Q6a, Q6b - the keys answer a different version than the printed exam
+- Path: tools/raw/20A-A.json
+- Page: exam-only file tools/raw/20A-A-ex pp.1-4 versus the handwritten keys (20A-A-p1, 20A-A-p2)
+- Question: the keys answer other numbers than the printed exam (Q1a permutations vs 4-subsets containing 1,2; Q1c edge count vs bipartite complement; Q3c P_15 vs all n; Q4b strictly increasing/injective {1..4}->{1..6} vs increasing/onto {1..6}->{1..4}; Q5a 9-entry vs 8-entry degree sequence; Q5c has a 4th part (isomorphism); Q6b other intervals). Q5b and Q6a/Q6b point values also follow the print (8, 11, 8).
+- Needed: nothing blocking.
+- Status: resolved (2026-10-18)
+- Ruling: the printed exam wins. Question text re-transcribed from the print; each item re-solved by script (brute force / networkx-free graph checks), solutionSource solved, official false. Conventions chosen: Q3c takes n>=2 and a path with exactly 2 odd vertices (the inclusive reading gives the same n); Q4b reads "עולה" as non-decreasing (strictly increasing is impossible from 6 to 4 elements); Q6a does not print the domain of n, so n>=1 is added to the text and noted in the solution; Q5c(4) is 3 points as printed (2+3+3+3 read left to right).
+
+### 20A-A Q2c step 0, step order and 2c/other steps
+- Status: resolved (2026-10-18)
+- Ruling: step 0 explanation rewritten (phi(3)=phi(4)=phi(6)=2 also coincide; the options are checkably different); the borderline order step merged into 3 blocks. Intermediate steps only, no student-facing label.

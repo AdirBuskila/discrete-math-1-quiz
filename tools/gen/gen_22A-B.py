@@ -386,7 +386,7 @@ def put(num_, part, rubric, pitfalls, steps):
                 raise KeyError("held")
             assert sum(r["points"] for r in rubric) == q["points"], (num_, part, sum(r["points"] for r in rubric))
             assert 2 <= len(steps) <= 5, (num_, part, len(steps))
-            q.update(rubric=rubric, rubricSource="ai-draft", pitfalls=pitfalls, steps=steps, stepsSource="ai-draft")
+            q.update(rubric=rubric, rubricSource="ai-verified", pitfalls=pitfalls, steps=steps, stepsSource="ai-verified")
             return
     raise KeyError((num_, part))
 
@@ -457,10 +457,10 @@ def P_(num_, part, built):
 
 
 def equiv_item(form):
-    rubric = rub(("הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת", 3),
+    rubric = rub(("הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת", 4),
                  ("בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים", 6),
                  ("השוואת שתי העמודות הסופיות", 3),
-                 ("מסקנה: הפסוקים שקולים לוגית", 2))
+                 ("מסקנה: הפסוקים שקולים לוגית", 1))
     pit = ["לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
            r"לטעות בטבלת האמת של גרירה: $p\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר.",
            "להשוות עמודות ביניים במקום את שתי העמודות הסופיות."]
@@ -584,8 +584,8 @@ def count_item(form):
 
 
 def rel_item(form):
-    last = r"לכן $R=\{(x,x):x\in A\}$, וזהו יחס שקילות" if form == 1 else r"לכן $R=\{(x,x):x\in A\}$, וזהו יחס סדר חלקי"
-    lines = [r"$R$ רפלקסיבי ולכן $(x,x)\in R$ לכל $x\in A$", r"נניח בשלילה ש-$(x,y)\in R$ עבור $x\ne y$",
+    last = r"$R$ רפלקסיבי ולכן $(x,x)\in R$ לכל $x\in A$, ואין ב-$R$ זוגות אחרים, לכן $R=\{(x,x):x\in A\}$, וזהו יחס שקילות" if form == 1 else r"$R$ רפלקסיבי ולכן $(x,x)\in R$ לכל $x\in A$, ואין ב-$R$ זוגות אחרים, לכן $R=\{(x,x):x\in A\}$, וזהו יחס סדר חלקי"
+    lines = [r"נניח בשלילה ש-$(x,y)\in R$ עבור $x\ne y$",
              r"מסימטריה $(y,x)\in R$, ולכן מאנטי-סימטריה $x=y$, סתירה", last]
     return (rub(("שימוש ברפלקסיביות: $(x,x)\\in R$ לכל $x$", 1), ("הנחה בשלילה על זוג $(x,y)$ עם $x\\ne y$", 1),
                 ("סתירה משילוב הסימטריה והאנטי-סימטריה", 2), ("מסקנה: $R$ יחס הזהות, ולכן " + ("יחס שקילות" if form == 1 else "יחס סדר חלקי"), 1)),
@@ -594,7 +594,7 @@ def rel_item(form):
              "להשתמש בטרנזיטיביות כשאין בה צורך."],
             [ch("מהי התשובה לטענה?", "הטענה נכונה", "הטענה אינה נכונה", explain="היחס היחיד שמקיים את שלוש התכונות הוא יחס הזהות."),
              num(r"כמה זוגות סדורים יש ב-$R$, כש-$|A|=5$?", 5, "יחס הזהות על 5 איברים (הוכח בבדיקת כל היחסים על $n\\le4$ ובטיעון על $n=5$)."),
-             order("סדרו את שלבי ההוכחה.", lines, "רפלקסיביות, הנחה בשלילה, סתירה, מסקנה.")])
+             order("סדרו את שלבי ההוכחה.", lines, "הנחה בשלילה, סתירה, מסקנה (עם הרפלקסיביות).")])
 
 
 _F7 = [

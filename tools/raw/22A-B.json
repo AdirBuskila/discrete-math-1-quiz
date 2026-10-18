@@ -21,7 +21,7 @@
    "rubric": [
     {
      "text": "הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת",
-     "points": 3
+     "points": 4
     },
     {
      "text": "בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים",
@@ -33,10 +33,10 @@
     },
     {
      "text": "מסקנה: הפסוקים שקולים לוגית",
-     "points": 2
+     "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
     "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר.",
@@ -107,7 +107,7 @@
      "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית, ולכן אינם טאוטולוגיות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -146,7 +146,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסדר המקדמים: $84x+68y$ שונה מ-$68x+84y$ (המקדמים מתחלפים).",
     "להניח $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))=1$: הוא שווה ל-$\\gcd(a,b)$.",
@@ -227,7 +227,7 @@
      "explain": "$d=\\gcd(a,b)$ מחלק את $m=\\operatorname{lcm}(a,b)$, ולכן $\\gcd(m,d)=d$ (למשל ב-$84,68$: $\\gcd(1428,4)=4$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -254,7 +254,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל את פרמה על בסיס שמתחלק ב-41.",
     "לשכוח שווילסון נותן $40!\\equiv-1\\pmod{41}$, כלומר $41\\mid40!+1$ ולא $41\\mid40!$.",
@@ -311,7 +311,7 @@
      "explain": "החזקה נותנת 1 והסכום עם 40 הוא 41, כלומר 0."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -346,7 +346,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש ב-$P(k+1)$ בתוך ההוכחה שלו.",
     "לשכוח את התנאי $k\\ge1$ בחסימה של $2k+1$ על ידי $3k^2$.",
@@ -407,7 +407,7 @@
      "explain": "השורה ששונתה אינה נכונה מבחינה חשבונית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -434,7 +434,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
     "לשכוח ש-$B\\subseteq A$ ולכן $A\\cup B=A$ ו-$|A-B|=|A|-|B|$.",
@@ -491,7 +491,7 @@
      "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -522,7 +522,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
     "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
@@ -581,7 +581,7 @@
      "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -616,7 +616,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
     "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
@@ -698,7 +698,7 @@
      "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -729,7 +729,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $A$ שמכילה שני מקורות לאותו ערך: אז $f$ אינה חד-חד-ערכית.",
     "לשכוח שהטווח הנתון הוא $\\{2,3,5,6\\}$ ולכן כל ערך חייב מקור ב-$A$.",
@@ -758,7 +758,7 @@
      "explain": "צריך בדיוק מקור אחד לכל ערך: $3$ אפשרויות לערך 3, $2$ לערך 6, ו-$1$ לכל אחד משני האחרים, כלומר $3\\cdot2=6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -789,7 +789,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שיחס אנטי-סימטרי ובו זוג הפוך אסור תמיד: הוא אסור רק כש-$x\\ne y$.",
     "לשכוח שגם יחס הזהות מקיים את שלוש התכונות ולכן הוא היחיד שנשאר.",
@@ -825,15 +825,14 @@
      "type": "order",
      "prompt": "סדרו את שלבי ההוכחה.",
      "lines": [
-      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$",
       "נניח בשלילה ש-$(x,y)\\in R$ עבור $x\\ne y$",
       "מסימטריה $(y,x)\\in R$, ולכן מאנטי-סימטריה $x=y$, סתירה",
-      "לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס שקילות"
+      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$, ואין ב-$R$ זוגות אחרים, לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס שקילות"
      ],
-     "explain": "רפלקסיביות, הנחה בשלילה, סתירה, מסקנה."
+     "explain": "הנחה בשלילה, סתירה, מסקנה (עם הרפלקסיביות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -860,7 +859,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$S$ בעוצמת הרצף כי היא נמצאת בקטע: רק המספרים הרציונליים שבקטע נכללים.",
     "להראות רק חסם אחד בלי השני.",
@@ -952,7 +951,7 @@
      "explain": "שתי הכלות נותנות שוויון עוצמות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -975,7 +974,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$B$ חייבת להכיל את אברי הקבוצה הנתונה: הם כבר מכוסים על ידה.",
     "לספור את מספר האיברים החופשיים בטעות ($n$ מול $n+1$).",
@@ -1032,7 +1031,7 @@
      "explain": "האיברים האי-זוגיים חופשיים והזוגיים חייבים להיכלל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1048,7 +1047,7 @@
    "rubric": [
     {
      "text": "הגדרה: שני פסוקים שקולים לוגית כשיש להם אותה טבלת אמת",
-     "points": 3
+     "points": 4
     },
     {
      "text": "בניית טבלת אמת מלאה בת 8 שורות עם עמודות הביניים",
@@ -1060,10 +1059,10 @@
     },
     {
      "text": "מסקנה: הפסוקים שקולים לוגית",
-     "points": 2
+     "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
     "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר.",
@@ -1134,7 +1133,7 @@
      "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית, ולכן אינם טאוטולוגיות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1173,7 +1172,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בסדר המקדמים: $84x+68y$ שונה מ-$68x+84y$ (המקדמים מתחלפים).",
     "להניח $\\gcd(\\operatorname{lcm}(a,b),\\gcd(a,b))=1$: הוא שווה ל-$\\gcd(a,b)$.",
@@ -1254,7 +1253,7 @@
      "explain": "$d=\\gcd(a,b)$ מחלק את $m=\\operatorname{lcm}(a,b)$, ולכן $\\gcd(m,d)=d$ (למשל ב-$84,68$: $\\gcd(1428,4)=4$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1281,7 +1280,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל את פרמה על בסיס שמתחלק ב-41.",
     "לשכוח שווילסון נותן $40!\\equiv-1\\pmod{41}$, כלומר $41\\mid40!+1$ ולא $41\\mid40!$.",
@@ -1338,7 +1337,7 @@
      "explain": "החזקה נותנת 1 והסכום עם 40 הוא 41, כלומר 0."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1373,7 +1372,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש ב-$P(k+1)$ בתוך ההוכחה שלו.",
     "לשכוח את התנאי $k\\ge1$ בחסימה של $2k+1$ על ידי $3k^2$.",
@@ -1434,7 +1433,7 @@
      "explain": "השורה ששונתה אינה נכונה מבחינה חשבונית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1461,7 +1460,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
     "לשכוח ש-$B\\subseteq A$ ולכן $A\\cup B=A$ ו-$|A-B|=|A|-|B|$.",
@@ -1518,7 +1517,7 @@
      "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1549,7 +1548,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
     "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
@@ -1608,7 +1607,7 @@
      "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1643,7 +1642,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
     "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
@@ -1725,7 +1724,7 @@
      "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1756,7 +1755,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $A$ שמכילה שני מקורות לאותו ערך: אז $f$ אינה חד-חד-ערכית.",
     "לשכוח שהטווח הנתון הוא $\\{2,3,5,6\\}$ ולכן כל ערך חייב מקור ב-$A$.",
@@ -1785,7 +1784,7 @@
      "explain": "צריך בדיוק מקור אחד לכל ערך: $3$ אפשרויות לערך 3, $2$ לערך 6, ו-$1$ לכל אחד משני האחרים, כלומר $3\\cdot2=6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1816,7 +1815,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שיחס אנטי-סימטרי ובו זוג הפוך אסור תמיד: הוא אסור רק כש-$x\\ne y$.",
     "לשכוח שגם יחס הזהות מקיים את שלוש התכונות ולכן הוא היחיד שנשאר.",
@@ -1852,15 +1851,14 @@
      "type": "order",
      "prompt": "סדרו את שלבי ההוכחה.",
      "lines": [
-      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$",
       "נניח בשלילה ש-$(x,y)\\in R$ עבור $x\\ne y$",
       "מסימטריה $(y,x)\\in R$, ולכן מאנטי-סימטריה $x=y$, סתירה",
-      "לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס סדר חלקי"
+      "$R$ רפלקסיבי ולכן $(x,x)\\in R$ לכל $x\\in A$, ואין ב-$R$ זוגות אחרים, לכן $R=\\{(x,x):x\\in A\\}$, וזהו יחס סדר חלקי"
      ],
-     "explain": "רפלקסיביות, הנחה בשלילה, סתירה, מסקנה."
+     "explain": "הנחה בשלילה, סתירה, מסקנה (עם הרפלקסיביות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 8,
@@ -1887,7 +1885,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$S$ בעוצמת הרצף כי היא נמצאת בקטע: רק המספרים הרציונליים שבקטע נכללים.",
     "להראות רק חסם אחד בלי השני.",
@@ -1979,7 +1977,7 @@
      "explain": "שתי הכלות נותנות שוויון עוצמות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 8,
@@ -2002,7 +2000,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$B$ חייבת להכיל את אברי הקבוצה הנתונה: הם כבר מכוסים על ידה.",
     "לספור את מספר האיברים החופשיים בטעות ($n$ מול $n+1$).",
@@ -2059,7 +2057,7 @@
      "explain": "האיברים הזוגיים חופשיים והאי-זוגיים חייבים להיכלל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

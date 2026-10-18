@@ -32,7 +32,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק חלק מהשורות: שקילות דורשת התאמה בכל 8 השורות.",
     "לטעות בטבלת האמת של גרירה: $p\\to q$ שקרית רק כש-$p$ אמת ו-$q$ שקר."
@@ -102,7 +102,7 @@
      "explain": "העמודות זהות בכל 8 השורות, ובשתיהן יש שורה שקרית (השורה T,F,F), ולכן אף אחד מהם אינו טאוטולוגיה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -133,7 +133,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות להוכיח את הטענה כללית: כדי להפריך מספיקה דוגמה נגדית אחת.",
     "לבחור שני יחסים שאחד מהם מכיל את השני (האיחוד אז הוא אחד מהם ובהכרח יחס שקילות).",
@@ -187,7 +187,7 @@
      "explain": "הגדרת הדוגמה, חישוב האיחוד, הצבעה על הזוג החסר, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -196,7 +196,7 @@
    "topic": "functions",
    "points": 9,
    "question": "**המונח:** פונקציה על.\n**שאלה:** תהי פונקציה $f:\\mathbb{N}\\times\\mathbb{N}\\to\\mathbb{N}-\\{0\\}$ מוגדרת לפי הכלל $f(m,n)=2^n(2m+1)$ לכל $(m,n)\\in\\mathbb{N}\\times\\mathbb{N}$. הראו ש-$f$ היא על.",
-   "solution": "הגדרה: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ קיים $a\\in A$ כך ש: $f(a)=b$.\nאו: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ יש מקור.\nאו: הפונקציה $f:A\\to B$ נקראת על אם $f(A)=B$.\nלמספר $1\\in\\mathbb{N}-\\{0\\}$ יש מקור: $f(0,0)=1$.\nלפי המשפט היסודי של האריתמטיקה לכל $2\\le q\\in\\mathbb{N}-\\{0\\}$ יש ייצוג יחיד שבצורה $q=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ כאשר $p_1<p_2<\\ldots<p_k$ הם מספרים ראשוניים, ולכל $\\alpha_i\\in\\mathbb{N}-\\{0\\}$.\nאם $p_1=2$ אז $2m+1=(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(\\alpha_1,m)=q$.\nאם $p_1>2$ אז $2m+1=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(0,m)=q$.\nמסקנה: $f$ היא פונקציה על.",
+   "solution": "הגדרה: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ קיים $a\\in A$ כך ש: $f(a)=b$.\nאו: הפונקציה $f:A\\to B$ נקראת על אם לכל $b\\in B$ יש מקור.\nאו: הפונקציה $f:A\\to B$ נקראת על אם $f(A)=B$.\nלמספר $1\\in\\mathbb{N}-\\{0\\}$ יש מקור: $f(0,0)=1$.\nלפי המשפט היסודי של האריתמטיקה לכל $2\\le q\\in\\mathbb{N}-\\{0\\}$ יש ייצוג יחיד שבצורה $q=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ כאשר $p_1<p_2<\\ldots<p_k$ הם מספרים ראשוניים, ולכל $\\alpha_i\\in\\mathbb{N}-\\{0\\}$.\nאם $p_1=2$ אז $2m+1=(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(\\alpha_1,m)=q$.\nאם $p_1>2$ אז $2m+1=(p_1)^{\\alpha_1}\\cdot(p_2)^{\\alpha_2}\\cdot\\ldots\\cdot(p_k)^{\\alpha_k}$ ולכן $f(m,0)=q$.\nמסקנה: $f$ היא פונקציה על.",
    "solutionSource": "lecturer-solution",
    "official": true,
    "confidence": "high",
@@ -218,7 +218,7 @@
      "points": 2
     },
     {
-     "text": "המקרה שבו 2 אינו מופיע בפירוק: המקור הוא $f(0,m)$",
+     "text": "המקרה שבו 2 אינו מופיע בפירוק: המקור הוא $f(m,0)$",
      "points": 1
     },
     {
@@ -226,7 +226,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח חד-חד-ערכיות במקום על: צריך להראות שלכל ערך בטווח יש מקור.",
     "לבדוק רק כמה ערכים: על דורשת מקור לכל מספר טבעי חיובי.",
@@ -304,7 +304,7 @@
      "explain": "$45=2^0(2m+1)$ ולכן $m=22$ ו-$n=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -339,7 +339,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור בסיס $n=1$: הטענה נתונה רק מ-$n\\ge2$.",
     "לשכוח שהאיבר האחרון של $P(k+1)$ הוא $\\frac{1}{k(k+1)}$ ולא $\\frac{1}{(k+1)(k+2)}$.",
@@ -433,7 +433,7 @@
      "explain": "$(k-1)(k+1)+1=k^2$ ולא $k^2-1$, ולכן השורה השלישית שגויה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -460,7 +460,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהמקדם של $-40$ מחליף סימן: ב-$55x+(-40)y$ מקבלים $y=4$ ולא $y=-4$.",
     "לטעות בנוסחת העדכון $y=x'-y'\\lfloor a/b\\rfloor$ בעמודות.",
@@ -514,7 +514,7 @@
      "explain": "$55\\cdot3-40\\cdot4=165-160=5$. בשאר הזוגות התוצאה שונה מ-5."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -541,7 +541,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שמספר יחסי הסדר המלא תלוי בסדר האיברים ולפספס את אחד משני היחסים.",
     "לבדוק רק את האיחוד ולא את החיתוך (שתי טענות נפרדות).",
@@ -591,7 +591,7 @@
      "explain": "האיחוד הוא $\\{1,2\\}^2$ והחיתוך הוא יחס הזהות, ושניהם יחסי שקילות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -622,7 +622,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפריך טענה (1) בלי לבדוק: היא נכונה, וההוכחה היא אלגברה לוגית.",
     "לטעות בטענה (2) ולחשוב שקבוצה עם קטעים מחוברים היא בת-מנייה.",
@@ -697,7 +697,7 @@
      "explain": "ההתאמה $f(x)=x+1$ נותנת $|(0,1)|=|(1,2)|$ וההכלות נותנות את החסמים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -724,7 +724,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$|A\\cap B|=100$: האיברים המשותפים הם רק החזקות של 5.",
     "לחשב $|P(A\\cup B)|=2^{|A|+|B|}$ במקום $2^{|A\\cup B|}$.",
@@ -781,7 +781,7 @@
      "explain": "$|A\\cap B|=10$, $|P(A\\cup B)|=2^{190}$, $|P(A\\times B)|=2^{10000}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -812,7 +812,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק $46\\mid m$ מ-$23\\mid m$ בלבד, בלי זוגיות.",
     "להפעיל את פרמה על בסיס שמתחלק ב-23.",
@@ -869,7 +869,7 @@
      "explain": "$22+24=46=2\\cdot23$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -904,7 +904,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
     "לטעות בתיאור המחלקות: $[1]=\\{3k+1\\}$ כי $x+5\\equiv x+2\\pmod3$.",
@@ -986,7 +986,7 @@
      "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1017,7 +1017,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את המקרים הקטנים $n=0,1$ (ב-$n=1$ התוצאה היא 0).",
     "להניח שהמספרים זרים תמיד: כש-$n$ אי-זוגי שניהם זוגיים.",
@@ -1095,7 +1095,7 @@
      "explain": "$d=2$ כי שני המספרים זוגיים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1122,7 +1122,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב ש-$B$ חייבת להכיל את האי-זוגיים: להפך, האי-זוגיים כבר מכוסים על ידי הקבוצה הנתונה.",
     "לספור $2^n$ במקום $2^{n+1}$ כי יש $n+1$ איברים אי-זוגיים.",
@@ -1172,7 +1172,7 @@
      "explain": "האיברים האי-זוגיים חופשיים והזוגיים חייבים להיכלל."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

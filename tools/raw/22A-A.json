@@ -21,7 +21,7 @@
    "rubric": [
     {
      "text": "הגדרה: CNF הוא קוניונקציה של פסקאות, כל פסקה היא דיסיגנציה של ליטרלים",
-     "points": 3
+     "points": 4
     },
     {
      "text": "בניית טבלת אמת מלאה לפסוק $(p\\to q)\\wedge\\neg r$ עם עמודת ביניים",
@@ -29,14 +29,14 @@
     },
     {
      "text": "בחירת השורות הנכונות: אלה שבהן הפסוק שקר",
-     "points": 3
+     "points": 2
     },
     {
      "text": "כתיבת פסקה לכל שורה נבחרת והרכבת הביטוי הסופי",
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין CNF ל-DNF: ב-CNF כל שורה שקרית נותנת פסקה שהיא דיסיגנציה עם ליטרלים הפוכים",
     "לבחור שורות מהצד הלא נכון של הטבלה.",
@@ -107,7 +107,7 @@
      "explain": "הפסקה חייבת להיות שקרית בדיוק בשורה הזו, ולכן שוללים כל משתנה שערכו אמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -134,7 +134,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הערך המוחלט ב-lcm כשאחד המספרים שלילי.",
     "לטעות בנוסחת העדכון $y=x'-y'\\lfloor a/b\\rfloor$ בעמודות.",
@@ -195,7 +195,7 @@
      "explain": "$\\frac{|-55\\cdot40|}{5}=440$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -222,7 +222,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל את פרמה בלי לבדוק ש-31 אינו מחלק את הבסיס.",
     "לא להחזיר את המעריך ל-30 (למשל להישאר עם $16^{15}$ ולהפעיל פרמה ישירות).",
@@ -279,7 +279,7 @@
      "explain": "$1+1+37\\equiv8\\pmod{31}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -314,7 +314,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שמחליפים איבר ראשון: בסכום מ-$k+2$ עד $2k+2$ נעלם $k+1$ ונוספים שני איברים.",
     "לבלבל בין מספר האיברים בסכום (שגדל ב-1) לבין ערך האיבר האחרון (שגדל ב-2).",
@@ -380,7 +380,7 @@
      "explain": "$-(k+1)+(2k+1)+(2k+2)=3k+2$ ולא $3k+1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -407,7 +407,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
     "לחשב $|A\\times B|=|A|+|B|$ במקום המכפלה.",
@@ -464,7 +464,7 @@
      "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -495,7 +495,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
     "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
@@ -554,7 +554,7 @@
      "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -589,7 +589,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
     "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
@@ -671,7 +671,7 @@
      "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -698,7 +698,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בחישוב $k^2\\bmod6$ (למשל $25\\bmod6=1$ ולא 5).",
     "לשכוח ש-$\\operatorname{lcm}(2,\\gcd(2,k))$ הוא 2 לכל $k$.",
@@ -755,7 +755,7 @@
      "explain": "$f$ על בדיוק כש-$A$ היא תמונת $f$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -786,7 +786,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מהכלה קטנה (כמה זוגות) בלי שני המקרים של ההשוואה.",
     "לחשוב שפונקציה חייבת להיות רפלקסיבית: פונקציה מאפשרת תמונה אחת לכל איבר בלבד.",
@@ -843,15 +843,14 @@
      "type": "order",
      "prompt": "סדרו את שלבי ההוכחה.",
      "lines": [
-      "$R$ רפלקסיבי ולכן $(1,1),(2,2)\\in R$",
-      "$R$ סדר מלא ולכן $(1,2)\\in R$ או $(2,1)\\in R$",
+      "$R$ רפלקסיבי ולכן $(1,1),(2,2)\\in R$, ו-$R$ סדר מלא ולכן $(1,2)\\in R$ או $(2,1)\\in R$",
       "אם $(1,2)\\in R$ אז ל-1 יש שתי תמונות $(1,1),(1,2)$, ואם $(2,1)\\in R$ אז ל-2 יש שתי תמונות $(2,2),(2,1)$",
       "בכל מקרה $R$ אינו פונקציה, והטענה נכונה"
      ],
-     "explain": "רפלקסיביות, השוואה, שתי תמונות, מסקנה."
+     "explain": "שתי העובדות על $R$ (רפלקסיביות והשוואה), שתי תמונות, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -878,7 +877,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב שאיחוד של שני קטעים הוא בן-מנייה או שהעוצמה שלו קטנה מ-$\\mathfrak{c}$.",
     "להראות רק חסם אחד (למטה או למעלה) בלי השני.",
@@ -970,7 +969,7 @@
      "explain": "שתי פונקציות חד-חד-ערכיות לשני הכיוונים נותנות שוויון עוצמות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -993,7 +992,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שבתנאי (1) יש בחירה נפרדת לאיבר ה-$x$ ולשאר $B$.",
     "בתנאי (2) להחסיר רק את $\\emptyset$ ו-$A$ ולשכוח את הקבוצות בגודל 1.",
@@ -1029,7 +1028,7 @@
      "explain": "$2^9-2-9=501=2^{2n+1}-2n-3$ (הוכח בבדיקה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1045,7 +1044,7 @@
    "rubric": [
     {
      "text": "הגדרה: DNF הוא דיסיגנציה של איברים, כל איבר הוא קוניונקציה של ליטרלים",
-     "points": 3
+     "points": 4
     },
     {
      "text": "בניית טבלת אמת מלאה לפסוק $(p\\to q)\\wedge\\neg r$ עם עמודת ביניים",
@@ -1053,14 +1052,14 @@
     },
     {
      "text": "בחירת השורות הנכונות: אלה שבהן הפסוק אמת",
-     "points": 3
+     "points": 2
     },
     {
      "text": "כתיבת איבר לכל שורה נבחרת והרכבת הביטוי הסופי",
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין CNF ל-DNF: ב-DNF כל שורה אמיתית נותנת איבר שהוא קוניונקציה",
     "לבחור שורות מהצד הלא נכון של הטבלה.",
@@ -1131,7 +1130,7 @@
      "explain": "האיבר חייב להיות אמיתי בדיוק בשורה הזו, ולכן $p$, $q$ כמו שהם ו-$r$ שלילי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1158,7 +1157,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הערך המוחלט ב-lcm כשאחד המספרים שלילי.",
     "לטעות בנוסחת העדכון $y=x'-y'\\lfloor a/b\\rfloor$ בעמודות.",
@@ -1219,7 +1218,7 @@
      "explain": "$\\frac{|55\\cdot(-40)|}{5}=440$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1246,7 +1245,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפעיל את פרמה בלי לבדוק ש-31 אינו מחלק את הבסיס.",
     "לא להחזיר את המעריך ל-30 (למשל להישאר עם $16^{15}$ ולהפעיל פרמה ישירות).",
@@ -1303,7 +1302,7 @@
      "explain": "$1+1+47\\equiv18\\pmod{31}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1338,7 +1337,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שמחליפים איבר ראשון: בסכום מ-$k+3$ עד $2k+4$ נעלם $k+2$ ונוספים שני איברים.",
     "לבלבל בין מספר האיברים בסכום (שגדל ב-1) לבין ערך האיבר האחרון (שגדל ב-2).",
@@ -1404,7 +1403,7 @@
      "explain": "$-(k+2)+(2k+3)+(2k+4)=3k+5$ ולא $3k+4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1431,7 +1430,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין $|P(X)|=2^{|X|}$ לבין $|X|$ עצמו.",
     "לחשב $|A\\times B|=|A|+|B|$ במקום המכפלה.",
@@ -1488,7 +1487,7 @@
      "explain": "מחברים את שלושת הרכיבים לפי הנוסחה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 6,
@@ -1519,7 +1518,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין contrapositive להפכי: הפיכת כיוון הגרירה בלי שלילת שני הצדדים אינה שקולה.",
     "לשלול את $\\subseteq$ כ'כל איבר אינו ב-...' במקום 'קיים איבר שאינו ב-...'.",
@@ -1578,7 +1577,7 @@
      "explain": "השורה שנשתנתה אינה נובעת מהקודמת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1613,7 +1612,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח את הטרנזיטיביות.",
     "לטעות בתיאור המחלקות: $xR0$ בדיוק כש-$x$ זוגי, ו-$xR1$ בדיוק כש-$x$ אי-זוגי.",
@@ -1695,7 +1694,7 @@
      "explain": "הוא רפלקסיבי וטרנזיטיבי, אבל לא אנטי-סימטרי, ולכן אינו סדר חלקי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1722,7 +1721,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בחישוב $k^2\\bmod6$ (למשל $25\\bmod6=1$ ולא 5).",
     "לשכוח ש-$\\operatorname{lcm}(2,\\gcd(2,k))$ הוא 2 לכל $k$.",
@@ -1779,7 +1778,7 @@
      "explain": "$f$ על בדיוק כש-$A$ היא תמונת $f$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 7,
@@ -1810,7 +1809,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק מהכלה קטנה (כמה זוגות) בלי שני המקרים של ההשוואה.",
     "לחשוב שפונקציה חייבת להיות רפלקסיבית: פונקציה מאפשרת תמונה אחת לכל איבר בלבד.",
@@ -1867,15 +1866,14 @@
      "type": "order",
      "prompt": "סדרו את שלבי ההוכחה.",
      "lines": [
-      "$R$ רפלקסיבי ולכן $(1,1),(2,2)\\in R$",
-      "$R$ סדר מלא ולכן $(1,2)\\in R$ או $(2,1)\\in R$",
+      "$R$ רפלקסיבי ולכן $(1,1),(2,2)\\in R$, ו-$R$ סדר מלא ולכן $(1,2)\\in R$ או $(2,1)\\in R$",
       "אם $(1,2)\\in R$ אז ל-1 יש שתי תמונות $(1,1),(1,2)$, ואם $(2,1)\\in R$ אז ל-2 יש שתי תמונות $(2,2),(2,1)$",
       "בכל מקרה $R$ אינו פונקציה, והטענה נכונה"
      ],
-     "explain": "רפלקסיביות, השוואה, שתי תמונות, מסקנה."
+     "explain": "שתי העובדות על $R$ (רפלקסיביות והשוואה), שתי תמונות, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 8,
@@ -1902,7 +1900,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב שאיחוד של שני קטעים הוא בן-מנייה או שהעוצמה שלו קטנה מ-$\\mathfrak{c}$.",
     "להראות רק חסם אחד (למטה או למעלה) בלי השני.",
@@ -1994,7 +1992,7 @@
      "explain": "שתי פונקציות חד-חד-ערכיות לשני הכיוונים נותנות שוויון עוצמות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 8,
@@ -2017,7 +2015,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שבתנאי (1) יש בחירה נפרדת לאיבר ה-$x$ ולשאר $B$.",
     "בתנאי (2) להחסיר רק את $\\emptyset$ ו-$A$ ולשכוח את הקבוצות בגודל 1.",
@@ -2053,7 +2051,7 @@
      "explain": "$2^9-2-9=501=2^{2n+1}-2n-3$ (הוכח בבדיקה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

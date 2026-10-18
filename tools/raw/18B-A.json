@@ -32,7 +32,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת דוגמה שבה $A_2=B_2$ (הקבוצות צריכות להיות שונות).",
     "לכתוב את איברי המכפלה כקבוצות $\\{a,b\\}$ במקום כזוגות סדורים $(a,b)$."
@@ -102,7 +102,7 @@
      "explain": "עם $B=\\varnothing$ שני הצדדים ריקים. בשאר המקרים המכפלות שונות (נבדק בחישוב ישיר)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -141,7 +141,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק $|\\mathbb{Q}\\cap(-1,1)|=|\\mathbb{R}|$ מכך שהקבוצה “צפופה” בקטע, במקום להשוות עוצמות.",
     "לשכוח שהקיום של $a\\in A-B$ נובע מ-$|B|<|A|$, ולא נדרש בכלל מהנחת השלילה.",
@@ -226,7 +226,7 @@
      "explain": "בשורה הרביעית (אינדקס 3): $\\{a,b\\}\\not\\subseteq A$ כי $b\\notin A$, ו-$\\{a,b\\}\\not\\subseteq B$ כי $a\\notin B$, ולכן $\\{a,b\\}\\notin P(A)\\cup P(B)$. הטענה בשורה שגויה (נבדק בספירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -253,7 +253,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשאיר “או” בין הכמתים במקום להפוך לכמת כללי על שני המשתנים.",
     "לכתוב $x\\ge y+z$ במקום $x>y+z$."
@@ -316,7 +316,7 @@
      "explain": "שלילת $\\le$ היא $>$; האפשרויות האחרות שונות ממנה כשיש שוויון."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -331,35 +331,27 @@
    "confidence": "med",
    "rubric": [
     {
-     "text": "סעיף (1) או (2): בדיקת בסיס $P(1)$",
-     "points": 1
-    },
-    {
-     "text": "ניסוח $P(k)$ ו-$P(k+1)$",
-     "points": 1
-    },
-    {
-     "text": "סעיף (1): שימוש ב-$P(k)$ וקבלת $k(2k-1)+4k+1=2k^2+3k+1$",
-     "points": 3
-    },
-    {
-     "text": "סעיף (1): השוואה ל-$(k+1)(2k+1)$ ומסקנה",
-     "points": 1
-    },
-    {
-     "text": "סעיף (2): $(k+1)^3\\le8k^3<10k^3$ (שימוש ב-$k\\ge1$)",
+     "text": "בדיקת בסיס $P(1)$ (בכל אחד משני הסעיפים; די לפתור אחד מהם, כי השאלה היא (1) או (2))",
      "points": 2
     },
     {
-     "text": "סעיף (2): שימוש ב-$P(k)$: $10k^3<10\\cdot10^k=10^{k+1}$",
-     "points": 1
+     "text": "ניסוח $P(k)$ ו-$P(k+1)$",
+     "points": 2
+    },
+    {
+     "text": "שימוש בהנחה $P(k)$: ב-(1) $k(2k-1)+4k+1$, ב-(2) $10k^3<10\\cdot10^k=10^{k+1}$",
+     "points": 2
+    },
+    {
+     "text": "הצעד עד הסוף: ב-(1) $2k^2+3k+1=(k+1)(2k+1)$, ב-(2) $(k+1)^3\\le8k^3<10k^3$ (שימוש ב-$k\\ge1$)",
+     "points": 3
     },
     {
      "text": "מסקנה מהבסיס והצעד לכל $n\\ge1$",
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק את הצעד של טענה (1) בלי להשתמש בהנחת האינדוקציה, אלא להציב ערכים.",
     "בסעיף (2) לחסום $(k+1)^3$ ב-$8k^3$ בלי להשתמש בכך ש-$k\\ge1$ (כך ש-$k\\le k^3$).",
@@ -422,7 +414,7 @@
      "explain": "בשורה האחרונה (אינדקס 4): $10\\cdot10^k=10^{k+1}$ ולא $10^{k+2}$, וזה בדיוק מה שצריך להוכיח ל-$P(k+1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -457,7 +449,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח לבדוק את $a_0=0$ ($0$ אינו ראשוני) כשקובעים מתי $a_n$ ראשוני.",
     "לא לוודא שהמנה $4^{n-1}+\\cdots+1$ שונה מ-1 עבור $n\\ge2$."
@@ -531,7 +523,7 @@
      "explain": "הפתרון מפרק לגורמים לפי $a^n-b^n$ ומראה שהגורם $3$ מחלק, והמנה גדולה מ-1."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -566,7 +558,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתייחס ל-$5^n$ כאילו תלוי ב-$k$ ולכתוב $\\sum\\binom nk5^k$.",
     "לכתוב $\\sum\\binom nk=2^{n}$ כ-$2^{n-1}$."
@@ -615,7 +607,7 @@
      "explain": "$f(n)/11^n=(7/11)^n+(10/11)^n$ יורד ב-$n$, ובמקסימום $n=1$ שווה $17/11<2$, ו-$17/11>1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -624,7 +616,7 @@
    "topic": "modular_fermat_wilson",
    "points": 6,
    "question": "הוכיחו או הפריכו:\n**(1)** הפונקציה $\\varnothing$ של Euler היא פונקציה חד-חד-ערכית;\n**(2)** קיים מספר $n\\in\\mathbb{N}$, $1\\le n$, והוא יחיד, המקיים: $n$ ו-$\\varnothing(n)$ שניהם מספרים ראשוניים. כאן $\\varnothing$ היא פונקציית Euler.",
-   "solution": "**(1)** הטענה אינה נכונה: $\\varnothing(1)=1=\\varnothing(2)$ אך $1\\ne2$, ולכן $\\varnothing$ אינה חד-חד-ערכית.\n**(2)** הטענה נכונה.\nעבור $n=2$: $\\varnothing(2)=1$ אינו ראשוני.\nעבור $n=3$: $3$ ראשוני, ו-$\\varnothing(3)=2$ ראשוני.\nעבור $n>3$: אם $n$ אינו ראשוני, התנאי אינו מתקיים. אם $n>3$ ראשוני, אז $n\\ge5$ ו-$\\varnothing(n)=n-1$. $n-1$ מתחלק ב-1, ב-$n-1$ וגם ב-2 (כי $n-1$ זוגי), ו-$2\\ne n-1$, ולכן $\\varnothing(n)=n-1$ אינו ראשוני.\nלכן $n=3$ הוא המספר היחיד המקיים את התנאי, והטענה נכונה.",
+   "solution": "**(1)** הטענה אינה נכונה: $\\varnothing(1)=1=\\varnothing(2)$ אך $1\\ne2$, ולכן $\\varnothing$ אינה חד-חד-ערכית.\n**(2)** הטענה נכונה.\nעבור $n=1$: $1$ אינו ראשוני.\nעבור $n=2$: $\\varnothing(2)=1$ אינו ראשוני.\nעבור $n=3$: $3$ ראשוני, ו-$\\varnothing(3)=2$ ראשוני.\nעבור $n>3$: אם $n$ אינו ראשוני, התנאי אינו מתקיים. אם $n>3$ ראשוני, אז $n\\ge5$ ו-$\\varnothing(n)=n-1$. $n-1$ מתחלק ב-1, ב-$n-1$ וגם ב-2 (כי $n-1$ זוגי), ו-$2\\ne n-1$, ולכן $\\varnothing(n)=n-1$ אינו ראשוני.\nלכן $n=3$ הוא המספר היחיד המקיים את התנאי, והטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med",
@@ -650,7 +642,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתעלם מהמקרה $n=1$ ($1$ אינו ראשוני).",
     "לטעון ש-$\\varnothing(p)$ ראשוני לכל ראשוני $p$ בלי לבדוק את הזוגיות של $p-1$."
@@ -717,7 +709,7 @@
      "explain": "ל-$n\\ge5$ ראשוני, $n$ אי-זוגי ולכן $n-1$ זוגי (נבדק לכל ראשוני עד $3000$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -748,7 +740,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$R$ שאינו סימטרי חייב להכיל בדיוק אחד משני הזוגות $(1,2)$, $(2,1)$.",
     "לבדוק סדר חלקי בלבד ולשכוח את הקשירות של סדר מלא."
@@ -808,7 +800,7 @@
      "explain": "שני היחסים רפלקסיביים, אנטי-סימטריים, טרנזיטיביים וקשירים (נבדק בבדיקה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -843,7 +835,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק ש-$x^2+y$ זוגי רק כש-$x$ זוגי.",
     "להכריז ש-$R$ יחס סדר חלקי רק כי הוא רפלקסיבי וטרנזיטיבי.",
@@ -926,7 +918,7 @@
      "explain": "בשורה השלישית (אינדקס 2): $x$ ו-$y$ אינם בהכרח זוגיים. הנימוק הנכון הוא שמכפלה של שני מספרים עוקבים תמיד זוגית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -957,7 +949,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור את $\\varnothing$ כתת-קבוצה בגודל אי-זוגי.",
     "לשכוח את הגורם $k$ בסכום או לחשב $\\sum\\binom{100}{k}=2^{100}$ במקום $\\sum k\\binom{100}{k}$."
@@ -1013,7 +1005,7 @@
      "explain": "הנגזרת היא $100(x+1)^{99}=\\sum k\\binom{100}kx^{k-1}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1044,7 +1036,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור $7!$ ולהתעלם מהתנאי $f(\\{1,2,3\\})=\\{1,2,3\\}$.",
     "לחשב $3!+4!$ במקום $3!\\cdot4!$."
@@ -1100,7 +1092,7 @@
      "explain": "$6\\cdot24=144$ (נבדק בספירה ישירה על 5040 התמורות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1127,7 +1119,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לפרש “יותר מ-4” כ-$x_1\\ge4$ ולא כ-$x_1\\ge5$.",
     "לספור מילים עם חשיבות לסדר (סידורים) למרות שנאמר שאין חשיבות לסדר האותיות."
@@ -1155,7 +1147,7 @@
      "explain": "$\\binom{3+2}{2}=10$ (נבדק בספירה ישירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1190,7 +1182,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\gcd(11,70^{10}-1)=1$ בלי לבדוק את התנאי של משפט פרמה.",
     "לפרק את $132$ כך ש-$4$ נחשב כגורם ראשוני ולחשב $\\varnothing(4)=3$ בטעות."
@@ -1264,7 +1256,7 @@
      "explain": "$8\\mid16$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

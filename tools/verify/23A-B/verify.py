@@ -136,6 +136,9 @@ assert _f(3, 2) == 28 and _f(2, 3) == 40
 assert [(m, n) for m in range(0, 60) for n in range(0, 10) if _f(m, n) == 40] == [(2, 3)]
 assert [(m, n) for m in range(0, 60) for n in range(0, 10) if _f(m, n) == 45] == [(22, 0)]
 assert sorted(_f(m, n) for m in range(0, 200) for n in range(0, 9) if _f(m, n) <= 300) == list(range(1, 301))  # bijective
+# solution preimages: q=2^a1*(2m+1) -> f(m,a1)=q; odd q -> f(m,0)=q (the key had the coordinates swapped)
+assert all(_f(((q >> ((q & -q).bit_length() - 1)) - 1) // 2, (q & -q).bit_length() - 1) == q for q in range(1, 500))
+assert all(_f((q - 1) // 2, 0) == q for q in range(1, 500, 2))
 _num(1, "c", 1, 28); _num(1, "c", 2, 2); _right(1, "c", 3, "$(22,0)$"); _nsteps(1, "c", 4)
 print("STEPS Q1c OK")
 

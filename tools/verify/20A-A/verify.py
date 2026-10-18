@@ -2,15 +2,31 @@
 import itertools
 from math import comb, factorial, gcd
 from sympy import totient
-# Q1a
-assert 2 * factorial(4) == 48
+# Q1a (printed exam): 4-subsets of {1..9} containing 1 and 2
+assert sum(1 for c in itertools.combinations(range(1, 10), 4) if 1 in c and 2 in c) == 21 == comb(7, 2)
 # Q1b
 assert totient(factorial(5)) == 32
-# Q1c: complement of K_{m,n}
+# Q1c (printed exam): complement of K_{m,n} is bipartite iff m<=2 and n<=2 (complement = K_m u K_n)
+def _bip_edges(nv, E):
+    adj = {i: set() for i in range(nv)}
+    for a, b in E: adj[a].add(b); adj[b].add(a)
+    col = {}
+    for s0 in range(nv):
+        if s0 in col: continue
+        col[s0] = 0; st = [s0]
+        while st:
+            u = st.pop()
+            for w in adj[u]:
+                if w not in col: col[w] = 1 - col[u]; st.append(w)
+                elif col[w] == col[u]: return False
+    return True
 for m in range(1, 8):
     for n in range(1, 8):
         N = m + n
         assert N * (N - 1) // 2 - m * n == m * (m - 1) // 2 + n * (n - 1) // 2
+        Ec = [(i, j) for i in range(N) for j in range(i + 1, N) if not (i < m <= j)]
+        assert _bip_edges(N, Ec) == (m <= 2 and n <= 2), (m, n)
+assert all(_bip_edges(t, list(itertools.combinations(range(t), 2))) == (t <= 2) for t in range(1, 9))
 print("Q1a-c OK")
 # graph helpers
 def complement(nv, edges):
@@ -56,32 +72,40 @@ for n in range(40):
     v = 2 * round(math.cos(n * math.pi / 2)) + 3 * round(math.sin(n * math.pi / 2)) + 12 * 2**n
     assert a[n] == v
 print("Q3a,b OK")
-# Q3c: complement of P15 has exactly 2 odd vertices and is connected
-n = 15
-E = complement(n, [(i, i + 1) for i in range(n - 1)])
-c, adj = connected(n, E)
-odd = [v for v in adj if len(adj[v]) % 2]
-assert c and len(odd) == 2 and sorted(len(adj[v]) for v in odd) == [13, 13]
-assert all(len(adj[v]) == 12 for v in adj if v not in odd)
-assert all(len(adj[v]) >= 15 / 2 for v in adj)
-print("Q3c OK (Euler path, no circuit)")
+# Q3c (printed exam): all n>=2 for which the complement of P_n has an Euler path (connected, exactly 2 odd vertices)
+def _has_euler_path(n):
+    E = complement(n, [(i, i + 1) for i in range(n - 1)])
+    c, adj = connected(n, E)
+    odd = sum(1 for v in adj if len(adj[v]) % 2)
+    return c and odd == 2, c and odd in (0, 2)
+good_strict = [n for n in range(2, 41) if _has_euler_path(n)[0]]
+good_incl = [n for n in range(2, 41) if _has_euler_path(n)[1]]
+assert good_strict == good_incl == [4] + [n for n in range(5, 41) if n % 2 == 1], good_strict
+for n in (8, 9):
+    adj = connected(n, complement(n, [(i, i + 1) for i in range(n - 1)]))[1]
+    assert sum(1 for v in adj if len(adj[v]) % 2) == {8: 6, 9: 2}[n]
+print("Q3c OK (n=4 or odd n>=5)")
 # Q4
 assert comb(11, 2) == 55 and 2**10 == 1024
-assert comb(6, 4) == 15 and 6 * 5 * 4 * 3 == 360
-inc = sum(1 for f in itertools.product(range(1, 7), repeat=4) if f[0] < f[1] < f[2] < f[3])
-inj = sum(1 for f in itertools.product(range(1, 7), repeat=4) if len(set(f)) == 4)
-assert (inc, inj) == (15, 360)
+# Q4b (printed exam): f:{1..6}->{1..4}; increasing (non-decreasing) and onto
+_F = list(itertools.product(range(1, 5), repeat=6))
+inc = sum(1 for f in _F if all(f[i] <= f[i + 1] for i in range(5)))
+onto = sum(1 for f in _F if len(set(f)) == 4)
+assert (len(_F), inc, onto) == (4096, 84, 1560)
+assert inc == comb(9, 3) and onto == 4**6 - 4 * 3**6 + 6 * 2**6 - 4 == 24 * 65
+assert not any(all(f[i] < f[i + 1] for i in range(5)) for f in _F)
 for n in range(3, 9):
     assert sum(k * comb(n, k) for k in range(n + 1)) == n * 2**(n - 1)
 print("Q4 OK")
-# Q5a: Erdos-Gallai on (1,1,2,3,3,3,6,7,8)
-d = sorted([1, 1, 2, 3, 3, 3, 6, 7, 8], reverse=True)
+# Q5a (printed exam): (1,1,3,3,3,6,7,8) has 8 entries and a degree 8 > 7, so it is not graphic
+d = sorted([1, 1, 3, 3, 3, 6, 7, 8], reverse=True)
 def graphic(d):
     if sum(d) % 2: return False
+    if d and d[0] > len(d) - 1: return False
     for k in range(1, len(d) + 1):
         if sum(d[:k]) > k * (k - 1) + sum(min(x, k) for x in d[k:]): return False
     return True
-assert not graphic(d)
+assert len(d) == 8 and sum(d) == 32 and not graphic(d) and d[0] > len(d) - 1
 print("Q5a OK: not graphic")
 # Q5b
 assert comb(15, 3) == 455
@@ -109,6 +133,7 @@ assert all(len(adjC[v]) % 2 == 0 for v in adjC)   # Euler circuit
 assert not bipartite(10, adjC)
 tri = [t for t in itertools.combinations(range(10), 3) if all(frozenset(p) in Ec for p in itertools.combinations(t, 2))]
 assert (idx['a'], idx['d'], idx['g']) in tri
+assert len(G) == 15 and len(Ec) == 30 and len(G) != len(Ec)       # Q5c(4): not isomorphic (15 vs 30 edges)
 # diameter of G
 def bfs(s):
     dist = {s: 0}; q = [s]
@@ -122,7 +147,7 @@ assert [v for v in V if da[idx[v]] == 1] == list("bef") and [v for v in V if da[
 assert sorted(v for v in V if df[idx[v]] == 1) == list("ahi")
 print("Q5c/Q6c OK (Dirac, Euler circuit, not bipartite, triangle a,d,g, diameter 2)")
 # Q6a
-for n in range(5, 9):
+for n in range(1, 9):
     a_ = sum(comb(n, k) * 3**k * 5**(n - k) for k in range(n + 1))
     b_ = sum(comb(n, k) * 7**k * 5**(n - k) for k in range(n + 1))
     assert a_ == 8**n and b_ == 12**n
@@ -204,11 +229,11 @@ from math import comb, factorial
 from collections import deque
 _k, _n = _sp.symbols("k n", integer=True)
 
-# ---- 1a
-_P5 = list(_it.permutations(range(1, 6)))
-assert sum(1 for p in _P5 if p[0] == 1) == 24 and not [p for p in _P5 if p[0] == 1 and p[0] == 2]
-assert sum(1 for p in _P5 if p[0] in (1, 2)) == 48
-_num(1, "a", 0, 24); _num(1, "a", 2, 48); _nsteps(1, "a", 3)
+# ---- 1a (printed exam)
+_c4 = [c for c in _it.combinations(range(1, 10), 4) if 1 in c and 2 in c]
+assert len(_c4) == 21 == comb(7, 2) and 4 - 2 == 2 and 9 - 2 == 7
+assert len({comb(9, 4), 7 * 6, comb(7, 4), 21}) == 4
+_num(1, "a", 0, 2); _num(1, "a", 1, 7); _num(1, "a", 2, 21); _nsteps(1, "a", 3)
 
 # ---- 1b
 assert _sp.factorint(120) == {2: 3, 3: 1, 5: 1} and 2**3 * 3 * 5 == 120
@@ -217,13 +242,17 @@ assert _sp.totient(8) == 4 == len([m for m in range(1, 9) if math.gcd(m, 8) == 1
 assert _sp.totient(120) == 32 == len([m for m in range(1, 121) if math.gcd(m, 120) == 1])
 _num(1, "b", 1, 4); _num(1, "b", 2, 32); _nsteps(1, "b", 3)
 
-# ---- 1c (m=3, n=4)
-_V = [("A", i) for i in range(3)] + [("B", i) for i in range(4)]
-_E = {frozenset((u, v)) for u in _V for v in _V if u[0] == "A" and v[0] == "B"}
-_Ec = {frozenset((u, v)) for u in _V for v in _V if u != v} - _E
-assert len(_E) == 12 and len(_Ec) == 9 == comb(7, 2) - 12 == comb(3, 2) + comb(4, 2)
-assert all(next(iter(e))[0] == sorted(e)[1][0] for e in _Ec)            # every complement edge is inside one side
-_num(1, "c", 1, 12); _num(1, "c", 2, 9); _nsteps(1, "c", 3)
+# ---- 1c (printed exam): complement of K_{m,n} bipartite iff m,n<=2
+for _m in range(1, 8):
+    for _nn in range(1, 8):
+        _N = _m + _nn
+        _Ecm = [(i, j) for i in range(_N) for j in range(i + 1, _N) if not (i < _m <= j)]
+        assert _bip_edges(_N, _Ecm) == (_m <= 2 and _nn <= 2)
+assert _bip_edges(4, list(_it.combinations(range(1, 4), 2)) + []) is False                  # K_3 inside: triangle
+assert max(t for t in range(1, 9) if _bip_edges(t, list(_it.combinations(range(t), 2)))) == 2
+assert _bip_edges(4, [(0, 1), (0, 2), (1, 2)]) is False and (1 <= 2 or 3 <= 2)   # "m<=2 or n<=2" is wrong at (1,3): K_3 has a triangle
+_num(1, "c", 1, 2); _nsteps(1, "c", 3)
+_right(1, "c", 2, "$m\\le2$ וגם $n\\le2$")
 
 # ---- 1d
 def _comp_path(n):
@@ -284,6 +313,9 @@ for _m in range(15, 15 * 300, 15):
     while r % 5 == 0: r //= 5; b += 1
     assert _sp.totient(_m) == 8 * 3**(a - 1) * 5**(b - 1) * _sp.totient(r) and _sp.totient(_m) % 8 == 0
 _right(2, "c", 0, r"$\phi(1)=\phi(2)=1$"); _num(2, "c", 1, 8); _nsteps(2, "c", 3)
+assert [(a, b) for a in range(1, 13) for b in range(a + 1, 13) if _sp.totient(a) == _sp.totient(b)][:4] == [(1, 2), (3, 4), (3, 6), (4, 6)]
+assert len(_lines(2, "c", 2)) == 3                                  # order: factor / multiplicativity+values / conclusion
+assert (_sp.totient(2), _sp.totient(3), _sp.totient(5), _sp.totient(4)) == (1, 2, 4, 2)
 
 # ---- 3a
 _O = range(1, 101)
@@ -301,16 +333,14 @@ _xs = _sp.symbols("x"); assert _sp.solve(_xs**2 + 1, _xs) == [-_sp.I, _sp.I]
 assert _sp.solve(_sp.Symbol("A") * 5 - 60, _sp.Symbol("A")) == [12] and 27 - 24 == 3
 _num(3, "b", 1, 12); _num(3, "b", 2, 3); _num(3, "b", 3, 46); _nsteps(3, "b", 4)
 
-# ---- 3c
-_g = {i: set() for i in range(15)}
-_pe = {(i, i + 1) for i in range(14)}
-for i in range(15):
-    for j in range(15):
-        if i != j and (min(i, j), max(i, j)) not in _pe: _g[i].add(j)
-_deg = {v: len(s) for v, s in _g.items()}
-assert _deg[0] == _deg[14] == 13 and all(_deg[v] == 12 for v in range(1, 14))
-assert sum(1 for v in _deg.values() if v % 2) == 2
-_num(3, "c", 0, 13); _num(3, "c", 1, 12); _num(3, "c", 2, 2); _nsteps(3, "c", 4)
+# ---- 3c (printed exam)
+def _odd_count(n):
+    g = connected(n, complement(n, [(i, i + 1) for i in range(n - 1)]))[1]
+    return sum(1 for v in g if len(g[v]) % 2)
+assert _odd_count(8) == 6 and _odd_count(9) == 2 and _odd_count(6) == 4
+assert not _has_euler_path(3)[0] and _has_euler_path(5)[0] and _has_euler_path(4)[0] and not _has_euler_path(6)[0]
+assert [n for n in range(2, 31) if _has_euler_path(n)[0]] == [4] + list(range(5, 31, 2))
+_num(3, "c", 0, 6); _num(3, "c", 1, 2); _right(3, "c", 2, "$n=4$ וכל $n\\ge5$ אי-זוגי"); _nsteps(3, "c", 3)
 
 # ---- 4a
 assert [n for n in range(3, 40) if comb(n, 2) == 55] == [11] and _sp.solve(_n**2 - _n - 110, _n) == [-10, 11]
@@ -318,12 +348,14 @@ assert sum(comb(11, k) for k in range(0, 12, 2)) == 1024 == 2**10
 assert len({2**10, 2**11, 2**9, 11**2}) == 4
 _num(4, "a", 0, 11); _num(4, "a", 2, 1024); _nsteps(4, "a", 3)
 
-# ---- 4b
-_fs = list(_it.product(range(1, 7), repeat=4))
-assert sum(1 for f in _fs if all(f[i] < f[i + 1] for i in range(3))) == 15 == comb(6, 4)
-assert sum(1 for f in _fs if len(set(f)) == 4) == 360 == 6 * 5 * 4 * 3
-assert len({f for f in _fs if all(f[i] < f[i + 1] for i in range(3)) and f[0] == 1}) > 1       # "value at 1 only" does not determine it
-_num(4, "b", 0, 15); _num(4, "b", 1, 360); _nsteps(4, "b", 3)
+# ---- 4b (printed exam)
+_fs = list(_it.product(range(1, 5), repeat=6))
+assert sum(1 for f in _fs if all(f[i] <= f[i + 1] for i in range(5))) == 84 == comb(9, 3)
+assert sum(1 for f in _fs if f[0] != 1 and True) != 0 and sum(1 for f in _fs if all(g != 1 for g in f)) == 729 == 3**6
+assert sum(1 for f in _fs if len(set(f)) == 4) == 1560 == 4**6 - 4 * 729 + 6 * 64 - 4
+assert len({f for f in _fs if all(f[i] <= f[i + 1] for i in range(5)) and set(f) == {1, 2, 3, 4}}) > 1   # set of values alone does not determine it
+_right(4, "b", 0, "מספר המקורות של כל אחד מהערכים $1,2,3,4$ (סכומם 6)")
+_num(4, "b", 1, 84); _num(4, "b", 2, 729); _num(4, "b", 3, 1560); _nsteps(4, "b", 4)
 
 # ---- 4c
 _s4 = sum(len(c) for r in range(5) for c in _it.combinations(range(4), r))
@@ -333,22 +365,11 @@ _nn, _xx = _sp.symbols("nn xx")
 assert _sp.expand(_sp.diff((1 + _xx)**4, _xx).subs(_xx, 1)) == 32 and (1 + 1)**4 != 32
 _num(4, "c", 0, 32); _nsteps(4, "c", 3)
 
-# ---- 5a  (degree sequence not graphical)
-def _graphical(seq):
-    seq = sorted(seq, reverse=True)
-    while seq:
-        d = seq.pop(0)
-        if d > len(seq): return False
-        for i in range(d):
-            seq[i] -= 1
-            if seq[i] < 0: return False
-        seq.sort(reverse=True)
-    return True
-assert not _graphical([1, 1, 2, 3, 3, 3, 6, 7, 8]) and sum([1, 1, 2, 3, 3, 3, 6, 7, 8]) % 2 == 0
-_rest = sorted([d - 1 for d in [1, 1, 2, 3, 3, 3, 6, 7]], reverse=True)
-assert _rest == [6, 5, 2, 2, 2, 1, 0, 0] and _rest.count(0) == 2 and (8 - 1 - 2) == 5 < 6
-assert _Q(5, "a")["verdict"] is False
-_num(5, "a", 1, 2); _num(5, "a", 2, 5); _nsteps(5, "a", 3)
+# ---- 5a (printed exam)
+_seq = [1, 1, 3, 3, 3, 6, 7, 8]
+assert len(_seq) == 8 and sum(_seq) == 32 and max(_seq) > len(_seq) - 1 == 7
+assert not graphic(sorted(_seq, reverse=True)) and _Q(5, "a")["verdict"] is False
+_num(5, "a", 0, 8); _num(5, "a", 1, 7); _nsteps(5, "a", 3)
 
 # ---- 5b
 _cnt = sum(1 for x1 in range(3, 23) for x2 in range(1, 23) for x3 in range(4, 23) for x4 in range(2, 23) if x1 + x2 + x3 + x4 == 22)
@@ -386,21 +407,24 @@ while _dq and _ok:
         if v not in _col: _col[v] = 1 - _col[u]; _dq.append(v)
         elif _col[v] == _col[u]: _ok = False; break
 assert not _ok                                                                  # not bipartite
-_num(5, "c", 0, 6); _num(5, "c", 1, 5); _nsteps(5, "c", 4)
+assert len(_ed) == 15 and 10 * 9 // 2 - len(_ed) == 30 != 15            # Q5c(4): not isomorphic (edge counts differ)
+_num(5, "c", 0, 6); _num(5, "c", 1, 5); _num(5, "c", 4, 30); _nsteps(5, "c", 5)
 
 # ---- 6a
 assert all(sum(comb(n, j) * 3**j * 5**(n - j) for j in range(n + 1)) == 8**n and
-           sum(comb(n, j) * 7**j * 5**(n - j) for j in range(n + 1)) == 12**n for n in range(5, 9))
+           sum(comb(n, j) * 7**j * 5**(n - j) for j in range(n + 1)) == 12**n for n in range(1, 9))
 assert 8**5 * 12**5 == 2**25 * 3**5 and _sp.totient(8**5 * 12**5) == 2**25 * 3**4 == 2717908992
 assert len({15**5, 2**5, 7**5 * 5**5}) == 3 and 8**5 != 15**5
 assert all(_sp.totient(8**n * 12**n) == 2**(5 * n) * 3**(n - 1) for n in range(5, 9))
 assert len({2**25 * 3**4, 2**25 * 3**5, 2**24 * 3**4, 2**24 * 3**5}) == 4
 _num(6, "a", 1, 25); _num(6, "a", 2, 2717908992); _nsteps(6, "a", 4)
 
-# ---- 6b
+# ---- 6b (printed exam): (1,2] and [2,7)
 from fractions import Fraction as _Fr
 _xs = [_Fr(i, 50) for i in range(1, 50)]
-assert all(2 < x + 2 <= 7 for x in _xs) and len({x + 2 for x in _xs}) == len(_xs)
-assert any(not (2 < 7 * x <= 7) for x in _xs) and all(not (2 < x - 2) for x in _xs) and any(not (2 < 2 * x) for x in _xs)
-_right(6, "b", 1, "$f(x)=x+2$"); _nsteps(6, "b", 2)
+assert all(1 < x + 1 <= 2 for x in _xs) and len({x + 1 for x in _xs}) == len(_xs)                  # f(x)=x+1 into (1,2]
+assert all(2 <= 5 * x + 2 < 7 for x in _xs) and len({5 * x + 2 for x in _xs}) == len(_xs)          # g(x)=5x+2 into [2,7)
+assert any(not (1 < 2 * x <= 2) for x in _xs) and all(not (1 < x - 1) for x in _xs) and all(not (x + 2 <= 2) for x in _xs)
+assert any(not (1 < x + 2 <= 2) for x in _xs)
+_right(6, "b", 1, "$f(x)=x+1$"); _nsteps(6, "b", 2)
 print("STEPS 20A-A all OK")
