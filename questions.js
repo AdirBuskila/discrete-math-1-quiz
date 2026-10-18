@@ -101,7 +101,7 @@ window.OPEN_BANK = {
    "proof",
    "truefalse"
   ],
-  "built": "2026-10-18T12:55:26Z",
+  "built": "2026-10-18T18:15:18Z",
   "exams": [
    {
     "examCode": "18A-A",
@@ -212,7 +212,7 @@ window.OPEN_BANK = {
   "counts": {
    "total": 242,
    "contexts": 1,
-   "math": 4423,
+   "math": 4424,
    "steps": 813
   }
  },
@@ -807,9 +807,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק באפשרות הראשונה האיחוד מכיל שני זוגות הפוכים של איברים שונים.",
+     "explain": "רק באפשרות \"$R_1=\\{(1,2)\\}$, $R_2=\\{(2,1)\\}$\" האיחוד מכיל שני זוגות הפוכים של איברים שונים.",
      "promptHtml": "איזה זוג יחסים אנטי-סימטריים שהאיחוד שלהם אינו אנטי-סימטרי?",
-     "explainHtml": "רק באפשרות הראשונה האיחוד מכיל שני זוגות הפוכים של איברים שונים."
+     "explainHtml": "רק באפשרות \"<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>1</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_1=\\{(1,2)\\}</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>R</mi><mn>2</mn></msub><mo>=</mo><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">R_2=\\{(2,1)\\}</annotation></semantics></math></span>\" האיחוד מכיל שני זוגות הפוכים של איברים שונים."
     },
     {
      "type": "numeric",
@@ -2999,9 +2999,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "b",
-     "explain": "המכפלה הקרטזית היא קבוצת כל הזוגות הסדורים $(a,b)$ עם $a\\in A$ **וגם** $b\\in B$. האפשרות השלישית מגדירה את $B\\times A$, והשנייה מתעלמת מהסדר.",
+     "explain": "המכפלה הקרטזית היא קבוצת כל הזוגות הסדורים $(a,b)$ עם $a\\in A$ **וגם** $b\\in B$. האפשרות $\\{\\{a,b\\}:a\\in A\\wedge b\\in B\\}$ מגדירה קבוצה לא מסודרת, והאפשרות $\\{(b,a):a\\in A\\wedge b\\in B\\}$ מגדירה את $B\\times A$ (ולא את $A\\times B$).",
      "promptHtml": "איזו מההגדרות הבאות היא ההגדרה של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\times B</annotation></semantics></math></span>?",
-     "explainHtml": "המכפלה הקרטזית היא קבוצת כל הזוגות הסדורים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(a,b)</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">a\\in A</annotation></semantics></math></span> <strong>וגם</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span>. האפשרות השלישית מגדירה את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\times A</annotation></semantics></math></span>, והשנייה מתעלמת מהסדר."
+     "explainHtml": "המכפלה הקרטזית היא קבוצת כל הזוגות הסדורים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(a,b)</annotation></semantics></math></span> עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>a</mi><mo>∈</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">a\\in A</annotation></semantics></math></span> <strong>וגם</strong> <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>b</mi><mo>∈</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">b\\in B</annotation></semantics></math></span>. האפשרות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">{</mo><mi>a</mi><mo separator=\"true\">,</mo><mi>b</mi><mo stretchy=\"false\">}</mo><mo>:</mo><mi>a</mi><mo>∈</mo><mi>A</mi><mo>∧</mo><mi>b</mi><mo>∈</mo><mi>B</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{\\{a,b\\}:a\\in A\\wedge b\\in B\\}</annotation></semantics></math></span> מגדירה קבוצה לא מסודרת, והאפשרות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mi>b</mi><mo separator=\"true\">,</mo><mi>a</mi><mo stretchy=\"false\">)</mo><mo>:</mo><mi>a</mi><mo>∈</mo><mi>A</mi><mo>∧</mo><mi>b</mi><mo>∈</mo><mi>B</mi><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(b,a):a\\in A\\wedge b\\in B\\}</annotation></semantics></math></span> מגדירה את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>B</mi><mo>×</mo><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">B\\times A</annotation></semantics></math></span> (ולא את <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo>×</mo><mi>B</mi></mrow><annotation encoding=\"application/x-tex\">A\\times B</annotation></semantics></math></span>)."
     },
     {
      "type": "numeric",
@@ -4966,9 +4966,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "השני הוא שקילות אבל לא אנטי-סימטרי, השלישי סדר חלקי אבל לא סימטרי, והריק אינו רפלקסיבי.",
+     "explain": "הקבוצה $\\{(1,1),(2,2),(3,3),(1,2),(2,1)\\}$ היא שקילות אבל לא אנטי-סימטרית, הקבוצה $\\{(1,1),(2,2),(3,3),(1,2)\\}$ היא סדר חלקי אבל לא סימטרית, והריקה אינה רפלקסיבית.",
      "promptHtml": "איזה יחס על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2,3\\}</annotation></semantics></math></span> הוא גם יחס שקילות וגם יחס סדר חלקי?",
-     "explainHtml": "השני הוא שקילות אבל לא אנטי-סימטרי, השלישי סדר חלקי אבל לא סימטרי, והריק אינו רפלקסיבי."
+     "explainHtml": "הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(3,3),(1,2),(2,1)\\}</annotation></semantics></math></span> היא שקילות אבל לא אנטי-סימטרית, הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>3</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(3,3),(1,2)\\}</annotation></semantics></math></span> היא סדר חלקי אבל לא סימטרית, והריקה אינה רפלקסיבית."
     },
     {
      "type": "numeric",
@@ -5144,9 +5144,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "בהשמה הראשונה $r\\to p=T$ ו-$q\\to r=T$. בשנייה $q\\to r$ שקרית ובשתי האחרונות $p=F$.",
+     "explain": "בהשמה $p=T,\\ q=F,\\ r=T$ מתקיים $r\\to p=T$ ו-$q\\to r=T$. בהשמה $p=T,\\ q=T,\\ r=F$ הגרירה $q\\to r$ שקרית, ובשתי האחרות $p=F$.",
      "promptHtml": "איזו השמה מספקת את הפסוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>∧</mo><mo stretchy=\"false\">(</mo><mi>r</mi><mo>→</mo><mi>p</mi><mo stretchy=\"false\">)</mo><mo>∧</mo><mo stretchy=\"false\">(</mo><mi>q</mi><mo>→</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">p\\wedge(r\\to p)\\wedge(q\\to r)</annotation></semantics></math></span>?",
-     "explainHtml": "בהשמה הראשונה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>→</mo><mi>p</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">r\\to p=T</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>→</mo><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">q\\to r=T</annotation></semantics></math></span>. בשנייה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>→</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">q\\to r</annotation></semantics></math></span> שקרית ובשתי האחרונות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=F</annotation></semantics></math></span>."
+     "explainHtml": "בהשמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>F</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">p=T,\\ q=F,\\ r=T</annotation></semantics></math></span> מתקיים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>→</mo><mi>p</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">r\\to p=T</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>→</mo><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">q\\to r=T</annotation></semantics></math></span>. בהשמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=T,\\ q=T,\\ r=F</annotation></semantics></math></span> הגרירה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>→</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">q\\to r</annotation></semantics></math></span> שקרית, ובשתי האחרות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=F</annotation></semantics></math></span>."
     },
     {
      "type": "choice",
@@ -6158,9 +6158,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "השני סימטרי, השלישי חסר $(2,2)$ ולכן אינו רפלקסיבי, והריק אינו רפלקסיבי.",
+     "explain": "$\\{(1,1),(2,2),(1,2),(2,1)\\}$ סימטרי, $\\{(1,1),(1,2)\\}$ חסר $(2,2)$ ולכן אינו רפלקסיבי, והריק אינו רפלקסיבי.",
      "promptHtml": "איזה יחס על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span> הוא רפלקסיבי ולא סימטרי?",
-     "explainHtml": "השני סימטרי, השלישי חסר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,2)</annotation></semantics></math></span> ולכן אינו רפלקסיבי, והריק אינו רפלקסיבי."
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(1,2),(2,1)\\}</annotation></semantics></math></span> סימטרי, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(1,2)\\}</annotation></semantics></math></span> חסר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(2,2)</annotation></semantics></math></span> ולכן אינו רפלקסיבי, והריק אינו רפלקסיבי."
     },
     {
      "type": "numeric",
@@ -6874,9 +6874,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק בקבוצה הראשונה כל האיברים בין $0$ ל-$1$ (לא כולל הקצוות).",
+     "explain": "רק בקבוצה $\\{\\frac12,\\frac13,\\frac14,\\ldots\\}$ כל האיברים בין $0$ ל-$1$ (לא כולל הקצוות).",
      "promptHtml": "איזו תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}\\cap(0,1)</annotation></semantics></math></span> בוחר הפתרון?",
-     "explainHtml": "רק בקבוצה הראשונה כל האיברים בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> (לא כולל הקצוות)."
+     "explainHtml": "רק בקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{\\frac12,\\frac13,\\frac14,\\ldots\\}</annotation></semantics></math></span> כל האיברים בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span> (לא כולל הקצוות)."
     }
    ],
    "stepsSource": "ai-verified",
@@ -7064,9 +7064,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק הראשון בנוי מפסוקים אטומיים באמצעות קשרים; האחרים אטומיים.",
+     "explain": "רק $p\\wedge\\neg q$ בנוי מפסוקים אטומיים באמצעות קשרים; האחרים אטומיים.",
      "promptHtml": "איזה מהפסוקים הבאים הוא פסוק מורכב?",
-     "explainHtml": "רק הראשון בנוי מפסוקים אטומיים באמצעות קשרים; האחרים אטומיים."
+     "explainHtml": "רק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>∧</mo><mi mathvariant=\"normal\">¬</mi><mi>q</mi></mrow><annotation encoding=\"application/x-tex\">p\\wedge\\neg q</annotation></semantics></math></span> בנוי מפסוקים אטומיים באמצעות קשרים; האחרים אטומיים."
     },
     {
      "type": "numeric",
@@ -7526,9 +7526,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "בהשמה הראשונה שני האגפים שקריים. בשנייה האגף השמאלי אמת והימני שקר, ובשתי האחרונות האגף השמאלי שקר והימני אמת.",
+     "explain": "בהשמה $p=F,\\ q=T,\\ r=F$ שני האגפים שקריים. בהשמה $p=T,\\ q=T,\\ r=F$ האגף השמאלי אמת והימני שקר, ובשתי האחרות האגף השמאלי שקר והימני אמת.",
      "promptHtml": "איזו השמה מספקת את הפסוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∧</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>↔</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>q</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)</annotation></semantics></math></span>?",
-     "explainHtml": "בהשמה הראשונה שני האגפים שקריים. בשנייה האגף השמאלי אמת והימני שקר, ובשתי האחרונות האגף השמאלי שקר והימני אמת."
+     "explainHtml": "בהשמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>F</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=F,\\ q=T,\\ r=F</annotation></semantics></math></span> שני האגפים שקריים. בהשמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=T,\\ q=T,\\ r=F</annotation></semantics></math></span> האגף השמאלי אמת והימני שקר, ובשתי האחרות האגף השמאלי שקר והימני אמת."
     },
     {
      "type": "choice",
@@ -9253,9 +9253,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "$\\varphi(1)=1$ אי-זוגי, ולכן הטענה הראשונה שקרית.",
+     "explain": "$\\varphi(1)=1$ אי-זוגי, ולכן הטענה \"אחד המספרים גדול מ-2, ו-$\\varphi(q)$ זוגי לכל $q>2$\" שקרית.",
      "promptHtml": "מדוע לפחות אחד משלושת הערכים זוגי?",
-     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>φ</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\varphi(1)=1</annotation></semantics></math></span> אי-זוגי, ולכן הטענה הראשונה שקרית."
+     "explainHtml": "<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>φ</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">\\varphi(1)=1</annotation></semantics></math></span> אי-זוגי, ולכן הטענה \"אחד המספרים גדול מ-2, ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>φ</mi><mo stretchy=\"false\">(</mo><mi>q</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\varphi(q)</annotation></semantics></math></span> זוגי לכל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>q</mi><mo>&gt;</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">q&gt;2</annotation></semantics></math></span>\" שקרית."
     },
     {
      "type": "numeric",
@@ -9395,9 +9395,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק בקבוצה הראשונה כל האיברים בקטע $(1,5]$.",
+     "explain": "רק בקבוצה $\\{1+\\frac12,1+\\frac13,1+\\frac14,\\ldots\\}$ כל האיברים בקטע $(1,5]$.",
      "promptHtml": "איזו תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"double-struck\">Q</mi><mo>∩</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">\\mathbb{Q}\\cap(1,5]</annotation></semantics></math></span> בוחר הפתרון?",
-     "explainHtml": "רק בקבוצה הראשונה כל האיברים בקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">(1,5]</annotation></semantics></math></span>."
+     "explainHtml": "רק בקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mn>1</mn><mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1+\\frac12,1+\\frac13,1+\\frac14,\\ldots\\}</annotation></semantics></math></span> כל האיברים בקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>5</mn><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">(1,5]</annotation></semantics></math></span>."
     }
    ],
    "stepsSource": "ai-verified",
@@ -9921,9 +9921,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "האפשרויות האמצעיות הן סדרים מלאים, והאחרונה אינה אנטי-סימטרית.",
+     "explain": "האפשרויות $\\{(1,1),(2,2),(1,2)\\}$ ו-$\\{(1,1),(2,2),(2,1)\\}$ הן סדרים מלאים, והאפשרות עם $(1,2),(2,1)$ אינה אנטי-סימטרית.",
      "promptHtml": "איזה יחס על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1,2\\}</annotation></semantics></math></span> הוא סדר חלקי שאינו סדר מלא?",
-     "explainHtml": "האפשרויות האמצעיות הן סדרים מלאים, והאחרונה אינה אנטי-סימטרית."
+     "explainHtml": "האפשרויות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(1,2)\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{(1,1),(2,2),(2,1)\\}</annotation></semantics></math></span> הן סדרים מלאים, והאפשרות עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>1</mn><mo separator=\"true\">,</mo><mn>2</mn><mo stretchy=\"false\">)</mo><mo separator=\"true\">,</mo><mo stretchy=\"false\">(</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(1,2),(2,1)</annotation></semantics></math></span> אינה אנטי-סימטרית."
     },
     {
      "type": "numeric",
@@ -10127,9 +10127,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "בהשמה הראשונה שני האגפים שקריים; בשאר האגפים שונים.",
+     "explain": "בהשמה $p=F,\\ q=T,\\ r=F$ שני האגפים שקריים; בשאר האגפים שונים.",
      "promptHtml": "איזו השמה מספקת את הפסוק <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mi>p</mi><mo>∧</mo><mi>q</mi><mo stretchy=\"false\">)</mo><mo>↔</mo><mo stretchy=\"false\">(</mo><mi mathvariant=\"normal\">¬</mi><mi>q</mi><mo>∨</mo><mi>r</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(p\\wedge q)\\leftrightarrow(\\neg q\\vee r)</annotation></semantics></math></span>?",
-     "explainHtml": "בהשמה הראשונה שני האגפים שקריים; בשאר האגפים שונים."
+     "explainHtml": "בהשמה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>F</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>F</mi></mrow><annotation encoding=\"application/x-tex\">p=F,\\ q=T,\\ r=F</annotation></semantics></math></span> שני האגפים שקריים; בשאר האגפים שונים."
     },
     {
      "type": "choice",
@@ -11883,9 +11883,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "השנייה והרביעית מחוץ ל-$A$, והשלישית סופית.",
+     "explain": "הקבוצות $\\{1-\\frac12,1-\\frac13,\\ldots\\}$ ו-$\\{5+\\frac12,5+\\frac13,\\ldots\\}$ מחוץ ל-$A$, והקבוצה $\\{21,22,\\ldots,100\\}$ סופית.",
      "promptHtml": "איזו תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> בוחר הפתרון?",
-     "explainHtml": "השנייה והרביעית מחוץ ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>, והשלישית סופית."
+     "explainHtml": "הקבוצות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mn>1</mn><mo>−</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{1-\\frac12,1-\\frac13,\\ldots\\}</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>5</mn><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo separator=\"true\">,</mo><mn>5</mn><mo>+</mo><mfrac><mn>1</mn><mn>3</mn></mfrac><mo separator=\"true\">,</mo><mo>…</mo><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{5+\\frac12,5+\\frac13,\\ldots\\}</annotation></semantics></math></span> מחוץ ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>, והקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>21</mn><mo separator=\"true\">,</mo><mn>22</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mn>100</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{21,22,\\ldots,100\\}</annotation></semantics></math></span> סופית."
     }
    ],
    "stepsSource": "ai-verified",
@@ -15602,9 +15602,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק הקטע הראשון מוכל כולו ב-$A$; בשאר יש נקודה שאינה ב-$A$.",
+     "explain": "רק הקטע $(0,1)$ מוכל כולו ב-$A$; בשאר יש נקודה שאינה ב-$A$.",
      "promptHtml": "איזה קטע מוכל ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>?",
-     "explainHtml": "רק הקטע הראשון מוכל כולו ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>; בשאר יש נקודה שאינה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>."
+     "explainHtml": "רק הקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1)</annotation></semantics></math></span> מוכל כולו ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>; בשאר יש נקודה שאינה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>."
     },
     {
      "type": "choice",
@@ -17008,9 +17008,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק הקטע הראשון מוכל כולו ב-$A$; בשאר יש נקודה שאינה ב-$A$.",
+     "explain": "רק הקטע $(0,1)$ מוכל כולו ב-$A$; בשאר יש נקודה שאינה ב-$A$.",
      "promptHtml": "איזה קטע מוכל ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>?",
-     "explainHtml": "רק הקטע הראשון מוכל כולו ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>; בשאר יש נקודה שאינה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>."
+     "explainHtml": "רק הקטע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">(</mo><mn>0</mn><mo separator=\"true\">,</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">(0,1)</annotation></semantics></math></span> מוכל כולו ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>; בשאר יש נקודה שאינה ב-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span>."
     },
     {
      "type": "choice",
@@ -18393,9 +18393,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע.",
+     "explain": "רק הקבוצה $\\{3+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$ מורכבת ממספרים רציונליים בתוך הקטע.",
      "promptHtml": "איזו תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi></mrow><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span> משמשת להוכחה?",
-     "explainHtml": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע."
+     "explainHtml": "רק הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>3</mn><mo>+</mo><mfrac><mn>1</mn><msup><mn>2</mn><mi>n</mi></msup></mfrac><mo>:</mo><mtext> </mtext><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>n</mi><mo>≥</mo><mn>1</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{3+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}</annotation></semantics></math></span> מורכבת ממספרים רציונליים בתוך הקטע."
     },
     {
      "type": "choice",
@@ -19803,9 +19803,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "a",
-     "explain": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע.",
+     "explain": "רק הקבוצה $\\{5+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}$ מורכבת ממספרים רציונליים בתוך הקטע.",
      "promptHtml": "איזו תת-קבוצה אינסופית של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>S</mi></mrow><annotation encoding=\"application/x-tex\">S</annotation></semantics></math></span> משמשת להוכחה?",
-     "explainHtml": "רק הקבוצה הראשונה מורכבת ממספרים רציונליים בתוך הקטע."
+     "explainHtml": "רק הקבוצה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo stretchy=\"false\">{</mo><mn>5</mn><mo>+</mo><mfrac><mn>1</mn><msup><mn>2</mn><mi>n</mi></msup></mfrac><mo>:</mo><mtext> </mtext><mi>n</mi><mo>∈</mo><mi mathvariant=\"double-struck\">N</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>n</mi><mo>≥</mo><mn>1</mn><mo stretchy=\"false\">}</mo></mrow><annotation encoding=\"application/x-tex\">\\{5+\\frac{1}{2^n}:\\ n\\in\\mathbb{N},\\ n\\ge1\\}</annotation></semantics></math></span> מורכבת ממספרים רציונליים בתוך הקטע."
     },
     {
      "type": "choice",
@@ -20045,9 +20045,9 @@ window.OPEN_BANK = {
       }
      ],
      "correctId": "b",
-     "explain": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. $\\neg p\\vee q\\vee r$ אמת בשורה זו (כי $r=T$), ולכן היא אינה שלה, והאחרונה אינה פסוקית (נבדק בסקריפט).",
+     "explain": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. $\\neg p\\vee q\\vee r$ אמת בשורה זו (כי $r=T$), ולכן היא אינה שלה, והאפשרות $p\\wedge\\neg q\\wedge r$ אינה פסוקית (נבדק בסקריפט).",
      "promptHtml": "איזו פסוקית נבנית מהשורה <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>=</mo><mi>T</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>q</mi><mo>=</mo><mi>F</mi><mo separator=\"true\">,</mo><mtext> </mtext><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">p=T,\\ q=F,\\ r=T</annotation></semantics></math></span>?",
-     "explainHtml": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">\\neg p\\vee q\\vee r</annotation></semantics></math></span> אמת בשורה זו (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">r=T</annotation></semantics></math></span>), ולכן היא אינה שלה, והאחרונה אינה פסוקית (נבדק בסקריפט)."
+     "explainHtml": "הפסוקית צריכה להיות שקרית בדיוק בשורה הזו, ולכן כל ליטרל מופיע בשלילת ערכו. <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">¬</mi><mi>p</mi><mo>∨</mo><mi>q</mi><mo>∨</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">\\neg p\\vee q\\vee r</annotation></semantics></math></span> אמת בשורה זו (כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>r</mi><mo>=</mo><mi>T</mi></mrow><annotation encoding=\"application/x-tex\">r=T</annotation></semantics></math></span>), ולכן היא אינה שלה, והאפשרות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>p</mi><mo>∧</mo><mi mathvariant=\"normal\">¬</mi><mi>q</mi><mo>∧</mo><mi>r</mi></mrow><annotation encoding=\"application/x-tex\">p\\wedge\\neg q\\wedge r</annotation></semantics></math></span> אינה פסוקית (נבדק בסקריפט)."
     },
     {
      "type": "numeric",

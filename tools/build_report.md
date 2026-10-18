@@ -3,7 +3,7 @@
 - Raw exam files: **15**
 - **Final questions: 242**
 - Shared context blocks: **1**
-- Math spans rendered (distinct): **4423**
+- Math spans rendered (distinct): **4424**
 - Guided steps: **813** {'choice': 295, 'numeric': 389, 'order': 68, 'findbug': 61}
 - includeDrafts: **False**
 - **ai-draft parts stripped: 0** 
