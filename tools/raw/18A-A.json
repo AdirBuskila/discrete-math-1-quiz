@@ -36,7 +36,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת דוגמה עם $|A|=|B|$ כדי לקבל ”חד-חד-ערכית ולא על”: בקבוצות סופיות שוות גודל זה בלתי אפשרי.",
     "לכתוב את ההגדרה בכיוון ההפוך (\"אם $f(a_1)\\ne f(a_2)$ אז $a_1\\ne a_2$\" אינה ההגדרה).",
@@ -86,7 +86,7 @@
      "explain": "$2^3-2=6$; בכולן שני איברים לפחות חולקים ערך."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -117,7 +117,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בדוגמה נגדית לטענה (1) הנכונה, או להוכיח אותה בלי חסם מלמעלה.",
     "לבחור ב-(2) קבוצות עם $A\\subseteq B$, שם השוויון מתקיים.",
@@ -188,7 +188,7 @@
      "explain": "$4-3=1$: הקבוצה $\\{1,2\\}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -219,7 +219,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפוך רק חלק מהכמתים.",
     "לכתוב $\\neg(x=y+z)$ במקום $x\\ne y+z$."
@@ -282,7 +282,7 @@
      "explain": "שלילת שוויון היא אי-שוויון, כלומר $x<y+z$ או $x>y+z$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -317,7 +317,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח להוריד את $2k+1$: הסכום ב-$P(k+1)$ מתחיל ב-$2k+3$.",
     "להוסיף רק את $4k+3$ ולשכוח את $4k+1$.",
@@ -383,7 +383,7 @@
      "explain": "$(4k+3)$ ולא $(4k+5)$ בשורה השנייה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -410,7 +410,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לנסות להוכיח את הטענה: מספיקה דוגמה נגדית.",
     "לבחור יחסים שהאיחוד שלהם עדיין אנטי-סימטרי.",
@@ -453,7 +453,7 @@
      "explain": "$(1,2)$ ו-$(2,1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -488,7 +488,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שתיים משלוש התכונות.",
     "לטעון ש-$x^2+y^2$ זוגי רק כששניהם זוגיים: מספיק שיהיו בעלי אותה זוגיות.",
@@ -570,7 +570,7 @@
      "explain": "דרושים שני איברים שונים שקשורים בשני הכיוונים; $1,3$ זוגיות זהה, $1,2$ שונה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -601,7 +601,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$\\varphi(n)=n-1$ לראשוני.",
     "להשתמש ב-Fermat בלי לבדוק ש-$n\\nmid n-1$.",
@@ -679,7 +679,7 @@
      "explain": "$n$ ראשוני ו-$n\\nmid n-1$, ולכן $(n-1)^{n-1}\\equiv1\\pmod n$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -714,7 +714,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור פתרון פרטי $An5^n$: זה נכון רק כש-$5$ שורש של המשוואה האופיינית.",
     "להשתמש בתנאי ההתחלה על הפתרון ההומוגני בלבד, לפני הוספת הפתרון הפרטי.",
@@ -792,7 +792,7 @@
      "explain": "$C_1+C_2=0$ ו-$2C_1+3C_2=3$ נותנים $C_2=3$ ו-$C_1=-3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -823,7 +823,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $(3+4+1)^n$: הבינום חל על כל סכום בנפרד.",
     "לחשוב ש-$4^n+5^n$ גדל כמו $9^n$."
@@ -872,7 +872,7 @@
      "explain": "עבור $n=0$: $f(0)=2$, ולכן $c=1$ אינו מספיק; $c=2$ מספיק לכל $n$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -899,7 +899,7 @@
      "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "ב-(1) לחשב $6\\cdot6\\cdot6$ ולשכוח את הגבלת האות הראשונה.",
     "ב-(2) לאפשר חזרות על אותיות.",
@@ -935,7 +935,7 @@
      "explain": "$4!\\cdot2=48$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -966,7 +966,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לענות 364: זה מספר וקטורי המונים ולא מספר המילים.",
     "להכפיל את 364 ב-$25!$ במקום לסכם את המקדמים המולטינומיים."
@@ -994,7 +994,7 @@
      "explain": "סכום המקדמים המולטינומיים על כל וקטורי המונים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

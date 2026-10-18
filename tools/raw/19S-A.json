@@ -32,7 +32,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת כדוגמה לפסוק מורכב משפט שאין בו קשר לוגי.",
     "לתת כדוגמה לפסוק אטומי משפט שאינו פסוק, כמו שאלה."
@@ -74,7 +74,7 @@
      "explain": "$2^2=4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -105,7 +105,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $B_1=\\varnothing$: אז $A\\Delta B_1=A\\ne\\varnothing$.",
     "להחליף בין התפקידים של $B_1$ ו-$B_2$."
@@ -175,7 +175,7 @@
      "explain": "$A\\Delta B=\\{1,2,4\\}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -206,7 +206,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור $R_1=R_2$: אז $R_1\\Delta R_2=\\varnothing$, שהוא גם אנטי-סימטרי.",
     "לבחור יחסים שאינם רפלקסיביים, או שאינם טרנזיטיביים."
@@ -248,7 +248,7 @@
      "explain": "$\\{(1,2),(2,1)\\}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -279,7 +279,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור יחס שהוא סדר מלא.",
     "לבחור יחס שמכיל את $(1,2)$ ואת $(2,1)$: אינו אנטי-סימטרי."
@@ -328,7 +328,7 @@
      "explain": "אלה שמכילים את אחד הזוגות $(1,2)$, $(2,1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -363,7 +363,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$f(\\{3,4,5\\})=\\{3,4,5\\}$ נובע מההפיכות.",
     "לחשב $5!=120$ בלי התנאי, או לחבר במקום להכפיל."
@@ -391,7 +391,7 @@
      "explain": "$2\\cdot6=12$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -422,7 +422,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בטבלת האמת של $\\leftrightarrow$: היא אמת כששני האגפים שווים, גם כששניהם שקר.",
     "לפספס את השורה $p=F,q=T,r=F$ שבה שני האגפים שקריים.",
@@ -493,7 +493,7 @@
      "explain": "משתנה ששערכו שקר נכתב בשלילה, ומשתנה ששערכו אמת נכתב כמו שהוא."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -520,7 +520,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפוך רק חלק מהכמתים.",
     "לכתוב $x<y+z$ ולשכוח את מקרה השוויון."
@@ -583,7 +583,7 @@
      "explain": "הערכים שבהם $x>y+z$ שקרי הם $x<y+z$ וגם $x=y+z$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -618,7 +618,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוסיף את האיבר הלא נכון: האיבר החדש הוא $\\frac1{(4k+1)(4k+5)}$ ולא $\\frac1{(4k+5)(4k+9)}$.",
     "לא לצמצם את הגורם $4k+1$ ולהיתקע בביטוי מורכב.",
@@ -707,7 +707,7 @@
      "explain": "$4k^2+5k+1=(4k+1)(k+1)$ ולא $(4k+5)(k+1)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -742,7 +742,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $|B\\Delta C|=20$ בלי להפחית את האיבר המשותף $1$.",
     "לחסר 10 או 19 מ-$|B\\times C|$ בחיסור $B\\cup C$: איבריהן מסוגים שונים.",
@@ -799,7 +799,7 @@
      "explain": "$|A\\times B|=100\\cdot10=1000$, ולכן $|P(A\\times B)|=2^{1000}$ וכופלים ב-$|C|=10$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -834,7 +834,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $(4+1)^n$ בלי לזהות את הבינום, או לכתוב $4^n$.",
     "להסיק $5^n=O(4^n)$ כי הבסיסים קרובים: היחס בין החזקות גדל בלי גבול."
@@ -883,7 +883,7 @@
      "explain": "$1.25^{20}\\approx86.7$ ו-$1.25^{21}\\approx108.4$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -918,7 +918,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$0$ אינו בתחום, ולכן $x^2>0$.",
     "לבדוק רק שתיים משלוש התכונות.",
@@ -982,7 +982,7 @@
      "explain": "$(xy)(yz)=xz\\cdot y^2$ ולא $xz\\cdot y$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -1013,7 +1013,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להחליף את ה-contrapositive בהיפוך (converse) של הטענה.",
     "לשכוח שהשלילה של ”$A\\subseteq B$ או $B\\subseteq A$\\\" היא ”וגם” בין שני אי-ההכלות."
@@ -1065,7 +1065,7 @@
      "explain": "בחירת איברים, הצבעה על קבוצה, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -1092,7 +1092,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שגם $7$ מוצא מהאיברים החופשיים: חופשיים $n-5$ ולא $n-4$.",
     "לספור $n-5$ במקום $2^{n-5}$."
@@ -1134,7 +1134,7 @@
      "explain": "האיברים $1,2,3,4$ נאסרים ו-$7$ חייב להיכלל; $n-5$ איברים חופשיים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -1165,7 +1165,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $\\varphi(m^2)=\\varphi(m)^2$: הנוסחה הנכונה היא $m\\cdot\\varphi(m)$.",
     "לחשב $\\binom84=\\frac{8!}{4!}$ בלי לחלק גם ב-$4!$ השני."
@@ -1193,7 +1193,7 @@
      "explain": "$70\\cdot24=1680$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1220,7 +1220,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $4^6$: מספר הפונקציות הוא (גודל הטווח) בחזקת (גודל התחום).",
     "לחשב $6\\cdot4=24$."
@@ -1262,7 +1262,7 @@
      "explain": "לכל אחד מארבעת האיברים בוחרים אחד מ-6 ערכים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1289,7 +1289,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור $6^4$ או $P(6,4)$.",
     "לחשוב שלכל תת-קבוצה יש כמה פונקציות יורדות: יש בדיוק אחת."
@@ -1310,7 +1310,7 @@
      "explain": "סידור הערכים בסדר יורד קובע את הפונקציה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1337,7 +1337,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לאפשר ל-$f(3)$ ו-$f(4)$ לקבל את הערכים $1,2$: זה מפר חד-חד-ערכיות.",
     "לשכוח שהערכים של $f(3),f(4)$ חייבים להיות שונים."
@@ -1365,7 +1365,7 @@
      "explain": "$2\\cdot12=24$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1396,7 +1396,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור תמורות (120) במקום חלוקות לא סדורות.",
     "לשכוח את הגורם $k$ בנוסחת הנסיגה $S(n,k)=S(n-1,k-1)+kS(n-1,k)$."
@@ -1445,7 +1445,7 @@
      "explain": "$S(4,2)+3S(4,3)=7+18=25$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1472,7 +1472,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתחיל מהספרה הראשונה ולשכוח את אילוץ הזוגיות של הספרה האחרונה.",
     "לאפשר חזרה על ספרות."
@@ -1493,7 +1493,7 @@
      "explain": "$3\\cdot5\\cdot4\\cdot3=180$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1524,7 +1524,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הסידור הפנימי של הבלוק, ולקבל $4!=24$.",
     "לחשב $6!=720$ בלי האילוץ."
@@ -1552,7 +1552,7 @@
      "explain": "$24\\cdot6=144$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1587,7 +1587,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בכפליות בלי שהמספרים זרים: $\\varphi(3^\\alpha m)=\\varphi(3^\\alpha)\\varphi(m)$ דורש $\\gcd(3,m)=1$.",
     "לשכוח ש-$3\\mid n$ משנה את החזקה: ב-$3n$ החזקה היא $\\alpha+1$.",
@@ -1647,7 +1647,7 @@
      "explain": "פירוק, שני החישובים, מסקנה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1678,7 +1678,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להתעלם מהחלק $\\mathbb{Z}\\cap[20.5,100.5]$: הוא סופי ואינו משפיע, אבל צריך לציין זאת.",
     "להראות רק אחד משני אי-השוויונות."
@@ -1741,7 +1741,7 @@
      "explain": "השנייה והרביעית מחוץ ל-$A$, והשלישית סופית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1772,7 +1772,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$r_1\\ne r_2$ ולכן אין צורך בגורם $n$.",
     "לטעות בסימן של $C_1$: מ-$F_0=0$ מקבלים $C_1=-C_2$."
@@ -1842,7 +1842,7 @@
      "explain": "סדרת Fibonacci: $0,1,1,2,3,5,8,13,21,34,55$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

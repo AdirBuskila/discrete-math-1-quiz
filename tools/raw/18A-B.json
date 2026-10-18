@@ -36,7 +36,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור תמורות שיש בהן נקודת שבת (כמו $(1,3,4,2)$) כתמורות אי-סדר מלא.",
     "להשמיט את האיבר $\\frac1{0!}$ או לטעות בסימנים המתחלפים בנוסחה של $D_4$."
@@ -92,7 +92,7 @@
      "explain": "$24-9=15$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -127,7 +127,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהקבוצה $\\mathbb{Q}\\cap(0,1)$ גדולה מ-$\\mathbb{Z}$ כי היא “צפופה”, במקום להשוות עוצמות.",
     "לבלבל בין איברי $P(A)\\times P(B)$ (זוגות של קבוצות) לבין איברי $P(A\\times B)$ (קבוצות של זוגות)."
@@ -194,7 +194,7 @@
      "explain": "$A\\times B=\\{(1,2)\\}$, ולכן $P(A\\times B)=\\{\\varnothing,\\{(1,2)\\}\\}$ בעלת 2 איברים. מכיוון ש-$2\\ne4$, הטענה (2) אינה נכונה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -221,7 +221,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשלול רק את אי-השוויון ולהשאיר את הכמתים כפי שהם.",
     "לכתוב $z\\ge x+y$ במקום $z>x+y$ (שלילה של $\\le$ היא $>$)."
@@ -284,7 +284,7 @@
      "explain": "שלילת $z\\le x+y$ היא בדיוק $z>x+y$; $z\\ge x+y$ מתקיים גם כש-$z=x+y$, ו-$z<x+y$ אינו מתקיים כש-$z=x+y$ (נבדק בספירה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -319,7 +319,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח שהסכום עבור $k+1$ מתחיל ב-$2k+3$, כלומר שהאיבר $2k+1$ יוצא ושני איברים חדשים נכנסים: $4k+3$ ו-$4k+5$.",
     "לבדוק בסיס עם סכום של איבר אחד בלבד: עבור $n=1$ הסכום הוא $3+5$."
@@ -380,7 +380,7 @@
      "explain": "בשורה השלישית (אינדקס 2) התוצאה צריכה להיות $3k^2+10k+8$: $4k-2k+8k=10k$ ולא $8k$ (נבדק סימבולית). רק כך שני האגפים שווים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -407,7 +407,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח את הטענה על דוגמה אחת שבה האיחוד הוא במקרה טרנזיטיבי.",
     "לשכוח לבדוק שהיחסים $R_1$ ו-$R_2$ עצמם טרנזיטיביים."
@@ -467,7 +467,7 @@
      "explain": "מ-$(1,2),(2,1)\\in R_1\\cup R_2$ נובע בטרנזיטיביות $(1,1)$, אך $(1,1)\\notin R_1\\cup R_2$. הזוגות $(1,2)$ ו-$(2,1)$ כבר באיחוד, ו-$3\\notin A$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -502,7 +502,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק רפלקסיביות וסימטריה ולשכוח טרנזיטיביות.",
     "להכריז ש-$R$ יחס סדר חלקי רק כי הוא רפלקסיבי וטרנזיטיבי, ולשכוח שאנטי-סימטריה נכשלת.",
@@ -585,7 +585,7 @@
      "explain": "בשורה השלישית (אינדקס 2): $(3x+y)+(3y+z)=3x+4y+z=(3x+z)+4y$, ולא $(3x+z)+3y$ (נבדק סימבולית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -616,7 +616,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח ש-$\\varnothing$ כפלית רק עבור מספרים זרים: $\\varnothing(p(p-1))=\\varnothing(p)\\varnothing(p-1)$ בזכות $\\gcd(p,p-1)=1$.",
     "לחשב $f(2)$ עם $\\varnothing(4)=3$ במקום $\\varnothing(4)=2$."
@@ -679,7 +679,7 @@
      "explain": "פונקציה הפיכה אל $\\{0,1\\}$ היא חד-חד-ערכית ועל, ולכן $|B|=2$ (למשל $B=\\{2,3\\}$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -714,7 +714,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $n$ בשורש הכפול ולכתוב $C_1 2^n+C_2 2^n$.",
     "להכפיל את הפתרון הפרטי ב-$n$ אף ש-$3$ אינו שורש אופייני.",
@@ -778,7 +778,7 @@
      "explain": "מהנוסחה: $8-16+162=154$; מהנסיגה: $4\\cdot54-4\\cdot20+2\\cdot9=154$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -809,7 +809,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הגורם $1^{n-k}$ ולכן לא לזהות את משפט הבינום.",
     "להסיק $O(10^n)$ בלי להציג קבוע $c_0$ ו-$n_0$."
@@ -858,7 +858,7 @@
      "explain": "$f(n)/10^n=1+(1/2)^n$, שערכו המרבי הוא $2$ ב-$n=0$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -889,7 +889,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "בסעיף (2) לחשב $6\\cdot5\\cdot4\\cdot3=360$ (עם חשיבות לסדר) במקום $\\binom64$.",
     "בסעיף (3) לספור גם מילים שבהן “abc” אינו רצף, או להתעלם מכך שהמילה מתחילה ב-$a$ או ב-$d$."
@@ -931,7 +931,7 @@
      "explain": "$6+6=12$ (נבדק בספירה ישירה של כל 720 התמורות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -962,7 +962,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לענות 495: זה מספר וקטורי המונים (מילים עד כדי סדר האותיות) ולא מספר המילים.",
     "לשכוח ש-“לכל היותר 22” מוסיף משתנה עודף $y_5$."
@@ -1018,7 +1018,7 @@
      "explain": "$\\sum\\frac{t!}{x_1!x_2!x_3!x_4!}=10726916243718$ (נבדק בספירה ישירה ובפונקציה יוצרת מעריכית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

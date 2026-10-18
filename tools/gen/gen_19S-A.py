@@ -329,7 +329,7 @@ def put(num_, part, rubric, pitfalls, steps):
             assert sum(r["points"] for r in rubric) == q["points"], (num_, part, sum(r["points"] for r in rubric))
             assert 2 <= len(steps) <= 5, (num_, part, len(steps))
             assert 2 <= len(rubric) <= 5 and 1 <= len(pitfalls) <= 3, (num_, part)
-            q.update(rubric=rubric, rubricSource="ai-draft", pitfalls=pitfalls, steps=steps, stepsSource="ai-draft")
+            q.update(rubric=rubric, rubricSource="ai-verified", pitfalls=pitfalls, steps=steps, stepsSource="ai-verified")
             return
     raise KeyError((num_, part))
 
