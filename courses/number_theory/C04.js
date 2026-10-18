@@ -1,7 +1,7 @@
 /* number_theory, level 4 - "p divides X^e - 1" with Fermat. ai-verified (tools/verify/needhelp/number_theory/check.py) */
 COURSE_LEVEL("number_theory", {
   id: "C04", order: 4, icon: "🧩", title: "הראו ש-p מחלק חזקה פחות 1",
-  goal: "אחרי השלב הזה אפשר להוכיח ש-p | X^e-1: לבחור את p, לכתוב את החזקה כ-(X^k)^(p-1) ולהפעיל פרמה.",
+  goal: "אחרי השלב הזה אפשר להוכיח ש-$p\\mid X^e-1$: לבחור את $p$, לכתוב את החזקה כ-$(X^k)^{p-1}$ ולהפעיל פרמה.",
   source: "ai-verified",
   lesson: { html: String.raw`
     <p>השאלה הקלאסית: "הראו שהראשוני $p$ מחלק את $X^{e}-1$". המתכון:</p>
