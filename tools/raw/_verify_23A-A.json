@@ -1,0 +1,222 @@
+{
+ "Q1א": {
+  "verdict": "disagree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "disagree",
+    "divergence": "answer 5 holds only for the canonical table-built CNF; a simplified CNF (not p or q) and not r has 2 clauses; prompt does not say canonical, so the numeric answer is not unique"
+   }
+  }
+ },
+ "Q1ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ }
+}
