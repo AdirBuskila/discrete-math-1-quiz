@@ -48,8 +48,7 @@ COURSE_LEVEL("number_theory", {
         prompt: String.raw`סדרו הוכחה ש-$7\mid5^{18}-1$.`,
         lines: [
           String.raw`$p-1=6$ ו-$18=3\cdot6$, ולכן $5^{18}=(5^{3})^{6}=125^{6}$.`,
-          String.raw`$7$ ראשוני ו-$7\nmid125$ (כי $125=17\cdot7+6$).`,
-          String.raw`לפי פרמה $125^{6}\equiv1\pmod7$.`,
+          String.raw`$7$ ראשוני ו-$7\nmid125$ (כי $125=17\cdot7+6$), ולכן לפי פרמה $125^{6}\equiv1\pmod7$.`,
           String.raw`לכן $5^{18}-1\equiv0\pmod7$, כלומר $7\mid5^{18}-1$.`,
         ],
         explain: String.raw`קודם כותבים את החזקה בצורה $(X^k)^{p-1}$, אחר כך בודקים את תנאי פרמה, מפעילים אותו ומסיקים.` },

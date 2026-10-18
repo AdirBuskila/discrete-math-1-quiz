@@ -1,0 +1,12 @@
+{
+ "course": "induction",
+ "verdict": "agree on all keys; 3 fixes",
+ "method": "blind re-solve from dump.json (no keys) by hand/brute force, then compared with stored keys",
+ "notes": [
+  "All 25 own keys re-derived independently (sums, bug indices C03-Q4=2,C04-Q5=3,C05-Q5=2,C06-Q5=5,C07-Q5=1,C08-Q1=2) and agree.",
+  "Conceptual C01-Q1, C01-Q2, C08-Q3: single defensible option (a), distractors fail; agree.",
+  "C01-Q5 FIXED: stem said 'not an induction proof of a claim on all n>=1', so option c (valid induction from 5) was also arguably not a proof; stem now 'which is not an induction proof'.",
+  "C04-Q4 and C07-Q4 FIXED: order not forced (identity line could precede the assumption); lines reworded/merged so each depends on the previous.",
+  "Boss bankIds 23A-A-Q2a,24A-A-Q2a,25A-A-Q2a,25A-B-Q2a,26A-A-Q2a exist, topic induction."
+ ]
+}

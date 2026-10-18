@@ -1,0 +1,10 @@
+{
+ "course": "relations",
+ "verdict": "agree",
+ "method": "blind re-solve from dump.json (no keys) by hand/brute force, then compared with stored keys",
+ "notes": [
+  "All 28 own keys re-derived; no disagreement; order C05-Q2 forced; bug C05-Q3 index 1 correct.",
+  "C03 lesson FIXED (teach-before-ask): added one sentence that equivalence relations are counted as partitions by block count/sizes, before C03-Q6 (S(3,2)).",
+  "Boss bankIds exist in bank, topic equivalence_relations."
+ ]
+}

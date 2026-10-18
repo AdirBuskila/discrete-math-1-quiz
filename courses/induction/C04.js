@@ -40,7 +40,7 @@ COURSE_LEVEL("induction", {
         prompt: String.raw`סדרו את הצעד בהוכחת $(n+1)+(n+2)+\dots+2n=\frac{n(3n+1)}{2}$.`,
         lines: [
           String.raw`נניח $(k+1)+(k+2)+\dots+2k=\frac{k(3k+1)}{2}$ עבור $k\ge1$.`,
-          String.raw`$(k+2)+\dots+(2k+2)=\big[(k+1)+\dots+2k\big]-(k+1)+(2k+1)+(2k+2)$.`,
+          String.raw`נעבור ל-$P(k+1)$: $(k+2)+\dots+(2k+2)=\big[(k+1)+\dots+2k\big]-(k+1)+(2k+1)+(2k+2)$, והסכום בסוגריים הוא אגף שמאל של ההנחה.`,
           String.raw`$=\frac{k(3k+1)}{2}-(k+1)+(2k+1)+(2k+2)=\frac{k(3k+1)}{2}+(3k+2)$.`,
           String.raw`$=\frac{3k^2+7k+4}{2}=\frac{(k+1)(3k+4)}{2}$, אגף ימין של $P(k+1)$.`,
         ],

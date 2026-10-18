@@ -1,0 +1,10 @@
+{
+ "course": "number_theory",
+ "verdict": "agree; 1 fix",
+ "method": "blind re-solve from dump.json (no keys) by hand/brute force, then compared with stored keys",
+ "notes": [
+  "All own keys re-derived (mod arithmetic, Fermat/Wilson, phi); bug indices C04-Q5=2, C05-Q6=0, C07-Q5=2 correct.",
+  "C04-Q4 FIXED: lines 'p prime, p does not divide 125' and 'Fermat' merged (steps 1-2 were swappable with the base-rewrite line); check.py updated to 3 lines.",
+  "Boss bankIds exist, topic modular_fermat_wilson."
+ ]
+}

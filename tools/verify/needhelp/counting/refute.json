@@ -1,0 +1,9 @@
+{
+ "course": "counting",
+ "verdict": "agree",
+ "method": "blind re-solve from dump.json (no keys) by hand/brute force, then compared with stored keys",
+ "notes": [
+  "All 43 own keys re-derived by brute force/binomials; every mcq has exactly one correct option; no order steps.",
+  "Boss bankIds exist, topic combinatorics (5 of 6 have official=false, i.e. solved/refuted by the bank pipeline, not flagged by the authors)."
+ ]
+}

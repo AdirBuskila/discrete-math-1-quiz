@@ -106,7 +106,7 @@ only_correct("C07-Q3", {"a": True, "b": False, "c": False, "d": False})
 assert pow(2, 6, 7) == 1 and (2 ** 12 - 1) % 7 == 0 and 7 % 2 != 0
 assert 5 ** 18 == 125 ** 6 and (125 ** 6 - 1) % 7 == 0
 assert Q["C02-Q5"]["step"]["type"] == "order" and len(Q["C02-Q5"]["step"]["lines"]) == 3
-assert Q["C04-Q4"]["step"]["type"] == "order" and len(Q["C04-Q4"]["step"]["lines"]) == 4
+assert Q["C04-Q4"]["step"]["type"] == "order" and len(Q["C04-Q4"]["step"]["lines"]) == 3
 
 # findbug: the buggy line is the false one, every other line true
 # C04-Q5  (13 | 8^24 - 1)
