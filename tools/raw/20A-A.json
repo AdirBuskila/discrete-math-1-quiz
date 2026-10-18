@@ -24,7 +24,76 @@
    "solution": "הגדרה: תהי $A$ קבוצה בת $n\\ge1$ איברים. כל סדרה בלי חזרות של כל איברי $A$ נקראת תמורה של $A$.\nאו: כל פונקציה חד-חד-ערכית ועל מ-$A$ ל-$A$ נקראת תמורה של $A$.\nמספר התמורות המתחילות ב-1 הוא $4!$ (שאר ארבעת האיברים מסודרים בכל סדר), וכך גם מספר התמורות המתחילות ב-2. אין תמורה שמתחילה בשניהם, ולכן: $4!\\cdot2=48$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת תמורה: סדרה בלי חזרות של כל איברי הקבוצה",
+     "points": 1
+    },
+    {
+     "text": "מספר התמורות שמתחילות ב-1: $4!$",
+     "points": 2
+    },
+    {
+     "text": "המקרים של 1 ושל 2 זרים, ולכן מחברים (או מכפילים ב-2)",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $48$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $5!/2$ או $5!\\cdot2/5$ בלי להסביר: הפתרון הוא לפי המקום הראשון.",
+    "להחסיר חיתוך שאינו קיים: אין תמורה שמתחילה בשני מספרים שונים.",
+    "לחשב $2\\cdot5!$ (לשכוח שהאיבר הראשון קבוע)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות של $\\{1,2,3,4,5\\}$ מתחילות ב-1?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "שאר ארבעת האיברים מסודרים בכל סדר: $4!=24$."
+    },
+    {
+     "type": "choice",
+     "prompt": "מדוע אפשר לחבר את מספר התמורות שמתחילות ב-1 ואת מספר אלה שמתחילות ב-2?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי אין תמורה שמתחילה גם ב-1 וגם ב-2, כלומר המקרים זרים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי המקרים חופפים ולכן מחסרים את החיתוך"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי 1 ו-2 מופיעים בכל תמורה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי מכפילים תמיד ב-$4!$ בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "החיתוך ריק (נבדק בספירת כל 120 התמורות), ולכן מחברים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות מתחילות ב-1 או ב-2?",
+     "answer": 48,
+     "tol": 0,
+     "explain": "$24+24=48$ (נבדק בספירת כל 120 התמורות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -36,7 +105,76 @@
    "solution": "הגדרה: הפונקציה $\\phi:\\mathbb{N}^+\\to\\mathbb{N}^+$ המוגדרת לפי הכלל $\\phi(n)=\\left|\\{m:\\ 1\\le m\\le n\\ \\wedge\\ \\gcd(n,m)=1\\}\\right|$ נקראת פונקציית EULER.\n$$\\phi(5!)=\\phi(120)=\\phi(2^3\\cdot3\\cdot5)=120\\cdot\\left(1-\\frac12\\right)\\left(1-\\frac13\\right)\\left(1-\\frac15\\right)=120\\cdot\\frac12\\cdot\\frac23\\cdot\\frac45=32$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת פונקציית Euler: מספר המספרים עד $n$ שזרים ל-$n$",
+     "points": 1
+    },
+    {
+     "text": "פירוק $120=2^3\\cdot3\\cdot5$",
+     "points": 1
+    },
+    {
+     "text": "נוסחת $\\phi(n)=n\\prod(1-\\frac1p)$ על הראשוניים שמחלקים את $n$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $120\\cdot\\frac12\\cdot\\frac23\\cdot\\frac45=32$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשתמש בכל החזקות בנוסחה ($\\phi(p^k)=p^k-p^{k-1}$, לא $p^k-1$).",
+    "לכלול ראשוניים שאינם מחלקים את $n$ בנוסחת המכפלה.",
+    "לחשב $120-1-\\ldots$ בלי עקרון: צריך נוסחה."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו הפירוק של $5!=120$ לראשוניים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^3\\cdot3\\cdot5$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^2\\cdot3\\cdot5$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^3\\cdot3^2\\cdot5$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2\\cdot3\\cdot5$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$8\\cdot3\\cdot5=120$; בשאר הפירוקים המכפלה שונה מ-120."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\phi(8)$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$8\\left(1-\\frac12\\right)=4$ (המספרים האי-זוגיים $1,3,5,7$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\phi(120)$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "$120\\cdot\\frac12\\cdot\\frac23\\cdot\\frac45=32$ (נבדק בספירת המספרים הזרים ל-120)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -48,7 +186,72 @@
    "solution": "הגדרה: הגרף $G=K_{m,n}=(A,B,E)$ הוא גרף דו-צדדי שלם כאשר $A=\\{a_1,\\ldots,a_m\\}$, $B=\\{b_1,\\ldots,b_n\\}$ ו-$E=\\{(a_i,b_j):\\ i=1,\\ldots,m;\\ j=1,2,\\ldots,n\\}$.\n**פתרון 1:** $\\overline{K_{m,n}}=K_m\\cup K_n$, ולכן $|\\overline E|=\\frac{m(m-1)}{2}+\\frac{n(n-1)}{2}$.\n**פתרון 2:** $|\\overline E|=\\frac{|V|(|V|-1)}{2}-|E|=\\frac{(m+n)(m+n-1)}{2}-m\\cdot n$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת גרף דו-צדדי שלם $K_{m,n}$",
+     "points": 1
+    },
+    {
+     "text": "המשלים הוא איחוד זר של $K_m$ ו-$K_n$",
+     "points": 2
+    },
+    {
+     "text": "מספר הצלעות $\\frac{m(m-1)}{2}+\\frac{n(n-1)}{2}$ (או $\\binom{m+n}{2}-mn$)",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב שהמשלים הוא גרף דו-צדדי שלם אחר: בתוך כל צד יש כל הצלעות.",
+    "לספור צלעות בין הצדדים: כולן ב-$K_{m,n}$ ולא במשלים.",
+    "לשכוח את החלוקה ב-2 בספירת צלעות של גרף שלם."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהו המשלים של $K_{m,n}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "איחוד זר של $K_m$ ו-$K_n$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "הגרף $K_{m+n}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "גרף בלי צלעות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הגרף $K_{m,n}$ עצמו"
+      }
+     ],
+     "correctId": "a",
+     "explain": "במשלים נשארות בדיוק הצלעות שבתוך כל צד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה צלעות יש ב-$K_{3,4}$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$3\\cdot4=12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה צלעות יש במשלים של $K_{3,4}$?",
+     "answer": 9,
+     "tol": 0,
+     "explain": "$\\binom72-12=21-12=9=3+6$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -60,7 +263,76 @@
    "solution": "הגדרה: גרף לא מכוון $G=(V,E)$ הוא קשיר אם לכל זוג צמתים $x,y\\in V$ קיים ב-$G$ מסלול מ-$x$ ל-$y$.\n$\\overline{P_2}$ אינו קשיר, ו-$\\overline{P_3}$ אינו קשיר.\n$P_4$ הוא המסלול $a-b-c-d$, ולכן $\\overline{P_4}$ הוא המסלול $b-d-a-c$ (הצלעות $bd$, $da$, $ac$), שהוא קשיר ודו-צדדי.\nמסקנה: עבור $n=4$ בלבד המשלים של $P_n$ הוא קשיר וגם דו-צדדי.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת גרף קשיר",
+     "points": 1
+    },
+    {
+     "text": "הוכחה ש-$\\overline{P_2}$ ו-$\\overline{P_3}$ אינם קשירים",
+     "points": 1
+    },
+    {
+     "text": "$\\overline{P_4}$ הוא המסלול $b-d-a-c$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $n=4$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להניח שהמשלים של מסלול קשיר תמיד: ב-$n=2,3$ יש צומת מבודד.",
+    "לבלבל בין קשיר לדו-צדדי: ב-$n\\ge5$ יש משולש במשלים ולכן אינו דו-צדדי.",
+    "לשכוח לבדוק דו-צדדיות אחרי הקשירות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה רכיבי קשירות יש במשלים של $P_3$ (המסלול $a-b-c$)?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "במשלים רק הצלע $ac$, ו-$b$ מבודד."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה צלעות יש במשלים של $P_4$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\binom42-3=3$."
+    },
+    {
+     "type": "choice",
+     "prompt": "עבור איזה $n\\ge2$ המשלים של $P_n$ קשיר וגם דו-צדדי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$n=4$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$n=2$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$n=3$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n=5$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עבור $n=4$ המשלים הוא מסלול; $n=2,3$ אינם קשירים, ועבור $n=5$ יש משולש (נבדק לכל $2\\le n\\le12$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -73,7 +345,96 @@
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med",
-   "verdict": true
+   "verdict": true,
+   "rubric": [
+    {
+     "text": "הגדרת קבוצות שוות עוצמה",
+     "points": 1
+    },
+    {
+     "text": "$A$ אינסופית ומוכלת ב-$\\mathbb{Z}$ ולכן $\\aleph_0\\le|A|\\le|\\mathbb{Z}|$",
+     "points": 2
+    },
+    {
+     "text": "קנטור-ברנשטיין והמסקנה שהעוצמות שוות",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב שכל תת-קבוצה של $\\mathbb{Z}$ היא סופית או קטנה יותר: אינסופית מכילה העתק של $\\mathbb{N}$.",
+    "להשוות ל-$\\mathbb{R}$ במקום ל-$\\mathbb{Q}$.",
+    "לשכוח לציין ש-$|\\mathbb{Z}|=|\\mathbb{N}|=|\\mathbb{Q}|$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם $\\mathbb{Q}$ ו-$A=\\{x\\in\\mathbb{Z}:\\ x<-5\\}$ שוות עוצמה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן, שוות עוצמה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא, $|A|<|\\mathbb{Q}|$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לא, $|A|>|\\mathbb{Q}|$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לא ניתן לדעת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שתיהן אינסופיות בנות-מנייה."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי עוצמת $A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\aleph_0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\mathfrak{c}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "סופית"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{\\mathfrak{c}}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$A\\subseteq\\mathbb{Z}$ אינסופית, ולכן בת-מנייה."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את ההוכחה.",
+     "lines": [
+      "$A\\subseteq\\mathbb{Z}$ ולכן $|A|\\le|\\mathbb{Z}|$, ו-$A$ אינסופית ולכן מכילה תת-קבוצה $B$ עם $|B|=|\\mathbb{N}|$",
+      "לכן $|\\mathbb{N}|\\le|A|\\le|\\mathbb{Z}|=|\\mathbb{N}|=|\\mathbb{Q}|$",
+      "לפי קנטור-ברנשטיין $|A|=|\\mathbb{Q}|$, כלומר הקבוצות שוות עוצמה"
+     ],
+     "explain": "חסמים, שרשרת אי-שוויונות, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -85,7 +446,83 @@
    "solution": "**הפתרון הרשמי עם תיקון בסעיף (2): $\\binom72\\cdot5!=\\frac{7!}{2}=2520$ (ולא 2560):** בפתרון הרשמי שתי הדרכים נכונות, אבל החישוב הסופי שגוי: $\\binom72\\cdot5!=21\\cdot120=2520$ וגם $\\frac{7!}{2}=\\frac{5040}{2}=2520$ (נבדק בסקריפט).\n**(1)** נתייחס ל-$1,2,3$ כאל גוש אחד $a$; כל תמורה מתאימה היא סידור של 5 עצמים בשורה.\nתמורה של $a,4,5,6,7$: $5!$ אפשרויות. בנוסף, $a$ = תמורה של $1,2,3$: $3!$ אפשרויות.\nמסקנה: יש $3!\\cdot5!=720$ תמורות מתאימות.\n**(2)** כל תמורה מתאימה היא בצורה: 2 מקומות עבור '1' ו-'2' (1 במקום הקטן מביניהם): $\\binom72$ אפשרויות; בשאר המקומות יש תמורה של $\\{3,\\ldots,7\\}$: $5!$ אפשרויות.\nמסקנה: יש $\\binom72\\cdot5!=21\\cdot120=2520$ תמורות.\n**דרך נוספת:** כל תמורה מתאימה מגדירה תמורה לא מתאימה אחת בלבד, כשנחליף את המקומות של '1' ו-'2', ולהפך. מסקנה: יש $\\frac{7!}{2}=2520$ תמורות שמקיימות את התנאי.",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1): התייחסות ל-$1,2,3$ כגוש אחד, כלומר 5 עצמים",
+     "points": 2
+    },
+    {
+     "text": "(1): $5!\\cdot3!=720$",
+     "points": 3
+    },
+    {
+     "text": "(2): בחירת מקומות ל-1 ול-2 ($\\binom72$), כש-1 במקום הקטן",
+     "points": 2
+    },
+    {
+     "text": "(2): סידור השאר $5!$ והתוצאה $2520$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את הסדר הפנימי של הגוש ($3!$).",
+    "לספור $\\binom72\\cdot2\\cdot5!$ כשמותר גם 2 לפני 1: אבל 1 חייב להיות קודם.",
+    "לשגות בחישוב החשבוני: $21\\cdot120=2520$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה סידורים יש ל-5 העצמים $a,4,5,6,7$ (כש-$a$ הוא הגוש של $1,2,3$)?",
+     "answer": 120,
+     "tol": 0,
+     "explain": "$5!=120$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות של $\\{1,\\ldots,7\\}$ מקיימות שהמספרים 1,2,3 בסמיכות (בכל סדר)?",
+     "answer": 720,
+     "tol": 0,
+     "explain": "$3!\\cdot5!=720$ (נבדק בספירת כל 5040 התמורות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את מספר התמורות שבהן 1 לפני 2?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\binom72\\cdot5!$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\binom72\\cdot2\\cdot5!$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\frac{7!}{3!}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$7!$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בוחרים שני מקומות ל-1 ול-2 ו-1 תמיד במקום הקטן, והשאר מסודרים ב-$5!$ דרכים."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות מקיימות שהמספר 1 נמצא לפני 2?",
+     "answer": 2520,
+     "tol": 0,
+     "explain": "$21\\cdot120=2520=\\frac{7!}{2}$ (נבדק בספירת כל התמורות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -97,7 +534,55 @@
    "solution": "**הפתרון הרשמי עם תיקון בסעיף (1): $4^4\\cdot3^3=6912$ (ולא $3!\\cdot4!=144$):** הפתרון הרשמי עונה על (1) כאילו כל אות מופיעה פעם אחת. אבל 'סדרה' מאפשרת חזרות (תמורה היא סדרה בלי חזרות), וסעיף (2) מוסיף את התנאי 'כל אות מופיעה פעם אחת' על סדרות מ-(1), מה שמראה שב-(1) מותרות חזרות. שתי הקריאות מוצגות כאן; התשובה לפי הנוסח המודפס היא 6912 (נבדק בסקריפט).\n**(1) לפי הנוסח (חזרות מותרות):** כל אחד מ-4 המקומות הראשונים הוא אות מ-$A$: $4^4=256$ אפשרויות, וכל אחד מ-3 המקומות האחרונים הוא אות מ-$B$: $3^3=27$ אפשרויות. מסקנה: $4^4\\cdot3^3=256\\cdot27=6912$ סדרות.\n**(1) בקריאת הפתרון הרשמי (בלי חזרות):** כל סדרה מורכבת משתי תמורות: 4 המקומות הראשונים = תמורה של $A$: $4!$ אפשרויות; 3 המקומות האחרונים = תמורה של $B$: $3!$ אפשרויות. מסקנה: $3!\\cdot4!=6\\cdot24=144$.\n**(2)** כל סדרה היא בצורה: אות ראשונה $a$ או $b$ (2 אפשרויות), אחריה תמורה של שלוש האותיות האחרות של $A$ ($3!$) ותמורה של $B$ ($3!$). מסקנה: $2\\cdot3!\\cdot3!=72$ סדרות (אותה תשובה בשתי הקריאות).",
    "solutionSource": "solved",
    "official": false,
-   "confidence": "high"
+   "confidence": "high",
+   "rubric": [
+    {
+     "text": "(1): הבחנה בין סדרה (חזרות מותרות) לתמורה, וחישוב $4^4\\cdot3^3$",
+     "points": 4
+    },
+    {
+     "text": "(2): אות ראשונה $a$ או $b$ (2 אפשרויות)",
+     "points": 1
+    },
+    {
+     "text": "(2): סידור שלוש האותיות האחרות של $A$ ושל $B$ ($3!\\cdot3!$)",
+     "points": 2
+    },
+    {
+     "text": "(2): התוצאה $72$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין סדרה (חזרות מותרות) לבין תמורה (בלי חזרות).",
+    "ב-(2) לשכוח שהאות הראשונה נבחרת מבין $a,b$ בלבד.",
+    "לחשב $4!\\cdot3!$ ב-(2) בלי האילוץ על האות הראשונה."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אם חזרות מותרות (כפי שמרמז תנאי (2)): כמה סדרות בנות 7 אותיות מתחילות ב-4 אותיות מ-$A$ ושאר האותיות מ-$B$?",
+     "answer": 6912,
+     "tol": 0,
+     "explain": "$4^4\\cdot3^3=256\\cdot27=6912$ (נבדק בספירה)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בסעיף (2): כמה אפשרויות יש לאות הראשונה?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$a$ או $b$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בסעיף (2): כמה סדרות מקיימות את כל התנאים?",
+     "answer": 72,
+     "tol": 0,
+     "explain": "$2\\cdot3!\\cdot3!=72$ (נבדק בספירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -109,7 +594,80 @@
    "solution": "**(1)** $\\phi(1)=1=\\phi(2)$ ו-$1\\ne2$, ולכן $\\phi$ אינה חד-חד-ערכית.\n**(2)** $15\\mid n\\Rightarrow n=3^\\alpha\\cdot5^\\beta\\cdot m$, כאשר $\\gcd(m,3)=1=\\gcd(m,5)$ ו-$\\alpha\\ge1,\\ \\beta\\ge1,\\ \\alpha,\\beta\\in\\mathbb{N}$.\n$$\\phi(n)=3^\\alpha\\left(1-\\frac13\\right)\\cdot5^\\beta\\left(1-\\frac15\\right)\\cdot\\phi(m)=2\\cdot4\\cdot3^{\\alpha-1}\\cdot5^{\\beta-1}\\cdot\\phi(m)$$\nולכן $8\\mid\\phi(n)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "(1): דוגמה נגדית לחד-חד-ערכיות: $\\phi(1)=\\phi(2)$",
+     "points": 2
+    },
+    {
+     "text": "(2): הצגת $n=3^\\alpha5^\\beta m$",
+     "points": 1
+    },
+    {
+     "text": "(2): כפליות $\\phi$ והערכים $\\phi(3^\\alpha),\\phi(5^\\beta)$",
+     "points": 2
+    },
+    {
+     "text": "(2): $8\\mid\\phi(n)$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק מספרים ראשוניים כדי להכריע חד-חד-ערכיות: דוגמה נגדית היא 1 ו-2.",
+    "לשכוח את התנאי $\\gcd(m,15)=1$ בהפעלת הכפליות.",
+    "לכתוב $\\phi(3^\\alpha)=3^\\alpha-1$ במקום $2\\cdot3^{\\alpha-1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו דוגמה מראה ש-$\\phi$ אינה חד-חד-ערכית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\phi(1)=\\phi(2)=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\phi(2)=\\phi(3)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\phi(3)=\\phi(5)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\phi(4)=\\phi(5)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק ב-1 ו-2 מתקבל אותו ערך."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\phi(15)$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$\\phi(3)\\phi(5)=2\\cdot4=8$."
+    },
+    {
+     "type": "order",
+     "prompt": "סדרו את ההוכחה ש-$8\\mid\\phi(n)$.",
+     "lines": [
+      "נכתוב $n=3^\\alpha5^\\beta m$ עם $\\alpha,\\beta\\ge1$ ו-$\\gcd(m,15)=1$",
+      "$\\phi$ כפלית על גורמים זרים: $\\phi(n)=\\phi(3^\\alpha)\\phi(5^\\beta)\\phi(m)$",
+      "$\\phi(3^\\alpha)=2\\cdot3^{\\alpha-1}$ ו-$\\phi(5^\\beta)=4\\cdot5^{\\beta-1}$",
+      "לכן $\\phi(n)=8\\cdot3^{\\alpha-1}5^{\\beta-1}\\phi(m)$ ולכן $8\\mid\\phi(n)$"
+     ],
+     "explain": "פירוק, כפליות, ערכי חזקות ראשוניות, מסקנה."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -121,7 +679,62 @@
    "solution": "נסמן: $A_1=\\{n\\in\\Omega:\\ 3\\mid n\\}$, $A_2=\\{n\\in\\Omega:\\ 5\\mid n\\}$, $A_3=\\{n\\in\\Omega:\\ 7\\mid n\\}$.\n$|A_1|=\\lfloor\\frac{100}{3}\\rfloor=33$, $|A_2|=\\lfloor\\frac{100}{5}\\rfloor=20$, $|A_3|=\\lfloor\\frac{100}{7}\\rfloor=14$.\n$|\\Omega-A_1\\cup A_2\\cup A_3|=|\\Omega|-|A_1\\cup A_2\\cup A_3|=100-S_1+S_2-S_3$ (עקרון ההכלה וההפרדה), כאשר:\n$S_1=|A_1|+|A_2|+|A_3|=67$\n$S_2=|A_1\\cap A_2|+|A_1\\cap A_3|+|A_2\\cap A_3|=\\lfloor\\frac{100}{15}\\rfloor+\\lfloor\\frac{100}{21}\\rfloor+\\lfloor\\frac{100}{35}\\rfloor=6+4+2=12$\n$S_3=|A_1\\cap A_2\\cap A_3|=\\lfloor\\frac{100}{3\\cdot5\\cdot7}\\rfloor=\\lfloor\\frac{100}{105}\\rfloor=0$\nמסקנה: $|\\Omega-A_1\\cup A_2\\cup A_3|=100-67+12-0=45$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת $A_1,A_2,A_3$ והצבה בעקרון ההכלה וההפרדה",
+     "points": 3
+    },
+    {
+     "text": "חישוב $|A_i|$ וקבלת $S_1=67$",
+     "points": 2
+    },
+    {
+     "text": "חישוב $S_2=12$",
+     "points": 3
+    },
+    {
+     "text": "$S_3=0$ ותוצאה $45$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח את חיתוכי הזוגות או את חיתוך השלישייה.",
+    "להשתמש בעיגול למעלה במקום למטה ($\\lfloor100/3\\rfloor=33$).",
+    "לספור את המתחלקים במקום את אלה שאינם מתחלקים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה מספרים ב-$\\{1,\\ldots,100\\}$ מתחלקים ב-3?",
+     "answer": 33,
+     "tol": 0,
+     "explain": "$\\lfloor100/3\\rfloor=33$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $S_2$, כלומר סכום גדלי חיתוכי הזוגות?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$\\lfloor100/15\\rfloor+\\lfloor100/21\\rfloor+\\lfloor100/35\\rfloor=6+4+2=12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $S_3$ (חיתוך שלושת הקבוצות)?",
+     "answer": 0,
+     "tol": 0,
+     "explain": "$\\lfloor100/105\\rfloor=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מספרים אינם מתחלקים ב-3 או ב-5 או ב-7?",
+     "answer": 45,
+     "tol": 0,
+     "explain": "$100-67+12-0=45$ (נבדק בספירה ישירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -133,7 +746,83 @@
    "solution": "המשוואה האופיינית: $x^2+1=0\\Rightarrow x_{1,2}=\\pm i\\Rightarrow x_{1,2}=\\cos\\frac\\pi2\\pm i\\sin\\frac\\pi2$.\nהפתרון הכללי של $a_n+a_{n-2}=0$ הוא: $a_n^{(h)}=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}$.\nפתרון פרטי של $a_n+a_{n-2}=15\\cdot2^n$ (⋆⋆) הוא מהצורה $a_n^{(p)}=A\\cdot2^n$. נציב ב-(⋆⋆): $A\\cdot2^n+A\\cdot2^{n-2}=15\\cdot2^n\\ \\ |:2^{n-2}\\Rightarrow4A+A=15\\cdot4\\Rightarrow A=12\\Rightarrow a_n^{(p)}=12\\cdot2^n$.\nהפתרון הרקורסיבי הוא: $a_n=C_1\\cos\\frac{n\\pi}{2}+C_2\\sin\\frac{n\\pi}{2}+12\\cdot2^n$.\n$a_0=C_1+12=14\\Rightarrow C_1=2$\n$a_1=C_2+24=27\\Rightarrow C_2=3$\n$$a_n=2\\cos\\frac{n\\pi}{2}+3\\sin\\frac{n\\pi}{2}+12\\cdot2^n,\\quad n\\in\\mathbb{N}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "המשוואה האופיינית ושורשיה $\\pm i$ והפתרון ההומוגני",
+     "points": 2
+    },
+    {
+     "text": "פתרון פרטי $A\\cdot2^n$ והצבה",
+     "points": 3
+    },
+    {
+     "text": "קבועים מתנאי ההתחלה $C_1,C_2$",
+     "points": 3
+    },
+    {
+     "text": "הנוסחה המפורשת",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבחור פתרון פרטי $A\\cdot n\\cdot2^n$: אין צורך כי 2 אינו שורש אופייני.",
+    "לטעות בשורשים המרוכבים ולכתוב מעריכים במקום $\\cos$ ו-$\\sin$.",
+    "להציב את תנאי ההתחלה בפתרון ההומוגני בלבד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהי המשוואה האופיינית של $a_n+a_{n-2}=0$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x^2+1=0$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x^2-1=0$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x^2-15=0$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x^2+2=0$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "השורשים הם $\\pm i$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המקדם $A$ בפתרון הפרטי $A\\cdot2^n$?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$A\\cdot2^n+A\\cdot2^{n-2}=15\\cdot2^n\\Rightarrow5A=60$, כלומר $A=12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $C_2$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$a_1=C_2+24=27$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_2$ לפי הנוסחה (וגם לפי הנסיגה $a_2=15\\cdot4-a_0$)?",
+     "answer": 46,
+     "tol": 0,
+     "explain": "$-2+48=46$ (הנוסחה נבדקה על $n\\le30$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -145,7 +834,79 @@
    "solution": "צריך להראות ש-$\\overline{P_{15}}$ קשיר ובעל בדיוק 2 צמתים מדרגה אי-זוגית.\n$P_{15}$: המסלול $v_1,v_2,\\ldots,v_{15}$. $\\deg_{P_{15}}(v_1)=1=\\deg_{P_{15}}(v_{15})\\Rightarrow\\deg_{\\overline{P_{15}}}(v_1)=\\deg_{\\overline{P_{15}}}(v_{15})=13$.\nלכל $i=2,\\ldots,14$: $\\deg_{P_{15}}(v_i)=2\\Rightarrow\\deg_{\\overline{P_{15}}}(v_i)=12$.\nלכל $v$ מתקיים $\\deg_{\\overline{P_{15}}}(v)\\ge\\frac{15}{2}$, ולכן לפי משפט DIRAC הגרף $\\overline{P_{15}}$ הוא גרף Hamilton, ובפרט קשיר.\n$\\overline{P_{15}}$ קשיר, ויש בו בדיוק 2 צמתים מדרגה אי-זוגית. מסקנה: ב-$\\overline{P_{15}}$ קיים מסלול EULER.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "חישוב דרגות המשלים: $13$ בקצוות ו-$12$ בפנים",
+     "points": 2
+    },
+    {
+     "text": "קשירות לפי משפט Dirac",
+     "points": 2
+    },
+    {
+     "text": "בדיוק שני צמתים אי-זוגיים ולכן מסלול Euler",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק את הדרגות בלי קשירות: מסלול Euler דורש גם קשירות.",
+    "לחשוב שיש 15 צמתים אי-זוגיים: רק שני הקצוות.",
+    "לשכוח שבמשלים הדרגה היא $14-\\deg$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת קצה של $P_{15}$ במשלים?",
+     "answer": 13,
+     "tol": 0,
+     "explain": "$14-1=13$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהי דרגת צומת פנימי של $P_{15}$ במשלים?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$14-2=12$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה צמתים מדרגה אי-זוגית יש במשלים?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "רק שני הקצוות, כלומר 2 (נבדק על הגרף עצמו)."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה תנאי מראה שיש בגרף מסלול Euler שאינו מעגל?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קשיר ובדיוק שני צמתים מדרגה אי-זוגית"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כל הדרגות זוגיות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "קיים מסלול Hamilton"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הגרף דו-צדדי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כל התנאים האחרים אינם מבטיחים מסלול Euler שאינו מעגל."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -157,7 +918,72 @@
    "solution": "נתון: $\\frac{n(n-1)}{2}=55\\iff\\binom n2=55$.\n$n^2-n-110=0\\Rightarrow n_{1,2}=\\frac{1\\pm\\sqrt{441}}{2}=\\frac{1\\pm21}{2}\\Rightarrow n=11$, כלומר $|A|=11$.\nמספר תתי-הקבוצות בגודל זוגי: $1024=2^{10}=2^{11-1}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פתרון $\\binom n2=55$ וקבלת $n=11$",
+     "points": 4
+    },
+    {
+     "text": "מספר תתי-הקבוצות בגודל זוגי הוא $2^{n-1}$",
+     "points": 2
+    },
+    {
+     "text": "התוצאה $1024$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לפסול את השורש השלילי של המשוואה הריבועית.",
+    "לחשב $2^{n}$ (כל תתי-הקבוצות) במקום החצי הזוגי.",
+    "לבלבל בין $\\binom n2=55$ לבין $n^2=55$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $n$ אם $\\binom n2=55$?",
+     "answer": 11,
+     "tol": 0,
+     "explain": "$n(n-1)=110$ ולכן $n=11$."
+    },
+    {
+     "type": "choice",
+     "prompt": "כמה מתוך $2^n$ תתי-הקבוצות הן בגודל זוגי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{n-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{n}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{n-2}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n^2$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "מספר תתי-הקבוצות בגודל זוגי שווה למספר בגודל אי-זוגי, ולכן חצי."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תתי-קבוצות בגודל זוגי יש ל-$A$?",
+     "answer": 1024,
+     "tol": 0,
+     "explain": "$2^{10}=1024$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -169,7 +995,76 @@
    "solution": "(1) $f$ עולה ממש $\\iff\\{f(1),f(2),f(3),f(4)\\}$ היא קבוצה בת 4 איברים (הסדר נקבע בצורה יחידה). בוחרים 4 איברים מתוך $\\{1,2,\\ldots,6\\}$, ולכן יש $\\binom64=15$ פונקציות עולות ממש.\n(2) $f$ חד-חד-ערכית $\\iff f(1),f(2),f(3),f(4)$ הם 4 איברים שונים מתוך $\\{1,2,\\ldots,6\\}$ בסדר כלשהו, ולכן יש $P(6,4)=360$ פונקציות חד-חד-ערכיות.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "(1): פונקציה עולה ממש נקבעת על ידי קבוצת ערכיה",
+     "points": 3
+    },
+    {
+     "text": "(1): $\\binom64=15$",
+     "points": 3
+    },
+    {
+     "text": "(2): חד-חד-ערכית כבחירה סדורה של 4 ערכים שונים",
+     "points": 3
+    },
+    {
+     "text": "(2): $P(6,4)=360$",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבלבל בין עולה ממש (נקבעת בקבוצה) לבין חד-חד-ערכית (נקבעת גם בסדר).",
+    "לחשב $6^4$ (כל הפונקציות) במקום לספור לפי התנאי.",
+    "לשכוח שבעולה ממש כל תת-קבוצה נותנת פונקציה אחת בדיוק."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות עולות ממש יש?",
+     "answer": 15,
+     "tol": 0,
+     "explain": "$\\binom64=15$ (נבדק בספירת כל 1296 הפונקציות)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות חד-חד-ערכיות יש?",
+     "answer": 360,
+     "tol": 0,
+     "explain": "$6\\cdot5\\cdot4\\cdot3=360$ (נבדק בספירה)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה קובע פונקציה עולה ממש?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "קבוצת ערכיה, כלומר תת-קבוצה בת 4 איברים של $\\{1,\\ldots,6\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "סדר הערכים (תמורה של 4 מתוך 6)"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מספר הערכים בלבד"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הערך ב-1 בלבד"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לכל קבוצה בת 4 ערכים יש בדיוק סידור עולה אחד."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -181,7 +1076,97 @@
    "solution": "$m=\\sum_{k=0}^{n}k\\cdot\\binom nk$.\nנגזור את $(x+1)^n=\\sum_{k=0}^{n}\\binom nk x^k$ ונקבל: $n(x+1)^{n-1}=\\sum_{k=0}^{n}\\binom nk\\cdot k\\cdot x^{k-1}$.\nנציב $x=1$: $n\\cdot2^{n-1}=\\sum_{k=0}^{n}\\binom nk\\cdot k$.\nמסקנה: $m=n\\cdot2^{n-1}$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "ביטוי הסכום $\\sum k\\binom nk$",
+     "points": 1
+    },
+    {
+     "text": "גזירה של $(x+1)^n$",
+     "points": 2
+    },
+    {
+     "text": "הצבת $x=1$",
+     "points": 1
+    },
+    {
+     "text": "התוצאה $n\\cdot2^{n-1}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להציב $x=1$ לפני הגזירה: מקבלים $2^n$ ולא את הסכום הממושקל.",
+    "לשכוח את הגורם $n$ שיוצא מהגזירה.",
+    "לחשב $n\\cdot2^n$ (לבלבל בין $2^n$ ל-$2^{n-1}$)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\sum_{B\\subseteq A}|B|$ עבור $n=4$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "$4\\cdot2^3=32$ (נבדק בספירת כל 16 הקבוצות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהי הנוסחה הכללית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$n\\cdot2^{n-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$n\\cdot2^n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^n-1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$n^2\\cdot2^{n-2}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לכל איבר יש $2^{n-1}$ קבוצות שמכילות אותו."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "גוזרים את $(1+x)^n$ ומציבים $x=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "מציבים $x=0$ בבינום"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "מציבים $x=-1$ בבינום"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "מחשבים $(1+1)^n$ בלבד, בלי נגזרת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הנגזרת מכניסה את המקדם $k$ לסכום."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -194,7 +1179,62 @@
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med",
-   "verdict": false
+   "verdict": false,
+   "rubric": [
+    {
+     "text": "תשובה: לא קיים גרף כזה",
+     "points": 1
+    },
+    {
+     "text": "הסרת הצומת מדרגה 8 והסדרה $(0,0,1,2,2,2,5,6)$",
+     "points": 2
+    },
+    {
+     "text": "סתירה: צומת מדרגה 6 צריך 6 שכנים אך יש רק 5 זמינים",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק רק שהסכום זוגי: זה תנאי הכרחי ולא מספיק.",
+    "לשכוח שצומת מדרגה 8 מחובר לכל שאר 8 הצמתים.",
+    "לא להוריד 1 מכל דרגה אחרי הסרת הצומת."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם קיים גרף לא מכוון שסדרת הדרגות שלו $(1,1,2,3,3,3,6,7,8)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא קיים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "קיים"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הסדרה אינה גרפית (נבדק באלגוריתם Havel-Hakimi)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי הסרת הצומת מדרגה 8 כמה צמתים מדרגה 0 נשארים?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "הסדרה היא $(0,0,1,2,2,2,5,6)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה שכנים זמינים יש בגרף שנשאר לצומת שדרגתו שם 6?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "7 צמתים אחרים פחות שני צמתים מדרגה 0."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -206,7 +1246,76 @@
    "solution": "נסמן: $x_1$ מספר ההופעות של $a$ ($3\\le x_1$), $x_2$ של $b$ ($1\\le x_2$), $x_3$ של $c$ ($4\\le x_3$), $x_4$ של $d$ ($2\\le x_4$).\nאז $x_1+x_2+x_3+x_4=22$. לכן מספר המילים שווה למספר הפתרונות של: $x_1+x_2+x_3+x_4=22,\\ x_1\\ge3,\\ x_2\\ge1,\\ x_3\\ge4,\\ x_4\\ge2$.\nוהוא שווה ל: $D(4,22-3-1-4-2)=D(4,12)=\\binom{4-1+12}{4-1}=\\binom{15}{3}=\\frac{15\\cdot14\\cdot13}{1\\cdot2\\cdot3}=455$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרת משתנים $x_1,\\ldots,x_4$ והחסמים התחתונים",
+     "points": 3
+    },
+    {
+     "text": "הזזה: $22-3-1-4-2=12$",
+     "points": 3
+    },
+    {
+     "text": "כוכבים וקווים: $\\binom{15}{3}$",
+     "points": 3
+    },
+    {
+     "text": "התוצאה $455$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לטעות בנוסחת הכוכבים והקווים: $\\binom{n+k-1}{k-1}$ עם $k=4$.",
+    "לשכוח להפחית את כל החסמים התחתונים מ-22.",
+    "לחשוב שהסדר חשוב (כאן סופרים מילים ללא חשיבות לסדר)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "אחרי הזזה של החסמים התחתונים: כמה אותיות נשארות לחלק בחופשיות?",
+     "answer": 12,
+     "tol": 0,
+     "explain": "$22-3-1-4-2=12$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה ביטוי נותן את מספר הפתרונות של $y_1+y_2+y_3+y_4=12$ במספרים טבעיים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\binom{15}{3}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\binom{22}{4}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\binom{12}{3}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\binom{16}{4}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "כוכבים וקווים: $\\binom{12+4-1}{4-1}=\\binom{15}{3}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מילים כאלה יש?",
+     "answer": 455,
+     "tol": 0,
+     "explain": "$\\frac{15\\cdot14\\cdot13}{6}=455$ (נבדק בספירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 5,
@@ -219,7 +1328,104 @@
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "חישוב דרגה במשלים וסימון $n=10$",
+     "points": 2
+    },
+    {
+     "text": "(1) Dirac: $6\\ge\\frac{10}{2}$",
+     "points": 3
+    },
+    {
+     "text": "(2) קשיר ודרגות זוגיות",
+     "points": 2
+    },
+    {
+     "text": "(3) מעגל אי-זוגי $a,d,g$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשוב שגרף Hamilton חייב להיות Euler או להפך: אלה תנאים נפרדים.",
+    "לשכוח שדרגה במשלים היא $9-\\deg$.",
+    "לבדוק דו-צדדיות רק בגרף המקורי ולא במשלים."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהי הדרגה של כל צומת במשלים?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "הגרף המקורי רגולרי מדרגה 3 על 10 צמתים, ולכן במשלים $9-3=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הסף $\\frac n2$ במשפט Dirac עבור $n=10$?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "הדרגה 6 גדולה מהסף."
+    },
+    {
+     "type": "choice",
+     "prompt": "אילו מהטענות נכונות עבור המשלים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "(1) כן, (2) כן, (3) לא"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "(1) כן, (2) לא, (3) כן"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "(1) לא, (2) כן, (3) לא"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "שלושתן נכונות"
+      }
+     ],
+     "correctId": "a",
+     "explain": "המשלים הוא Hamilton (Dirac), קשיר עם דרגות זוגיות ולכן Euler, ויש בו משולש ולכן אינו דו-צדדי."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה שלושה צמתים יוצרים משולש במשלים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a,d,g$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a,b,c$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a,e,f$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$d,i,c$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בגרף המקורי אין צלעות בין $a,d,g$, ולכן במשלים הם משולש."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -231,7 +1437,104 @@
    "solution": "לפי הבינום של Newton: $a=(3+5)^n=8^n$, $b=(7+5)^n=12^n$.\n$$\\phi(ab)=\\phi(8^n\\cdot12^n)=\\phi(2^{3n}\\cdot2^{2n}\\cdot3^n)=\\phi(2^{5n}\\cdot3^n)=2^{5n}\\cdot3^n\\cdot\\left(1-\\frac12\\right)\\left(1-\\frac13\\right)=2^{5n}\\cdot3^n\\cdot\\frac12\\cdot\\frac23=2^{5n}\\cdot3^{n-1}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הבינום של Newton: $a=8^n$ ו-$b=12^n$",
+     "points": 4
+    },
+    {
+     "text": "פירוק $ab=2^{5n}\\cdot3^n$",
+     "points": 3
+    },
+    {
+     "text": "נוסחת $\\phi$ על שני הראשוניים",
+     "points": 3
+    },
+    {
+     "text": "התוצאה $2^{5n}\\cdot3^{n-1}$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח שהסכומים הם בינום: $a=(3+5)^n$ ולא $3^n+5^n$.",
+    "לחשב את $\\phi$ של כל גורם בנפרד בלי לוודא שהם זרים.",
+    "לפרק את $12^n$ בלי $3^n$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מהם $a$ ו-$b$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$a=8^n$ ו-$b=12^n$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$a=15^n$ ו-$b=35^n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$a=2^n$ ו-$b=2^n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$a=8^n$ ו-$b=7^n\\cdot5^n$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "לפי הבינום $a=(3+5)^n$ ו-$b=(7+5)^n$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המעריך של 2 בפירוק של $ab=8^n12^n$ כש-$n=5$?",
+     "answer": 25,
+     "tol": 0,
+     "explain": "$3n+2n=5n=25$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\phi(ab)$ עבור $n=5$?",
+     "answer": 2717908992,
+     "tol": 0,
+     "explain": "$\\phi(2^{25}\\cdot3^5)=2^{25}\\cdot3^4=2717908992$ (נבדק ב-sympy)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מהו $\\phi(ab)$ כללית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$2^{5n}\\cdot3^{n-1}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$2^{5n}\\cdot3^{n}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$2^{5n-1}\\cdot3^{n-1}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$2^{5n-1}\\cdot3^{n}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\phi(2^{5n})=2^{5n-1}$ ו-$\\phi(3^n)=2\\cdot3^{n-1}$, והמכפלה היא $2^{5n}\\cdot3^{n-1}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -243,7 +1546,86 @@
    "solution": "הפונקציה $f:(0,1)\\to(2,7]$, $f(x)=x+2$ היא חד-חד-ערכית, ולכן $|(0,1)|\\le|(2,7]|$.\nבנוסף, $(2,7]\\subseteq\\mathbb{R}$, ולכן $|(2,7]|\\le|\\mathbb{R}|=|(0,1)|$.\nמסקנה: $|(0,1)|=|(2,7]|$ (לפי קנטור-ברנשטיין).",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פונקציה חד-חד-ערכית $(0,1)\\to(2,7]$",
+     "points": 2
+    },
+    {
+     "text": "הכלה $(2,7]\\subseteq\\mathbb{R}$ והחסם $|\\mathbb{R}|=|(0,1)|$",
+     "points": 2
+    },
+    {
+     "text": "קנטור-ברנשטיין והמסקנה",
+     "points": 3
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להראות רק פונקציה חד-חד-ערכית אחת: צריך את שני הכיוונים.",
+    "לבחור פונקציה שהתמונה שלה יוצאת מהקטע, למשל $7x$.",
+    "לטעות בקצוות: הקטע $(2,7]$ סגור מימין ופתוח משמאל."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "שתי פונקציות חד-חד-ערכיות בשני הכיוונים וקנטור-ברנשטיין"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "בניית התאמה אחת-על מפורשת בין $(0,1)$ ל-$(2,7]$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טיעון אלכסוני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הוכחה שהקבוצות בנות-מנייה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(0,1)\\to(2,7]$ ו-$(2,7]\\to\\mathbb{R}$ חד-חד-ערכיות, והעוצמות שוות."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו פונקציה $f:(0,1)\\to(2,7]$ חד-חד-ערכית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f(x)=x+2$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$f(x)=7x$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$f(x)=x-2$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$f(x)=2x$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רק $x+2$ מעבירה את $(0,1)$ אל $(2,3)\\subseteq(2,7]$; בשאר התמונה יוצאת מהקטע."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 6,
@@ -256,7 +1638,51 @@
    "solutionSource": "student-solution",
    "official": false,
    "confidence": "med",
-   "contextId": "c1"
+   "contextId": "c1",
+   "rubric": [
+    {
+     "text": "חישוב המרחקים מ-$a$",
+     "points": 2
+    },
+    {
+     "text": "חישוב המרחקים מ-$f$",
+     "points": 2
+    },
+    {
+     "text": "הקוטר הוא המקסימום ולכן $2$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסתפק במרחקים מצומת אחד בלי להסביר למה זה מספיק.",
+    "לבלבל בין קוטר (מקסימום מרחק) לבין רדיוס.",
+    "לספור צלעות במקום מרחקים (מספר צלעות במסלול הקצר ביותר)."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה צמתים במרחק 1 מהצומת $a$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "השכנים $b,e,f$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה צמתים במרחק 2 מהצומת $a$?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$j,g,i,h,c,d$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו קוטר הגרף?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "המרחק המקסימלי בין זוג צמתים הוא 2 (נבדק על כל הזוגות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
