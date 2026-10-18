@@ -17,7 +17,92 @@
    "solution": "**הגדרה:** תהיינה $A,B$ קבוצות. המכפלה הקרטזית של $A$ ו-$B$ היא $A\\times B=\\{(a,b):\\ a\\in A\\wedge b\\in B\\}$.\n**דוגמאות:**\n$B_1=\\{2\\}$, $A_1=\\{1\\}$: $A_1\\times B_1=\\{(1,2)\\}\\ne\\{(2,1)\\}=B_1\\times A_1$.\n$B_2=\\varnothing$, $A_2=\\{1\\}$: $A_2\\times B_2=\\varnothing=B_2\\times A_2$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הגדרה נכונה: $A\\times B=\\{(a,b):a\\in A\\wedge b\\in B\\}$",
+     "points": 3
+    },
+    {
+     "text": "דוגמה ל-$A_1\\times B_1\\ne B_1\\times A_1$ עם בדיקה, למשל $\\{1\\}$ ו-$\\{2\\}$",
+     "points": 3
+    },
+    {
+     "text": "דוגמה ל-$A_2\\times B_2=B_2\\times A_2$ עם קבוצות שונות, למשל $\\{1\\}$ ו-$\\varnothing$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לתת דוגמה שבה $A_2=B_2$ (הקבוצות צריכות להיות שונות).",
+    "לכתוב את איברי המכפלה כקבוצות $\\{a,b\\}$ במקום כזוגות סדורים $(a,b)$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזו מההגדרות הבאות היא ההגדרה של $A\\times B$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\{(a,b):a\\in A\\vee b\\in B\\}$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\{(a,b):a\\in A\\wedge b\\in B\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\{\\{a,b\\}:a\\in A\\wedge b\\in B\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\{(b,a):a\\in A\\wedge b\\in B\\}$"
+      }
+     ],
+     "correctId": "b",
+     "explain": "המכפלה הקרטזית היא קבוצת כל הזוגות הסדורים $(a,b)$ עם $a\\in A$ **וגם** $b\\in B$. האפשרות השלישית מגדירה את $B\\times A$, והשנייה מתעלמת מהסדר."
+    },
+    {
+     "type": "numeric",
+     "prompt": "נתון $A_1=\\{1\\}$ ו-$B_1=\\{2\\}$. מה גודל $(A_1\\times B_1)\\cup(B_1\\times A_1)$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$A_1\\times B_1=\\{(1,2)\\}$ ו-$B_1\\times A_1=\\{(2,1)\\}$ שונות זו מזו, ולכן האיחוד מכיל 2 זוגות."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזה זוג קבוצות **שונות** מקיים $A\\times B=B\\times A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$A=\\{1\\}$, $B=\\varnothing$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$A=\\{1\\}$, $B=\\{2\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$A=\\{1,2\\}$, $B=\\{1\\}$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$A=\\{1\\}$, $B=\\{1,2\\}$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "עם $B=\\varnothing$ שני הצדדים ריקים. בשאר המקרים המכפלות שונות (נבדק בחישוב ישיר)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -29,7 +114,119 @@
    "solution": "**(1)** הטענה אינה נכונה, כי: $\\mathbb{Q}\\cap(-1,1)\\subseteq\\mathbb{Q}$, ולכן $|\\mathbb{Q}\\cap(-1,1)|\\le|\\mathbb{Q}|<|\\mathbb{R}|$, כי $|\\mathbb{Q}|=\\aleph_0<|\\mathbb{R}|$.\n**(2)** הטענה נכונה. נניח בדרך השלילה: $B\\not\\subseteq A$.\nאז קיים $b\\in B-A$ (כי $B\\not\\subseteq A$), וקיים $a\\in A-B$ (כי $|B|<|A|$).\nאז $\\{a,b\\}\\in P(A\\cup B)$, אבל $\\{a,b\\}\\notin P(A)\\cup P(B)$ (כי $b\\notin A$ ו-$a\\notin B$).\nלכן $P(A\\cup B)\\ne P(A)\\cup P(B)$, בסתירה להנחה. לכן $B\\subseteq A$, ומכיוון ש-$|B|<|A|$, $B\\subset A$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "סעיף (1): קביעה שהטענה אינה נכונה והכלה $\\mathbb{Q}\\cap(-1,1)\\subseteq\\mathbb{Q}$",
+     "points": 2
+    },
+    {
+     "text": "סעיף (1): $|\\mathbb{Q}|=\\aleph_0<|\\mathbb{R}|$ ולכן העוצמות שונות",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): קביעה שהטענה נכונה והנחת השלילה $B\\not\\subseteq A$",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): קיום $b\\in B-A$ וקיום $a\\in A-B$ (לפי $|B|<|A|$)",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): $\\{a,b\\}\\in P(A\\cup B)$ אך $\\{a,b\\}\\notin P(A)\\cup P(B)$",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): סתירה והמסקנה $B\\subset A$ (הכלה ממש לפי $|B|<|A|$)",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק $|\\mathbb{Q}\\cap(-1,1)|=|\\mathbb{R}|$ מכך שהקבוצה “צפופה” בקטע, במקום להשוות עוצמות.",
+    "לשכוח שהקיום של $a\\in A-B$ נובע מ-$|B|<|A|$, ולא נדרש בכלל מהנחת השלילה.",
+    "לסיים ב-$B\\subseteq A$ בלי לנמק מדוע ההכלה היא ממש."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם הטענה $|\\mathbb{Q}\\cap(-1,1)|=|\\mathbb{R}|$ נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "נכונה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$|\\mathbb{Q}\\cap(-1,1)|\\le|\\mathbb{Q}|=\\aleph_0<|\\mathbb{R}|$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם הטענה בסעיף (2) נכונה: אם $2<|B|<|A|$ ו-$P(A\\cup B)=P(A)\\cup P(B)$ אז $B\\subset A$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "נכונה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "הפתרון הרשמי מוכיח אותה. (נבדק ברוטפורס על כל זוגות הקבוצות של $\\{1,\\ldots,5\\}$.)"
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי בסעיף (2)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "הוכחה בשלילה: מניחים $B\\not\\subseteq A$ ומוצאים קבוצה השייכת ל-$P(A\\cup B)$ ואינה שייכת ל-$P(A)\\cup P(B)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה על $|B|$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "בניית פונקציה חד-חד-ערכית מ-$B$ אל $A$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "דוגמה נגדית מפורשת"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מניח $B\\not\\subseteq A$ ומגיע לסתירה להנחה $P(A\\cup B)=P(A)\\cup P(B)$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של ההוכחה שורה אחת שונתה. איזו?",
+     "lines": [
+      "נניח בדרך השלילה: $B\\not\\subseteq A$.",
+      "אז קיים $b\\in B-A$, וקיים $a\\in A-B$ (כי $|B|<|A|$).",
+      "אז $\\{a,b\\}\\in P(A\\cup B)$, כי $a,b\\in A\\cup B$.",
+      "וגם $\\{a,b\\}\\in P(A)$ (כי $a\\in A$), ולכן $\\{a,b\\}\\in P(A)\\cup P(B)$.",
+      "לכן $P(A\\cup B)\\ne P(A)\\cup P(B)$, בסתירה להנחה."
+     ],
+     "bugIndex": 3,
+     "explain": "בשורה הרביעית (אינדקס 3): $\\{a,b\\}\\not\\subseteq A$ כי $b\\notin A$, ו-$\\{a,b\\}\\not\\subseteq B$ כי $a\\notin B$, ולכן $\\{a,b\\}\\notin P(A)\\cup P(B)$. הטענה בשורה שגויה (נבדק בספירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 1,
@@ -41,7 +238,85 @@
    "solution": "השלילה: \"לכל $x\\in A$ ולכל $y\\in B$ קיים $z\\in C$ כך ש: $x>y+z$\".",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "הפיכת $\\exists x\\ \\text{or}\\ \\exists y$ ל-$\\forall x\\ \\forall y$",
+     "points": 2
+    },
+    {
+     "text": "הפיכת $\\forall z$ ל-$\\exists z$",
+     "points": 1
+    },
+    {
+     "text": "שלילת $x\\le y+z$ ל-$x>y+z$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להשאיר “או” בין הכמתים במקום להפוך לכמת כללי על שני המשתנים.",
+    "לכתוב $x\\ge y+z$ במקום $x>y+z$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "הפתרון הרשמי קורא את הטענה “קיים $x\\in A$ או קיים $y\\in B$ כך שלכל $z\\in C$ מתקיים $x\\le y+z$” כקיום זוג $(x,y)$. מה צורת הכמתים בשלילה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לכל $x\\in A$ ולכל $y\\in B$ קיים $z\\in C$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "קיים $x\\in A$ וקיים $y\\in B$ כך שלכל $z\\in C$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "לכל $x\\in A$ ולכל $y\\in B$ ולכל $z\\in C$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "לכל $x\\in A$ קיים $y\\in B$ וקיים $z\\in C$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "שלילה הופכת כל כמת ($\\exists\\to\\forall$, $\\forall\\to\\exists$). כל אחת מהאפשרויות האחרות שונה מהשלילה בדוגמה כלשהי (נבדק על קבוצות סופיות קטנות, כולל ריקות)."
+    },
+    {
+     "type": "choice",
+     "prompt": "מה בא במקום $x\\le y+z$ בשלילה (ללא סימן שלילה)?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$x\\ge y+z$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$x<y+z$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$x>y+z$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$x\\ne y+z$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "שלילת $\\le$ היא $>$; האפשרויות האחרות שונות ממנה כשיש שוויון."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -53,7 +328,101 @@
    "solution": "**(1)** $P(n):\\ 1+5+9+\\ldots+(4n-3)=n(2n-1)$, $n\\ge1$.\n**I.** $P(1):\\ 1=1\\cdot(2-1)$ — TRUE.\n**II.** נוכיח: אם $P(k)=\\text{TRUE}$ עבור $k\\ge1$, אז גם $P(k+1)=\\text{TRUE}$.\n$P(k):\\ 1+5+\\ldots+(4k-3)=k(2k-1)$\n$P(k+1):\\ 1+5+\\ldots+(4k+4-3)=(k+1)(2k+2-1)$\n$1+5+\\ldots+(4k+1)=1+5+\\ldots+(4k-3)+(4k+1)$, ולפי $P(k)=\\text{TRUE}$:\n$$k(2k-1)+4k+1=2k^2-k+4k+1=2k^2+3k+1$$\nוגם $(k+1)(2k+2-1)=(k+1)(2k+1)=2k^2+3k+1$.\nהאגפים שווים, ולכן $P(k+1)=\\text{TRUE}$.\n**III.** מ-I ו-II נובע ש-$P(n)=\\text{TRUE}$ לכל $n\\in\\mathbb{N}$, $n\\ge1$.\n**(2)** $P(n):\\ n^3<10^n$, לכל $n\\in\\mathbb{N}$, $n\\ge1$.\n**I.** $P(1):\\ 1^3<10^1$ — TRUE.\n**II.** נוכיח: אם $P(k)=\\text{TRUE}$ עבור $1\\le k\\in\\mathbb{N}$, אז גם $P(k+1)=\\text{TRUE}$.\n$P(k):\\ k^3<10^k$\n$P(k+1):\\ (k+1)^3<10^{k+1}$\n$$(k+1)^3=k^3+3k^2+3k+1\\le k^3+3k^3+3k^3+k^3=8k^3<10\\cdot k^3<10\\cdot10^k=10^{k+1}$$\n(האי-שוויון האחרון לפי הנחת האינדוקציה $P(k)=\\text{TRUE}$.) לכן $P(k+1)=\\text{TRUE}$.\n**III.** מ-I ו-II נובע ש-$P(n)=\\text{TRUE}$ לכל $n\\in\\mathbb{N}$, $n\\ge1$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "סעיף (1) או (2): בדיקת בסיס $P(1)$",
+     "points": 1
+    },
+    {
+     "text": "ניסוח $P(k)$ ו-$P(k+1)$",
+     "points": 1
+    },
+    {
+     "text": "סעיף (1): שימוש ב-$P(k)$ וקבלת $k(2k-1)+4k+1=2k^2+3k+1$",
+     "points": 3
+    },
+    {
+     "text": "סעיף (1): השוואה ל-$(k+1)(2k+1)$ ומסקנה",
+     "points": 1
+    },
+    {
+     "text": "סעיף (2): $(k+1)^3\\le8k^3<10k^3$ (שימוש ב-$k\\ge1$)",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): שימוש ב-$P(k)$: $10k^3<10\\cdot10^k=10^{k+1}$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה מהבסיס והצעד לכל $n\\ge1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לבדוק את הצעד של טענה (1) בלי להשתמש בהנחת האינדוקציה, אלא להציב ערכים.",
+    "בסעיף (2) לחסום $(k+1)^3$ ב-$8k^3$ בלי להשתמש בכך ש-$k\\ge1$ (כך ש-$k\\le k^3$).",
+    "להגדיר בסיס $n=0$ לטענה שמנוסחת רק עבור $n\\ge1$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "בטענה (1) מחשבים בצעד $k(2k-1)+4k+1$. מה ערכו עבור $k=3$? (צריך להתאים ל-$(k+1)(2k+1)$.)",
+     "answer": 28,
+     "tol": 0,
+     "explain": "$3\\cdot5+13=28=4\\cdot7$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אינדוקציה רגילה עם בסיס $n=1$ וצעד $P(k)\\Rightarrow P(k+1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אינדוקציה חזקה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "הוכחה בשלילה"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה עם שני מקרי בסיס"
+      }
+     ],
+     "correctId": "a",
+     "explain": "בשתי הטענות הפתרון מוכיח בסיס $P(1)$ ואז $P(k)\\Rightarrow P(k+1)$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "בטענה (2): מהו המספר השלם הקטן ביותר $c$ כך ש-$(k+1)^3\\le c\\cdot k^3$ לכל שלם $k\\ge1$?",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$(1+1/k)^3$ יורד ב-$k$, ומקסימומו ב-$k=1$ הוא $8$; הפתרון משתמש ב-$8k^3$."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בגרסה הבאה של צעד האינדוקציה לטענה (2) שורה אחת שונתה. איזו?",
+     "lines": [
+      "$(k+1)^3=k^3+3k^2+3k+1$",
+      "$\\le k^3+3k^3+3k^3+k^3=8k^3$",
+      "$<10\\cdot k^3$",
+      "$<10\\cdot10^k$ (לפי $P(k)$)",
+      "$=10^{k+2}$"
+     ],
+     "bugIndex": 4,
+     "explain": "בשורה האחרונה (אינדקס 4): $10\\cdot10^k=10^{k+1}$ ולא $10^{k+2}$, וזה בדיוק מה שצריך להוכיח ל-$P(k+1)$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -65,7 +434,104 @@
    "solution": "**(1)** המשוואה האופיינית: $r^2=7r-12\\iff r^2-7r+12=0$, ולכן $r_1=3$, $r_2=4$.\nפתרון הנוסחה ההומוגנית: $a_n^{(h)}=C_1\\cdot3^n+C_2\\cdot4^n$.\nפתרון פרטי: $a_n^{(p)}=A\\cdot n^s$, כאשר $s=0$ כי $r=1$ אינו שורש של $r^2-7r+12=0$, ולכן $a_n^{(p)}=A$.\nנציב: $A=7A-12A-6\\iff6A=-6\\Rightarrow A=-1$.\nהפתרון הכללי: $a_n=a_n^{(h)}+a_n^{(p)}=C_1\\cdot3^n+C_2\\cdot4^n-1$.\n$a_0=C_1+C_2-1=0$ ו-$a_1=3C_1+4C_2-1=3$, כלומר $C_1+C_2=1$ ו-$3C_1+4C_2=4$. נקבל $C_2=1$, $C_1=0$.\nמסקנה: $a_n=4^n-1$, לכל $n\\in\\mathbb{N}$.\n**(2)** $a_0=0$, $a_1=3$ (ראשוני).\nלכל $2\\le n\\in\\mathbb{N}$: $a_n=4^n-1=4^n-1^n=(4-1)\\left(4^{n-1}+4^{n-2}+\\ldots+4+1\\right)=3\\cdot\\left(4^{n-1}+4^{n-2}+\\ldots+1\\right)$.\nהגורם $4^{n-1}+\\ldots+1$ שונה מ-1 ($n\\ge2$), ולכן $a_n\\ne3$ ו-$a_n$ אינו ראשוני.\nמסקנה: $a_n$ ראשוני $\\iff n=1$. הטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "משוואה אופיינית ושורשים $r_1=3$, $r_2=4$ ופתרון הומוגני",
+     "points": 2
+    },
+    {
+     "text": "פתרון פרטי קבוע $A=-1$ (כי $1$ אינו שורש)",
+     "points": 2
+    },
+    {
+     "text": "קבועים $C_1=0$, $C_2=1$ והנוסחה $a_n=4^n-1$",
+     "points": 3
+    },
+    {
+     "text": "סעיף (2): פירוק $4^n-1=3\\cdot(4^{n-1}+\\cdots+1)$",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): $a_0=0$, $a_1=3$ ראשוני, ו-$a_n$ פריק לכל $n\\ge2$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח לבדוק את $a_0=0$ ($0$ אינו ראשוני) כשקובעים מתי $a_n$ ראשוני.",
+    "לא לוודא שהמנה $4^{n-1}+\\cdots+1$ שונה מ-1 עבור $n\\ge2$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו השורש הגדול של המשוואה האופיינית $r^2-7r+12=0$?",
+     "answer": 4,
+     "tol": 0,
+     "explain": "$(r-3)(r-4)=0$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו הקבוע $A$ של הפתרון הפרטי (קבוע) במשוואה $a_n=7a_{n-1}-12a_{n-2}-6$?",
+     "answer": -1,
+     "tol": 0,
+     "explain": "$A=7A-12A-6\\Rightarrow6A=-6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $a_3$? (מהנוסחה המפורשת, ושווה לחישוב מהנסיגה.)",
+     "answer": 63,
+     "tol": 0,
+     "explain": "$a_2=7\\cdot3-0-6=15$ ו-$a_3=7\\cdot15-12\\cdot3-6=63=4^3-1$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם הטענה “$a_n$ ראשוני אם ורק אם $n=1$” נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "נכונה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "$a_0=0$, $a_1=3$, ולכל $n\\ge2$ מתקיים $3\\mid a_n$ ו-$a_n>3$ (נבדק עבור $n<40$)."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזו שיטה משתמש הפתרון הרשמי להראות ש-$a_n$ אינו ראשוני עבור $n\\ge2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "פירוק $4^n-1=(4-1)(4^{n-1}+\\cdots+4+1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט פרמה הקטן"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינדוקציה על $n$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הכלה והפרדה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הפתרון מפרק לגורמים לפי $a^n-b^n$ ומראה שהגורם $3$ מחלק, והמנה גדולה מ-1."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 2,
@@ -77,7 +543,79 @@
    "solution": "$f(n)=\\sum_{k=0}^{n}\\binom nk(2\\cdot3)^k+5^n\\cdot\\sum_{k=0}^{n}\\binom nk=S_1+S_2$.\n$(x+1)^n=\\sum_{k=0}^{n}\\binom nkx^k$. עבור $x=6$: $S_1=\\sum_{k=0}^{n}\\binom nk6^k=7^n$. עבור $x=1$: $S_2=\\sum_{k=0}^{n}\\binom nk=2^n$.\n$$f(n)=7^n+5^n\\cdot2^n=7^n+10^n\\le2\\cdot10^n\\le2\\cdot11^n=c_0\\cdot11^n$$\nעבור $c_0=2$ ו-$n_0=1\\le n\\in\\mathbb{N}$. מסקנה: $f(n)=O(11^n)$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "פיצול ל-$S_1=\\sum\\binom nk6^k$ ול-$S_2=5^n\\sum\\binom nk$",
+     "points": 1
+    },
+    {
+     "text": "משפט הבינום: $S_1=7^n$",
+     "points": 1
+    },
+    {
+     "text": "$S_2=5^n\\cdot2^n=10^n$",
+     "points": 1
+    },
+    {
+     "text": "חסם $7^n+10^n\\le2\\cdot10^n\\le2\\cdot11^n$",
+     "points": 1
+    },
+    {
+     "text": "מסקנה $f(n)=O(11^n)$ עם $c_0=2$, $n_0=1$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להתייחס ל-$5^n$ כאילו תלוי ב-$k$ ולכתוב $\\sum\\binom nk5^k$.",
+    "לכתוב $\\sum\\binom nk=2^{n}$ כ-$2^{n-1}$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "איזה כלי משתמש בו הפתרון הרשמי לחישוב הסכומים?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "זהות פסקל"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "נוסחת הכלה והפרדה"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משפט הבינום $(x+1)^n=\\sum\\binom nkx^k$ עם $x=6$ ועם $x=1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אינדוקציה על $n$"
+      }
+     ],
+     "correctId": "c",
+     "explain": "$\\sum\\binom nk6^k=7^n$ ו-$\\sum\\binom nk=2^n$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $f(3)=\\sum_{k=0}^{3}\\binom3k\\left(2^k3^k+5^3\\right)$?",
+     "answer": 1343,
+     "tol": 0,
+     "explain": "$7^3+10^3=343+1000=1343$ (נבדק בחישוב ישיר)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המספר השלם הקטן ביותר $c$ המקיים $f(n)\\le c\\cdot11^n$ לכל $n\\ge1$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$f(n)/11^n=(7/11)^n+(10/11)^n$ יורד ב-$n$, ובמקסימום $n=1$ שווה $17/11<2$, ו-$17/11>1$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -89,7 +627,97 @@
    "solution": "**(1)** הטענה אינה נכונה: $\\varnothing(1)=1=\\varnothing(2)$ אך $1\\ne2$, ולכן $\\varnothing$ אינה חד-חד-ערכית.\n**(2)** הטענה נכונה.\nעבור $n=2$: $\\varnothing(2)=1$ אינו ראשוני.\nעבור $n=3$: $3$ ראשוני, ו-$\\varnothing(3)=2$ ראשוני.\nעבור $n>3$: אם $n$ אינו ראשוני, התנאי אינו מתקיים. אם $n>3$ ראשוני, אז $n\\ge5$ ו-$\\varnothing(n)=n-1$. $n-1$ מתחלק ב-1, ב-$n-1$ וגם ב-2 (כי $n-1$ זוגי), ו-$2\\ne n-1$, ולכן $\\varnothing(n)=n-1$ אינו ראשוני.\nלכן $n=3$ הוא המספר היחיד המקיים את התנאי, והטענה נכונה.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "סעיף (1): קביעה שהטענה אינה נכונה",
+     "points": 1
+    },
+    {
+     "text": "סעיף (1): $\\varnothing(1)=\\varnothing(2)=1$ עם $1\\ne2$",
+     "points": 1
+    },
+    {
+     "text": "סעיף (2): $n=2$ נפסל ($\\varnothing(2)=1$) ו-$n=3$ מתאים",
+     "points": 2
+    },
+    {
+     "text": "סעיף (2): עבור ראשוני $n\\ge5$, $\\varnothing(n)=n-1$ זוגי וגדול מ-2",
+     "points": 1
+    },
+    {
+     "text": "סעיף (2): $n$ פריק אינו מתאים, ולכן $n=3$ יחיד",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להתעלם מהמקרה $n=1$ ($1$ אינו ראשוני).",
+    "לטעון ש-$\\varnothing(p)$ ראשוני לכל ראשוני $p$ בלי לבדוק את הזוגיות של $p-1$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "האם פונקציית אוילר $\\varnothing$ חד-חד-ערכית?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כן"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$\\varnothing(1)=\\varnothing(2)=1$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varnothing(2)$ (פונקציית אוילר)?",
+     "answer": 1,
+     "tol": 0,
+     "explain": "רק $1$ זר ל-$2$ בין $1,2$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו המספר היחיד $n\\ge1$ שבו $n$ ו-$\\varnothing(n)$ שניהם ראשוניים?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$\\varnothing(3)=2$. (נבדק לכל $n<3000$.)"
+    },
+    {
+     "type": "choice",
+     "prompt": "איך הפתרון הרשמי פוסל ראשוני $n\\ge5$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\varnothing(n)=n-1$ זוגי וגדול מ-2, ולכן אינו ראשוני"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\varnothing(n)=n-1$ אי-זוגי וגדול מ-2"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\varnothing(n)=n+1$ ולכן גדול מדי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\varnothing(n)=1$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "ל-$n\\ge5$ ראשוני, $n$ אי-זוגי ולכן $n-1$ זוגי (נבדק לכל ראשוני עד $3000$)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -101,7 +729,86 @@
    "solution": "הטענה נכונה.\n$R\\subseteq A\\times A$ ו-$A=\\{1,2\\}$. $R$ רפלקסיבי, ולכן $(1,1),(2,2)\\in R$. $R$ אינו סימטרי, ולכן $(1,2)\\in R$ (או $(2,1)\\in R$).\nלכן יש 2 אפשרויות:\n$R_1=\\{(1,1),(2,2),(1,2)\\}$\n$R_2=\\{(1,1),(2,2),(2,1)\\}$\n$R_1$ ו-$R_2$ רפלקסיביים, אנטי-סימטריים וטרנזיטיביים, ולכן הם יחסי סדר חלקי. $R_1$ הוא יחס סדר מלא כי לכל $x,y\\in A$ מתקיים $(x,y)\\in R_1$ או $(y,x)\\in R_1$. $R_2$ הוא ההופכי של $R_1$, ולכן גם הוא יחס סדר מלא.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות מכריחה $(1,1),(2,2)\\in R$",
+     "points": 1
+    },
+    {
+     "text": "אי-סימטריה מכריחה בדיוק אחד מ-$(1,2)$ או $(2,1)$, ולכן שתי אפשרויות",
+     "points": 1
+    },
+    {
+     "text": "בדיקה ש-$R_1,R_2$ רפלקסיביים, אנטי-סימטריים וטרנזיטיביים",
+     "points": 2
+    },
+    {
+     "text": "קשירות (סדר מלא): $(x,y)\\in R$ או $(y,x)\\in R$ לכל $x,y$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לשכוח ש-$R$ שאינו סימטרי חייב להכיל בדיוק אחד משני הזוגות $(1,2)$, $(2,1)$.",
+    "לבדוק סדר חלקי בלבד ולשכוח את הקשירות של סדר מלא."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "אילו זוגות חייב להכיל כל יחס רפלקסיבי $R$ על $\\{1,2\\}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$(1,1)$ ו-$(2,2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$(1,2)$ ו-$(2,1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$(1,1)$ ו-$(1,2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$(2,1)$ ו-$(2,2)$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "רפלקסיביות פירושה $(x,x)\\in R$ לכל $x\\in A$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה יחסים על $A=\\{1,2\\}$ הם רפלקסיביים ואינם סימטריים?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$R_1=\\{(1,1),(2,2),(1,2)\\}$ ו-$R_2=\\{(1,1),(2,2),(2,1)\\}$ (נבדק בספירת כל 16 היחסים)."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם הטענה “כל יחס רפלקסיבי ולא סימטרי על $\\{1,2\\}$ הוא יחס סדר מלא” נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "לא נכונה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "נכונה"
+      }
+     ],
+     "correctId": "b",
+     "explain": "שני היחסים רפלקסיביים, אנטי-סימטריים, טרנזיטיביים וקשירים (נבדק בבדיקה ישירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 3,
@@ -113,7 +820,113 @@
    "solution": "**(1)** $R$ רפלקסיבי: לכל $x\\in\\mathbb{Z}$ נכון $xRx$, כי $x^2+x=x(x+1)$ הוא מספר זוגי (כי $x$ או $x+1$ זוגי).\n$R$ סימטרי: לכל $x,y\\in\\mathbb{Z}$, אם $xRy$ אז $yRx$. נניח $xRy$, כלומר $x^2+y=2k$ (זוגי). נוכיח $yRx$, כלומר ש-$y^2+x=m$ זוגי: $m+2k=(x^2+y)+(y^2+x)=(x^2+x)+(y^2+y)$ הוא זוגי (סכום של שני זוגיים), ולכן $m=(m+2k)-2k$ זוגי.\n$R$ טרנזיטיבי: לכל $x,y,z\\in\\mathbb{Z}$, אם $xRy$ ו-$yRz$ אז $xRz$. נניח $x^2+y=2k$ ו-$y^2+z=2q$. אז $2k+2q=(x^2+y)+(y^2+z)=(y^2+y)+(x^2+z)$ הוא זוגי, ו-$y^2+y$ זוגי, ולכן $x^2+z$ זוגי, כלומר $xRz$.\nמסקנה: $R$ הוא יחס שקילות.\nמחלקות השקילות: $[0]=\\{x\\in\\mathbb{Z}:0Rx\\}=\\{x\\in\\mathbb{Z}:0^2+x=2k\\}=\\{2k:\\ k\\in\\mathbb{Z}\\}$.\n$[1]=\\{x\\in\\mathbb{Z}:1Rx\\}=\\{x\\in\\mathbb{Z}:1^2+x=2k\\}=\\{x\\in\\mathbb{Z}:x=2k-1\\}$.\n$[0]\\cup[1]=\\mathbb{Z}$, ולכן $\\mathbb{Z}/R=\\{[0],[1]\\}$.\n**(2)** $R$ אינו יחס סדר חלקי, כי הוא אינו אנטי-סימטרי. דוגמה נגדית: $(2,4)\\in R$ כי $2^2+4=8$ זוגי, ו-$(4,2)\\in R$ כי $4^2+2=18$ זוגי, אך $2\\ne4$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "רפלקסיביות: $x^2+x=x(x+1)$ זוגי",
+     "points": 3
+    },
+    {
+     "text": "סימטריה: שימוש ב-$(x^2+y)+(y^2+x)=(x^2+x)+(y^2+y)$",
+     "points": 3
+    },
+    {
+     "text": "טרנזיטיביות: $(x^2+y)+(y^2+z)=(y^2+y)+(x^2+z)$",
+     "points": 3
+    },
+    {
+     "text": "מחלקות השקילות $[0]$, $[1]$ ו-$\\mathbb{Z}/R=\\{[0],[1]\\}$",
+     "points": 3
+    },
+    {
+     "text": "$R$ אינו יחס סדר חלקי: אינו אנטי-סימטרי, כי $(2,4),(4,2)\\in R$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "להסיק ש-$x^2+y$ זוגי רק כש-$x$ זוגי.",
+    "להכריז ש-$R$ יחס סדר חלקי רק כי הוא רפלקסיבי וטרנזיטיבי.",
+    "לשכוח שכל מספר שלם שייך בדיוק למחלקה אחת, ולכן יש שתי מחלקות בלבד."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מתי $xRy$, כלומר מתי $x^2+y$ זוגי?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כאשר $x$ ו-$y$ בעלי אותה זוגיות"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כאשר $x$ זוגי"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כאשר $y$ זוגי"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כאשר $xy$ זוגי"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$x^2\\equiv x\\pmod2$, ולכן $x^2+y\\equiv x+y$. ב-$x=y=1$ מתקיים $xRy$ אף ש-$x$ אי-זוגי, ו-$xy=1$ אי-זוגי (נבדק על $-40\\le x,y\\le40$)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מחלקות שקילות יש ב-$\\mathbb{Z}/R$?",
+     "answer": 2,
+     "tol": 0,
+     "explain": "$\\mathbb{Z}/R=\\{[0],[1]\\}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "איזו מתכונות יחס הסדר החלקי נכשלת ב-$R$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אנטי-סימטריה"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "רפלקסיביות"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "טרנזיטיביות"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "סימטריה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$(2,4),(4,2)\\in R$ ו-$2\\ne4$. שאר התכונות מתקיימות."
+    },
+    {
+     "type": "findbug",
+     "prompt": "בהוכחת הסימטריה שורה אחת שונתה. איזו?",
+     "lines": [
+      "נניח $x^2+y=2k$ ונוכיח ש-$y^2+x$ זוגי.",
+      "$(x^2+y)+(y^2+x)=(x^2+x)+(y^2+y)$.",
+      "$x^2+x=x(x+1)$ ו-$y^2+y=y(y+1)$ זוגיים כי $x$ ו-$y$ זוגיים.",
+      "לכן הסכום זוגי, ומכיוון ש-$2k$ זוגי גם $y^2+x$ זוגי."
+     ],
+     "bugIndex": 2,
+     "explain": "בשורה השלישית (אינדקס 2): $x$ ו-$y$ אינם בהכרח זוגיים. הנימוק הנכון הוא שמכפלה של שני מספרים עוקבים תמיד זוגית."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -125,7 +938,82 @@
    "solution": "$m=2^{100-1}=2^{99}$, כי:\n$\\binom{100}{0}+\\binom{100}{1}+\\ldots+\\binom{100}{100}=2^{100}$, ו-$\\binom{100}{0}+\\binom{100}{2}+\\ldots+\\binom{100}{100}=\\binom{100}{1}+\\binom{100}{3}+\\ldots+\\binom{100}{99}=\\frac{2^{100}}2=2^{99}$.\nיש $\\binom{100}{k}$ תת-קבוצות $B\\in P(A)$ בגודל $k$, לכל $0\\le k\\le100$ (בפרט $\\binom{100}{0}$ עבור $B=\\varnothing$ עם $|B|=0$), ולכן:\n$$\\sum_{B\\in P(A)}|B|=0\\cdot|\\varnothing|+1\\cdot\\binom{100}{1}+2\\cdot\\binom{100}{2}+\\ldots+100\\cdot\\binom{100}{100}=\\sum_{k=0}^{100}\\binom{100}{k}\\cdot k$$\n$(x+1)^{100}=\\sum_{k=0}^{100}\\binom{100}{k}x^k\\ \\Rightarrow\\ 100(x+1)^{99}=\\sum_{k=0}^{100}\\binom{100}{k}kx^{k-1}$. עבור $x=1$: $100\\cdot2^{99}=\\sum_{k=0}^{100}\\binom{100}{k}\\cdot k$.\n$$m+\\sum_{B\\in P(A)}|B|=2^{99}+100\\cdot2^{99}=101\\cdot2^{99}$$",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$m=2^{99}$ (חצי מהתת-קבוצות הן בגודל אי-זוגי)",
+     "points": 2
+    },
+    {
+     "text": "$\\sum_{B}|B|=\\sum_k k\\binom{100}{k}$",
+     "points": 1
+    },
+    {
+     "text": "גזירת $(x+1)^{100}$ והצבת $x=1$: $100\\cdot2^{99}$",
+     "points": 2
+    },
+    {
+     "text": "הסכום הסופי $101\\cdot2^{99}$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור את $\\varnothing$ כתת-קבוצה בגודל אי-זוגי.",
+    "לשכוח את הגורם $k$ בסכום או לחשב $\\sum\\binom{100}{k}=2^{100}$ במקום $\\sum k\\binom{100}{k}$."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "כמה תת-קבוצות בגודל אי-זוגי יש לקבוצה בת 4 איברים? (זו הדוגמה הקטנה של $m=2^{n-1}$.)",
+     "answer": 8,
+     "tol": 0,
+     "explain": "$\\binom41+\\binom43=4+4=8=2^3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\sum_{B\\in P(A)}|B|$ עבור $|A|=4$?",
+     "answer": 32,
+     "tol": 0,
+     "explain": "$\\sum k\\binom4k=4\\cdot2^3=32$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "עבור $|A|=100$: מהו היחס $\\dfrac{\\sum_{B\\in P(A)}|B|}{m}$?",
+     "answer": 100,
+     "tol": 0,
+     "explain": "$100\\cdot2^{99}/2^{99}=100$ (נבדק במספרים שלמים מדויקים), ולכן הסכום הוא $(1+100)\\cdot2^{99}=101\\cdot2^{99}$."
+    },
+    {
+     "type": "choice",
+     "prompt": "באיזה כלי משתמש הפתרון הרשמי כדי לחשב את $\\sum k\\binom{100}k$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "גזירת $(x+1)^{100}=\\sum\\binom{100}kx^k$ והצבת $x=1$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "זהות פסקל"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אינדוקציה על 100"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "הכלה והפרדה"
+      }
+     ],
+     "correctId": "a",
+     "explain": "הנגזרת היא $100(x+1)^{99}=\\sum k\\binom{100}kx^{k-1}$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -137,7 +1025,82 @@
    "solution": "$f$ הפיכה $\\iff f$ חד-חד-ערכית ועל $\\iff f$ תמורה של $\\{1,2,\\ldots,7\\}$.\nבנוסף: $f(\\{1,2,3\\})=\\{1,2,3\\}$ $\\Rightarrow$ $3!$ אפשרויות; ולכן $f(\\{4,5,6,7\\})=\\{4,5,6,7\\}$ $\\Rightarrow$ $4!$ אפשרויות.\nמסקנה: $3!\\cdot4!=144$ פונקציות מתאימות.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "$f$ הפיכה $\\iff$ $f$ תמורה",
+     "points": 2
+    },
+    {
+     "text": "$f(\\{1,2,3\\})=\\{1,2,3\\}$ נותן $3!=6$ אפשרויות",
+     "points": 2
+    },
+    {
+     "text": "$f(\\{4,5,6,7\\})=\\{4,5,6,7\\}$ נותן $4!=24$ אפשרויות",
+     "points": 1
+    },
+    {
+     "text": "כפל: $3!\\cdot4!=144$",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לספור $7!$ ולהתעלם מהתנאי $f(\\{1,2,3\\})=\\{1,2,3\\}$.",
+    "לחשב $3!+4!$ במקום $3!\\cdot4!$."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "מדוע מתקיים גם $f(\\{4,5,6,7\\})=\\{4,5,6,7\\}$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$f$ תמורה, ולכן אם $\\{1,2,3\\}$ מועתקת על עצמה, שאר האיברים מועתקים על שאר האיברים"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי $f$ היא פונקציית הזהות על $\\{4,5,6,7\\}$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $f(4)=4$ בהכרח"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $4<7$"
+      }
+     ],
+     "correctId": "a",
+     "explain": "פונקציית הזהות מניבה רק פונקציה אחת, אך יש $4!=24$ אפשרויות (נבדק בספירה ישירה של 144 הפונקציות)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות של $\\{1,2,3\\}$ יש?",
+     "answer": 6,
+     "tol": 0,
+     "explain": "$3!=6$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה תמורות של $\\{4,5,6,7\\}$ יש?",
+     "answer": 24,
+     "tol": 0,
+     "explain": "$4!=24$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה פונקציות הפיכות $f$ עם $f(\\{1,2,3\\})=\\{1,2,3\\}$ יש ב-$\\Omega$?",
+     "answer": 144,
+     "tol": 0,
+     "explain": "$6\\cdot24=144$ (נבדק בספירה ישירה על 5040 התמורות)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -149,7 +1112,50 @@
    "solution": "נסמן ב-$x_1,x_2,x_3$ את מספר המופעים של $a,b,c$ במילה. אז:\n$x_1+x_2+x_3=18$, $x_1>4\\Rightarrow x_1\\ge5$, $x_2>2\\Rightarrow x_2\\ge3$, $x_3\\ge7$, כאשר $x_i\\in\\mathbb{Z}$.\nמספר המילים שווה למספר הפתרונות של המערכת. נסמן $y_1=x_1-5$, $y_2=x_2-3$, $y_3=x_3-7$. אז $y_i\\ge0$ ו-$x_i=y_i+5,\\,y_i+3,\\,y_i+7$ בהתאמה, ולכן:\n$x_1+x_2+x_3=18\\iff y_1+5+y_2+3+y_3+7=18\\iff y_1+y_2+y_3=3$, $y_i\\in\\mathbb{N}$.\nמספר הפתרונות: $D(3,3)=\\binom52=10$.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "תרגום התנאים: $x_1\\ge5$, $x_2\\ge3$, $x_3\\ge7$ עם $x_1+x_2+x_3=18$",
+     "points": 2
+    },
+    {
+     "text": "הצבה $y_i=x_i-m_i$ (כאשר $m_i$ הוא המינימום של האות) וקבלת $y_1+y_2+y_3=3$",
+     "points": 2
+    },
+    {
+     "text": "מספר הפתרונות $\\binom52=10$",
+     "points": 2
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לפרש “יותר מ-4” כ-$x_1\\ge4$ ולא כ-$x_1\\ge5$.",
+    "לספור מילים עם חשיבות לסדר (סידורים) למרות שנאמר שאין חשיבות לסדר האותיות."
+   ],
+   "steps": [
+    {
+     "type": "numeric",
+     "prompt": "מהו מספר המופעים המינימלי של האות $a$, כשהיא מופיעה “יותר מ-4 פעמים”?",
+     "answer": 5,
+     "tol": 0,
+     "explain": "$x_1>4\\Rightarrow x_1\\ge5$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "אחרי החסרת המינימום ($5$, $3$, $7$) מ-$x_1+x_2+x_3=18$, מהו הסכום $y_1+y_2+y_3$?",
+     "answer": 3,
+     "tol": 0,
+     "explain": "$18-5-3-7=3$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "כמה מילים (ללא חשיבות לסדר האותיות, כלומר כמה שלשות $(x_1,x_2,x_3)$) מקיימות את התנאים?",
+     "answer": 10,
+     "tol": 0,
+     "explain": "$\\binom{3+2}{2}=10$ (נבדק בספירה ישירה)."
+    }
+   ],
+   "stepsSource": "ai-draft"
   },
   {
    "num": 4,
@@ -161,7 +1167,104 @@
    "solution": "$11$ ראשוני ו-$11\\nmid70$, ולכן לפי משפט FERMAT: $11\\mid70^{10}-1$.\nלכן $\\gcd(11,70^{10}-1)=11$, כלומר $n=11$.\n$n^2+n=121+11=132=4\\cdot33=2^2\\cdot3\\cdot11$.\n$\\varnothing(132)=132\\left(1-\\frac12\\right)\\left(1-\\frac13\\right)\\left(1-\\frac1{11}\\right)=2^2\\cdot3\\cdot11\\cdot\\frac12\\cdot\\frac23\\cdot\\frac{10}{11}=40$.\n$(\\varnothing\\circ\\varnothing)(132)=\\varnothing(\\varnothing(132))=\\varnothing(40)=\\varnothing(2^3\\cdot5)=2^3\\cdot5\\left(1-\\frac12\\right)\\left(1-\\frac15\\right)=8\\cdot5\\cdot\\frac12\\cdot\\frac45=16$.\nמסקנה: $8\\mid16$, ולכן $8\\mid(\\varnothing\\circ\\varnothing)(n^2+n)$. התשובה: כן.",
    "solutionSource": "student-solution",
    "official": false,
-   "confidence": "med"
+   "confidence": "med",
+   "rubric": [
+    {
+     "text": "שימוש במשפט פרמה הקטן לקבלת $11\\mid70^{10}-1$ ו-$n=11$",
+     "points": 2
+    },
+    {
+     "text": "$n^2+n=132=2^2\\cdot3\\cdot11$",
+     "points": 1
+    },
+    {
+     "text": "$\\varnothing(132)=40$",
+     "points": 1
+    },
+    {
+     "text": "$\\varnothing(40)=16$",
+     "points": 2
+    },
+    {
+     "text": "מסקנה: $8\\mid16$, התשובה כן",
+     "points": 1
+    }
+   ],
+   "rubricSource": "ai-draft",
+   "pitfalls": [
+    "לחשב $\\gcd(11,70^{10}-1)=1$ בלי לבדוק את התנאי של משפט פרמה.",
+    "לפרק את $132$ כך ש-$4$ נחשב כגורם ראשוני ולחשב $\\varnothing(4)=3$ בטעות."
+   ],
+   "steps": [
+    {
+     "type": "choice",
+     "prompt": "באיזה משפט משתמש הפתרון הרשמי כדי לחשב את $\\gcd(11,70^{10}-1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "משפט פרמה הקטן"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "משפט וילסון"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "משפט השאריות הסיני"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "זהות בזו"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$11$ ראשוני ו-$11\\nmid70$, ולכן $70^{10}\\equiv1\\pmod{11}$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $n=\\gcd(11,70^{10}-1)$?",
+     "answer": 11,
+     "tol": 0,
+     "explain": "$11\\mid70^{10}-1$, ולכן ה-gcd הוא $11$ (נבדק בחישוב ישיר)."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $\\varnothing(n+n^2)$ (פונקציית אוילר) עבור $n=11$?",
+     "answer": 40,
+     "tol": 0,
+     "explain": "$132=2^2\\cdot3\\cdot11$ ו-$\\varnothing(132)=2\\cdot2\\cdot10=40$."
+    },
+    {
+     "type": "numeric",
+     "prompt": "מהו $(\\varnothing\\circ\\varnothing)(132)$?",
+     "answer": 16,
+     "tol": 0,
+     "explain": "$\\varnothing(40)=\\varnothing(2^3)\\varnothing(5)=4\\cdot4=16$."
+    },
+    {
+     "type": "choice",
+     "prompt": "האם $8\\mid(\\varnothing\\circ\\varnothing)(n+n^2)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כן"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "לא"
+      }
+     ],
+     "correctId": "a",
+     "explain": "$8\\mid16$."
+    }
+   ],
+   "stepsSource": "ai-draft"
   }
  ]
 }
