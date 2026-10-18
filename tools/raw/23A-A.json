@@ -78,14 +78,14 @@
     },
     {
      "type": "numeric",
-     "prompt": "כמה פסוקיות יש בצורת ה-CNF?",
+     "prompt": "כמה פסוקיות יש בצורת ה-CNF הקנונית (הנבנית מטבלת האמת)?",
      "answer": 5,
      "tol": 0,
      "explain": "פסוקית אחת לכל שורה שקרית: 5 (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -201,8 +201,8 @@
      "explain": "מ-$(z,y),(y,x)\\in R$ מקבלים $(z,x)\\in R$ ולא $(x,z)\\in R$ (נבדק בסקריפט: קיים יחס טרנזיטיבי שמפריך)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -301,8 +301,8 @@
      "explain": "מ-$2^m5^n=2^x5^y$ מקבלים $m=x$ ו-$n=y$, ולא להפך (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -401,8 +401,8 @@
      "explain": "$k^3+k\\cdot k^2=2k^3$ ולא $3k^3$ (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -481,8 +481,8 @@
      "explain": "$65\\cdot(-3)+(-40)(-5)=-195+200=5$. בשאר הזוגות מתקבלים $-395$, $-5$ ו-$10$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -561,8 +561,8 @@
      "explain": "$1^2+3^2+2^2=14$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -652,8 +652,8 @@
      "explain": "$\\mathbb{Q}$ בת מנייה ולכן $|\\mathbb{Q}|=|\\mathbb{Z}|<|\\mathbb{R}|$."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -728,8 +728,8 @@
      "explain": "$|P(X)|=2^{|X|}$ לכל קבוצה סופית $X$. השאר: מכפלה, שימוש ב-$|A|+|B|$ במקום המכפלה, ושכחת החזקה (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -799,8 +799,8 @@
      "explain": "וילסון נותן $10!\\equiv-1$, ולכן $11\\mid(10!+1)$ ולא $(10!-1)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -903,8 +903,8 @@
      "explain": "$R$ רפלקסיבי וסימטרי, והכשל היחיד הוא אנטי-סימטריה: $2+4+1=7$ אי-זוגי בשני הכיוונים (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -987,8 +987,8 @@
      "explain": "ה-gcd מחלק את $2$ ושני המספרים זוגיים. עבור $n=3$: $\\gcd(2,4)=2$, ולכן שאר התשובות שקריות (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1067,8 +1067,8 @@
      "explain": "עבור $n=6$ התוצאה הנכונה 448, שנספרה בסקריפט על כל $2^{13}$ תתי-הקבוצות; שאר הנוסחאות נותנות 8192, 71 ו-768."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   }
  ]
 }

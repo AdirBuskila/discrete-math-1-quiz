@@ -84,8 +84,8 @@
      "explain": "שקילות לוגית פירושה אותה טבלת אמת. בשורה $FTT$ שני הפסוקים שקר, כלומר ערכיהם שווים ושורה כזו אינה מפריכה שקילות; אין צורך שהפסוקים יהיו טאוטולוגיות; ושני הפסוקים גוררים זה את זה (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -177,8 +177,8 @@
      "explain": "הפירוק נותן $50^{24}+12!-2$ ולא את המספר המקורי; Wilson מתייחס ל-$12!+1$ ולא ל-$12!-1$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -268,8 +268,8 @@
      "explain": "$f(4)=\\operatorname{lcm}(3,4)=12$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -369,8 +369,8 @@
      "explain": "$4k^2+4k+(k-1)=4k^2+5k-1\\ne4k^2+5k+1$ (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -493,8 +493,8 @@
      "explain": "מ-$3^{a/b}=5$ מקבלים $3^a=5^b$ ולא $5^a=3^b$ (נבדק בסקריפט עם $a/b=\\log_35$)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -579,8 +579,8 @@
      "explain": "$(2,1)\\in R$, ולכן הזוג $(1,2)$ אינו מפר סימטריה; הכשל האמיתי הוא $(2,3)$ בלי $(3,2)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -684,8 +684,8 @@
      "explain": "$R$ רפלקסיבי ($10x$ מתחלק ב-5) וטרנזיטיבי, אבל לא אנטי-סימטרי. סדר חלקי דורש אנטי-סימטריה (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -792,8 +792,8 @@
      "explain": "$(-48)(-4)+184(-1)=8$. מחליפים את סימן $x$ ל-$a=-x$ ושומרים על $b=y$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -888,8 +888,8 @@
      "explain": "פילוג של $\\wedge$ על $\\vee$ נותן $\\vee$ בין שני הצדדים; עם $\\wedge$ נדרש $x\\in B\\cap C$ (נבדק בסקריפט בשיטת כל התתי-קבוצות)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -993,8 +993,8 @@
      "explain": "האיבר $b$ צריך להיות מחוץ ל-$A$. אם $b\\in A$ אז $\\{a,b\\}\\subseteq A$ ושייך ל-$P(A)$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1079,8 +1079,8 @@
      "explain": "מכפלה של שני עוקבים תמיד זוגית (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1192,8 +1192,8 @@
      "explain": "הפונקציה היא מכפלה $3^m\\cdot5^n$ ולא סכום (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   }
  ]
 }

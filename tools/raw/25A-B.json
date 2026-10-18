@@ -105,8 +105,8 @@
      "explain": "נדרשת פסוקית לכל אחת משלוש השורות השקריות ($TTF$, $TFF$, $FFF$). לכל אחת מהאפשרויות האחרות טבלת אמת שונה (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -185,8 +185,8 @@
      "explain": "$2^8=256$, כמספר תתי-הקבוצות של $\\{3,\\dots,10\\}$ (נבדק בספירה ישירה על כל $2^{10}$ התתי-קבוצות)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -265,8 +265,8 @@
      "explain": "על פירושו שכל איבר של $A$ הוא ערך. $5$ אינו ערך של $f$, ו-$12$ חייב להיות ב-$A$ כי הוא ערך (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -365,8 +365,8 @@
      "explain": "$23\\cdot23^k-23+22=23(23^k-1)+22$, כלומר $+2\\cdot11$ ולא $+3\\cdot11$ (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -452,8 +452,8 @@
      "explain": "$k=100+19$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -548,8 +548,8 @@
      "explain": "החיתוך עם $\\{1\\}$ הוא תת-קבוצה של $\\{1\\}$ ולכן לא יכול להיות $\\{1,2\\}$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -646,8 +646,8 @@
      "explain": "בכל אחד משאר הזוגות המספר הקטן מחלק את הגדול, כלומר הם ברי-השוואה (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -722,8 +722,8 @@
      "explain": "$48\\cdot2-84=12$. בשאר הזוגות מתקבלים $120$, $-36$ ו-$-12$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -818,8 +818,8 @@
      "explain": "הוצאת גורם משותף משאירה $\\vee$ בין $x\\in B$ ל-$x\\in C$ ולא $\\wedge$ (נבדק בסקריפט בטבלת אמת)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -935,8 +935,8 @@
      "explain": "$4t^2=2n^2$ נותן $n^2=2t^2$ ולא $n^2=4t^2$ (נבדק בסקריפט עם sympy)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1031,8 +1031,8 @@
      "explain": "$\\mathbb{R}$ אינה בת מנייה: $|\\mathbb{R}|=|(0,1)|>|\\mathbb{N}|$."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1125,8 +1125,8 @@
      "explain": "$x\\notin A$ ולכן $x\\notin A\\cap B$; הוא באיחוד רק בגלל $x\\in C$ (נבדק בסקריפט)."
     }
    ],
-   "rubricSource": "ai-draft",
-   "stepsSource": "ai-draft"
+   "rubricSource": "ai-verified",
+   "stepsSource": "ai-verified"
   }
  ]
 }
