@@ -28,7 +28,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת פסוק שקרי רק בגלל עובדות העולם (כמו \"השמיים ירוקים\"): סתירה חייבת להיות שקרית בכל השמה.",
     "לתת פסוק מהצורה $P\\vee\\neg P$, שהוא טאוטולוגיה ולא סתירה."
@@ -91,7 +91,7 @@
      "explain": "זו ההגדרה: הפסוק שקרי בכל השמה של המשתנים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -118,7 +118,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור איברים בתוך האיברים (למשל את $1$ או את $\\varnothing$ הפנימיים) ולא את האיברים של הקבוצה עצמה.",
     "לכתוב $3^2=9$ או $2\\cdot3=6$ במקום $2^3$."
@@ -139,7 +139,7 @@
      "explain": "$2^{|S|}=2^3=8$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -166,7 +166,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור תמורות (6) או תתי-קבוצות (8) במקום חלוקות.",
     "לשכוח את שתי החלוקות הקיצוניות: כל איבר במחלקה נפרדת, וכולם במחלקה אחת."
@@ -215,7 +215,7 @@
      "explain": "שלוש חלוקות לשתי מחלקות, חלוקה אחת לשלוש מחלקות וחלוקה אחת למחלקה אחת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -242,7 +242,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לא לציין את הקבוצה שעליה היחס מוגדר.",
     "לתת יחס שקילות שמכיל את $(1,2)$ ואת $(2,1)$: הוא אינו אנטי-סימטרי ולכן אינו סדר חלקי."
@@ -284,7 +284,7 @@
      "explain": "סימטריה ואנטי-סימטריה יחד מכריחות $xRy\\Rightarrow x=y$, ולכן רק יחס הזהות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -311,7 +311,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $5^3=125$ ולספור גם פונקציות שאינן חד-חד-ערכיות.",
     "לחשב $\\binom53=10$ ולשכוח שהסדר חשוב."
@@ -332,7 +332,7 @@
      "explain": "$5\\cdot4\\cdot3=60$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -363,7 +363,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות בגרירה: $r\\to p$ שקרית רק כש-$r$ אמת ו-$p$ שקר, ולכן בשורה $p=T,\\ r=T$ היא אמת.",
     "לפספס שורת אמת אחת, או לכלול שורה שבה הפסוק שקרי.",
@@ -434,7 +434,7 @@
      "explain": "המונח חייב לקבל T בדיוק בהשמה הזו: משתנה ששערכו T נכתב כמו שהוא, ומשתנה ששערכו F נכתב בשלילה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -461,7 +461,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להפוך רק חלק מהכמתים ולהשאיר \"קיים\" בכמתים הפנימיים.",
     "לכתוב $\\neg(x=y+z)$: הקשר שלילה אסור בתשובה, צריך $x\\ne y+z$."
@@ -524,7 +524,7 @@
      "explain": "שלילת שוויון היא אי-שוויון, כלומר $x<y+z$ או $x>y+z$; לא רק אחד מהם."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -559,7 +559,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור בסיס $n=1$ או $n=4$: הטענה שקרית עבור $n=2,3,4$.",
     "לא להצדיק את התנאים $n>1$ ו-$n>3$ במעברי אי-השוויון.",
@@ -599,7 +599,7 @@
      "explain": "$n^2+3n<n^2+2n$ שקרי לכל $n\\ge1$; הנכון הוא $n^2+3n<2n^2$ כש-$n>3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -630,7 +630,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור $100^2$ או $100^3$ איברים: רק האיברים עם שלוש חזקות שוות שייכים לחיתוך.",
     "לכתוב $|P(X)|=|X|^2$ במקום $2^{|X|}$."
@@ -700,7 +700,7 @@
      "explain": "$|P(X)|=2^{|X|}$ ו-$|X|=100$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -731,7 +731,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח את הכיוון ההפוך, $P(A\\cup B)\\subseteq P(A)\\cup P(B)$, שאינו נכון בכלל.",
     "לבחור $A\\subseteq B$: אז שני האגפים שווים ואין דוגמה נגדית.",
@@ -814,7 +814,7 @@
      "explain": "$P(A)=\\{\\varnothing,\\{1\\}\\}$, $P(B)=\\{\\varnothing,\\{2\\}\\}$, והאיחוד הוא $\\{\\varnothing,\\{1\\},\\{2\\}\\}$; ב-$P(A\\cup B)$ יש 4."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -849,7 +849,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק שתיים משלוש התכונות של יחס שקילות.",
     "לטעות במחלקות: $7x+y$ זוגי בדיוק כש-$x,y$ בעלי אותה זוגיות, ולא כשהם כפולות של 7.",
@@ -915,7 +915,7 @@
      "explain": "$(7x+y)+(7y+z)=7x+8y+z$ ולא $7x+9y+z$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -942,7 +942,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $|B|+|C|+|D|=n$: היחס מכיל זוגות סדורים ולא איברים.",
     "לשכוח שכל מחלקה תורמת $|X|^2$ זוגות, כולל זוגות מהצורה $(a,a)$ ו-$(a,b),(b,a)$."
@@ -991,7 +991,7 @@
      "explain": "כל מחלקה בגודל $s$ תורמת $s^2$ זוגות, כלומר $4+9+(n-5)^2$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -1022,7 +1022,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בנוסחה בלי תיקון גם עבור $n=8$ ולקבל 560.",
     "להשתמש ב-$P(n,2)$ במקום $\\binom n2$ (סדר הבחירה בתוך מחלקה אינו משנה)."
@@ -1071,7 +1071,7 @@
      "explain": "עבור $n=8$ מתקבל $|D|=8-5=3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -1102,7 +1102,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שיש רק יחס אחד ולבדוק אותו בלבד.",
     "לטעון לסדר מלא בלי להראות שהיחס גם סדר חלקי.",
@@ -1152,7 +1152,7 @@
      "explain": "שני זוגות האלכסון ועוד זוג אחד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1179,7 +1179,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $20^{20}$ או $2^{20}$ בתור מספר היחסים.",
     "לחסר בכיוון ההפוך, או לשכוח שכל פונקציה היא יחס ולכן מחסרים אותן מכלל היחסים."
@@ -1221,7 +1221,7 @@
      "explain": "$2^{|A|^2}$ יחסים בסך הכול, ומתוכם $|A|^{|A|}$ פונקציות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1248,7 +1248,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש ב-$\\binom{20}k$: בוחרים זוגות סדורים ולא איברים של $A$.",
     "להכפיל את שלושת המקרים במקום לחבר אותם.",
@@ -1298,7 +1298,7 @@
      "explain": "הגדלים זרים ולכן מחברים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1325,7 +1325,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור רק את שני הבלוקים שנתונים ולשכוח שגם הבלוק השלישי נשמר.",
     "לחשב $10!$ או לחבר במקום להכפיל."
@@ -1367,7 +1367,7 @@
      "explain": "$3!\\cdot4!\\cdot3!=6\\cdot24\\cdot6=864$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1394,7 +1394,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לספור $2^{10}$ כאילו כל איבר חופשי.",
     "לחשב $2^5-1$ ולהוריד את הקבוצה הריקה בלי סיבה: $D=\\varnothing$ מתאימה."
@@ -1415,7 +1415,7 @@
      "explain": "$2^5=32$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -1446,7 +1446,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לקבל $m=10$ מ-$2^{10}$ במקום $m-1=10$.",
     "להשתמש במשפט Fermat בלי לוודא ש-$11\\nmid10$.",
@@ -1496,7 +1496,7 @@
      "explain": "$11$ ראשוני ו-$11\\nmid10$, ולכן $10^{11-1}\\equiv1\\pmod{11}$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1527,7 +1527,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור מגירות לפי המספרים עצמם ולא לפי שאריותיהם.",
     "לספור 101 מגירות, ואז אין התנגשות מובטחת.",
@@ -1577,7 +1577,7 @@
      "explain": "100 מספרים בעלי שאריות שונות לא מבטיחים זוג, ו-101 מבטיחים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1608,7 +1608,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להראות רק כיוון אחד של אי-השוויון בין העוצמות.",
     "לבחור את הקבוצה $\\{\\frac11,\\frac12,\\ldots\\}$: $1$ אינו שייך ל-$(0,1)$."
@@ -1671,7 +1671,7 @@
      "explain": "רק בקבוצה הראשונה כל האיברים בין $0$ ל-$1$ (לא כולל הקצוות)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1702,7 +1702,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב משוואה אופיינית עם סימנים שגויים, כמו $r^2+5r+6=0$.",
     "לא להשתמש בתנאי ההתחלה לקביעת המקדמים.",
@@ -1752,7 +1752,7 @@
      "explain": "מ-$C_1+C_2=7$ ו-$2C_1+3C_2=15$ מקבלים $C_2=1$ ו-$C_1=6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
