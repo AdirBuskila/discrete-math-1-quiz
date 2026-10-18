@@ -1,0 +1,306 @@
+{
+ "examCode": "22A-B",
+ "role": "refuter",
+ "answers": {
+  "1a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "disagree-minor",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": [
+    "RUBRIC: source header '(4 + 10)' = definition 4, truth table 10; rubric gives 3 + 11."
+   ]
+  },
+  "1b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "1c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "2c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "3c": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "disagree: order line 0 (reflexivity) is independent of lines 1-2 (symmetry+antisymmetry contradiction); swappable"
+   },
+   "notes": []
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "5a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "disagree-minor",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": [
+    "RUBRIC: same 4+10 split; rubric gives definition 3."
+   ]
+  },
+  "5b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "5c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "6a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "6b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "6c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "7a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "7b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "7c": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "disagree: same as 3c, line 0 independent"
+   },
+   "notes": []
+  },
+  "8a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "8b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  }
+ }
+}

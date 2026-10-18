@@ -1,0 +1,171 @@
+{
+ "examCode": "23A-B",
+ "role": "refuter",
+ "answers": {
+  "1a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "1b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "1c": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": [
+    "SOLUTION/RUBRIC: official solution swaps the coordinates of f(m,n)=2^n(2m+1): it writes f(alpha1,m)=q and f(0,m)=q. Correct preimages are (m,alpha1) and (m,0), e.g. f(22,0)=45, f(0,m)=2^m. Rubric item 5 repeats 'f(0,m)'. All 4 steps agree (step 3 uses the correct order (22,0))."
+   ]
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree",
+    "4": "agree"
+   },
+   "notes": []
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "2c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "3c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "notes": []
+  },
+  "4c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "notes": []
+  }
+ }
+}
