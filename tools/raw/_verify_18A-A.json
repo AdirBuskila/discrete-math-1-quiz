@@ -1,0 +1,201 @@
+{
+ "Q1א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  },
+  "note": "agree with caveat: printed 'או' between 'קיים y' and 'קיים z' is dropped by the claim, which reads it as exists y and exists z (the printed formula is ill-formed with the literal or); S0 prompt states this reading"
+ },
+ "Q2א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  },
+  "note": "agree with caveat: counterexample needs |A|>=2 (true for |A|=1); fine under the for-every-A reading"
+ },
+ "Q2ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  },
+  "note": "agree (746544967234440 recomputed by brute-force sum). Transcription mismatch: the printed page omits the number for d (line ends 'והאות d לפחות פעמים'); 2 is taken from the handwritten solution (x4>=2), consistent. Official 364 counts count-vectors, not words; claim's correction is right"
+ }
+}

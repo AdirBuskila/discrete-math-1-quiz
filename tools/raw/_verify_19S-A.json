@@ -1,0 +1,383 @@
+{
+ "Q1א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  },
+  "note": "agree; nit: S1 option d (B2=A-{a}) is also correct when |A|=1, harmless since prompt says for all A!=empty"
+ },
+ "Q1ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ד": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ה": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ו": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q1ז": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q2ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  },
+  "note": "agree; nit: S1 says 'official solution' though solutionSource is student-solution"
+ },
+ "Q3א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q3ד": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ד": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ה": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q4ו": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q5א": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   },
+   "S3": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q5ב": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   }
+  }
+ },
+ "Q5ג": {
+  "verdict": "agree",
+  "solution": "agree",
+  "rubric": "agree (sum=points)",
+  "pitfalls": "agree",
+  "steps": {
+   "S0": {
+    "verdict": "agree"
+   },
+   "S1": {
+    "verdict": "agree"
+   },
+   "S2": {
+    "verdict": "agree"
+   }
+  }
+ }
+}
